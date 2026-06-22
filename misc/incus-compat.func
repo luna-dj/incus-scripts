@@ -108,6 +108,8 @@ fetch_and_deploy_gh_release() {
     version="$resolved_version"
   fi
   # Use the direct GitHub archive URL: no API call, no rate limit
+  # Strip any leading 'v' — upstream scripts may already include it
+  version="${version#v}"
   dl_url="https://github.com/${repo}/archive/refs/tags/v${version}.tar.gz"
 
   local td; td=$(mktemp -d)
