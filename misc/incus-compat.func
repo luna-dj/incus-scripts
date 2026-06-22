@@ -28,20 +28,13 @@ header_info() {
 
 # ── Execution helpers ───────────────────────
 # Match upstream ProxmoxVE: STD is a VARIABLE not a function
-# Default silent mode (suppress command output)
 STD="silent"
 [[ "${VERBOSE:-no}" == "yes" ]] && STD=""
-
-# silent() is the wrapper that STD="silent" calls
 silent() { "$@" >/dev/null 2>&1; }
-
-# Also provide a function form (std) for our own scripts
 std() {
   if [[ "${VERBOSE:-no}" == "yes" ]]; then "$@"
   else "$@" >/dev/null 2>&1; fi
 }
-
-# Catch errors
 catch_errors() { trap 'msg_error "Script failed at line $LINENO"' ERR; }
 color() { :; }
 load_functions() { :; }
@@ -83,8 +76,22 @@ check_container_resources() { :; }
 # ── Upstream tools.func shims ──────────────
 get_latest_github_release() {
   local repo="$1"
-  curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" 2>/dev/null | \
-    grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/^v//'
+  local result
+  result=$(curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" 2>/dev/null \
+    | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/^v//')
+
+  # Fallback: if API call returned empty (rate limit or error), use git ls-remote
+  if [[ -z "$result" ]]; then
+    msg_warn "GitHub API returned empty for ${repo}; trying git ls-remote"
+    result=$(git ls-remote --tags --sort=-v:refname \
+      "https://github.com/${repo}.git" 2>/dev/null \
+      | grep -v '\^{}' | head -1 | sed 's/.*refs\/tags\/v\{0,1\}//')
+  fi
+
+  # Trim any whitespace
+  result="${result## }"
+  result="${result%% }"
+  echo "$result"
 }
 
 fetch_and_deploy_gh_release() {
