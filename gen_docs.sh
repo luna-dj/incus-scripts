@@ -55,39 +55,39 @@ categorize() {
       # Default fallback for unknown apps
       case "$a" in
         # Networking
-        *proxy*|*dns*|*vpn*|*net*|*vlan*|*wlan*|*firewall*|*gateway*|*router*|*switch*|*mesh*|*tunnel*|*pihole*|*wireguard*|*openvpn*|*headscale*|*netbird*|*zerotier*|*tailscale*|*coredns*|*adguard*|*pihole*|*cloudflare*|*ddns*|*ddclient*) echo "Networking" ;;
+        *proxy*|*dns*|*vpn*|*vlan*|*wlan*|*firewall*|*gateway*|*switch*|*mesh*|*tunnel*|*adguard*|*cloudflare*|*ddns*|*ddclient*|*gluetun*|*gwn*|*frp*|*tailscale*|*zerotier*|*headscale*|*netbird*|*wireguard*|*pihole*|*rport*|*myspeed*|*watchyourlan*|*net*work*|*twingate*|*pangolin*|*openziti*|*omada*|*unifi*|*npmplus*|*hev*|*myip*|*net*visor*|*teleport*|*zoraxy*) echo "Networking" ;; 
         # Databases
-        *db*|*sql*|*data*|*redis*|*mongo*|*elastic*|*kafka*|*postgres*|*sqlite*|*mysql*|*mariadb*|*influx*|*clickhouse*|*timescale*|*neo4j*) echo "Database" ;;
+        *db*|*sql*|*data*|*redis*|*mongo*|*kafka*|*rabbitmq*|*meilisearch*|*qdrant*|*typesense*|*weaviate*|*milvus*|*chromadb*) echo "Database" ;;
         # Media
-        *media*|*stream*|*video*|*photo*|*audio*|*music*|*torrent*|*usenet*|*jellyfin*|*plex*|*emby*|*kavita*|*komga*|*navidrome*|*funkwhale*|*radarr*|*sonarr*|*lidarr*|*readarr*|*prowlarr*|*bazarr*|*whisparr*|*tautulli*|*tdarr*|*sabnzbd*|*nzbget*|*qbittorrent*|*transmission*|*deluge*|*jackett*|*overseerr*|*jellyseerr*|*immich*|*photoprism*|*audiobook*|*calibre*) echo "Media" ;;
+        *media*|*stream*|*video*|*photo*|*audio*|*music*|*torrent*|*usenet*|*arr*|*radarr*|*sonarr*|*lidarr*|*readarr*|*prowlarr*|*bazarr*|*tautulli*|*tdarr*|*sabnzbd*|*nzbget*|*qbittorrent*|*deluge*|*jackett*|*seerr*|*immich*|*jellyfin*|*plex*|*emby*|*navidrome*|*kavita*|*komga*|*audiobook*|*lychee*|*photoprism*|*piwigo*|*tubearchivist*|*yt-dlp*|*tunarr*|*kometa*|*dvr*|*epg*|*iptv*|*channel*|*m3u*|*tvhead*|*xteve*|*comics*|*manga*|*ampache*|*koel*|*ices*|*times*|*lms*) echo "Media" ;;
         # Monitoring / Observability
-        *monitor*|*metric*|*log*|*trace*|*status*|*alert*|*uptime*|*health*|*gatus*|*grafana*|*prometheus*|*loki*|*netdata*|*zabbix*|*nagios*|*dozzle*|*signoz*) echo "Monitoring" ;;
+        *monitor*|*metric*|*log*|*trace*|*status*|*alert*|*uptime*|*gatus*|*grafana*|*prometheus*|*loki*|*netdata*|*zabbix*|*nagios*|*dozzle*|*signoz*|*beszel*|*checkmk*|*glances*|*speedtest*|*health*check*|*cronicle*|*smokeping*|*changedetect*|*notifiarr*|*matomo*|*umami*|*tianji*|*traccar*|*librenms*|*patchmon*|*statping*|*pulse*|*web-check*) echo "Monitoring" ;;
         # Security / Auth
-        *vault*|*bitwarden*|*pass*|*auth*|*keycloak*|*authentik*|*authelia*|*wireguard*|*vpn*|*fail2ban*|*crowdsec*|*wazuh*|*tinyauth*|*2fa*|*oauth*) echo "Security" ;;
+        *vault*|*pass*|*auth*|*keycloak*|*authentik*|*authelia*|*crowdsec*|*fail2ban*|*wazuh*|*2fa*|*oauth*|*lldap*|*step-ca*|*cert*|*zitadel*|*guardian*|*degoog*|*globaleaks*|*ironclaw*|*infisical*) echo "Security" ;;
         # AI / LLM
-        *ai*|*llm*|*gpt*|*stable*|*comfy*|*dify*|*ollama*|*invoke*|*kobold*|*automatic*|*chat*|*librechat*|*openwebui*|*n8n*|*flowise*|*langflow*|*localai*) echo "AI" ;;
+        *ai*|*llm*|*gpt*|*ollama*|*librechat*|*openwebui*|*comfy*|*langflow*|*libretranslate*|*lobehub*|*dify*|*invoke*|*kobold*) echo "AI" ;;
         # Containers / DevOps
-        *docker*|*podman*|*k8s*|*kubernetes*|*compose*|*runtipi*|*coolify*|*casaos*|*dokploy*|*portainer*|*dockge*|*swizzin*|*umbrel*|*watchtower*|*diun*|*fleet*) echo "Containers" ;;
+        *docker*|*podman*|*kubernetes*|*compose*|*runtipi*|*coolify*|*casaos*|*dokploy*|*portainer*|*dockge*|*swizzin*|*watchtower*|*cockpit*|*cosmos*|*dagu*) echo "Containers" ;;
         # Dashboards
         *dashboard*|*homepage*|*homer*|*homarr*|*heimdall*|*dashy*|*flame*|*organizr*) echo "Dashboards" ;;
         # Cloud / Storage / Files
-        *cloud*|*file*|*sync*|*storage*|*s3*|*backup*|*nextcloud*|*owncloud*|*seafile*|*syncthing*|*filebrowser*|*filerun*|*kodbox*|*minio*|*garage*|*seaweedfs*|*duplicati*|*restic*|*kopia*|*urbackup*|*rclone*|*sftpgo*|*paperless*|*archive*|*kodbox*) echo "Cloud & Storage" ;;
+        *cloud*|*file*|*sync*|*s3*|*backup*|*minio*|*garage*|*seaweedfs*|*duplicati*|*restic*|*kopia*|*urbackup*|*minarca*|*paperless*|*archive*|*nextexplorer*|*kodbox*|*storage*) echo "Cloud & Storage" ;;
         # Development / Code / CI
-        *git*|*forge*|*runner*|*ci*|*cd*|*deploy*|*code*|*ide*|*kasm*|*theia*|*jupyter*|*livebook*|*gitea*|*forgejo*|*gitlab*|*drone*|*woodpecker*|*jenkins*|*argocd*|*flux*|*spinnaker*|*buildbot*|*opengist*|*gist*|*snibox*) echo "Development" ;;
+        *git*|*forge*|*runner*|*ci*|*cd*|*deploy*|*code*|*ide*|*jupyter*|*livebook*|*gitea*|*forgejo*|*wordpress*|*ghost*|*strapi*|*directus*|*storybook*|*onerepo*|*onedev*|*semaphore*|*sonarqube*|*revealjs*|*gokapi*|*opengist*|*kubo*|*kasm*|*theia*|*stylus*|*tolgee*) echo "Development" ;;
         # Productivity / Notes / Wiki / RSS / Bookmarks
-        *bookmark*|*read*|*rss*|*note*|*wiki*|*todo*|*task*|*kanban*|*board*|*plane*|*planka*|*focalboard*|*leantime*|*openproject*|*productivity*|*freshrss*|*miniflux*|*wallabag*|*readeck*|*linkding*|*linkwarden*|*shiori*|*karakeep*|*hoarder*|*joplin*|*siyuan*|*trilium*|*memos*|*logseq*|*obsidian*|*outline*|*docmost*|*hedgedoc*|*dokuwiki*|*bookstack*|*mediawiki*|*wikijs*|*docusaurus*|*mkdocs*|*docsify*) echo "Productivity" ;;
+        *bookmark*|*rss*|*note*|*wiki*|*todo*|*task*|*kanban*|*board*|*plane*|*planka*|*focalboard*|*leantime*|*openproject*|*joplin*|*siyuan*|*trilium*|*memos*|*logseq*|*obsidian*|*outline*|*docmost*|*hedgedoc*|*dokuwiki*|*bookstack*|*wikijs*|*docusaurus*|*silverbullet*|*cryptpad*|*privatebin*|*writefreely*|*shiori*|*wallabag*|*readeck*|*linkding*|*linkwarden*|*miniflux*|*freshrss*|*kiwix*|*onlyoffice*|*grist*|*nocodb*|*baserow*|*teable*|*monica*|*grocy*|*mealie*|*tandoor*|*kitchenowl*|*linkstack*|*yourls*|*zipline*|*feed*|*reader*|*librar*|*searx*|*whoogle*|*fladder*|*fluid*|*foldergram*|*gotify*|*gramps*|*hoodik*|*inv*|*vault*|*vaultwarden*|*vikunja*|*wallos*|*wastebin*|*webtrees*|*wishlist*|*yam*|*docuseal*|*paperclip*|*papra*|*book*) echo "Productivity" ;;
         # Chat / Communication / Email / Forum
-        *chat*|*mail*|*forum*|*matrix*|*xmpp*|*jabber*|*irc*|*lounge*|*mattermost*|*element*|*rocketchat*|*zammad*|*glpi*|*snipeit*|*discourse*|*nodebb*|*flarum*|*jitsi*|*bigbluebutton*|*jami*|*mumble*|*teamspeak*|*mastodon*|*pleroma*|*misskey*|*akkoma*) echo "Communication" ;;
+        *chat*|*mail*|*forum*|*matrix*|*xmpp*|*irc*|*lounge*|*mattermost*|*element*|*rocketchat*|*zammad*|*glpi*|*snipeit*|*discourse*|*nodebb*|*flarum*|*jitsi*|*jami*|*mumble*|*teamspeak*|*mastodon*|*pleroma*|*misskey*|*apprise*|*listmonk*|*ntfy*|*asterisk*|*freepbx*|*igotify*) echo "Communication" ;;
         # Gaming
-        *game*|*steam*|*ts*|*mc*|*cs*|*minecraft*|*factorio*|*terraria*|*valheim*|*ark*|*minetest*|*pocket*|*pelican*|*pterodactyl*) echo "Gaming" ;;
+        *game*|*steam*|*minecraft*|*factorio*|*terraria*|*valheim*|*ark*|*minetest*|*cs*|*csgo*|*pelican*|*pterodactyl*|*romm*|*crafty*|*retro*|*emul*|*epsxe*) echo "Gaming" ;;
         # Home Automation / IoT
-        *home*|*iot*|*zigbee*|*mqtt*|*matter*|*openhab*|*jeedom*|*domoticz*|*iobroker*|*tasmota*|*homebridge*|*esphome*|*deconz*|*nodered*|*node-red*|*scrutiny*) echo "Home Automation" ;;
+        *home*|*iot*|*zigbee*|*mqtt*|*matter*|*openhab*|*jeedom*|*domoticz*|*iobroker*|*tasmota*|*homebridge*|*esphome*|*deconz*|*nodered*|*scrutiny*|*frigate*|*shinobi*|*motion*eye*|*octoprint*|*magicmirror*|*nxwitness*|*zwave*|*ebusd*|*espconnect*|*fhem*|*evcc*) echo "Home Automation" ;;
         # Business / Finance / ERP / CRM
-        *erp*|*crm*|*invoice*|*kimai*|*odoo*|*dolibarr*|*erpnext*|*payment*|*invoicing*|*mafl*) echo "Business" ;;
+        *erp*|*crm*|*invoice*|*odoo*|*dolibarr*|*erpnext*|*payment*|*invoicing*|*mafl*|*kimai*|*firefly*|*ezbookkeeping*|*ghostfolio*|*actual*|*budget*|*inventree*|*wealth*) echo "Business" ;;
         # Education / Learning
-        *learn*|*course*|*school*|*university*|*edu*|*study*|*kanji*|*srs*|*anki*|*moodle*) echo "Education" ;;
+        *learn*|*course*|*school*|*university*|*edu*|*moodle*) echo "Education" ;;
         # Utilities / Tools
-        *tool*|*utility*|*convert*|*pdf*|*stirling*|*cyberchef*|*it-tools*|*drawio*|*excalidraw*|*hammond*|*tldraw*) echo "Utilities" ;;
+        *tool*|*utility*|*convert*|*pdf*|*stirling*|*cyberchef*|*drawio*|*excalidraw*|*aria*|*guacamole*|*tika*|*apt-cacher*|*bytestash*|*mini-qr*|*qdirstat*|*tldraw*|*hammond*) echo "Utilities" ;;
         # Default
         *) echo "Other" ;;
       esac
