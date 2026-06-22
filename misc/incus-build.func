@@ -71,11 +71,12 @@ variables() {
     var_network="$(get_default_bridge)"
   fi
 
-  # Resolve image lazily (only when create_instance is called).
-  # We don't do it here because variables() is also called by
-  # check_existing_instance, which shouldn't require network access.
+  # Default to the 'images:' remote (the standard Incus image server).
+  # This works for any standard OS like ubuntu/24.04, debian/12, alpine/3.20.
+  # If the user passed a full path like 'images:foo/bar' or local alias,
+  # we keep that.
   if [[ -z "$var_image" ]]; then
-    var_image="${var_os}/${var_version}"  # may be prefixed with images: later
+    var_image="images:${var_os}/${var_version}"
   fi
 
   log_debug "APP=$APP NSAPP=$NSAPP"
@@ -144,16 +145,18 @@ create_instance() {
     exit 1
   fi
 
-  # Resolve image lazily
-  if [[ -z "$var_image" ]] || [[ "$var_image" != */* && "$var_image" != images:* ]]; then
-    local resolved
-    resolved="$(resolve_image "$var_os" "$var_version" 2>/dev/null)" || {
-      log_error "Could not resolve image for '${var_os}/${var_version}'"
-      log_error "Try: incus launch images:${var_os}/${var_version} ${var_instance}"
-      log_error "Or set var_image to a specific image alias you have locally"
-      exit 1
-    }
-    var_image="$resolved"
+  # If var_image doesn't have the images: prefix and no slash, try to
+  # resolve it. Otherwise use it as-is.
+  if [[ -n "$var_image" && "$var_image" != images:* && "$var_image" != */* ]]; then
+    # Looks like a bare alias name, try to resolve
+    if ! incus image alias list --format csv 2>/dev/null | grep -q "^${var_image},"; then
+      # Not local, default to images: remote
+      var_image="images:${var_image}"
+    fi
+  fi
+  # If still empty, fall back to images:os/version
+  if [[ -z "$var_image" ]]; then
+    var_image="images:${var_os}/${var_version}"
   fi
 
   local launch_args=(

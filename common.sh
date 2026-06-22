@@ -155,25 +155,28 @@ get_image_aliases() {
 
 # Find the best image alias for a given OS/version
 resolve_image() {
+  # Returns a fully-qualified image reference (with 'images:' prefix).
+  # The 'images:' remote is the official Incus image server and works
+  # for all standard OS images (ubuntu/24.04, debian/12, alpine/3.20, etc.)
   local os="${1:-ubuntu}"
   local version="${2:-24.04}"
   local variant="${3:-cloud}"
 
-  # Try specific first, then fall back
-  for alias in "${os}/${version}/${variant}" "${os}/${version}" "${os}/${variant}" "${os}"; do
-    if incus image alias list --format csv 2>/dev/null | grep -q "^$alias,"; then
-      echo "$alias"
-      return 0
-    fi
-    # Check if image exists on images: remote
-    if incus image alias list images: --format csv 2>/dev/null | grep -q "^$alias,"; then
-      echo "images:${alias}"
+  # Build a list of candidate aliases, in order of preference
+  local alias
+  for alias in "${os}/${version}/${variant}" "${os}/${version}" "${os}"; do
+    # Check local cache first (no network)
+    if incus image alias list --format csv 2>/dev/null \
+         | tail -n +2 2>/dev/null \
+         | grep -q "^${alias},"; then
+      echo "${alias}"
       return 0
     fi
   done
 
-  log_error "Could not resolve image for '${os}/${version}/${variant}'"
-  return 1
+  # Default to the images: remote — it has all standard OS images
+  echo "images:${os}/${version}"
+  return 0
 }
 
 # ──────────────────────────────────────────────
