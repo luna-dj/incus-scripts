@@ -44,7 +44,7 @@
   {
     "slug": "adventurelog",
     "name": "Adventurelog",
-    "category": "Monitoring",
+    "category": "Productivity",
     "description": "Self-hosted Adventurelog instance",
     "tags": "",
     "cpu": "1",
@@ -114,7 +114,7 @@
   {
     "slug": "apache-airflow",
     "name": "Apache Airflow",
-    "category": "AI",
+    "category": "Development",
     "description": "Self-hosted Apache Airflow instance",
     "tags": "",
     "cpu": "1",
@@ -380,7 +380,7 @@
   {
     "slug": "baikal",
     "name": "Baikal",
-    "category": "AI",
+    "category": "Productivity",
     "description": "Self-hosted Baikal instance",
     "tags": "",
     "cpu": "1",
@@ -1024,7 +1024,7 @@
   {
     "slug": "dashy",
     "name": "Dashy",
-    "category": "Monitoring",
+    "category": "Dashboards",
     "description": "Self-hosted dashboard for all your services",
     "tags": "",
     "cpu": "1",
@@ -1234,7 +1234,7 @@
   {
     "slug": "dolibarr",
     "name": "Dolibarr",
-    "category": "Media",
+    "category": "Business",
     "description": "ERP and CRM suite",
     "tags": "",
     "cpu": "1",
@@ -1248,7 +1248,7 @@
   {
     "slug": "domain-locker",
     "name": "Domain Locker",
-    "category": "AI",
+    "category": "Security",
     "description": "Self-hosted Domain Locker instance",
     "tags": "",
     "cpu": "1",
@@ -1332,7 +1332,7 @@
   {
     "slug": "duplicati",
     "name": "Duplicati",
-    "category": "Media",
+    "category": "Cloud & Storage",
     "description": "Encrypted backup tools",
     "tags": "",
     "cpu": "1",
@@ -1416,7 +1416,7 @@
   {
     "slug": "endurain",
     "name": "Endurain",
-    "category": "AI",
+    "category": "Other",
     "description": "Self-hosted Endurain instance",
     "tags": "",
     "cpu": "1",
@@ -1738,7 +1738,7 @@
   {
     "slug": "fumadocs",
     "name": "Fumadocs",
-    "category": "Gaming",
+    "category": "Development",
     "description": "Self-hosted Fumadocs instance",
     "tags": "",
     "cpu": "1",
@@ -2102,7 +2102,7 @@
   {
     "slug": "heimdall-dashboard",
     "name": "Heimdall Dashboard",
-    "category": "Monitoring",
+    "category": "Dashboards",
     "description": "Self-hosted dashboard for all your services",
     "tags": "",
     "cpu": "1",
@@ -2158,7 +2158,7 @@
   {
     "slug": "homarr",
     "name": "Homarr",
-    "category": "Monitoring",
+    "category": "Dashboards",
     "description": "Self-hosted dashboard for all your services",
     "tags": "",
     "cpu": "1",
@@ -2228,7 +2228,7 @@
   {
     "slug": "homepage",
     "name": "Homepage",
-    "category": "Monitoring",
+    "category": "Dashboards",
     "description": "Self-hosted dashboard for all your services",
     "tags": "",
     "cpu": "1",
@@ -2242,7 +2242,7 @@
   {
     "slug": "homer",
     "name": "Homer",
-    "category": "Monitoring",
+    "category": "Dashboards",
     "description": "Self-hosted dashboard for all your services",
     "tags": "",
     "cpu": "1",
@@ -2382,7 +2382,7 @@
   {
     "slug": "inspircd",
     "name": "Inspircd",
-    "category": "Development",
+    "category": "Communication",
     "description": "Self-hosted Inspircd instance",
     "tags": "",
     "cpu": "1",
@@ -2410,7 +2410,7 @@
   {
     "slug": "investbrain",
     "name": "Investbrain",
-    "category": "AI",
+    "category": "Business",
     "description": "Self-hosted Investbrain instance",
     "tags": "",
     "cpu": "1",
@@ -2438,7 +2438,7 @@
   {
     "slug": "invoiceshelf",
     "name": "Invoiceshelf",
-    "category": "Media",
+    "category": "Business",
     "description": "Self-hosted invoicing",
     "tags": "",
     "cpu": "1",
@@ -2578,7 +2578,7 @@
   {
     "slug": "jitsi-meet",
     "name": "Jitsi Meet",
-    "category": "Gaming",
+    "category": "Communication",
     "description": "Self-hosted Jitsi Meet instance",
     "tags": "",
     "cpu": "1",
@@ -2732,7 +2732,7 @@
   {
     "slug": "kimai",
     "name": "Kimai",
-    "category": "AI",
+    "category": "Business",
     "description": "Time tracking",
     "tags": "",
     "cpu": "1",
@@ -2872,7 +2872,7 @@
   {
     "slug": "languagetool",
     "name": "Languagetool",
-    "category": "Utilities",
+    "category": "Productivity",
     "description": "Self-hosted Languagetool instance",
     "tags": "",
     "cpu": "1",
@@ -2942,7 +2942,7 @@
   {
     "slug": "librespeed-rust",
     "name": "LibreSpeed Rust",
-    "category": "Gaming",
+    "category": "Monitoring",
     "description": "Internet speed test tracking",
     "tags": "",
     "cpu": "1",
@@ -3124,7 +3124,7 @@
   {
     "slug": "lubelogger",
     "name": "Lubelogger",
-    "category": "Monitoring",
+    "category": "Productivity",
     "description": "Self-hosted Lubelogger instance",
     "tags": "",
     "cpu": "1",
@@ -3166,7 +3166,7 @@
   {
     "slug": "mafl",
     "name": "Mafl",
-    "category": "Business",
+    "category": "Dashboards",
     "description": "Time tracking",
     "tags": "",
     "cpu": "1",
@@ -3194,7 +3194,7 @@
   {
     "slug": "mail-archiver",
     "name": "Mail Archiver",
-    "category": "AI",
+    "category": "Utilities",
     "description": "Self-hosted Mail Archiver instance",
     "tags": "",
     "cpu": "1",
@@ -3306,7 +3306,7 @@
   {
     "slug": "mattermost",
     "name": "Mattermost",
-    "category": "Home Automation",
+    "category": "Communication",
     "description": "Team chat platform",
     "tags": "",
     "cpu": "1",
@@ -3474,7 +3474,7 @@
   {
     "slug": "miniflux",
     "name": "Miniflux",
-    "category": "Development",
+    "category": "Productivity",
     "description": "Self-hosted RSS feed aggregator",
     "tags": "",
     "cpu": "1",
@@ -3754,7 +3754,7 @@
   {
     "slug": "netbox",
     "name": "Netbox",
-    "category": "Database",
+    "category": "Networking",
     "description": "Network infrastructure management",
     "tags": "",
     "cpu": "1",
@@ -3782,7 +3782,7 @@
   {
     "slug": "nextcloud",
     "name": "Nextcloud",
-    "category": "Media",
+    "category": "Cloud & Storage",
     "description": "Self-hosted file sync and collaboration",
     "tags": "cloud,file-sync,collaboration",
     "cpu": "2",
@@ -3796,7 +3796,7 @@
   {
     "slug": "nextcloudpi",
     "name": "NextcloudPi",
-    "category": "Media",
+    "category": "Cloud & Storage",
     "description": "Self-hosted NextcloudPi instance",
     "tags": "",
     "cpu": "1",
@@ -4356,7 +4356,7 @@
   {
     "slug": "pairdrop",
     "name": "Pairdrop",
-    "category": "AI",
+    "category": "Utilities",
     "description": "Self-hosted Pairdrop instance",
     "tags": "",
     "cpu": "1",
@@ -4832,7 +4832,7 @@
   {
     "slug": "protonmail-bridge",
     "name": "Protonmail Bridge",
-    "category": "AI",
+    "category": "Communication",
     "description": "Self-hosted Protonmail Bridge instance",
     "tags": "",
     "cpu": "1",
@@ -5042,7 +5042,7 @@
   {
     "slug": "rclone",
     "name": "rclone",
-    "category": "Media",
+    "category": "Cloud & Storage",
     "description": "Encrypted backup tools",
     "tags": "",
     "cpu": "1",
@@ -5210,7 +5210,7 @@
   {
     "slug": "rustdeskserver",
     "name": "RustDesk Server",
-    "category": "Gaming",
+    "category": "Utilities",
     "description": "Self-hosted remote desktop",
     "tags": "",
     "cpu": "1",
@@ -5224,7 +5224,7 @@
   {
     "slug": "rustypaste",
     "name": "Rustypaste",
-    "category": "Gaming",
+    "category": "Productivity",
     "description": "Self-hosted Rustypaste instance",
     "tags": "",
     "cpu": "1",
@@ -5238,7 +5238,7 @@
   {
     "slug": "rwmarkable",
     "name": "Rwmarkable",
-    "category": "Gaming",
+    "category": "Other",
     "description": "Self-hosted Rwmarkable instance",
     "tags": "",
     "cpu": "1",
@@ -5378,7 +5378,7 @@
   {
     "slug": "sftpgo",
     "name": "SFTPGo",
-    "category": "Media",
+    "category": "Cloud & Storage",
     "description": "Self-hosted SFTPGo instance",
     "tags": "",
     "cpu": "1",
@@ -5392,7 +5392,7 @@
   {
     "slug": "shelfmark",
     "name": "Shelfmark",
-    "category": "Gaming",
+    "category": "Productivity",
     "description": "Self-hosted Shelfmark instance",
     "tags": "",
     "cpu": "1",
@@ -5588,7 +5588,7 @@
   {
     "slug": "sparkyfitness",
     "name": "Sparkyfitness",
-    "category": "Gaming",
+    "category": "Other",
     "description": "Self-hosted Sparkyfitness instance",
     "tags": "",
     "cpu": "1",
@@ -5644,7 +5644,7 @@
   {
     "slug": "splunk-enterprise",
     "name": "Splunk Enterprise",
-    "category": "Business",
+    "category": "Monitoring",
     "description": "Self-hosted Splunk Enterprise instance",
     "tags": "",
     "cpu": "1",
@@ -5770,7 +5770,7 @@
   {
     "slug": "strapi",
     "name": "Strapi",
-    "category": "Database",
+    "category": "Development",
     "description": "Self-hosted Strapi instance",
     "tags": "",
     "cpu": "1",
@@ -5840,7 +5840,7 @@
   {
     "slug": "syncthing",
     "name": "Syncthing",
-    "category": "Media",
+    "category": "Cloud & Storage",
     "description": "Continuous file synchronization",
     "tags": "",
     "cpu": "1",
@@ -5938,7 +5938,7 @@
   {
     "slug": "teamspeak-server",
     "name": "TeamSpeak Server",
-    "category": "Gaming",
+    "category": "Communication",
     "description": "Self-hosted TeamSpeak Server instance",
     "tags": "",
     "cpu": "1",
@@ -5966,7 +5966,7 @@
   {
     "slug": "teddycloud",
     "name": "Teddycloud",
-    "category": "Cloud & Storage",
+    "category": "Media",
     "description": "Self-hosted Teddycloud instance",
     "tags": "",
     "cpu": "1",
@@ -6302,7 +6302,7 @@
   {
     "slug": "uhf",
     "name": "Uhf",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Uhf instance",
     "tags": "",
     "cpu": "1",
@@ -6428,7 +6428,7 @@
   {
     "slug": "urbackupserver",
     "name": "UrBackup Server",
-    "category": "Media",
+    "category": "Cloud & Storage",
     "description": "Client/server backup system",
     "tags": "",
     "cpu": "1",
@@ -6610,7 +6610,7 @@
   {
     "slug": "wavelog",
     "name": "Wavelog",
-    "category": "Monitoring",
+    "category": "Other",
     "description": "Self-hosted Wavelog instance",
     "tags": "",
     "cpu": "1",
@@ -6680,7 +6680,7 @@
   {
     "slug": "wger",
     "name": "Wger",
-    "category": "Dashboards",
+    "category": "Productivity",
     "description": "Self-hosted Wger instance",
     "tags": "",
     "cpu": "1",
@@ -7002,7 +7002,7 @@
   {
     "slug": "zot-registry",
     "name": "Zot Registry",
-    "category": "Development",
+    "category": "Containers",
     "description": "Self-hosted Zot Registry instance",
     "tags": "",
     "cpu": "1",

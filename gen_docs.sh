@@ -219,7 +219,6 @@ categorize() {
     reitti) echo "Other" && return 0 ;;
     trek) echo "Other" && return 0 ;;
     trip) echo "Other" && return 0 ;;
-    uhf) echo "Other" && return 0 ;;
     wanderer) echo "Other" && return 0 ;;
     xyops) echo "Other" && return 0 ;;
     zerobyte) echo "Other" && return 0 ;;
@@ -227,6 +226,59 @@ categorize() {
     bar-assistant) echo "Other" && return 0 ;;
     birdnet-go) echo "Other" && return 0 ;;
     hortusfox) echo "Other" && return 0 ;;
+    protonmail-bridge) echo "Communication" && return 0 ;;
+    kimai) echo "Business" && return 0 ;;
+    baikal) echo "Productivity" && return 0 ;;
+    pairdrop) echo "Utilities" && return 0 ;;
+    apache-airflow) echo "Development" && return 0 ;;
+    domain-locker) echo "Security" && return 0 ;;
+    endurain) echo "Other" && return 0 ;;
+    mail-archiver) echo "Utilities" && return 0 ;;
+    investbrain) echo "Business" && return 0 ;;
+    uhf) echo "Media" && return 0 ;;
+    splunk-enterprise) echo "Monitoring" && return 0 ;;
+    mafl) echo "Dashboards" && return 0 ;;
+    teddycloud) echo "Media" && return 0 ;;
+    wger) echo "Productivity" && return 0 ;;
+    netbox) echo "Networking" && return 0 ;;
+    strapi) echo "Development" && return 0 ;;
+    miniflux) echo "Productivity" && return 0 ;;
+    zot-registry) echo "Containers" && return 0 ;;
+    inspircd) echo "Communication" && return 0 ;;
+    jitsi-meet) echo "Communication" && return 0 ;;
+    librespeed-rust) echo "Monitoring" && return 0 ;;
+    rustdeskserver) echo "Utilities" && return 0 ;;
+    rustypaste) echo "Productivity" && return 0 ;;
+    rwmarkable) echo "Other" && return 0 ;;
+    shelfmark) echo "Productivity" && return 0 ;;
+    sparkyfitness) echo "Other" && return 0 ;;
+    fumadocs) echo "Development" && return 0 ;;
+    mattermost) echo "Communication" && return 0 ;;
+    dolibarr) echo "Business" && return 0 ;;
+    duplicati) echo "Cloud & Storage" && return 0 ;;
+    invoiceshelf) echo "Business" && return 0 ;;
+    nextcloud) echo "Cloud & Storage" && return 0 ;;
+    nextcloudpi) echo "Cloud & Storage" && return 0 ;;
+    rclone) echo "Cloud & Storage" && return 0 ;;
+    sftpgo) echo "Cloud & Storage" && return 0 ;;
+    syncthing) echo "Cloud & Storage" && return 0 ;;
+    urbackupserver) echo "Cloud & Storage" && return 0 ;;
+    dashy) echo "Dashboards" && return 0 ;;
+    heimdall-dashboard) echo "Dashboards" && return 0 ;;
+    homarr) echo "Dashboards" && return 0 ;;
+    homepage) echo "Dashboards" && return 0 ;;
+    homer) echo "Dashboards" && return 0 ;;
+    adventurelog) echo "Productivity" && return 0 ;;
+    lubelogger) echo "Productivity" && return 0 ;;
+    wavelog) echo "Other" && return 0 ;;
+    bichon) echo "Development" && return 0 ;;
+    languagetool) echo "Productivity" && return 0 ;;
+    resiliosync) echo "Cloud & Storage" && return 0 ;;
+    geopulse) echo "Monitoring" && return 0 ;;
+    ps5-mqtt) echo "Home Automation" && return 0 ;;
+    teamspeak-server) echo "Communication" && return 0 ;;
+    neko) echo "Other" && return 0 ;;
+    sparkyfitness) echo "Other" && return 0 ;;
     *) : ;;  # not found, fall through
   esac
   case "$combined" in
@@ -270,7 +322,7 @@ categorize() {
         # Security / Auth
         *vault*|*pass*|*auth*|*keycloak*|*authentik*|*authelia*|*crowdsec*|*fail2ban*|*wazuh*|*2fa*|*oauth*|*lldap*|*step-ca*|*cert*|*zitadel*|*guardian*|*degoog*|*globaleaks*|*ironclaw*|*infisical*) echo "Security" ;;
         # AI / LLM
-        *ai*|*llm*|*gpt*|*ollama*|*librechat*|*openwebui*|*comfy*|*langflow*|*libretranslate*|*lobehub*|*dify*|*invoke*|*kobold*) echo "AI" ;;
+        *llm*|*gpt*|*ollama*|*librechat*|*openwebui*|*comfyui*|*langflow*|*libretranslate*|*lobehub*|*dify*|*invokeai*|*kobold*|*stable*diffusion*|*text-gen*|*localai*) echo "AI" ;;
         # Containers / DevOps
         *docker*|*podman*|*kubernetes*|*compose*|*runtipi*|*coolify*|*casaos*|*dokploy*|*portainer*|*dockge*|*swizzin*|*watchtower*|*cockpit*|*cosmos*|*dagu*) echo "Containers" ;;
         # Dashboards
