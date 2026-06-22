@@ -385,7 +385,13 @@ fetch_and_deploy_gh_release() {
   # try to find the matching release asset first.
   if [[ "$archive_match" != "tar.gz" && "$archive_match" != "*.tar.gz" ]]; then
     local api_url release_json
-    api_url="https://api.github.com/repos/${repo}/releases/tags/${version}"
+    # Resolve version for API call
+    local api_resolved="$version"
+    if [[ "$api_resolved" == "latest" ]]; then
+      api_url="https://api.github.com/repos/${repo}/releases/latest"
+    else
+      api_url="https://api.github.com/repos/${repo}/releases/tags/${api_resolved}"
+    fi
     release_json=$(curl -fsSL "$api_url" 2>/dev/null)
     if [[ -n "$release_json" ]]; then
       # Convert glob (linux_*.tar.gz) to regex (linux_.*\.tar\.gz)
@@ -402,7 +408,13 @@ fetch_and_deploy_gh_release() {
 
   # Fallback: source archive from GitHub
   if [[ -z "$dl_url" ]]; then
-    dl_url="https://github.com/${repo}/archive/refs/tags/${version}.tar.gz"
+    # Use the resolved tag from API if we have it
+    local fallback_tag="$version"
+    if [[ "$fallback_tag" == "latest" && -n "$release_json" ]]; then
+      fallback_tag=$(echo "$release_json" | grep '"tag_name"' | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
+      [[ -z "$fallback_tag" ]] && fallback_tag="latest"
+    fi
+    dl_url="https://github.com/${repo}/archive/refs/tags/${fallback_tag}.tar.gz"
     is_tarball=true
   fi
 
