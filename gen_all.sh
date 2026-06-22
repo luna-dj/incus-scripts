@@ -37,8 +37,8 @@ while IFS= read -r app; do
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 
-source /dev/stdin <<<"\$(curl -fsSL ${COMMON_URL})"
-source /dev/stdin <<<"\$(curl -fsSL ${BUILD_FUNC_URL})"
+source /dev/stdin <<<"\$(curl -fsSL --http1.1 ${COMMON_URL})"
+source /dev/stdin <<<"\$(curl -fsSL --http1.1 ${BUILD_FUNC_URL})"
 
 APP="${display}"
 var_tags="\${var_tags:-}"
@@ -57,7 +57,7 @@ create_instance
 # container and run it with 'bash -s' (which reads the script from stdin).
 # We can't use 'bash -c' here because the upstream install scripts start
 # with '#!/usr/bin/env bash' which would be treated as a command name.
-INSTALL_SCRIPT=\$(curl -fsSL "${INSTALL_BASE_URL}/${app}-install.sh" 2>/dev/null) || {
+INSTALL_SCRIPT=\$(curl -fsSL --http1.1 "${INSTALL_BASE_URL}/${app}-install.sh" 2>/dev/null) || {
     log_error "Failed to fetch install script for ${app}"
     exit 1
 }
@@ -76,7 +76,7 @@ CTEOF
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 
-source /dev/stdin <<<"\$(curl -fsSL ${COMPAT_FUNC_URL})"
+source /dev/stdin <<<"\$(curl -fsSL --http1.1 ${COMPAT_FUNC_URL})"
 
 header_info "${display}"
 setting_up_container

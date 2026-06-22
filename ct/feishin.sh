@@ -3,8 +3,8 @@
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 
-source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-build.func)"
+source /dev/stdin <<<"$(curl -fsSL --http1.1 https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh)"
+source /dev/stdin <<<"$(curl -fsSL --http1.1 https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-build.func)"
 
 APP="Feishin"
 var_tags="${var_tags:-}"
@@ -23,7 +23,7 @@ create_instance
 # container and run it with 'bash -s' (which reads the script from stdin).
 # We can't use 'bash -c' here because the upstream install scripts start
 # with '#!/usr/bin/env bash' which would be treated as a command name.
-INSTALL_SCRIPT=$(curl -fsSL "https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/install/feishin-install.sh" 2>/dev/null) || {
+INSTALL_SCRIPT=$(curl -fsSL --http1.1 "https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/install/feishin-install.sh" 2>/dev/null) || {
     log_error "Failed to fetch install script for feishin"
     exit 1
 }
