@@ -218,7 +218,7 @@ create_instance() {
   # Install required packages for script execution
   log_info "Setting up base environment..."
   incus_exec "$var_instance" -- apt-get update -qq || true
-  incus_exec "$var_instance" -- apt-get install -y -qq curl wget sudo gnupg ca-certificates || true
+  incus_exec "$var_instance" -- apt-get install -y -qq curl wget sudo gnupg ca-certificates git || true
 
   log_ok "Instance '${var_instance}' created and ready"
 }
