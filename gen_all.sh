@@ -93,8 +93,8 @@ UPSTREAM_SCRIPT=\$(curl -fsSL "\$UPSTREAM_URL" 2>/dev/null) || {
 
 # Remove upstream function sourcing (provided by incus-compat)
 UPSTREAM_SCRIPT="\${UPSTREAM_SCRIPT//source \/dev\/stdin <<<\"\\\$FUNCTIONS_FILE_PATH\"/: # (functions provided by incus-compat)}"
-UPSTREAM_SCRIPT="\${UPSTREAM_SCRIPT//source <(curl -fsSL https:\\/\\/raw.githubusercontent.com\\/community-scripts\\/ProxmoxVE\\/main\\/misc\\/core.func)/: # (core.func)}"
-UPSTREAM_SCRIPT="\${UPSTREAM_SCRIPT//source <(curl -fsSL https:\\/\\/raw.githubusercontent.com\\/community-scripts\\/ProxmoxVE\\/main\\/misc\\/error_handler.func)/: # (error_handler.func)}"
+UPSTREAM_SCRIPT="\${UPSTREAM_SCRIPT//source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/core.func)/: # (core.func)}"
+UPSTREAM_SCRIPT="\${UPSTREAM_SCRIPT//source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/error_handler.func)/: # (error_handler.func)}"
 
 # Disable 'set -u' around eval of upstream: the upstream scripts
 # use various bash features that may not be safe under strict

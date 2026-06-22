@@ -19,10 +19,10 @@ variables
 check_existing_instance
 create_instance
 
-# Fetch the install script on the host, then push it to the container
-# and run it via stdin. We use 'bash -s' (not 'bash -c') because
-# upstream scripts start with '#!/usr/bin/env bash' which gets parsed
-# as a command name when passed via -c.
+# Fetch the install script content on the host, then push it into the
+# container and run it with 'bash -s' (which reads the script from stdin).
+# We can't use 'bash -c' here because the upstream install scripts start
+# with '#!/usr/bin/env bash' which would be treated as a command name.
 INSTALL_SCRIPT=$(curl -fsSL "https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/install/nginxproxymanager-install.sh" 2>/dev/null) || {
     log_error "Failed to fetch install script for nginxproxymanager"
     exit 1
