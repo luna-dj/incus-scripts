@@ -105,14 +105,21 @@ create_instance() {
     log_error "Or pass: var_storage=mypool  to the install command"
     exit 1
   fi
-  if ! incus storage list --format csv 2>/dev/null \
-       | tail -n +2 \
-       | grep -v '^[[:space:]]*$' \
-       | cut -d',' -f1 \
-       | grep -qx "${var_storage}"; then
+  # Verify the storage pool actually exists. Try CSV first, then table.
+  local pool_csv pool_table pool_found
+  pool_csv="$(incus storage list --format csv 2>/dev/null | tail -n +2 | grep -v '^[[:space:]]*$' | cut -d',' -f1 | tr -d '[:space:]"')"
+  pool_table="$(incus storage list 2>/dev/null | grep -E '^\| ' | head -1 | sed -E 's/^\| *([^ |]+).*/\1/')"
+  pool_found=false
+  while IFS= read -r p; do
+    if [[ "$p" == "$var_storage" ]]; then pool_found=true; break; fi
+  done <<< "$pool_csv"
+  if [[ "$pool_found" != "true" ]] && [[ "$pool_table" != "$var_storage" ]]; then
     log_error "Storage pool '${var_storage}' does not exist."
     log_error "Available pools:"
-    incus storage list --format csv 2>/dev/null | tail -n +2 | grep -v '^[[:space:]]*$' | cut -d',' -f1 | sed 's/^/  /'
+    {
+      incus storage list --format csv 2>/dev/null | tail -n +2 | grep -v '^[[:space:]]*$' | cut -d',' -f1 | tr -d '[:space:]"' | sed 's/^/  /'
+      incus storage list 2>/dev/null | grep -E '^\| ' | head -3 | sed -E 's/^\| *([^ |]+).*/  \1/'
+    } | sort -u
     log_error "Create one with: incus storage create default dir"
     exit 1
   fi

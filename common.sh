@@ -181,20 +181,45 @@ resolve_image() {
 # ──────────────────────────────────────────────
 
 get_default_storage() {
-  # Get the first data line (skipping CSV header), extract the first
-  # field, strip any whitespace and quotes. Returns empty if no pool.
-  # Note: 'incus storage list' CSV output starts with header line
-  # (NAME,DESCRIPTION,DRIVER,STATE), so we skip the first line.
-  incus storage list --format csv 2>/dev/null \
-    | awk 'NR>1 && /[^[:space:]]/' \
+  # Get the first non-header line of incus storage list, extract the first
+  # field. Try multiple output formats since incus versions differ.
+  local out
+  out="$(incus storage list --format csv 2>/dev/null)"
+
+  # If --format csv gives nothing or just header, try table format
+  if [[ -z "$out" ]] || [[ "$(echo "$out" | wc -l)" -le 1 ]]; then
+    # Parse the table format:
+    #   |  default  | (empty) | dir | CREATED |
+    incus storage list 2>/dev/null \
+      | grep -E '^\| ' \
+      | head -1 \
+      | sed -E 's/^\| *([^ |]+).*/\1/' \
+      | grep -v '^NAME$'
+    return
+  fi
+
+  # Parse the CSV output (skip header line, take first field)
+  echo "$out" \
+    | tail -n +2 \
+    | grep -v '^[[:space:]]*$' \
     | head -1 \
     | cut -d',' -f1 \
     | tr -d '[:space:]"'
 }
 
 get_default_profile() {
-  incus profile list --format csv 2>/dev/null \
-    | awk 'NR>1 && /[^[:space:]]/' \
+  local out
+  out="$(incus profile list --format csv 2>/dev/null)"
+
+  if [[ -z "$out" ]] || [[ "$(echo "$out" | wc -l)" -le 1 ]]; then
+    incus profile list 2>/dev/null \
+      | awk -F'|' '/\|/ {gsub(/^ +| +$/, "", $2); if ($2 != "" && $2 != "NAME") print $2; exit}'
+    return
+  fi
+
+  echo "$out" \
+    | tail -n +2 \
+    | grep -v '^[[:space:]]*$' \
     | head -1 \
     | cut -d',' -f1 \
     | tr -d '[:space:]"'
