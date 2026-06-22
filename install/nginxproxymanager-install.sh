@@ -23,7 +23,12 @@ UPSTREAM_SCRIPT="${UPSTREAM_SCRIPT//source \/dev\/stdin <<<\"\$FUNCTIONS_FILE_PA
 UPSTREAM_SCRIPT="${UPSTREAM_SCRIPT//source <(curl -fsSL https:\/\/codeberg.org\/community-scripts\/ProxmoxVE\/main\/misc\/core.func)/: # (core.func)}"
 UPSTREAM_SCRIPT="${UPSTREAM_SCRIPT//source <(curl -fsSL https:\/\/codeberg.org\/community-scripts\/ProxmoxVE\/main\/misc\/error_handler.func)/: # (error_handler.func)}"
 
+# Disable 'set -u' around eval of upstream: the upstream scripts
+# use various bash features (positional args, arrays, etc.) that
+# may not be safe under strict unset-variable mode.
+set +u
 eval "$UPSTREAM_SCRIPT"
+set -u
 
 echo ""
 echo -e "${GR}Nginxproxymanager installation complete!${NC}"
