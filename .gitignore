@@ -1,0 +1,24 @@
+# Generated files
+gen_all.sh
+/tmp/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Editor
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+*.tmp
+
+# Incus
+*.tar.gz
+*.tgz
+*.zip

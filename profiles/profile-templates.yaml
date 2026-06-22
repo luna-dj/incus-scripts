@@ -1,0 +1,101 @@
+# Incus Profile Templates
+# ========================
+# Profiles are reusable config presets for Incus instances.
+# They set resource limits, devices, and config keys.
+#
+# Usage:
+#   incus profile create app
+#   incus profile edit app < app.profile
+#   incus launch images:ubuntu/24.04 my-instance --profile default --profile app
+
+# ── Application Profile ─────────────────────
+# Standard profile for web applications
+config:
+  limits.cpu: "2"
+  limits.memory: 2GiB
+  limits.memory.swap: "false"
+  security.privileged: "false"
+  security.nesting: "false"
+  cloud-init.user-data: |
+    #cloud-config
+    package_update: true
+    packages:
+      - curl
+      - wget
+      - ca-certificates
+      - gnupg
+description: "Standard application profile (2 CPU, 2GB RAM)"
+devices:
+  eth0:
+    name: eth0
+    network: incusbr0
+    type: nic
+  root:
+    path: /
+    pool: default
+    size: 10GiB
+    type: disk
+name: app
+
+# ── Database Profile ────────────────────────
+# Profile for database instances (more memory, I/O priority)
+config:
+  limits.cpu: "4"
+  limits.memory: 4GiB
+  limits.memory.swap: "false"
+  limits.disk.priority: "10"
+  limits.cpu.priority: "10"
+  security.privileged: "false"
+  security.nesting: "false"
+  cloud-init.user-data: |
+    #cloud-config
+    package_update: true
+    packages:
+      - curl
+      - wget
+      - ca-certificates
+description: "Database profile (4 CPU, 4GB RAM, high I/O)"
+devices:
+  eth0:
+    name: eth0
+    network: incusbr0
+    type: nic
+  root:
+    path: /
+    pool: default
+    size: 20GiB
+    type: disk
+name: database
+
+# ── Media Profile ───────────────────────────
+# Profile for media servers (large disk, GPU passthrough)
+config:
+  limits.cpu: "4"
+  limits.memory: 8GiB
+  limits.memory.swap: "false"
+  security.privileged: "true"
+  security.nesting: "true"
+  cloud-init.user-data: |
+    #cloud-config
+    package_update: true
+    packages:
+      - curl
+      - wget
+      - ca-certificates
+      - intel-media-va-driver
+description: "Media profile (4 CPU, 8GB RAM, GPU passthrough)"
+devices:
+  eth0:
+    name: eth0
+    network: incusbr0
+    type: nic
+  root:
+    path: /
+    pool: default
+    size: 100GiB
+    type: disk
+  dri:
+    path: /dev/dri
+    source: /dev/dri
+    type: unix-char
+name: media

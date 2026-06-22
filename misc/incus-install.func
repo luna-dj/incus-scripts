@@ -1,0 +1,278 @@
+#!/usr/bin/env bash
+# incus-install.func — In-Container Installation Functions
+# Copyright (c) 2026 incus-helper-scripts
+# License: MIT
+#
+# Sourced by install/<app>-install.sh scripts that run INSIDE
+# a fresh Incus container. Provides helpers for installing apps,
+# managing services, and reporting status.
+
+# ==============================================================================
+# SECTION 1: CONTAINER SETUP
+# ==============================================================================
+
+# setting_up_container — Initial container setup
+setting_up_container() {
+  log_info "Setting up container..."
+
+  # Ensure /etc/hosts and basic tools
+  if ! command -v curl &>/dev/null; then
+    apt-get update -qq
+    apt-get install -y -qq curl wget sudo gnupg ca-certificates
+  fi
+
+  # Ensure /etc/apt/sources.list exists for Debian-based
+  if [[ -f /etc/debian_version ]]; then
+    if ! grep -q 'deb' /etc/apt/sources.list 2>/dev/null; then
+      # Try standard Ubuntu/Debian sources
+      if grep -qi 'ubuntu' /etc/os-release 2>/dev/null; then
+        local codename
+        codename=$(grep VERSION_CODENAME /etc/os-release | cut -d= -f2)
+        cat >/etc/apt/sources.list <<EOF
+deb http://archive.ubuntu.com/ubuntu ${codename} main universe restricted multiverse
+deb http://archive.ubuntu.com/ubuntu ${codename}-updates main universe restricted multiverse
+deb http://archive.ubuntu.com/ubuntu ${codename}-security main universe restricted multiverse
+EOF
+      fi
+    fi
+  fi
+
+  log_ok "Container base setup complete"
+}
+
+# network_check — Verify network connectivity inside container
+network_check() {
+  log_info "Checking network connectivity..."
+  local targets=("google.com" "github.com" "archive.ubuntu.com")
+  local success=false
+
+  for target in "${targets[@]}"; do
+    if ping -c 1 -W 3 "$target" &>/dev/null; then
+      success=true
+      break
+    fi
+  done
+
+  if [[ "$success" == "true" ]]; then
+    log_ok "Network connectivity verified"
+  else
+    log_error "No network connectivity detected. Check DNS and network settings."
+    exit 1
+  fi
+}
+
+# configure_apt — Configure APT for optimal performance
+configure_apt() {
+  log_info "Configuring package manager..."
+  export DEBIAN_FRONTEND=noninteractive
+  apt-get update -qq 2>/dev/null || true
+  apt-get upgrade -y -qq 2>/dev/null || true
+  log_ok "Package manager configured"
+}
+
+# ==============================================================================
+# SECTION 2: PACKAGE MANAGEMENT
+# ==============================================================================
+
+# install_packages — Install system packages
+install_packages() {
+  local pkgs=("$@")
+  log_info "Installing packages: ${pkgs[*]}"
+  $STD apt-get install -y -qq "${pkgs[@]}"
+  log_ok "Packages installed: ${pkgs[*]}"
+}
+
+# add_repository — Add a PPA or external repository
+add_repository() {
+  local repo="$1"
+  local key_url="$2"
+  local keyring_path="${3:-}"
+
+  if [[ -n "$key_url" ]]; then
+    if [[ -n "$keyring_path" ]]; then
+      curl -fsSL "$key_url" | gpg --dearmor -o "$keyring_path" 2>/dev/null
+    else
+      curl -fsSL "$key_url" | apt-key add - 2>/dev/null || true
+    fi
+  fi
+
+  add-apt-repository -y "$repo" 2>/dev/null || {
+    echo "$repo" >>/etc/apt/sources.list
+  }
+  apt-get update -qq
+}
+
+# ==============================================================================
+# SECTION 3: SERVICE MANAGEMENT
+# ==============================================================================
+
+# enable_service — Enable and start a systemd service
+enable_service() {
+  local service="$1"
+  systemctl enable -q "$service" 2>/dev/null || true
+  systemctl start "$service" 2>/dev/null || true
+  log_ok "Service enabled: ${service}"
+}
+
+# disable_service — Stop and disable a systemd service
+disable_service() {
+  local service="$1"
+  systemctl stop "$service" 2>/dev/null || true
+  systemctl disable -q "$service" 2>/dev/null || true
+  log_ok "Service disabled: ${service}"
+}
+
+# check_service — Check if a service is active
+check_service() {
+  local service="$1"
+  if systemctl is-active --quiet "$service" 2>/dev/null; then
+    log_ok "Service '${service}' is running"
+    return 0
+  else
+    log_warn "Service '${service}' is not running"
+    return 1
+  fi
+}
+
+# create_systemd_service — Create a systemd service unit
+create_systemd_service() {
+  local name="$1"
+  local description="$2"
+  local exec_start="$3"
+  local user="${4:-root}"
+  local working_dir="${5:-}"
+  local restart="${6:-always}"
+
+  cat >"/etc/systemd/system/${name}.service" <<EOF
+[Unit]
+Description=${description}
+After=network.target
+
+[Service]
+Type=simple
+User=${user}
+ExecStart=${exec_start}
+Restart=${restart}
+RestartSec=5
+EOF
+
+  if [[ -n "$working_dir" ]]; then
+    echo "WorkingDirectory=${working_dir}" >>"/etc/systemd/system/${name}.service"
+  fi
+
+  systemctl daemon-reload
+  enable_service "$name"
+}
+
+# ==============================================================================
+# SECTION 4: APPLICATION HELPERS
+# ==============================================================================
+
+# get_latest_github_release — Get latest GitHub release version
+get_latest_github_release() {
+  local repo="$1"
+  curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" 2>/dev/null | \
+    grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/^v//'
+}
+
+# download_and_extract — Download and extract a tarball
+download_and_extract() {
+  local url="$1"
+  local dest="${2:-/opt}"
+  local strip="${3:-1}"
+
+  local tmp_dir
+  tmp_dir="$(mktemp -d)"
+
+  curl -fsSL "$url" -o "${tmp_dir}/archive.tar.gz"
+  tar -xzf "${tmp_dir}/archive.tar.gz" --strip-components="$strip" -C "$dest"
+  rm -rf "$tmp_dir"
+  log_ok "Extracted to ${dest}"
+}
+
+# clone_repo — Clone or pull a git repository
+clone_repo() {
+  local repo_url="$1"
+  local dest="$2"
+  local branch="${3:-main}"
+
+  if [[ -d "$dest/.git" ]]; then
+    log_info "Updating existing repository..."
+    cd "$dest" && git pull
+  else
+    git clone --depth 1 -b "$branch" "$repo_url" "$dest"
+  fi
+  log_ok "Repository cloned to ${dest}"
+}
+
+# setup_nodejs — Install Node.js via nodesource
+setup_nodejs() {
+  local version="${NODE_VERSION:-20}"
+  log_info "Installing Node.js ${version}..."
+  curl -fsSL "https://deb.nodesource.com/setup_${version}.x" | bash -
+  $STD apt-get install -y nodejs
+  log_ok "Node.js $(node --version) installed"
+}
+
+# setup_python_venv — Create a Python virtual environment
+setup_python_venv() {
+  local path="${1:-/opt/venv}"
+  local requirements="${2:-}"
+
+  python3 -m venv "$path"
+  if [[ -n "$requirements" ]]; then
+    "$path/bin/pip" install --upgrade pip
+    "$path/bin/pip" install -r "$requirements"
+  fi
+  log_ok "Python venv created at ${path}"
+}
+
+# ==============================================================================
+# SECTION 5: NETWORK & FIREWALL
+# ==============================================================================
+
+# open_port — Open a port in ufw if available
+open_port() {
+  local port="$1"
+  local proto="${2:-tcp}"
+
+  if command -v ufw &>/dev/null; then
+    ufw allow "${port}/${proto}" 2>/dev/null || true
+    log_ok "Port ${port}/${proto} opened"
+  fi
+}
+
+# ==============================================================================
+# SECTION 6: COMPLETION
+# ==============================================================================
+
+# print_completion — Print installation completion message
+print_completion() {
+  local app="$1"
+  local ip="${2:-}"
+  local port="${3:-}"
+  local extra_info="${4:-}"
+
+  echo ""
+  echo -e "${GR}╔══════════════════════════════════════════════╗${NC}"
+  echo -e "${GR}║${NC}  ${BOLD}${app} Installation Complete!${NC}        ${GR}║${NC}"
+  echo -e "${GR}╚══════════════════════════════════════════════╝${NC}"
+  echo ""
+
+  if [[ -n "$ip" ]] && [[ -n "$port" ]]; then
+    echo -e "  ${BL}Access:${NC} http://${ip}:${port}"
+    echo -e "  ${BL}Access:${NC} https://${ip}:${port}  (if HTTPS configured)"
+  elif [[ -n "$ip" ]]; then
+    echo -e "  ${BL}Access:${NC} http://${ip}"
+  fi
+
+  if [[ -n "$extra_info" ]]; then
+    echo ""
+    echo -e "  ${YL}Notes:${NC}"
+    echo "$extra_info" | sed 's/^/  /'
+  fi
+
+  echo ""
+  echo -e "  ${MG}Manage:${NC} incus exec ${var_instance} bash"
+  echo ""
+}

@@ -1,0 +1,243 @@
+#!/usr/bin/env bash
+# incus-build.func — Incus Container Build & Configuration
+# Copyright (c) 2026 incus-helper-scripts
+# License: MIT
+#
+# Sourced by ct/<app>.sh scripts to build Incus instances.
+# Provides container creation, resource allocation, and configuration.
+
+# ==============================================================================
+# SECTION 1: VARIABLE INITIALIZATION
+# ==============================================================================
+
+[[ -z "${APP:-}" ]] && APP="Unknown"
+NSAPP="$(to_lower "$(sluggify "$APP")")"
+var_tags="${var_tags:-}"
+var_cpu="${var_cpu:-2}"
+var_ram="${var_ram:-2048}"
+var_disk="${var_disk:-10}"
+var_os="${var_os:-ubuntu}"
+var_version="${var_version:-24.04}"
+var_image="${var_image:-}"
+var_instance="${var_instance:-${NSAPP}}"
+var_profile="${var_profile:-default}"
+var_storage="${var_storage:-}"
+var_network="${var_network:-}"
+var_ipv4="${var_ipv4:-}"
+var_bridged="${var_bridged:-false}"
+var_unprivileged="${var_unprivileged:-true}"
+var_type="${var_type:-container}"  # container or virtual-machine
+
+# ==============================================================================
+# SECTION 2: CORE BUILD FUNCTIONS
+# ==============================================================================
+
+# header_info — Show the app header
+header_info() {
+  local app="${1:-$APP}"
+  echo ""
+  echo -e "${CY}╔══════════════════════════════════════════════╗${NC}"
+  printf "${CY}║${NC}  ${BOLD}%s${NC}%-*s${CY}║${NC}\n" "$app" $((38 - ${#app})) ""
+  echo -e "${CY}╚══════════════════════════════════════════════╝${NC}"
+  echo ""
+}
+
+# variables() — Initialize and validate build variables
+variables() {
+  # Normalize app name for instance naming
+  if [[ "$var_instance" == "$NSAPP" ]]; then
+    var_instance="$NSAPP"
+  fi
+
+  # Default storage from Incus if not set
+  if [[ -z "$var_storage" ]]; then
+    var_storage="$(get_default_storage)"
+  fi
+
+  # Default network from Incus if not set
+  if [[ -z "$var_network" ]]; then
+    var_network="$(get_default_bridge)"
+  fi
+
+  # Resolve image
+  if [[ -z "$var_image" ]]; then
+    var_image="$(resolve_image "$var_os" "$var_version")" || {
+      log_error "Failed to resolve image for ${var_os}/${var_version}"
+      exit 1
+    }
+  fi
+
+  log_debug "APP=$APP NSAPP=$NSAPP"
+  log_debug "CPU=$var_cpu RAM=${var_ram}MB DISK=${var_disk}GB"
+  log_debug "IMAGE=$var_image INSTANCE=$var_instance"
+  log_debug "STORAGE=$var_storage NETWORK=$var_network"
+}
+
+# create_instance() — Create the Incus instance
+create_instance() {
+  log_step "Creating instance '${var_instance}'"
+
+  local launch_args=(
+    --type "$var_type"
+    --profile "$var_profile"
+    --storage "$var_storage"
+    --network "$var_network"
+  )
+
+  # Resource limits
+  launch_args+=(--config "limits.cpu=${var_cpu}")
+  launch_args+=(--config "limits.memory=${var_ram}MiB")
+
+  # Disk size through profile override
+  launch_args+=(--device "root,path=/,pool=${var_storage},size=${var_disk}GiB")
+
+  # Security / unprivileged
+  if [[ "$var_unprivileged" == "true" ]]; then
+    launch_args+=(--config "security.privileged=false")
+    launch_args+=(--config "security.nesting=false")
+  else
+    launch_args+=(--config "security.privileged=true")
+  fi
+
+  # Static IPv4 if specified
+  if [[ -n "$var_ipv4" ]]; then
+    launch_args+=(--device "eth0,name=eth0,network=${var_network},ipv4.address=${var_ipv4}")
+  fi
+
+  # User-defined tags
+  if [[ -n "$var_tags" ]]; then
+    local tag_i=0
+    IFS=',' read -ra TAG_ARRAY <<< "$var_tags"
+    for tag in "${TAG_ARRAY[@]}"; do
+      launch_args+=(--config "user.tag-$((tag_i++))= $(echo "$tag" | xargs)")
+    done
+  fi
+
+  # Launch the instance
+  log_info "Launching with image: ${var_image}"
+  if ! incus launch "${var_image}" "${var_instance}" "${launch_args[@]}" "$@" 2>&1; then
+    log_error "Failed to create instance '${var_instance}'"
+    exit 1
+  fi
+
+  # Wait for it to be ready
+  wait_for_instance "$var_instance" 180
+
+  # Install required packages for script execution
+  log_info "Setting up base environment..."
+  incus_exec "$var_instance" -- apt-get update -qq || true
+  incus_exec "$var_instance" -- apt-get install -y -qq curl wget sudo gnupg ca-certificates || true
+
+  log_ok "Instance '${var_instance}' created and ready"
+}
+
+# destroy_instance() — Remove the Incus instance
+destroy_instance() {
+  local instance="${1:-$var_instance}"
+  if instance_exists "$instance"; then
+    log_warn "Destroying instance '${instance}'..."
+    incus delete --force "$instance"
+    log_ok "Instance '${instance}' destroyed"
+  else
+    log_info "Instance '${instance}' does not exist, skipping"
+  fi
+}
+
+# ==============================================================================
+# SECTION 3: CONFIGURATION HELPERS
+# ==============================================================================
+
+# apply_config — Apply individual config keys to instance
+apply_config() {
+  local instance="${1:-$var_instance}"
+  shift
+  local key value
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    value="$2"
+    shift 2
+    incus config set "$instance" "$key" "$value"
+    log_debug "Config: ${key}=${value}"
+  done
+}
+
+# add_device — Add a device to the instance
+add_device() {
+  local instance="${1:-$var_instance}"
+  local device_name="$2"
+  shift 2
+  incus config device add "$instance" "$device_name" "$@"
+  log_debug "Device added: ${device_name}"
+}
+
+# add_proxy_device — Forward host port to container port
+add_proxy_device() {
+  local instance="${1:-$var_instance}"
+  local proto="${2:-tcp}"
+  local host_port="$3"
+  local container_port="$4"
+  local name="${5:-proxy-${host_port}-${container_port}}"
+
+  incus config device add "$instance" "$name" proxy \
+    listen="${proto}:0.0.0.0:${host_port}" \
+    connect="${proto}:127.0.0.1:${container_port}"
+
+  log_ok "Proxy device: ${host_port} -> ${container_port} (${name})"
+}
+
+# mount_disk — Mount a host directory or disk into the instance
+mount_disk() {
+  local instance="${1:-$var_instance}"
+  local source="$2"
+  local path="$3"
+  local name="${4:-data}"
+
+  incus config device add "$instance" "$name" disk \
+    source="$source" \
+    path="$path"
+
+  log_ok "Mounted ${source} -> ${path} (${name})"
+}
+
+# ==============================================================================
+# SECTION 4: PROFILE MANAGEMENT
+# ==============================================================================
+
+# create_profile_from_instance — Create a reusable profile from an existing instance config
+create_profile_from_instance() {
+  local source_instance="$1"
+  local profile_name="$2"
+  local description="${3:-Profile derived from ${source_instance}}"
+
+  incus profile create "$profile_name" 2>/dev/null || true
+  incus profile edit "$profile_name" <<< "$(incus config show "$source_instance" --expanded)"
+  incus profile set "$profile_name" description "$description"
+  log_ok "Profile '${profile_name}' created from instance '${source_instance}'"
+}
+
+# ==============================================================================
+# SECTION 5: UPDATE / MAINTENANCE
+# ==============================================================================
+
+# update_script header — Standard update function stub
+# Called from ct scripts when the script is run against an existing instance
+# The ct script should override this function if updates are supported
+update_script() {
+  log_warn "Update not implemented for '${APP}'"
+  echo ""
+  echo "Instance: ${var_instance}"
+  echo "To rebuild: Run the script again with a different instance name"
+  echo ""
+}
+
+# Check if we should run update_script (instance already exists)
+check_existing_instance() {
+  if instance_exists "$var_instance"; then
+    log_info "Instance '${var_instance}' already exists"
+    echo ""
+    echo -e "${YL}Running update mode for existing instance...${NC}"
+    echo ""
+    update_script
+    exit 0
+  fi
+}

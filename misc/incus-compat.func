@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+# incus-compat.func — Compatibility shim for upstream ProxmoxVE install scripts
+# Provides msg_info, msg_ok, $STD, setting_up_container, etc.
+# Copyright (c) 2026 incus-helper-scripts | License: MIT
+
+[[ -n "${_INCUS_COMPAT_LOADED:-}" ]] && return
+_INCUS_COMPAT_LOADED=1
+
+# ── Colors ──────────────────────────────────
+RD='\033[0;31m'; GR='\033[0;32m'; YL='\033[0;33m'; BL='\033[0;34m'
+MG='\033[0;35m'; CY='\033[0;36m'; NC='\033[0m'; BOLD='\033[1m'; DIMM='\033[2m'
+
+# ── Messaging ───────────────────────────────
+msg_info()  { echo -e "${BL}[INFO]${NC}  $*"; }
+msg_ok()    { echo -e "${GR}[OK]${NC}    $*"; }
+msg_warn()  { echo -e "${YL}[WARN]${NC}  $*"; }
+msg_error() { echo -e "${RD}[ERROR]${NC} $*" >&2; }
+header_info() {
+  local app="${1:-}"
+  echo ""
+  echo -e "${CY}╔══════════════════════════════════════════════╗${NC}"
+  printf "${CY}║${NC}  ${BOLD}%s${NC}%-*s${CY}║${NC}\n" "$app" $((38 - ${#app})) ""
+  echo -e "${CY}╚══════════════════════════════════════════════╝${NC}"
+  echo ""
+}
+
+# ── Execution helpers ───────────────────────
+$STD() {
+  if [[ "${DEBUG:-false}" == "true" ]]; then "$@"
+  else "$@" >/dev/null 2>&1; fi
+}
+
+catch_errors() { trap 'msg_error "Script failed at line $LINENO"' ERR; }
+color() { :; }
+load_functions() { :; }
+
+# ── Upstream install.func equivalents ───────
+setting_up_container() {
+  if ! command -v curl &>/dev/null; then
+    apt-get update -qq 2>/dev/null || true
+    apt-get install -y -qq curl 2>/dev/null || true
+  fi
+  export DEBIAN_FRONTEND=noninteractive
+}
+
+network_check() {
+  local ok=false
+  for t in google.com github.com; do
+    if ping -c 1 -W 2 "$t" &>/dev/null; then ok=true; break; fi
+    if curl -fsSL -m 3 "https://${t}" &>/dev/null; then ok=true; break; fi
+  done
+  $ok || { msg_error "No network"; exit 1; }
+}
+
+update_os() {
+  export DEBIAN_FRONTEND=noninteractive
+  apt-get update -qq 2>/dev/null || true
+  apt-get upgrade -y -qq 2>/dev/null || true
+}
+
+motd_ssh() { :; }
+customize() { :; }
+verb_ip6() { :; }
+check_container_storage() { :; }
+check_container_resources() { :; }
+
+# ── Upstream tools.func shims ──────────────
+get_latest_github_release() {
+  local repo="$1"
+  curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" 2>/dev/null | \
+    grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | sed 's/^v//'
+}
+
+fetch_and_deploy_gh_release() {
+  local app="$1" repo="$2" file_match="$3" version="$4" install_dir="$5" archive_match="$6"
+  msg_info "Fetching ${app} ${version}"
+  local api_url dl_url
+  [[ "$version" == "latest" ]] && api_url="https://api.github.com/repos/${repo}/releases/latest" \
+    || api_url="https://api.github.com/repos/${repo}/releases/tags/v${version}"
+  dl_url=$(curl -fsSL "$api_url" 2>/dev/null | grep '"browser_download_url"' | grep -E "${archive_match}" | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
+  [[ -z "$dl_url" ]] && dl_url="https://github.com/${repo}/archive/refs/tags/v${version}.tar.gz"
+  local td; td=$(mktemp -d)
+  local ext="${dl_url##*.}"; [[ "$ext" == "gz" ]] && ext="tar.gz"
+  curl -fsSL "$dl_url" -o "${td}/archive.${ext}"
+  mkdir -p "$install_dir"
+  if [[ "$ext" == "tar.gz" || "$ext" == "tgz" ]]; then tar -xzf "${td}/archive.${ext}" -C "$install_dir" --strip-components=1 2>/dev/null || tar -xzf "${td}/archive.${ext}" -C "$install_dir" 2>/dev/null
+  elif [[ "$ext" == "zip" ]]; then unzip -q "${td}/archive.zip" -d "$install_dir" 2>/dev/null; fi
+  rm -rf "$td"
+  msg_ok "${app} deployed"
+}
+
+check_for_gh_release() { local r="$2"; curl -fsSL "https://api.github.com/repos/${r}/releases/latest" >/dev/null 2>&1; }
+
+setup_nodejs() {
+  local v="${NODE_VERSION:-20}"
+  curl -fsSL "https://deb.nodesource.com/setup_${v}.x" | bash - 2>/dev/null || true
+  apt-get install -y -qq nodejs 2>/dev/null || true
+}
+
+install_packages_with_retry() { apt-get install -y -qq "$@" 2>/dev/null || true; return 0; }
+upgrade_packages_with_retry() { apt-get upgrade -y -qq 2>/dev/null || true; }
+prepare_repository_setup() { rm -f /etc/apt/trusted.gpg.d/${1}* /etc/apt/keyrings/${1}* 2>/dev/null || true; apt-get update -qq 2>/dev/null || true; }
+curl_with_retry() { local url="$1" o="${2:--}"; curl -fsSL --retry 3 "$url" -o "$o" 2>/dev/null; return $?; }
+cleanup_tool_keyrings() { :; }
+stop_all_services() { :; }
+verify_tool_version() { return 0; }
+version_matches_spec() { return 0; }
+cleanup_legacy_install() { :; }
+
+# ── Upstream build.func shims ──────────────
+variables() { :; }
+post_progress_to_api() { :; }
