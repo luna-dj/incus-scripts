@@ -139,7 +139,7 @@ fetch_and_deploy_gh_release() {
   fi
 
   local td; td=$(mktemp -d)
-  curl -fsSL -L "$dl_url" -o "${td}/archive.tar.gz"
+  echo "DEBUG download URL: $dl_url" >&2; curl -fsSL -L "$dl_url" -o "${td}/archive.tar.gz"
   mkdir -p "$install_dir"
   tar -xzf "${td}/archive.tar.gz" -C "$install_dir" --strip-components=1 2>/dev/null || \
     tar -xzf "${td}/archive.tar.gz" -C "$install_dir" 2>/dev/null

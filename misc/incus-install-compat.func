@@ -109,7 +109,7 @@ instance_exists() {
 # Wait for instance to be running
 wait_for_instance() {
   local name="$1"
-  local timeout="${2:-120}"
+  local timeout="${2:-30}"
   local elapsed=0
   while ! incus info "$name" 2>/dev/null | grep -q "Status: Running"; do
     sleep 2
@@ -404,7 +404,7 @@ fetch_and_deploy_gh_release() {
   fi
 
   local td; td=$(mktemp -d)
-  curl -fsSL -L "$dl_url" -o "${td}/archive.tar.gz"
+  echo "DEBUG download URL: $dl_url" >&2; curl -fsSL -L "$dl_url" -o "${td}/archive.tar.gz"
   mkdir -p "$install_dir"
   tar -xzf "${td}/archive.tar.gz" -C "$install_dir" --strip-components=1 2>/dev/null || \
     tar -xzf "${td}/archive.tar.gz" -C "$install_dir" 2>/dev/null
