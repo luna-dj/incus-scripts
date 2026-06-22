@@ -135,7 +135,7 @@ incus_exec() {
 # line '#!/usr/bin/env bash' gets treated as a command name.
 incus_exec_stdin() {
   local instance="$1"
-  incus exec "$instance" -- bash -s
+  incus exec "$instance" --env "INCUS_BASE=${INCUS_BASE:-}" -- bash -s
 }
 
 # Push file into instance
