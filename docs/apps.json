@@ -1892,7 +1892,7 @@
   {
     "slug": "glpi",
     "name": "GLPI",
-    "category": "Communication",
+    "category": "Business",
     "description": "Helpdesk and ticketing",
     "tags": "",
     "cpu": "1",
@@ -4230,7 +4230,7 @@
   {
     "slug": "openthread-br",
     "name": "Openthread Br",
-    "category": "Productivity",
+    "category": "Networking",
     "description": "Self-hosted Openthread Br instance",
     "tags": "",
     "cpu": "1",
@@ -5490,7 +5490,7 @@
   {
     "slug": "snipeit",
     "name": "Snipe-IT",
-    "category": "Communication",
+    "category": "Business",
     "description": "IT asset management",
     "tags": "",
     "cpu": "1",
@@ -6036,7 +6036,7 @@
   {
     "slug": "thingsboard",
     "name": "Thingsboard",
-    "category": "Productivity",
+    "category": "Home Automation",
     "description": "Self-hosted Thingsboard instance",
     "tags": "",
     "cpu": "1",
@@ -6050,7 +6050,7 @@
   {
     "slug": "threadfin",
     "name": "Threadfin",
-    "category": "Productivity",
+    "category": "Media",
     "description": "Self-hosted Threadfin instance",
     "tags": "",
     "cpu": "1",

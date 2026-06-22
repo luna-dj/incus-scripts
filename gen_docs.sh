@@ -279,6 +279,12 @@ categorize() {
     teamspeak-server) echo "Communication" && return 0 ;;
     neko) echo "Other" && return 0 ;;
     sparkyfitness) echo "Other" && return 0 ;;
+    glpi) echo "Business" && return 0 ;;
+    snipeit) echo "Business" && return 0 ;;
+    openthread-br) echo "Networking" && return 0 ;;
+    threadfin) echo "Media" && return 0 ;;
+    thingsboard) echo "Home Automation" && return 0 ;;
+    wger) echo "Other" && return 0 ;;
     *) : ;;  # not found, fall through
   esac
   case "$combined" in
