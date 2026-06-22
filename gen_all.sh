@@ -53,6 +53,8 @@ while IFS= read -r app; do
 #   INCUS_BASE=https://raw.githubusercontent.com/luna-dj/incus-scripts/main
 
 INCUS_BASE="\${INCUS_BASE:-${RAW_BASE}}"
+# Export so it survives subshells (pipes, incus_exec_stdin)
+export INCUS_BASE
 source /dev/stdin <<<"\$(curl -fsSL --http1.1 \${INCUS_BASE}/common.sh)"
 source /dev/stdin <<<"\$(curl -fsSL --http1.1 \${INCUS_BASE}/misc/incus-build.func)"
 
