@@ -19,13 +19,15 @@ variables
 check_existing_instance
 create_instance
 
-RUN_SCRIPT=$(cat <<'SCRIPT'
-$(curl -fsSL "https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh")
-$(curl -fsSL "https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-compat.func")
-$(curl -fsSL "https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/nginxproxymanager-install.sh")
-SCRIPT
-)
-incus_exec "$var_instance" -- bash -c "$RUN_SCRIPT"
+# Fetch the install script on the host, then push it to the container
+# and run it via stdin. We use 'bash -s' (not 'bash -c') because
+# upstream scripts start with '#!/usr/bin/env bash' which gets parsed
+# as a command name when passed via -c.
+INSTALL_SCRIPT=$(curl -fsSL "https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/install/nginxproxymanager-install.sh" 2>/dev/null) || {
+    log_error "Failed to fetch install script for nginxproxymanager"
+    exit 1
+}
+printf '%s\n' "$INSTALL_SCRIPT" | incus_exec_stdin "$var_instance"
 
 IP=$(get_instance_ip "$var_instance")
 echo ""

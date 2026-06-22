@@ -128,6 +128,16 @@ incus_exec() {
   incus exec "$instance" -- "$@"
 }
 
+# Execute a script (read from stdin) inside the instance.
+# Usage:
+#   echo "$script_content" | incus_exec_stdin <instance>
+# This avoids the 'bash -c "..."' shebang-parse bug where the first
+# line '#!/usr/bin/env bash' gets treated as a command name.
+incus_exec_stdin() {
+  local instance="$1"
+  incus exec "$instance" -- bash -s
+}
+
 # Push file into instance
 incus_push() {
   local src="$1"
