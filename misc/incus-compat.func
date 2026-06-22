@@ -214,3 +214,4 @@ cleanup_legacy_install() { :; }
 # ── Upstream build.func shims ──────────────
 variables() { :; }
 post_progress_to_api() { :; }
+cleanup_lxc() { :; }

@@ -1,10 +1,4 @@
 #!/usr/bin/env bash
-# incus-install-compat.func — Combined install-time helpers (common.sh + incus-compat.func)
-# Single-file source for Incus container install scripts.
-# Copyright (c) 2026 incus-helper-scripts
-# SPDX-License-Identifier: MIT
-
-# Prevent double-loading
 [[ -n "${_IIC_LOADED:-}" ]] && return
 _IIC_LOADED=1
 # common.sh — Shared utilities for Incus Helper Scripts
@@ -272,7 +266,6 @@ get_instance_ip() {
 get_default_bridge() {
   incus network list --format csv 2>/dev/null | grep -i 'bridge' | head -1 | cut -d',' -f1
 }
-
 # Matches upstream function signatures exactly.
 # Copyright (c) 2026 incus-helper-sscripts | License: MIT
 
@@ -486,3 +479,4 @@ cleanup_legacy_install() { :; }
 # ── Upstream build.func shims ──────────────
 variables() { :; }
 post_progress_to_api() { :; }
+cleanup_lxc() { :; }
