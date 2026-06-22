@@ -285,6 +285,10 @@ categorize() {
     threadfin) echo "Media" && return 0 ;;
     thingsboard) echo "Home Automation" && return 0 ;;
     wger) echo "Other" && return 0 ;;
+    medusa) echo "Development" && return 0 ;;
+    homebox) echo "Productivity" && return 0 ;;
+    meshcentral) echo "Utilities" && return 0 ;;
+    bichon) echo "Development" && return 0 ;;
     *) : ;;  # not found, fall through
   esac
   case "$combined" in

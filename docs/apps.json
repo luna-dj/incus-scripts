@@ -2186,7 +2186,7 @@
   {
     "slug": "homebox",
     "name": "Homebox",
-    "category": "Home Automation",
+    "category": "Productivity",
     "description": "Home automation platform",
     "tags": "",
     "cpu": "1",
@@ -3362,7 +3362,7 @@
   {
     "slug": "medusa",
     "name": "Medusa",
-    "category": "Education",
+    "category": "Development",
     "description": "Self-hosted Medusa instance",
     "tags": "",
     "cpu": "1",
@@ -3404,7 +3404,7 @@
   {
     "slug": "meshcentral",
     "name": "Meshcentral",
-    "category": "Networking",
+    "category": "Utilities",
     "description": "Open-source remote management",
     "tags": "",
     "cpu": "1",
