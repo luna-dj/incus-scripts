@@ -77,6 +77,41 @@ variables() {
 create_instance() {
   log_step "Creating instance '${var_instance}'"
 
+  # Pre-flight: check that incus is initialized
+  if ! incus info &>/dev/null; then
+    log_error "Incus is not initialized on this host."
+    log_error "Run: sudo incus admin init"
+    exit 1
+  fi
+
+  # Pre-flight: ensure storage pool exists (auto-resolve if missing)
+  if [[ -z "$var_storage" ]]; then
+    var_storage="$(get_default_storage)"
+  fi
+  if [[ -z "$var_storage" ]]; then
+    log_error "No Incus storage pool configured."
+    log_error "Create one with: incus storage create default dir"
+    log_error "Or pass: var_storage=mypool  to the install command"
+    exit 1
+  fi
+  if ! incus storage list --format csv 2>/dev/null | grep -q "^${var_storage},"; then
+    log_error "Storage pool '${var_storage}' does not exist."
+    log_error "Available pools:"
+    incus storage list --format csv 2>/dev/null | cut -d',' -f1 | sed 's/^/  /'
+    log_error "Create one with: incus storage create default dir"
+    exit 1
+  fi
+
+  # Pre-flight: ensure network bridge exists
+  if [[ -z "$var_network" ]]; then
+    var_network="$(get_default_bridge)"
+  fi
+  if [[ -z "$var_network" ]]; then
+    log_error "No Incus network bridge found."
+    log_error "Create one with: incus network create incusbr0"
+    exit 1
+  fi
+
   local launch_args=(
     --type "$var_type"
     --profile "$var_profile"

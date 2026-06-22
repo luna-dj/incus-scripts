@@ -3,7 +3,10 @@
 # Copyright (c) 2026 incus-helper-scripts
 # License: MIT
 
-set -euo pipefail
+set -uo pipefail
+# Note: we deliberately do NOT use `set -e` because sourced helper functions
+# rely on command exit codes for control flow (e.g. `cmd || true`, `if cmd; then`).
+# A failure in `incus launch` should print a clear error, not silently exit.
 
 # ──────────────────────────────────────────────
 # COLOR & OUTPUT
