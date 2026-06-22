@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # incus-compat.func — Compatibility shim for upstream ProxmoxVE install scripts
-# Provides msg_info, msg_ok, $STD, setting_up_container, etc.
-# Copyright (c) 2026 incus-helper-scripts | License: MIT
+# Provides msg_info, msg_ok, STD, setting_up_container, etc.
+# Matches upstream function signatures exactly.
+# Copyright (c) 2026 incus-helper-sscripts | License: MIT
 
 [[ -n "${_INCUS_COMPAT_LOADED:-}" ]] && return
 _INCUS_COMPAT_LOADED=1
@@ -15,6 +16,7 @@ msg_info()  { echo -e "${BL}[INFO]${NC}  $*"; }
 msg_ok()    { echo -e "${GR}[OK]${NC}    $*"; }
 msg_warn()  { echo -e "${YL}[WARN]${NC}  $*"; }
 msg_error() { echo -e "${RD}[ERROR]${NC} $*" >&2; }
+msg_debug() { [[ "${VERBOSE:-no}" == "yes" ]] && echo -e "${MG}[DEBUG]${NC} $*"; }
 header_info() {
   local app="${1:-}"
   echo ""
@@ -25,37 +27,51 @@ header_info() {
 }
 
 # ── Execution helpers ───────────────────────
-$STD() {
-  if [[ "${DEBUG:-false}" == "true" ]]; then "$@"
+# Match upstream ProxmoxVE: STD is a VARIABLE not a function
+# Default silent mode (suppress command output)
+STD="silent"
+[[ "${VERBOSE:-no}" == "yes" ]] && STD=""
+
+# silent() is the wrapper that STD="silent" calls
+silent() { "$@" >/dev/null 2>&1; }
+
+# Also provide a function form (std) for our own scripts
+std() {
+  if [[ "${VERBOSE:-no}" == "yes" ]]; then "$@"
   else "$@" >/dev/null 2>&1; fi
 }
 
+# Catch errors
 catch_errors() { trap 'msg_error "Script failed at line $LINENO"' ERR; }
 color() { :; }
 load_functions() { :; }
 
 # ── Upstream install.func equivalents ───────
 setting_up_container() {
+  msg_info "Setting up container"
   if ! command -v curl &>/dev/null; then
     apt-get update -qq 2>/dev/null || true
     apt-get install -y -qq curl 2>/dev/null || true
   fi
   export DEBIAN_FRONTEND=noninteractive
+  msg_ok "Container ready"
 }
 
 network_check() {
   local ok=false
   for t in google.com github.com; do
-    if ping -c 1 -W 2 "$t" &>/dev/null; then ok=true; break; fi
     if curl -fsSL -m 3 "https://${t}" &>/dev/null; then ok=true; break; fi
   done
   $ok || { msg_error "No network"; exit 1; }
+  msg_ok "Network OK"
 }
 
 update_os() {
+  msg_info "Updating OS"
   export DEBIAN_FRONTEND=noninteractive
   apt-get update -qq 2>/dev/null || true
   apt-get upgrade -y -qq 2>/dev/null || true
+  msg_ok "OS updated"
 }
 
 motd_ssh() { :; }
@@ -75,32 +91,95 @@ fetch_and_deploy_gh_release() {
   local app="$1" repo="$2" file_match="$3" version="$4" install_dir="$5" archive_match="$6"
   msg_info "Fetching ${app} ${version}"
   local api_url dl_url
-  [[ "$version" == "latest" ]] && api_url="https://api.github.com/repos/${repo}/releases/latest" \
-    || api_url="https://api.github.com/repos/${repo}/releases/tags/v${version}"
+  if [[ "$version" == "latest" ]]; then
+    api_url="https://api.github.com/repos/${repo}/releases/latest"
+  else
+    api_url="https://api.github.com/repos/${repo}/releases/tags/v${version}"
+  fi
   dl_url=$(curl -fsSL "$api_url" 2>/dev/null | grep '"browser_download_url"' | grep -E "${archive_match}" | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
   [[ -z "$dl_url" ]] && dl_url="https://github.com/${repo}/archive/refs/tags/v${version}.tar.gz"
   local td; td=$(mktemp -d)
-  local ext="${dl_url##*.}"; [[ "$ext" == "gz" ]] && ext="tar.gz"
+  local ext="${dl_url##*.}"
+  [[ "$ext" == "gz" ]] && ext="tar.gz"
   curl -fsSL "$dl_url" -o "${td}/archive.${ext}"
   mkdir -p "$install_dir"
-  if [[ "$ext" == "tar.gz" || "$ext" == "tgz" ]]; then tar -xzf "${td}/archive.${ext}" -C "$install_dir" --strip-components=1 2>/dev/null || tar -xzf "${td}/archive.${ext}" -C "$install_dir" 2>/dev/null
-  elif [[ "$ext" == "zip" ]]; then unzip -q "${td}/archive.zip" -d "$install_dir" 2>/dev/null; fi
+  if [[ "$ext" == "tar.gz" || "$ext" == "tgz" ]]; then
+    tar -xzf "${td}/archive.${ext}" -C "$install_dir" --strip-components=1 2>/dev/null || \
+    tar -xzf "${td}/archive.${ext}" -C "$install_dir" 2>/dev/null
+  elif [[ "$ext" == "zip" ]]; then
+    unzip -q "${td}/archive.zip" -d "$install_dir" 2>/dev/null
+  fi
   rm -rf "$td"
   msg_ok "${app} deployed"
 }
 
-check_for_gh_release() { local r="$2"; curl -fsSL "https://api.github.com/repos/${r}/releases/latest" >/dev/null 2>&1; }
+check_for_gh_release() {
+  local r="$2"
+  curl -fsSL "https://api.github.com/repos/${r}/releases/latest" >/dev/null 2>&1
+}
 
 setup_nodejs() {
   local v="${NODE_VERSION:-20}"
+  msg_info "Installing Node.js ${v}"
   curl -fsSL "https://deb.nodesource.com/setup_${v}.x" | bash - 2>/dev/null || true
   apt-get install -y -qq nodejs 2>/dev/null || true
+  msg_ok "Node.js installed"
 }
 
-install_packages_with_retry() { apt-get install -y -qq "$@" 2>/dev/null || true; return 0; }
-upgrade_packages_with_retry() { apt-get upgrade -y -qq 2>/dev/null || true; }
-prepare_repository_setup() { rm -f /etc/apt/trusted.gpg.d/${1}* /etc/apt/keyrings/${1}* 2>/dev/null || true; apt-get update -qq 2>/dev/null || true; }
-curl_with_retry() { local url="$1" o="${2:--}"; curl -fsSL --retry 3 "$url" -o "$o" 2>/dev/null; return $?; }
+# ── Package management shims ───────────────
+install_packages_with_retry() {
+  local attempt=0 max=3
+  while (( attempt < max )); do
+    if apt-get install -y -qq "$@" 2>/dev/null; then
+      return 0
+    fi
+    ((attempt++))
+    apt-get update -qq 2>/dev/null || true
+    sleep 1
+  done
+  return 0
+}
+
+upgrade_packages_with_retry() {
+  local attempt=0 max=3
+  while (( attempt < max )); do
+    if apt-get upgrade -y -qq 2>/dev/null; then
+      return 0
+    fi
+    ((attempt++))
+    apt-get update -qq 2>/dev/null || true
+    sleep 1
+  done
+  return 0
+}
+
+prepare_repository_setup() {
+  local tool="$1"
+  rm -f /etc/apt/trusted.gpg.d/${tool}* /etc/apt/keyrings/${tool}* 2>/dev/null || true
+  apt-get update -qq 2>/dev/null || true
+}
+
+curl_with_retry() {
+  local url="$1" output="${2:-}"
+  local retries="${CURL_RETRIES:-3}"
+  local timeout="${CURL_TIMEOUT:-60}"
+  local attempt=0
+  while (( attempt < retries )); do
+    if [[ -n "$output" ]]; then
+      if curl -fsSL --connect-timeout 10 --max-time "$timeout" "$url" -o "$output" 2>/dev/null; then
+        return 0
+      fi
+    else
+      if curl -fsSL --connect-timeout 10 --max-time "$timeout" "$url" &>/dev/null; then
+        return 0
+      fi
+    fi
+    ((attempt++))
+    sleep $((attempt * 2))
+  done
+  return 1
+}
+
 cleanup_tool_keyrings() { :; }
 stop_all_services() { :; }
 verify_tool_version() { return 0; }
