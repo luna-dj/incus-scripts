@@ -8,6 +8,9 @@ set -uo pipefail
 # rely on command exit codes for control flow (e.g. `cmd || true`, `if cmd; then`).
 # A failure in `incus launch` should print a clear error, not silently exit.
 
+# Debug: print exit code on error
+trap 'echo "DEBUG: error at line $LINENO (exit $?)" >&2' ERR
+
 # ──────────────────────────────────────────────
 # COLOR & OUTPUT
 # ──────────────────────────────────────────────
@@ -178,11 +181,23 @@ resolve_image() {
 # ──────────────────────────────────────────────
 
 get_default_storage() {
-  incus storage list --format csv 2>/dev/null | head -1 | cut -d',' -f1
+  # Get the first data line (skipping CSV header), extract the first
+  # field, strip any whitespace and quotes. Returns empty if no pool.
+  # Note: 'incus storage list' CSV output starts with header line
+  # (NAME,DESCRIPTION,DRIVER,STATE), so we skip the first line.
+  incus storage list --format csv 2>/dev/null \
+    | awk 'NR>1 && /[^[:space:]]/' \
+    | head -1 \
+    | cut -d',' -f1 \
+    | tr -d '[:space:]"'
 }
 
 get_default_profile() {
-  incus profile list --format csv 2>/dev/null | head -1 | cut -d',' -f1
+  incus profile list --format csv 2>/dev/null \
+    | awk 'NR>1 && /[^[:space:]]/' \
+    | head -1 \
+    | cut -d',' -f1 \
+    | tr -d '[:space:]"'
 }
 
 # ──────────────────────────────────────────────

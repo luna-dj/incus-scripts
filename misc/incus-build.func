@@ -11,7 +11,10 @@
 # ==============================================================================
 
 [[ -z "${APP:-}" ]] && APP="Unknown"
-NSAPP="$(to_lower "$(sluggify "$APP")")"
+# Note: NSAPP and var_instance are NOT defaulted here because the
+# sourcing order is: common.sh -> build.func -> APP="X" in ct script.
+# Defaulting at sourcing time would resolve to "Unknown".
+# They are computed lazily in variables() below.
 var_tags="${var_tags:-}"
 var_cpu="${var_cpu:-2}"
 var_ram="${var_ram:-2048}"
@@ -19,7 +22,7 @@ var_disk="${var_disk:-10}"
 var_os="${var_os:-ubuntu}"
 var_version="${var_version:-24.04}"
 var_image="${var_image:-}"
-var_instance="${var_instance:-${NSAPP}}"
+var_instance="${var_instance:-}"  # resolved in variables()
 var_profile="${var_profile:-default}"
 var_storage="${var_storage:-}"
 var_network="${var_network:-}"
@@ -44,9 +47,18 @@ header_info() {
 
 # variables() — Initialize and validate build variables
 variables() {
-  # Normalize app name for instance naming
-  if [[ "$var_instance" == "$NSAPP" ]]; then
+  # Resolve NSAPP and var_instance lazily (APP may not be set when this
+  # func file is sourced — ct scripts set APP after sourcing).
+  NSAPP="$(to_lower "$(sluggify "$APP")")"
+  if [[ -z "$var_instance" ]]; then
     var_instance="$NSAPP"
+  fi
+
+  # Validate instance name
+  if [[ -z "$var_instance" ]] || [[ "$var_instance" == "unknown" ]]; then
+    log_error "Instance name could not be determined."
+    log_error "Set APP=... in the ct script or pass var_instance=..."
+    exit 1
   fi
 
   # Default storage from Incus if not set
@@ -59,12 +71,11 @@ variables() {
     var_network="$(get_default_bridge)"
   fi
 
-  # Resolve image
+  # Resolve image lazily (only when create_instance is called).
+  # We don't do it here because variables() is also called by
+  # check_existing_instance, which shouldn't require network access.
   if [[ -z "$var_image" ]]; then
-    var_image="$(resolve_image "$var_os" "$var_version")" || {
-      log_error "Failed to resolve image for ${var_os}/${var_version}"
-      exit 1
-    }
+    var_image="${var_os}/${var_version}"  # may be prefixed with images: later
   fi
 
   log_debug "APP=$APP NSAPP=$NSAPP"
@@ -84,7 +95,7 @@ create_instance() {
     exit 1
   fi
 
-  # Pre-flight: ensure storage pool exists (auto-resolve if missing)
+  # Pre-flight: ensure storage pool exists
   if [[ -z "$var_storage" ]]; then
     var_storage="$(get_default_storage)"
   fi
@@ -94,10 +105,14 @@ create_instance() {
     log_error "Or pass: var_storage=mypool  to the install command"
     exit 1
   fi
-  if ! incus storage list --format csv 2>/dev/null | grep -q "^${var_storage},"; then
+  if ! incus storage list --format csv 2>/dev/null \
+       | tail -n +2 \
+       | grep -v '^[[:space:]]*$' \
+       | cut -d',' -f1 \
+       | grep -qx "${var_storage}"; then
     log_error "Storage pool '${var_storage}' does not exist."
     log_error "Available pools:"
-    incus storage list --format csv 2>/dev/null | cut -d',' -f1 | sed 's/^/  /'
+    incus storage list --format csv 2>/dev/null | tail -n +2 | grep -v '^[[:space:]]*$' | cut -d',' -f1 | sed 's/^/  /'
     log_error "Create one with: incus storage create default dir"
     exit 1
   fi
@@ -112,12 +127,29 @@ create_instance() {
     exit 1
   fi
 
+  # Resolve image lazily
+  if [[ -z "$var_image" ]] || [[ "$var_image" != */* && "$var_image" != images:* ]]; then
+    local resolved
+    resolved="$(resolve_image "$var_os" "$var_version" 2>/dev/null)" || {
+      log_error "Could not resolve image for '${var_os}/${var_version}'"
+      log_error "Try: incus launch images:${var_os}/${var_version} ${var_instance}"
+      log_error "Or set var_image to a specific image alias you have locally"
+      exit 1
+    }
+    var_image="$resolved"
+  fi
+
   local launch_args=(
-    --type "$var_type"
     --profile "$var_profile"
     --storage "$var_storage"
     --network "$var_network"
   )
+
+  # In Incus, the default instance type is a container.
+  # To create a virtual machine, use the --vm flag (boolean).
+  if [[ "$var_type" == "virtual-machine" ]] || [[ "$var_type" == "vm" ]]; then
+    launch_args+=(--vm)
+  fi
 
   # Resource limits
   launch_args+=(--config "limits.cpu=${var_cpu}")
