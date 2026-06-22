@@ -386,8 +386,9 @@ fetch_and_deploy_gh_release() {
     release_json=$(curl -fsSL "$api_url" 2>/dev/null)
     if [[ -n "$release_json" ]]; then
       # Convert glob (linux_*.tar.gz) to regex (linux_.*\.tar\.gz)
-      local match_re="${archive_match//\*/.*}"
-      match_re="${match_re//./\\.}"
+      # Order matters: escape . first, then replace * → .*
+      local match_re
+      match_re=$(echo "$archive_match" | sed 's/\./\\./g; s/\*/.*/g')
       dl_url=$(echo "$release_json" | grep '"browser_download_url"' | grep -E "${match_re}" | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
       # Also try tarball_url from the release
       [[ -z "$dl_url" ]] && dl_url=$(echo "$release_json" | grep '"tarball_url"' | head -1 | sed -E 's/.*"tarball_url": *"([^"]+)".*/\1/')
