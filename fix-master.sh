@@ -1,20 +1,14 @@
 #!/usr/bin/env bash
 # fix-master.sh — Run on your LOCAL machine (not the server)
-# Pushes the bug fix to GitHub so the broken nginxproxymanager.sh works.
+# Switches the remote to Codeberg and pushes the bug fix.
 #
-# This script just helps you run the right commands in the right order.
-# You still need SSH or HTTPS credentials configured.
+# Why Codeberg? GitHub's raw.githubusercontent.com has aggressive caching
+# that serves stale content even after a successful push. Codeberg serves
+# files fresh on every request.
 
 set -e
 
-echo "==> Incus Scripts — push the STD fix"
-echo ""
-echo "Local repo:  $(pwd)"
-echo "Remote:      $(git remote get-url origin)"
-echo "Branch:      $(git branch --show-current)"
-echo ""
-echo "Local commits ready to push:"
-git log origin/master..HEAD --oneline 2>/dev/null || git log --oneline -5
+echo "==> Incus Scripts — push the STD fix to Codeberg"
 echo ""
 
 # Sanity check: verify the local file is fixed
@@ -25,31 +19,49 @@ fi
 echo "Local incus-compat.func is FIXED (no '\$STD()' function definition)"
 echo ""
 
-# Try push
-echo "==> Attempting push to origin/master..."
-if git push -u origin master 2>&1; then
+# Sanity check: verify local URLs all point to codeberg (excluding this script)
+if grep -rl 'github.com/luna-dj\|raw.githubusercontent.com/luna-dj' . 2>/dev/null | grep -v 'fix-master.sh' | head -1 | grep -q .; then
+    echo "ERROR: some files still reference github.com/luna-dj"
+    grep -rl 'github.com/luna-dj\|raw.githubusercontent.com/luna-dj' . 2>/dev/null | grep -v 'fix-master.sh' | head -5
+    exit 1
+fi
+echo "All URLs point to codeberg.org/luna-dj/incus-scripts"
+echo ""
+
+# Switch remote
+echo "==> Switching remote to Codeberg..."
+git remote set-url origin https://codeberg.org/luna-dj/incus-scripts.git
+git remote -v
+echo ""
+
+# Detect current branch
+CURRENT_BRANCH="$(git branch --show-current)"
+echo "Current local branch: $CURRENT_BRANCH"
+echo ""
+
+# Push
+echo "==> Pushing to Codeberg (branch: $CURRENT_BRANCH)..."
+if git push -u origin "$CURRENT_BRANCH" 2>&1; then
     echo ""
     echo "Push succeeded!"
     echo ""
     echo "Verify the fix is live:"
-    echo "  curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/misc/incus-compat.func | grep -E '^STD='"
+    echo "  curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/$CURRENT_BRANCH/misc/incus-compat.func | grep -E '^STD='"
     echo ""
+    echo "Then re-run your deploy:"
+    echo "  bash <(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/$CURRENT_BRANCH/ct/nginxproxymanager.sh)"
 else
     echo ""
-    echo "Push failed (likely auth). Try one of:"
+    echo "Push failed. Auth options:"
     echo ""
     echo "  Option A: HTTPS with token"
-    echo "    git remote set-url origin https://github.com/luna-dj/incus-scripts.git"
-    echo "    git push -u origin master"
-    echo "    # when prompted: username=luna-dj, password=<personal-access-token>"
+    echo "    Create a Codeberg token: https://codeberg.org/user/settings/applications"
+    echo "    git push -u origin $CURRENT_BRANCH"
+    echo "    # username=luna-dj, password=<token>"
     echo ""
-    echo "  Option B: Add SSH key to GitHub"
+    echo "  Option B: Add SSH key"
     echo "    ssh-keygen -t ed25519 -C 'luna@luna-dj.dev'"
-    echo "    cat ~/.ssh/id_ed25519.pub   # add to https://github.com/settings/keys"
-    echo "    git push -u origin master"
-    echo ""
-    echo "  Option C: Use GitHub CLI"
-    echo "    brew install gh && gh auth login"
-    echo "    git push -u origin master"
+    echo "    cat ~/.ssh/id_ed25519.pub   # paste into https://codeberg.org/user/settings/keys"
+    echo "    git push -u origin $CURRENT_BRANCH"
     exit 1
 fi

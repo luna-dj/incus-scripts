@@ -14,8 +14,8 @@ APPS_DIR="$DOCS_DIR/apps"
 mkdir -p "$APPS_DIR"
 
 REPO="luna-dj/incus-scripts"
-BRANCH="${BRANCH:-master}"
-RAW="https://raw.githubusercontent.com/$REPO/$BRANCH"
+BRANCH="${BRANCH:-main}"
+RAW="https://codeberg.org/$REPO/raw/branch/$BRANCH"
 
 # ── Category inference ──────────────────────
 # Categorize based on app slug (since generated tags are empty)
@@ -663,7 +663,7 @@ generate_app_pages() {
         </form>
       </div>
       <div class="navbar-links">
-        <a href="https://github.com/${REPO}" target="_blank">GitHub</a>
+        <a href="https://codeberg.org/${REPO}" target="_blank">Codeberg</a>
       </div>
     </div>
   </nav>
@@ -771,8 +771,8 @@ APPEOF2
     <section class="section">
       <h2>Source files</h2>
       <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px;">
-        <li>📄 <a href="https://github.com/${REPO}/blob/main/ct/${app}.sh" target="_blank">ct/${app}.sh</a> — host-side launcher</li>
-        <li>📄 <a href="https://github.com/${REPO}/blob/main/install/${app}-install.sh" target="_blank">install/${app}-install.sh</a> — in-container installer</li>
+        <li>📄 <a href="https://codeberg.org/${REPO}/src/branch/main/ct/${app}.sh" target="_blank">ct/${app}.sh</a> — host-side launcher</li>
+        <li>📄 <a href="https://codeberg.org/${REPO}/src/branch/main/install/${app}-install.sh" target="_blank">install/${app}-install.sh</a> — in-container installer</li>
       </ul>
     </section>
   </div>
@@ -781,7 +781,7 @@ APPEOF2
     <p>
       Part of <a href="../index.html">Incus Scripts</a> ·
       Inspired by <a href="https://community-scripts.org" target="_blank">community-scripts.org</a> ·
-      <a href="https://github.com/${REPO}" target="_blank">GitHub</a>
+      <a href="https://codeberg.org/${REPO}" target="_blank">Codeberg</a>
     </p>
   </footer>
   <script src="../js/site.js"></script>
@@ -820,8 +820,8 @@ generate_index() {
         <input type="text" id="search" placeholder="Search ${total}+ apps... (press /)" autocomplete="off">
       </div>
       <div class="navbar-links">
-        <a href="https://github.com/${REPO}" target="_blank">GitHub</a>
-        <a href="https://github.com/${REPO}/blob/main/README.md" target="_blank">Docs</a>
+        <a href="https://codeberg.org/${REPO}" target="_blank">Codeberg</a>
+        <a href="https://codeberg.org/${REPO}/src/branch/main/README.md" target="_blank">Docs</a>
       </div>
     </div>
   </nav>
@@ -922,7 +922,7 @@ for app in apps:
     <p>
       <strong>Incus Scripts</strong> · ${total} app templates ·
       Inspired by <a href="https://community-scripts.org" target="_blank">community-scripts.org</a> ·
-      <a href="https://github.com/${REPO}" target="_blank">View on GitHub</a>
+      <a href="https://codeberg.org/${REPO}" target="_blank">View on Codeberg</a>
     </p>
     <p style="margin-top: 8px; opacity: 0.7;">
       Built for <a href="https://linuxcontainers.org/incus/" target="_blank">Incus</a> · MIT License

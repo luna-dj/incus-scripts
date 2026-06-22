@@ -38,12 +38,13 @@ catch_errors() {
 }
 
 # Run a command silently unless DEBUG is true
-$STD() {
-  if [[ "${DEBUG:-false}" == "true" ]]; then
-    "$@"
-  else
-    "$@" >/dev/null 2>&1
-  fi
+# Note: STD is a VARIABLE (not function) to match upstream ProxmoxVE
+STD="${STD:-silent}"
+silent() { "$@" >/dev/null 2>&1; }
+# Function form for our own scripts (lowercase to avoid collision)
+std() {
+  if [[ "${DEBUG:-false}" == "true" ]]; then "$@"
+  else "$@" >/dev/null 2>&1; fi
 }
 
 # ──────────────────────────────────────────────

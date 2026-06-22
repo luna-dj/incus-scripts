@@ -66,4 +66,4 @@ configure_apt
 
 ## Questions?
 
-Open a [Discussion](https://github.com/luna-dj/incus-scripts/discussions) or an [Issue](https://github.com/luna-dj/incus-scripts/issues).
+Open a [Discussion](https://codeberg.org/luna-dj/incus-scripts/discussions) or an [Issue](https://codeberg.org/luna-dj/incus-scripts/issues).
