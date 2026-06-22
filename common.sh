@@ -181,48 +181,62 @@ resolve_image() {
 # ──────────────────────────────────────────────
 
 get_default_storage() {
-  # Get the first non-header line of incus storage list, extract the first
-  # field. Try multiple output formats since incus versions differ.
-  local out
-  out="$(incus storage list --format csv 2>/dev/null)"
+  # Get the first storage pool name. Handles multiple incus output formats:
+  # 1. CSV without header: "default,dir,,2,CREATED"  (some incus versions)
+  # 2. CSV with header:    "NAME,...\ndefault,..."  (newer incus)
+  # 3. Table format:       "| default | dir | ..."
+  #
+  # We try CSV first, then table, and skip lines that look like a CSV header.
 
-  # If --format csv gives nothing or just header, try table format
-  if [[ -z "$out" ]] || [[ "$(echo "$out" | wc -l)" -le 1 ]]; then
-    # Parse the table format:
-    #   |  default  | (empty) | dir | CREATED |
-    incus storage list 2>/dev/null \
-      | grep -E '^\| ' \
-      | head -1 \
-      | sed -E 's/^\| *([^ |]+).*/\1/' \
-      | grep -v '^NAME$'
-    return
+  # 1. Try CSV: skip any header line (one with no values OR with "NAME" in field 1)
+  local csv_out first_line pool
+  csv_out="$(incus storage list --format csv 2>/dev/null)"
+  if [[ -n "$csv_out" ]]; then
+    first_line="$(echo "$csv_out" | head -1)"
+    # A header line has the column name "NAME" in field 1, OR has only column
+    # names like "NAME,DESCRIPTION,..." with no real pool data.
+    if [[ "$first_line" == NAME* ]] || [[ "$first_line" == *",DRIVER"* ]]; then
+      pool="$(echo "$csv_out" | tail -n +2 | grep -v '^[[:space:]]*$' | head -1 | cut -d',' -f1 | tr -d '[:space:]"')"
+    else
+      pool="$(echo "$csv_out" | grep -v '^[[:space:]]*$' | head -1 | cut -d',' -f1 | tr -d '[:space:]"')"
+    fi
+    if [[ -n "$pool" ]]; then
+      echo "$pool"
+      return
+    fi
   fi
 
-  # Parse the CSV output (skip header line, take first field)
-  echo "$out" \
-    | tail -n +2 \
-    | grep -v '^[[:space:]]*$' \
+  # 2. Fall back to table format
+  incus storage list 2>/dev/null \
+    | grep -E '^\| ' \
     | head -1 \
-    | cut -d',' -f1 \
-    | tr -d '[:space:]"'
+    | sed -E 's/^\|[[:space:]]+([^|]+).*/\1/' \
+    | grep -v '^NAME$'
 }
 
 get_default_profile() {
-  local out
-  out="$(incus profile list --format csv 2>/dev/null)"
+  # Get the first profile name. Same multi-format logic as get_default_storage.
+  local csv_out first_line profile
+  csv_out="$(incus profile list --format csv 2>/dev/null)"
 
-  if [[ -z "$out" ]] || [[ "$(echo "$out" | wc -l)" -le 1 ]]; then
-    incus profile list 2>/dev/null \
-      | awk -F'|' '/\|/ {gsub(/^ +| +$/, "", $2); if ($2 != "" && $2 != "NAME") print $2; exit}'
-    return
+  if [[ -n "$csv_out" ]]; then
+    first_line="$(echo "$csv_out" | head -1)"
+    if [[ "$first_line" == NAME* ]] || [[ "$first_line" == *",DESCRIPTION"* ]] || [[ "$first_line" == *",DRIVER"* ]]; then
+      profile="$(echo "$csv_out" | tail -n +2 | grep -v '^[[:space:]]*$' | head -1 | cut -d',' -f1 | tr -d '[:space:]"')"
+    else
+      profile="$(echo "$csv_out" | grep -v '^[[:space:]]*$' | head -1 | cut -d',' -f1 | tr -d '[:space:]"')"
+    fi
+    if [[ -n "$profile" ]]; then
+      echo "$profile"
+      return
+    fi
   fi
 
-  echo "$out" \
-    | tail -n +2 \
-    | grep -v '^[[:space:]]*$' \
+  incus profile list 2>/dev/null \
+    | grep -E '^\| ' \
     | head -1 \
-    | cut -d',' -f1 \
-    | tr -d '[:space:]"'
+    | sed -E 's/^\|[[:space:]]+([^|]+).*/\1/' \
+    | grep -v '^NAME$'
 }
 
 # ──────────────────────────────────────────────
