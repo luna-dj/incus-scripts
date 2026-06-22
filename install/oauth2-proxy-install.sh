@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # install/oauth2-proxy-install.sh — Oauth2 Proxy
-# Generated for Incus from ProxmoxVE Community Scripts
-# License: MIT
+# Generated for Incus from upstream ProxmoxVE Community Scripts
+# Our wrapper code is MIT; upstream content retains its original license.
 
-source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-compat.func)"
+source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-install-compat.func)"
 
 header_info "Oauth2 Proxy"
 setting_up_container

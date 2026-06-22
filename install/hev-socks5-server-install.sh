@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # install/hev-socks5-server-install.sh — Hev Socks5 Server
-# Generated for Incus from ProxmoxVE Community Scripts
-# License: MIT
+# Generated for Incus from upstream ProxmoxVE Community Scripts
+# Our wrapper code is MIT; upstream content retains its original license.
 
-source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-compat.func)"
+source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-install-compat.func)"
 
 header_info "Hev Socks5 Server"
 setting_up_container

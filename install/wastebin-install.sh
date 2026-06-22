@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # install/wastebin-install.sh — Wastebin
-# Generated for Incus from ProxmoxVE Community Scripts
-# License: MIT
+# Generated for Incus from upstream ProxmoxVE Community Scripts
+# Our wrapper code is MIT; upstream content retains its original license.
 
-source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-compat.func)"
+source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-install-compat.func)"
 
 header_info "Wastebin"
 setting_up_container

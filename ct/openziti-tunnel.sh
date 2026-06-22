@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ct/openziti-tunnel.sh — Openziti Tunnel
-# Generated for Incus from ProxmoxVE Community Scripts
-# License: MIT
+# Generated for Incus from upstream ProxmoxVE Community Scripts
+# Our wrapper code is MIT; upstream content retains its original license.
 
 source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh)"
 source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-build.func)"

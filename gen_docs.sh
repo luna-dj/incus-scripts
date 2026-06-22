@@ -239,7 +239,6 @@ categorize() {
     splunk-enterprise) echo "Monitoring" && return 0 ;;
     mafl) echo "Dashboards" && return 0 ;;
     teddycloud) echo "Media" && return 0 ;;
-    wger) echo "Productivity" && return 0 ;;
     netbox) echo "Networking" && return 0 ;;
     strapi) echo "Development" && return 0 ;;
     miniflux) echo "Productivity" && return 0 ;;

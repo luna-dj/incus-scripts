@@ -10,7 +10,7 @@ CT_DIR="$(cd "$(dirname "$0")" && pwd)/ct"
 INSTALL_DIR="$(cd "$(dirname "$0")" && pwd)/install"
 COMMON_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh"
 BUILD_FUNC_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-build.func"
-COMPAT_FUNC_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-compat.func"
+COMPAT_FUNC_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-install-compat.func"
 INSTALL_BASE_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/install"
 UPSTREAM_BASE="https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install"
 
@@ -34,8 +34,8 @@ while IFS= read -r app; do
   cat > "${CT_DIR}/${app}.sh" <<CTEOF
 #!/usr/bin/env bash
 # ct/${app}.sh — ${display}
-# Generated for Incus from ProxmoxVE Community Scripts
-# License: MIT
+# Generated for Incus from upstream ProxmoxVE Community Scripts
+# Our wrapper code is MIT; upstream content retains its original license.
 
 source /dev/stdin <<<"\$(curl -fsSL ${COMMON_URL})"
 source /dev/stdin <<<"\$(curl -fsSL ${BUILD_FUNC_URL})"
@@ -73,10 +73,9 @@ CTEOF
   cat > "${INSTALL_DIR}/${app}-install.sh" <<INSTEOF
 #!/usr/bin/env bash
 # install/${app}-install.sh — ${display}
-# Generated for Incus from ProxmoxVE Community Scripts
-# License: MIT
+# Generated for Incus from upstream ProxmoxVE Community Scripts
+# Our wrapper code is MIT; upstream content retains its original license.
 
-source /dev/stdin <<<"\$(curl -fsSL ${COMMON_URL})"
 source /dev/stdin <<<"\$(curl -fsSL ${COMPAT_FUNC_URL})"
 
 header_info "${display}"
