@@ -100,29 +100,38 @@ fetch_and_deploy_gh_release() {
   local archive_match="${6:-tar.gz}"
   msg_info "Fetching ${app} ${version}"
 
-  local dl_url
+  local dl_url is_tarball=true
+
+  # Try git ls-remote for exact tag (no API rate limit)
   if [[ "$version" == "latest" ]]; then
-    # Resolve latest tag via git ls-remote (no API rate limit).
-    # This gets the exact tag name including any 'v' prefix.
     local tag_ref
     tag_ref=$(git ls-remote --tags --sort=-v:refname \
       "https://github.com/${repo}.git" 2>/dev/null \
       | grep -v '\^{}' | head -1 | cut -f2)
-    if [[ -n "$tag_ref" ]]; then
-      version="${tag_ref#refs/tags/}"
-      # Build URL using the exact tag name
-      dl_url="https://github.com/${repo}/archive/refs/tags/${version}.tar.gz"
-    else
-      # Fallback: try API
-      local resolved
-      resolved="$(get_latest_github_release "$repo")"
-      version="v${resolved}"
-      dl_url="https://github.com/${repo}/archive/refs/tags/${version}.tar.gz"
-    fi
+    [[ -n "$tag_ref" ]] && version="${tag_ref#refs/tags/}"
   else
-    # Specific version — strip any 'v' and use directly
     version="${version#v}"
-    dl_url="https://github.com/${repo}/archive/refs/tags/v${version}.tar.gz"
+  fi
+
+  # If archive_match specifies a binary pattern (not just *.tar.gz or tar.gz),
+  # try to find the matching release asset first.
+  if [[ "$archive_match" != "tar.gz" && "$archive_match" != "*.tar.gz" ]]; then
+    local api_url release_json
+    api_url="https://api.github.com/repos/${repo}/releases/tags/${version}"
+    release_json=$(curl -fsSL "$api_url" 2>/dev/null)
+    if [[ -n "$release_json" ]]; then
+      dl_url=$(echo "$release_json" | grep '"browser_download_url"' | grep -E "${archive_match}" | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
+      # Also try tarball_url from the release
+      [[ -z "$dl_url" ]] && dl_url=$(echo "$release_json" | grep '"tarball_url"' | head -1 | sed -E 's/.*"tarball_url": *"([^"]+)".*/\1/')
+      # If we found a specific asset, it's probably a binary (not source tarball)
+      [[ -n "$dl_url" ]] && is_tarball=false
+    fi
+  fi
+
+  # Fallback: source archive from GitHub
+  if [[ -z "$dl_url" ]]; then
+    dl_url="https://github.com/${repo}/archive/refs/tags/${version}.tar.gz"
+    is_tarball=true
   fi
 
   local td; td=$(mktemp -d)
