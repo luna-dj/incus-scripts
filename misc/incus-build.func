@@ -175,8 +175,11 @@ create_instance() {
   launch_args+=(--config "limits.cpu=${var_cpu}")
   launch_args+=(--config "limits.memory=${var_ram}MiB")
 
-  # Disk size through profile override
-  launch_args+=(--device "root,path=/,pool=${var_storage},size=${var_disk}GiB")
+  # Disk size override: incus parses --device as 'name,key=value',
+  # so we need multiple -d flags to set multiple properties on 'root'.
+  launch_args+=(--device "root,path=/")
+  launch_args+=(--device "root,pool=${var_storage}")
+  launch_args+=(--device "root,size=${var_disk}GiB")
 
   # Security / unprivileged
   if [[ "$var_unprivileged" == "true" ]]; then
@@ -188,7 +191,9 @@ create_instance() {
 
   # Static IPv4 if specified
   if [[ -n "$var_ipv4" ]]; then
-    launch_args+=(--device "eth0,name=eth0,network=${var_network},ipv4.address=${var_ipv4}")
+    launch_args+=(--device "eth0,name=eth0")
+    launch_args+=(--device "eth0,network=${var_network}")
+    launch_args+=(--device "eth0,ipv4.address=${var_ipv4}")
   fi
 
   # User-defined tags
