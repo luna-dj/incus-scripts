@@ -213,7 +213,7 @@ create_instance() {
   fi
 
   # Wait for it to be ready
-  wait_for_instance "$var_instance" 180
+  wait_for_instance "$var_instance" 30
 
   # Install required packages for script execution
   log_info "Setting up base environment..."

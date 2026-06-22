@@ -107,7 +107,7 @@ instance_exists() {
 # Wait for instance to be running
 wait_for_instance() {
   local name="$1"
-  local timeout="${2:-120}"
+  local timeout="${2:-30}"
   local elapsed=0
   while ! incus info "$name" 2>/dev/null | grep -q "Status: Running"; do
     sleep 2
