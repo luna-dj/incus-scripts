@@ -3,8 +3,8 @@
 # Copyright (c) 2026 incus-helper-scripts
 # License: MIT
 
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/misc/incus-build.func)"
+source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh)"
+source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-build.func)"
 
 APP="Nextcloud"
 var_tags="${var_tags:-cloud,file-sync,collaboration}"
@@ -19,7 +19,7 @@ variables
 check_existing_instance
 create_instance
 
-INSTALL_URL="https://raw.githubusercontent.com/luna-dj/incus-scripts/master/install/nextcloud-install.sh"
+INSTALL_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/install/nextcloud-install.sh"
 incus_exec "$var_instance" -- bash -c "$(curl -fsSL "$INSTALL_URL")"
 
 IP=$(get_instance_ip "$var_instance")

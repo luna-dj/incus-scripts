@@ -7,11 +7,11 @@
 #           to use $STD as a variable (matches upstream behavior).
 #
 # Usage:
-#   bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/fix-compat-local.sh)
+#   bash <(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/fix-compat-local.sh)
 
 set -e
 
-COMPAT_URL="https://raw.githubusercontent.com/luna-dj/incus-scripts/master/misc/incus-compat.func"
+COMPAT_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-compat.func"
 LOCAL_DIR="${HOME}/.local/share/incus-scripts"
 LOCAL_FILE="${LOCAL_DIR}/incus-compat.func"
 
@@ -41,7 +41,7 @@ echo "    To use the patched file, override the source URL:"
 echo "      bash <(curl -fsSL $COMPAT_URL) # verify the new version"
 echo ""
 echo "    Or, when you push your fix to the remote, the standard command works again:"
-echo "      bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/ct/<app>.sh)"
+echo "      bash <(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/ct/<app>.sh)"
 echo ""
 echo "    Push status: the fix is committed locally (commit 50d4ae1) but not yet"
 echo "    pushed to GitHub. Run:"
