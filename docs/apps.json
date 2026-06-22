@@ -86,7 +86,7 @@
   {
     "slug": "anchor",
     "name": "Anchor",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Anchor instance",
     "tags": "",
     "cpu": "1",
@@ -100,7 +100,7 @@
   {
     "slug": "anytype-server",
     "name": "Anytype Server",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Anytype Server instance",
     "tags": "",
     "cpu": "1",
@@ -184,7 +184,7 @@
   {
     "slug": "apache-tomcat",
     "name": "Apache Tomcat",
-    "category": "Other",
+    "category": "Development",
     "description": "Self-hosted Apache Tomcat instance",
     "tags": "",
     "cpu": "1",
@@ -240,7 +240,7 @@
   {
     "slug": "argus",
     "name": "Argus",
-    "category": "Other",
+    "category": "Monitoring",
     "description": "Self-hosted Argus instance",
     "tags": "",
     "cpu": "1",
@@ -324,7 +324,7 @@
   {
     "slug": "autobrr",
     "name": "Autobrr",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Autobrr instance",
     "tags": "",
     "cpu": "1",
@@ -338,7 +338,7 @@
   {
     "slug": "autocaliweb",
     "name": "Autocaliweb",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Autocaliweb instance",
     "tags": "",
     "cpu": "1",
@@ -366,7 +366,7 @@
   {
     "slug": "backrest",
     "name": "Backrest",
-    "category": "Other",
+    "category": "Cloud & Storage",
     "description": "Self-hosted Backrest instance",
     "tags": "",
     "cpu": "1",
@@ -394,7 +394,7 @@
   {
     "slug": "bambuddy",
     "name": "Bambuddy",
-    "category": "Other",
+    "category": "Home Automation",
     "description": "Self-hosted Bambuddy instance",
     "tags": "",
     "cpu": "1",
@@ -478,7 +478,7 @@
   {
     "slug": "bichon",
     "name": "Bichon",
-    "category": "Other",
+    "category": "Utilities",
     "description": "Self-hosted Bichon instance",
     "tags": "",
     "cpu": "1",
@@ -506,7 +506,7 @@
   {
     "slug": "bitfocus-companion",
     "name": "Bitfocus Companion",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Bitfocus Companion instance",
     "tags": "",
     "cpu": "1",
@@ -520,7 +520,7 @@
   {
     "slug": "bitmagnet",
     "name": "Bitmagnet",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Bitmagnet instance",
     "tags": "",
     "cpu": "1",
@@ -590,7 +590,7 @@
   {
     "slug": "bunkerweb",
     "name": "Bunkerweb",
-    "category": "Other",
+    "category": "Security",
     "description": "Self-hosted Bunkerweb instance",
     "tags": "",
     "cpu": "1",
@@ -716,7 +716,7 @@
   {
     "slug": "checkmate",
     "name": "Checkmate",
-    "category": "Other",
+    "category": "Monitoring",
     "description": "Self-hosted Checkmate instance",
     "tags": "",
     "cpu": "1",
@@ -968,7 +968,7 @@
   {
     "slug": "cross-seed",
     "name": "Cross Seed",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Cross Seed instance",
     "tags": "",
     "cpu": "1",
@@ -1052,7 +1052,7 @@
   {
     "slug": "dawarich",
     "name": "Dawarich",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Dawarich instance",
     "tags": "",
     "cpu": "1",
@@ -1136,7 +1136,7 @@
   {
     "slug": "discopanel",
     "name": "Discopanel",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Discopanel instance",
     "tags": "",
     "cpu": "1",
@@ -1276,7 +1276,7 @@
   {
     "slug": "donetick",
     "name": "Donetick",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Donetick instance",
     "tags": "",
     "cpu": "1",
@@ -1290,7 +1290,7 @@
   {
     "slug": "dotnetaspwebapi",
     "name": "Dotnetaspwebapi",
-    "category": "Other",
+    "category": "Development",
     "description": "Self-hosted Dotnetaspwebapi instance",
     "tags": "",
     "cpu": "1",
@@ -1346,7 +1346,7 @@
   {
     "slug": "dynacat",
     "name": "Dynacat",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Dynacat instance",
     "tags": "",
     "cpu": "1",
@@ -1514,7 +1514,7 @@
   {
     "slug": "ezbookkeeping",
     "name": "Ezbookkeeping",
-    "category": "Productivity",
+    "category": "Business",
     "description": "Self-hosted Ezbookkeeping instance",
     "tags": "",
     "cpu": "1",
@@ -1528,7 +1528,7 @@
   {
     "slug": "feishin",
     "name": "Feishin",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Feishin instance",
     "tags": "",
     "cpu": "1",
@@ -1584,7 +1584,7 @@
   {
     "slug": "fireshare",
     "name": "Fireshare",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Fireshare instance",
     "tags": "",
     "cpu": "1",
@@ -1612,7 +1612,7 @@
   {
     "slug": "flaresolverr",
     "name": "FlareSolverr",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted FlareSolverr instance",
     "tags": "",
     "cpu": "1",
@@ -1808,7 +1808,7 @@
   {
     "slug": "ghostfolio",
     "name": "Ghostfolio",
-    "category": "Development",
+    "category": "Business",
     "description": "Self-hosted Ghostfolio instance",
     "tags": "",
     "cpu": "1",
@@ -1864,7 +1864,7 @@
   {
     "slug": "glance",
     "name": "Glance",
-    "category": "Other",
+    "category": "Dashboards",
     "description": "Self-hosted Glance instance",
     "tags": "",
     "cpu": "1",
@@ -1920,7 +1920,7 @@
   {
     "slug": "go2rtc",
     "name": "Go2rtc",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted NVR / camera management",
     "tags": "",
     "cpu": "1",
@@ -1962,7 +1962,7 @@
   {
     "slug": "gotify",
     "name": "Gotify",
-    "category": "Productivity",
+    "category": "Communication",
     "description": "Self-hosted push notification server",
     "tags": "",
     "cpu": "1",
@@ -2116,7 +2116,7 @@
   {
     "slug": "hermesagent",
     "name": "Hermesagent",
-    "category": "Other",
+    "category": "AI",
     "description": "Self-hosted Hermesagent instance",
     "tags": "",
     "cpu": "1",
@@ -2284,7 +2284,7 @@
   {
     "slug": "hyperhdr",
     "name": "Hyperhdr",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Hyperhdr instance",
     "tags": "",
     "cpu": "1",
@@ -2298,7 +2298,7 @@
   {
     "slug": "hyperion",
     "name": "Hyperion",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Hyperion instance",
     "tags": "",
     "cpu": "1",
@@ -2312,7 +2312,7 @@
   {
     "slug": "igotify",
     "name": "Igotify",
-    "category": "Productivity",
+    "category": "Communication",
     "description": "Self-hosted push notification server",
     "tags": "",
     "cpu": "1",
@@ -2396,7 +2396,7 @@
   {
     "slug": "inventree",
     "name": "Inventree",
-    "category": "Productivity",
+    "category": "Business",
     "description": "Self-hosted Inventree instance",
     "tags": "",
     "cpu": "1",
@@ -2480,7 +2480,7 @@
   {
     "slug": "isponsorblocktv",
     "name": "Isponsorblocktv",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Isponsorblocktv instance",
     "tags": "",
     "cpu": "1",
@@ -2494,7 +2494,7 @@
   {
     "slug": "itsm-ng",
     "name": "Itsm Ng",
-    "category": "Other",
+    "category": "Business",
     "description": "Self-hosted Itsm Ng instance",
     "tags": "",
     "cpu": "1",
@@ -2606,7 +2606,7 @@
   {
     "slug": "jotty",
     "name": "Jotty",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Jotty instance",
     "tags": "",
     "cpu": "1",
@@ -2634,7 +2634,7 @@
   {
     "slug": "kan",
     "name": "Kan",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Kan instance",
     "tags": "",
     "cpu": "1",
@@ -2718,7 +2718,7 @@
   {
     "slug": "kima-hub",
     "name": "Kima Hub",
-    "category": "Other",
+    "category": "Development",
     "description": "Self-hosted Kima Hub instance",
     "tags": "",
     "cpu": "1",
@@ -2788,7 +2788,7 @@
   {
     "slug": "koillection",
     "name": "Koillection",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Koillection instance",
     "tags": "",
     "cpu": "1",
@@ -2830,7 +2830,7 @@
   {
     "slug": "komodo",
     "name": "Komodo",
-    "category": "Other",
+    "category": "Containers",
     "description": "Self-hosted Komodo instance",
     "tags": "",
     "cpu": "1",
@@ -2858,7 +2858,7 @@
   {
     "slug": "kutt",
     "name": "Kutt",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Kutt instance",
     "tags": "",
     "cpu": "1",
@@ -2984,7 +2984,7 @@
   {
     "slug": "limesurvey",
     "name": "Limesurvey",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Limesurvey instance",
     "tags": "",
     "cpu": "1",
@@ -3208,7 +3208,7 @@
   {
     "slug": "managemydamnlife",
     "name": "Managemydamnlife",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Managemydamnlife instance",
     "tags": "",
     "cpu": "1",
@@ -3222,7 +3222,7 @@
   {
     "slug": "manyfold",
     "name": "Manyfold",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Manyfold instance",
     "tags": "",
     "cpu": "1",
@@ -3432,7 +3432,7 @@
   {
     "slug": "metube",
     "name": "Metube",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Metube instance",
     "tags": "",
     "cpu": "1",
@@ -3502,7 +3502,7 @@
   {
     "slug": "minthcm",
     "name": "Minthcm",
-    "category": "Other",
+    "category": "Business",
     "description": "Self-hosted Minthcm instance",
     "tags": "",
     "cpu": "1",
@@ -3600,7 +3600,7 @@
   {
     "slug": "mylar3",
     "name": "Mylar3",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Mylar3 instance",
     "tags": "",
     "cpu": "1",
@@ -3670,7 +3670,7 @@
   {
     "slug": "nametag",
     "name": "Nametag",
-    "category": "Other",
+    "category": "Utilities",
     "description": "Self-hosted Nametag instance",
     "tags": "",
     "cpu": "1",
@@ -3698,7 +3698,7 @@
   {
     "slug": "neko",
     "name": "Neko",
-    "category": "Other",
+    "category": "Gaming",
     "description": "Self-hosted Neko instance",
     "tags": "",
     "cpu": "1",
@@ -3740,7 +3740,7 @@
   {
     "slug": "netboot-xyz",
     "name": "Netboot Xyz",
-    "category": "Other",
+    "category": "Development",
     "description": "Self-hosted Netboot Xyz instance",
     "tags": "",
     "cpu": "1",
@@ -3824,7 +3824,7 @@
   {
     "slug": "nextpvr",
     "name": "NextPVR",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted NextPVR instance",
     "tags": "",
     "cpu": "1",
@@ -3936,7 +3936,7 @@
   {
     "slug": "nodecast-tv",
     "name": "Nodecast Tv",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Nodecast Tv instance",
     "tags": "",
     "cpu": "1",
@@ -3950,7 +3950,7 @@
   {
     "slug": "notifiarr",
     "name": "Notifiarr",
-    "category": "Media",
+    "category": "Monitoring",
     "description": "Self-hosted Notifiarr instance",
     "tags": "",
     "cpu": "1",
@@ -4090,7 +4090,7 @@
   {
     "slug": "ombi",
     "name": "Ombi",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Ombi instance",
     "tags": "",
     "cpu": "1",
@@ -4104,7 +4104,7 @@
   {
     "slug": "omv",
     "name": "OpenMediaVault",
-    "category": "Other",
+    "category": "Cloud & Storage",
     "description": "Self-hosted OpenMediaVault instance",
     "tags": "",
     "cpu": "1",
@@ -4202,7 +4202,7 @@
   {
     "slug": "openobserve",
     "name": "Openobserve",
-    "category": "Other",
+    "category": "Monitoring",
     "description": "Self-hosted Openobserve instance",
     "tags": "",
     "cpu": "1",
@@ -4286,7 +4286,7 @@
   {
     "slug": "ots",
     "name": "Ots",
-    "category": "Other",
+    "category": "Security",
     "description": "Self-hosted Ots instance",
     "tags": "",
     "cpu": "1",
@@ -4328,7 +4328,7 @@
   {
     "slug": "owncast",
     "name": "Owncast",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Owncast instance",
     "tags": "",
     "cpu": "1",
@@ -4510,7 +4510,7 @@
   {
     "slug": "peanut",
     "name": "Peanut",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Peanut instance",
     "tags": "",
     "cpu": "1",
@@ -4622,7 +4622,7 @@
   {
     "slug": "plant-it",
     "name": "Plant It",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Plant It instance",
     "tags": "",
     "cpu": "1",
@@ -4650,7 +4650,7 @@
   {
     "slug": "pocketbase",
     "name": "Pocketbase",
-    "category": "Other",
+    "category": "Development",
     "description": "Self-hosted Pocketbase instance",
     "tags": "",
     "cpu": "1",
@@ -4664,7 +4664,7 @@
   {
     "slug": "pocketid",
     "name": "Pocketid",
-    "category": "Other",
+    "category": "Security",
     "description": "Self-hosted Pocketid instance",
     "tags": "",
     "cpu": "1",
@@ -4762,7 +4762,7 @@
   {
     "slug": "projectsend",
     "name": "Projectsend",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Projectsend instance",
     "tags": "",
     "cpu": "1",
@@ -4874,7 +4874,7 @@
   {
     "slug": "proxmox-datacenter-manager",
     "name": "Proxmox Datacenter Manager",
-    "category": "Database",
+    "category": "Containers",
     "description": "Self-hosted Proxmox Datacenter Manager instance",
     "tags": "",
     "cpu": "1",
@@ -4888,7 +4888,7 @@
   {
     "slug": "proxmox-mail-gateway",
     "name": "Proxmox Mail Gateway",
-    "category": "Networking",
+    "category": "Communication",
     "description": "Self-hosted Proxmox Mail Gateway instance",
     "tags": "",
     "cpu": "1",
@@ -4972,7 +4972,7 @@
   {
     "slug": "qdrant",
     "name": "Qdrant",
-    "category": "Database",
+    "category": "AI",
     "description": "Self-hosted Qdrant instance",
     "tags": "",
     "cpu": "1",
@@ -4986,7 +4986,7 @@
   {
     "slug": "qui",
     "name": "Qui",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Qui instance",
     "tags": "",
     "cpu": "1",
@@ -5028,7 +5028,7 @@
   {
     "slug": "radicale",
     "name": "Radicale",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Radicale instance",
     "tags": "",
     "cpu": "1",
@@ -5056,7 +5056,7 @@
   {
     "slug": "rdtclient",
     "name": "Rdtclient",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Rdtclient instance",
     "tags": "",
     "cpu": "1",
@@ -5070,7 +5070,7 @@
   {
     "slug": "reactive-resume",
     "name": "Reactive Resume",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Reactive Resume instance",
     "tags": "",
     "cpu": "1",
@@ -5266,7 +5266,7 @@
   {
     "slug": "salt",
     "name": "Salt",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Salt instance",
     "tags": "",
     "cpu": "1",
@@ -5280,7 +5280,7 @@
   {
     "slug": "scanopy",
     "name": "Scanopy",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Scanopy instance",
     "tags": "",
     "cpu": "1",
@@ -5336,7 +5336,7 @@
   {
     "slug": "seelf",
     "name": "Seelf",
-    "category": "Other",
+    "category": "Development",
     "description": "Self-hosted Seelf instance",
     "tags": "",
     "cpu": "1",
@@ -5420,7 +5420,7 @@
   {
     "slug": "shlink",
     "name": "Shlink",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Shlink instance",
     "tags": "",
     "cpu": "1",
@@ -5462,7 +5462,7 @@
   {
     "slug": "slskd",
     "name": "Slskd",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Slskd instance",
     "tags": "",
     "cpu": "1",
@@ -5504,7 +5504,7 @@
   {
     "slug": "snowshare",
     "name": "Snowshare",
-    "category": "Other",
+    "category": "Cloud & Storage",
     "description": "Self-hosted Snowshare instance",
     "tags": "",
     "cpu": "1",
@@ -5518,7 +5518,7 @@
   {
     "slug": "solidtime",
     "name": "Solidtime",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Solidtime instance",
     "tags": "",
     "cpu": "1",
@@ -5616,7 +5616,7 @@
   {
     "slug": "spliit",
     "name": "Spliit",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Spliit instance",
     "tags": "",
     "cpu": "1",
@@ -5630,7 +5630,7 @@
   {
     "slug": "split-pro",
     "name": "Split Pro",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Split Pro instance",
     "tags": "",
     "cpu": "1",
@@ -5658,7 +5658,7 @@
   {
     "slug": "spoolman",
     "name": "Spoolman",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Spoolman instance",
     "tags": "",
     "cpu": "1",
@@ -5756,7 +5756,7 @@
   {
     "slug": "storyteller",
     "name": "Storyteller",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Storyteller instance",
     "tags": "",
     "cpu": "1",
@@ -5812,7 +5812,7 @@
   {
     "slug": "sure",
     "name": "Sure",
-    "category": "Other",
+    "category": "Monitoring",
     "description": "Self-hosted Sure instance",
     "tags": "",
     "cpu": "1",
@@ -5868,7 +5868,7 @@
   {
     "slug": "tasmoadmin",
     "name": "Tasmoadmin",
-    "category": "Other",
+    "category": "Home Automation",
     "description": "Self-hosted Tasmoadmin instance",
     "tags": "",
     "cpu": "1",
@@ -5882,7 +5882,7 @@
   {
     "slug": "tasmocompiler",
     "name": "Tasmocompiler",
-    "category": "Other",
+    "category": "Home Automation",
     "description": "Self-hosted Tasmocompiler instance",
     "tags": "",
     "cpu": "1",
@@ -6008,7 +6008,7 @@
   {
     "slug": "termix",
     "name": "Termix",
-    "category": "Other",
+    "category": "Development",
     "description": "Self-hosted Termix instance",
     "tags": "",
     "cpu": "1",
@@ -6134,7 +6134,7 @@
   {
     "slug": "tracktor",
     "name": "Tracktor",
-    "category": "Other",
+    "category": "Monitoring",
     "description": "Website change detection",
     "tags": "",
     "cpu": "1",
@@ -6176,7 +6176,7 @@
   {
     "slug": "transmute",
     "name": "Transmute",
-    "category": "Other",
+    "category": "Utilities",
     "description": "Self-hosted Transmute instance",
     "tags": "",
     "cpu": "1",
@@ -6246,7 +6246,7 @@
   {
     "slug": "tududi",
     "name": "Tududi",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Tududi instance",
     "tags": "",
     "cpu": "1",
@@ -6274,7 +6274,7 @@
   {
     "slug": "twenty",
     "name": "Twenty",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Twenty instance",
     "tags": "",
     "cpu": "1",
@@ -6372,7 +6372,7 @@
   {
     "slug": "unmanic",
     "name": "Unmanic",
-    "category": "Other",
+    "category": "Media",
     "description": "Self-hosted Unmanic instance",
     "tags": "",
     "cpu": "1",
@@ -6386,7 +6386,7 @@
   {
     "slug": "upgopher",
     "name": "Upgopher",
-    "category": "Other",
+    "category": "Monitoring",
     "description": "Self-hosted Upgopher instance",
     "tags": "",
     "cpu": "1",
@@ -6400,7 +6400,7 @@
   {
     "slug": "upsnap",
     "name": "Upsnap",
-    "category": "Other",
+    "category": "Productivity",
     "description": "Self-hosted Upsnap instance",
     "tags": "",
     "cpu": "1",
@@ -6470,7 +6470,7 @@
   {
     "slug": "versitygw",
     "name": "Versitygw",
-    "category": "Other",
+    "category": "Cloud & Storage",
     "description": "Self-hosted Versitygw instance",
     "tags": "",
     "cpu": "1",
@@ -6862,7 +6862,7 @@
   {
     "slug": "yubal",
     "name": "Yubal",
-    "category": "Other",
+    "category": "Security",
     "description": "Self-hosted Yubal instance",
     "tags": "",
     "cpu": "1",
@@ -6876,7 +6876,7 @@
   {
     "slug": "yunohost",
     "name": "Yunohost",
-    "category": "Other",
+    "category": "Cloud & Storage",
     "description": "Self-hosted Yunohost instance",
     "tags": "",
     "cpu": "1",
