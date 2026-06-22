@@ -273,9 +273,6 @@ get_default_bridge() {
   incus network list --format csv 2>/dev/null | grep -i 'bridge' | head -1 | cut -d',' -f1
 }
 
-# ── incus-compat.func (pre-loaded via merged helper) ───
-[[ -n "${_INCUS_COMPAT_LOADED:-}" ]] && return
-_INCUS_COMPAT_LOADED=1
 # Matches upstream function signatures exactly.
 # Copyright (c) 2026 incus-helper-sscripts | License: MIT
 
