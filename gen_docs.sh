@@ -14,7 +14,8 @@ APPS_DIR="$DOCS_DIR/apps"
 mkdir -p "$APPS_DIR"
 
 REPO="luna-dj/incus-scripts"
-RAW="https://raw.githubusercontent.com/$REPO/main"
+BRANCH="${BRANCH:-master}"
+RAW="https://raw.githubusercontent.com/$REPO/$BRANCH"
 
 # ── Category inference ──────────────────────
 # Categorize based on app slug (since generated tags are empty)
@@ -832,7 +833,13 @@ generate_index() {
 
     <div class="hero-install">
       <div class="hero-install-label">Try one now</div>
-      <pre><code>bash &lt;(curl -fsSL ${RAW}/ct/postgresql.sh)</code></pre>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span>PostgreSQL</span>
+          <button class="copy-btn" data-copy="bash &lt;(curl -fsSL ${RAW}/ct/postgresql.sh)">Copy</button>
+        </div>
+        <pre><code>bash &lt;(curl -fsSL ${RAW}/ct/postgresql.sh)</code></pre>
+      </div>
     </div>
 
     <div class="hero-stats">

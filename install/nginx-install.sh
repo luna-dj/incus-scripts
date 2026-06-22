@@ -3,8 +3,8 @@
 # Copyright (c) 2026 incus-helper-scripts
 # License: MIT
 
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/misc/incus-install.func)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/common.sh)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/misc/incus-install.func)"
 
 header_info "Nginx"
 setting_up_container

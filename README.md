@@ -27,13 +27,13 @@ Each application has two scripts:
 
 ```bash
 # Deploy Nginx in 10 seconds
-bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/ct/nginx.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/ct/nginx.sh)
 
 # Deploy PostgreSQL
-bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/ct/postgresql.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/ct/postgresql.sh)
 
 # Deploy Ollama (LLM inference)
-bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/ct/ollama.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/ct/ollama.sh)
 ```
 
 > **Prerequisites:** [Incus 6.0+](https://linuxcontainers.org/incus/docs/main/installing/) installed and initialized.
@@ -95,7 +95,7 @@ var_cpu=4 var_ram=4096 var_disk=50 var_ipv4=10.0.0.50 \
 
 ```bash
 # Use the defaults
-bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/ct/nginx.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/ct/nginx.sh)
 
 # With custom resources
 var_cpu=2 var_ram=2048 var_disk=20 \
@@ -105,23 +105,23 @@ var_cpu=2 var_ram=2048 var_disk=20 \
 ### Run install in an existing instance
 
 ```bash
-incus exec <instance> -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/install/<app>-install.sh)"
+incus exec <instance> -- bash -c "$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/install/<app>-install.sh)"
 ```
 
 ### Manage instances
 
 ```bash
 # List all instances
-bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/tools/incus-list.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/tools/incus-list.sh)
 
 # Backup an instance
-bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/tools/incus-backup.sh) my-instance
+bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/tools/incus-backup.sh) my-instance
 
 # Backup all instances
-bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/tools/incus-backup.sh) --all
+bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/tools/incus-backup.sh) --all
 
 # Update all instances
-bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/tools/incus-update-all.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/tools/incus-update-all.sh)
 ```
 
 ### Profiles
@@ -174,8 +174,8 @@ Each app needs two files:
 
 ```bash
 #!/usr/bin/env bash
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/misc/incus-build.func)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/common.sh)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/misc/incus-build.func)"
 
 APP="My App"
 var_tags="${var_tags:-tag1,tag2}"
@@ -188,7 +188,7 @@ variables
 check_existing_instance
 create_instance
 
-INSTALL_URL="https://raw.githubusercontent.com/luna-dj/incus-scripts/main/install/myapp-install.sh"
+INSTALL_URL="https://raw.githubusercontent.com/luna-dj/incus-scripts/master/install/myapp-install.sh"
 incus_exec "$var_instance" -- bash -c "$(curl -fsSL "$INSTALL_URL")"
 
 IP=$(get_instance_ip "$var_instance")
@@ -199,8 +199,8 @@ echo "Access: http://${IP}:<port>"
 
 ```bash
 #!/usr/bin/env bash
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/misc/incus-install.func)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/common.sh)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/misc/incus-install.func)"
 
 header_info "My App"
 setting_up_container

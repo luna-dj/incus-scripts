@@ -2,7 +2,7 @@
 # tools/incus-list.sh — List all Incus instances with useful info
 # Copyright (c) 2026 incus-helper-scripts
 # License: MIT
-# Usage: bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/tools/incus-list.sh)
+# Usage: bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/tools/incus-list.sh)
 
 echo "┌───────────────────────────────────────────────────────────────┐"
 echo "│ Incus Instances                                               │"

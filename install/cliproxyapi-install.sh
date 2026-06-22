@@ -3,8 +3,8 @@
 # Generated for Incus from ProxmoxVE Community Scripts
 # License: MIT
 
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/misc/incus-compat.func)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/common.sh)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/misc/incus-compat.func)"
 
 header_info "Cliproxyapi"
 setting_up_container

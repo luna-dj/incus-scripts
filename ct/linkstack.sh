@@ -3,8 +3,8 @@
 # Generated for Incus from ProxmoxVE Community Scripts
 # License: MIT
 
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/misc/incus-build.func)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/common.sh)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/misc/incus-build.func)"
 
 APP="Linkstack"
 var_tags="${var_tags:-}"
@@ -20,8 +20,8 @@ check_existing_instance
 create_instance
 
 RUN_SCRIPT=$(cat <<'SCRIPT'
-$(curl -fsSL "https://raw.githubusercontent.com/luna-dj/incus-scripts/main/common.sh")
-$(curl -fsSL "https://raw.githubusercontent.com/luna-dj/incus-scripts/main/misc/incus-compat.func")
+$(curl -fsSL "https://raw.githubusercontent.com/luna-dj/incus-scripts/master/common.sh")
+$(curl -fsSL "https://raw.githubusercontent.com/luna-dj/incus-scripts/master/misc/incus-compat.func")
 $(curl -fsSL "https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/linkstack-install.sh")
 SCRIPT
 )

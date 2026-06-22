@@ -3,8 +3,8 @@
 # Copyright (c) 2026 incus-helper-scripts
 # License: MIT
 
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/misc/incus-build.func)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/common.sh)"
+source /dev/stdin <<<"$(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/master/misc/incus-build.func)"
 
 APP="Nginx"
 var_tags="${var_tags:-proxy,web}"
@@ -20,7 +20,7 @@ check_existing_instance
 create_instance
 
 log_info "Pushing install script..."
-INSTALL_URL="https://raw.githubusercontent.com/luna-dj/incus-scripts/main/install/nginx-install.sh"
+INSTALL_URL="https://raw.githubusercontent.com/luna-dj/incus-scripts/master/install/nginx-install.sh"
 incus_exec "$var_instance" -- bash -c "$(curl -fsSL "$INSTALL_URL")"
 
 IP=$(get_instance_ip "$var_instance")
