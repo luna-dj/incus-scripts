@@ -33,7 +33,7 @@ INSTALL_SCRIPT=$(curl -fsSL --http1.1 "${INCUS_BASE}/install/opengist-install.sh
     log_error "Failed to fetch install script for opengist"
     exit 1
 }
-printf '%s\n' "$INSTALL_SCRIPT" | incus_exec_stdin "$var_instance"
+printf '%s\n' "INCUS_BASE=${INCUS_BASE}" "$INSTALL_SCRIPT" | incus_exec_stdin "$var_instance"
 
 IP=$(get_instance_ip "$var_instance")
 echo ""
