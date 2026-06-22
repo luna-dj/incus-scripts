@@ -19,10 +19,10 @@ fi
 echo "Local incus-compat.func is FIXED (no '\$STD()' function definition)"
 echo ""
 
-# Sanity check: verify local URLs all point to codeberg
-if grep -rl 'github.com/luna-dj\|raw.githubusercontent.com/luna-dj' . 2>/dev/null | head -1 | grep -q .; then
+# Sanity check: verify local URLs all point to codeberg (excluding this script)
+if grep -rl 'github.com/luna-dj\|raw.githubusercontent.com/luna-dj' . 2>/dev/null | grep -v 'fix-master.sh' | head -1 | grep -q .; then
     echo "ERROR: some files still reference github.com/luna-dj"
-    grep -rl 'github.com/luna-dj\|raw.githubusercontent.com/luna-dj' . 2>/dev/null | head -5
+    grep -rl 'github.com/luna-dj\|raw.githubusercontent.com/luna-dj' . 2>/dev/null | grep -v 'fix-master.sh' | head -5
     exit 1
 fi
 echo "All URLs point to codeberg.org/luna-dj/incus-scripts"
