@@ -97,33 +97,24 @@ get_latest_github_release() {
 fetch_and_deploy_gh_release() {
   local app="$1" repo="$2" file_match="$3" version="$4"
   local install_dir="${5:-/opt/${app}}"
-  local archive_match="${6:-*.tar.gz}"
+  local archive_match="${6:-tar.gz}"
   msg_info "Fetching ${app} ${version}"
-  local api_url dl_url
+
+  local dl_url
   if [[ "$version" == "latest" ]]; then
-    api_url="https://api.github.com/repos/${repo}/releases/latest"
-  else
-    api_url="https://api.github.com/repos/${repo}/releases/tags/v${version}"
+    # Resolve 'latest' to actual tag, then construct the archive URL
+    local resolved_version
+    resolved_version="$(get_latest_github_release "$repo")"
+    version="$resolved_version"
   fi
-  # Try browser_download_url first, then tarball_url from the release JSON
-  local release_json
-  release_json="$(curl -fsSL "$api_url" 2>/dev/null)"
-  dl_url=$(echo "$release_json" | grep '"browser_download_url"' | grep -E "${archive_match}" | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
-  if [[ -z "$dl_url" ]]; then
-    dl_url=$(echo "$release_json" | grep '"tarball_url"' | head -1 | sed -E 's/.*"tarball_url": *"([^"]+)".*/\1/')
-  fi
-  [[ -z "$dl_url" ]] && dl_url="https://github.com/${repo}/archive/refs/tags/v${version}.tar.gz"
+  # Use the direct GitHub archive URL: no API call, no rate limit
+  dl_url="https://github.com/${repo}/archive/refs/tags/v${version}.tar.gz"
+
   local td; td=$(mktemp -d)
-  local ext="${dl_url##*.}"
-  [[ "$ext" == "gz" ]] && ext="tar.gz"
-  curl -fsSL -L "$dl_url" -o "${td}/archive.${ext}"
+  curl -fsSL -L "$dl_url" -o "${td}/archive.tar.gz"
   mkdir -p "$install_dir"
-  if [[ "$ext" == "tar.gz" || "$ext" == "tgz" ]]; then
-    tar -xzf "${td}/archive.${ext}" -C "$install_dir" --strip-components=1 2>/dev/null || \
-    tar -xzf "${td}/archive.${ext}" -C "$install_dir" 2>/dev/null
-  elif [[ "$ext" == "zip" ]]; then
-    unzip -q "${td}/archive.zip" -d "$install_dir" 2>/dev/null
-  fi
+  tar -xzf "${td}/archive.tar.gz" -C "$install_dir" --strip-components=1 2>/dev/null || \
+    tar -xzf "${td}/archive.tar.gz" -C "$install_dir" 2>/dev/null
   rm -rf "$td"
   msg_ok "${app} deployed"
 }
