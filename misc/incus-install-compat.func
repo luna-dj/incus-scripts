@@ -385,7 +385,10 @@ fetch_and_deploy_gh_release() {
     api_url="https://api.github.com/repos/${repo}/releases/tags/${version}"
     release_json=$(curl -fsSL "$api_url" 2>/dev/null)
     if [[ -n "$release_json" ]]; then
-      dl_url=$(echo "$release_json" | grep '"browser_download_url"' | grep -E "${archive_match}" | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
+      # Convert glob (linux_*.tar.gz) to regex (linux_.*\.tar\.gz)
+      local match_re="${archive_match//\*/.*}"
+      match_re="${match_re//./\\.}"
+      dl_url=$(echo "$release_json" | grep '"browser_download_url"' | grep -E "${match_re}" | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
       # Also try tarball_url from the release
       [[ -z "$dl_url" ]] && dl_url=$(echo "$release_json" | grep '"tarball_url"' | head -1 | sed -E 's/.*"tarball_url": *"([^"]+)".*/\1/')
       # If we found a specific asset, it's probably a binary (not source tarball)
