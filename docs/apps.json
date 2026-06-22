@@ -1,0 +1,7029 @@
+[
+  {
+    "slug": "2fauth",
+    "name": "2fauth",
+    "category": "Security",
+    "description": "Self-hosted 2fauth instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/2fauth.html"
+  }
+,
+  {
+    "slug": "actualbudget",
+    "name": "Actualbudget",
+    "category": "Other",
+    "description": "Self-hosted Actualbudget instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/actualbudget.html"
+  }
+,
+  {
+    "slug": "adguard",
+    "name": "AdGuard Home",
+    "category": "Networking",
+    "description": "Network-wide ad blocker and DNS server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/adguard.html"
+  }
+,
+  {
+    "slug": "adventurelog",
+    "name": "Adventurelog",
+    "category": "Monitoring",
+    "description": "Self-hosted Adventurelog instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/adventurelog.html"
+  }
+,
+  {
+    "slug": "agentdvr",
+    "name": "Agentdvr",
+    "category": "Other",
+    "description": "Self-hosted Agentdvr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/agentdvr.html"
+  }
+,
+  {
+    "slug": "ampache",
+    "name": "Ampache",
+    "category": "Other",
+    "description": "Self-hosted Ampache instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ampache.html"
+  }
+,
+  {
+    "slug": "anchor",
+    "name": "Anchor",
+    "category": "Other",
+    "description": "Self-hosted Anchor instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/anchor.html"
+  }
+,
+  {
+    "slug": "anytype-server",
+    "name": "Anytype Server",
+    "category": "Other",
+    "description": "Self-hosted Anytype Server instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/anytype-server.html"
+  }
+,
+  {
+    "slug": "apache-airflow",
+    "name": "Apache Airflow",
+    "category": "AI",
+    "description": "Self-hosted Apache Airflow instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/apache-airflow.html"
+  }
+,
+  {
+    "slug": "apache-cassandra",
+    "name": "Apache Cassandra",
+    "category": "Database",
+    "description": "Distributed NoSQL database",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/apache-cassandra.html"
+  }
+,
+  {
+    "slug": "apache-couchdb",
+    "name": "Apache CouchDB",
+    "category": "Database",
+    "description": "Document-oriented NoSQL database",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/apache-couchdb.html"
+  }
+,
+  {
+    "slug": "apache-guacamole",
+    "name": "Apache Guacamole",
+    "category": "Other",
+    "description": "Self-hosted Apache Guacamole instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/apache-guacamole.html"
+  }
+,
+  {
+    "slug": "apache-tika",
+    "name": "Apache Tika",
+    "category": "Other",
+    "description": "Self-hosted Apache Tika instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/apache-tika.html"
+  }
+,
+  {
+    "slug": "apache-tomcat",
+    "name": "Apache Tomcat",
+    "category": "Gaming",
+    "description": "Self-hosted Apache Tomcat instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/apache-tomcat.html"
+  }
+,
+  {
+    "slug": "apprise-api",
+    "name": "Apprise Api",
+    "category": "Other",
+    "description": "Notification aggregator",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/apprise-api.html"
+  }
+,
+  {
+    "slug": "apt-cacher-ng",
+    "name": "Apt Cacher Ng",
+    "category": "Other",
+    "description": "Self-hosted Apt Cacher Ng instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/apt-cacher-ng.html"
+  }
+,
+  {
+    "slug": "archivebox",
+    "name": "ArchiveBox",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted ArchiveBox instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/archivebox.html"
+  }
+,
+  {
+    "slug": "argus",
+    "name": "Argus",
+    "category": "Other",
+    "description": "Self-hosted Argus instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/argus.html"
+  }
+,
+  {
+    "slug": "aria2",
+    "name": "Aria2",
+    "category": "Other",
+    "description": "Self-hosted Aria2 instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/aria2.html"
+  }
+,
+  {
+    "slug": "asterisk",
+    "name": "Asterisk",
+    "category": "Other",
+    "description": "Self-hosted Asterisk instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/asterisk.html"
+  }
+,
+  {
+    "slug": "audiobookshelf",
+    "name": "Audiobookshelf",
+    "category": "Media",
+    "description": "Self-hosted Audiobookshelf instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/audiobookshelf.html"
+  }
+,
+  {
+    "slug": "authelia",
+    "name": "Authelia",
+    "category": "Security",
+    "description": "Identity provider and SSO",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/authelia.html"
+  }
+,
+  {
+    "slug": "authentik",
+    "name": "Authentik",
+    "category": "Security",
+    "description": "Identity provider and SSO",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/authentik.html"
+  }
+,
+  {
+    "slug": "autobrr",
+    "name": "Autobrr",
+    "category": "Other",
+    "description": "Self-hosted Autobrr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/autobrr.html"
+  }
+,
+  {
+    "slug": "autocaliweb",
+    "name": "Autocaliweb",
+    "category": "Other",
+    "description": "Self-hosted Autocaliweb instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/autocaliweb.html"
+  }
+,
+  {
+    "slug": "babybuddy",
+    "name": "Babybuddy",
+    "category": "Other",
+    "description": "Self-hosted Babybuddy instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/babybuddy.html"
+  }
+,
+  {
+    "slug": "backrest",
+    "name": "Backrest",
+    "category": "Other",
+    "description": "Self-hosted Backrest instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/backrest.html"
+  }
+,
+  {
+    "slug": "baikal",
+    "name": "Baikal",
+    "category": "AI",
+    "description": "Self-hosted Baikal instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/baikal.html"
+  }
+,
+  {
+    "slug": "bambuddy",
+    "name": "Bambuddy",
+    "category": "Other",
+    "description": "Self-hosted Bambuddy instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bambuddy.html"
+  }
+,
+  {
+    "slug": "bar-assistant",
+    "name": "Bar Assistant",
+    "category": "Other",
+    "description": "Self-hosted Bar Assistant instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bar-assistant.html"
+  }
+,
+  {
+    "slug": "baserow",
+    "name": "Baserow",
+    "category": "Database",
+    "description": "Recipe and meal planning",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/baserow.html"
+  }
+,
+  {
+    "slug": "bazarr",
+    "name": "Bazarr",
+    "category": "Media",
+    "description": "Media automation (*arr suite)",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bazarr.html"
+  }
+,
+  {
+    "slug": "bentopdf",
+    "name": "Bentopdf",
+    "category": "Utilities",
+    "description": "Self-hosted Bentopdf instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bentopdf.html"
+  }
+,
+  {
+    "slug": "beszel",
+    "name": "Beszel",
+    "category": "Other",
+    "description": "Self-hosted Beszel instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/beszel.html"
+  }
+,
+  {
+    "slug": "bichon",
+    "name": "Bichon",
+    "category": "Other",
+    "description": "Self-hosted Bichon instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bichon.html"
+  }
+,
+  {
+    "slug": "birdnet-go",
+    "name": "Birdnet Go",
+    "category": "Networking",
+    "description": "Self-hosted Birdnet Go instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/birdnet-go.html"
+  }
+,
+  {
+    "slug": "bitfocus-companion",
+    "name": "Bitfocus Companion",
+    "category": "Other",
+    "description": "Self-hosted Bitfocus Companion instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bitfocus-companion.html"
+  }
+,
+  {
+    "slug": "bitmagnet",
+    "name": "Bitmagnet",
+    "category": "Networking",
+    "description": "Self-hosted Bitmagnet instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bitmagnet.html"
+  }
+,
+  {
+    "slug": "blocky",
+    "name": "Blocky",
+    "category": "Networking",
+    "description": "Network-wide ad blocker and DNS server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/blocky.html"
+  }
+,
+  {
+    "slug": "booklore",
+    "name": "Booklore",
+    "category": "Other",
+    "description": "Self-hosted Booklore instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/booklore.html"
+  }
+,
+  {
+    "slug": "bookorbit",
+    "name": "Bookorbit",
+    "category": "Other",
+    "description": "Self-hosted Bookorbit instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bookorbit.html"
+  }
+,
+  {
+    "slug": "bookstack",
+    "name": "BookStack",
+    "category": "Productivity",
+    "description": "Self-hosted wiki",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bookstack.html"
+  }
+,
+  {
+    "slug": "bunkerweb",
+    "name": "Bunkerweb",
+    "category": "Other",
+    "description": "Self-hosted Bunkerweb instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bunkerweb.html"
+  }
+,
+  {
+    "slug": "byparr",
+    "name": "Byparr",
+    "category": "Other",
+    "description": "Self-hosted Byparr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/byparr.html"
+  }
+,
+  {
+    "slug": "bytestash",
+    "name": "Bytestash",
+    "category": "Other",
+    "description": "Self-hosted Bytestash instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/bytestash.html"
+  }
+,
+  {
+    "slug": "caddy",
+    "name": "Caddy",
+    "category": "Networking",
+    "description": "Reverse proxy with automatic HTTPS",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/caddy.html"
+  }
+,
+  {
+    "slug": "calibre-web",
+    "name": "Calibre-Web",
+    "category": "Media",
+    "description": "Self-hosted Calibre-Web instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/calibre-web.html"
+  }
+,
+  {
+    "slug": "casaos",
+    "name": "Casaos",
+    "category": "Containers",
+    "description": "Self-hosted app deployment platforms",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/casaos.html"
+  }
+,
+  {
+    "slug": "certimate",
+    "name": "Certimate",
+    "category": "Other",
+    "description": "Self-hosted Certimate instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/certimate.html"
+  }
+,
+  {
+    "slug": "changedetection",
+    "name": "Changedetection",
+    "category": "Other",
+    "description": "Website change detection",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/changedetection.html"
+  }
+,
+  {
+    "slug": "channels",
+    "name": "Channels",
+    "category": "Other",
+    "description": "Self-hosted Channels instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/channels.html"
+  }
+,
+  {
+    "slug": "checkmate",
+    "name": "Checkmate",
+    "category": "Other",
+    "description": "Self-hosted Checkmate instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/checkmate.html"
+  }
+,
+  {
+    "slug": "checkmk",
+    "name": "Checkmk",
+    "category": "Monitoring",
+    "description": "Self-hosted Checkmk instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/checkmk.html"
+  }
+,
+  {
+    "slug": "cleanuparr",
+    "name": "Cleanuparr",
+    "category": "Other",
+    "description": "Self-hosted Cleanuparr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cleanuparr.html"
+  }
+,
+  {
+    "slug": "clickhouse",
+    "name": "ClickHouse",
+    "category": "Database",
+    "description": "Column-oriented DBMS for analytics",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/clickhouse.html"
+  }
+,
+  {
+    "slug": "cliproxyapi",
+    "name": "Cliproxyapi",
+    "category": "Networking",
+    "description": "Self-hosted Cliproxyapi instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cliproxyapi.html"
+  }
+,
+  {
+    "slug": "cloudflare-ddns",
+    "name": "Cloudflare Ddns",
+    "category": "Networking",
+    "description": "Self-hosted Cloudflare Ddns instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cloudflare-ddns.html"
+  }
+,
+  {
+    "slug": "cloudflared",
+    "name": "Cloudflared",
+    "category": "Networking",
+    "description": "Self-hosted Cloudflared instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cloudflared.html"
+  }
+,
+  {
+    "slug": "cloudreve",
+    "name": "Cloudreve",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted Cloudreve instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cloudreve.html"
+  }
+,
+  {
+    "slug": "cockpit",
+    "name": "Cockpit",
+    "category": "Other",
+    "description": "Web-based server management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cockpit.html"
+  }
+,
+  {
+    "slug": "comfyui",
+    "name": "Comfyui",
+    "category": "AI",
+    "description": "Self-hosted Comfyui instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/comfyui.html"
+  }
+,
+  {
+    "slug": "commafeed",
+    "name": "Commafeed",
+    "category": "Other",
+    "description": "Self-hosted Commafeed instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/commafeed.html"
+  }
+,
+  {
+    "slug": "configarr",
+    "name": "Configarr",
+    "category": "Other",
+    "description": "Self-hosted Configarr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/configarr.html"
+  }
+,
+  {
+    "slug": "convertx",
+    "name": "Convertx",
+    "category": "Utilities",
+    "description": "Self-hosted Convertx instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/convertx.html"
+  }
+,
+  {
+    "slug": "coolify",
+    "name": "Coolify",
+    "category": "Containers",
+    "description": "Self-hosted app deployment platforms",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/coolify.html"
+  }
+,
+  {
+    "slug": "coredns",
+    "name": "CoreDNS",
+    "category": "Networking",
+    "description": "Network-wide ad blocker and DNS server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/coredns.html"
+  }
+,
+  {
+    "slug": "cosmos",
+    "name": "Cosmos",
+    "category": "Containers",
+    "description": "Self-hosted Cosmos instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cosmos.html"
+  }
+,
+  {
+    "slug": "crafty-controller",
+    "name": "Crafty Controller",
+    "category": "Other",
+    "description": "Self-hosted Crafty Controller instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/crafty-controller.html"
+  }
+,
+  {
+    "slug": "cronicle",
+    "name": "Cronicle",
+    "category": "Other",
+    "description": "Self-hosted Cronicle instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cronicle.html"
+  }
+,
+  {
+    "slug": "cross-seed",
+    "name": "Cross Seed",
+    "category": "Other",
+    "description": "Self-hosted Cross Seed instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cross-seed.html"
+  }
+,
+  {
+    "slug": "cryptpad",
+    "name": "CryptPad",
+    "category": "Other",
+    "description": "Self-hosted CryptPad instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cryptpad.html"
+  }
+,
+  {
+    "slug": "cyberchef",
+    "name": "Cyberchef",
+    "category": "Utilities",
+    "description": "Handy developer and sysadmin utilities",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cyberchef.html"
+  }
+,
+  {
+    "slug": "dagu",
+    "name": "Dagu",
+    "category": "Other",
+    "description": "Self-hosted Dagu instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/dagu.html"
+  }
+,
+  {
+    "slug": "dashy",
+    "name": "Dashy",
+    "category": "Monitoring",
+    "description": "Self-hosted dashboard for all your services",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/dashy.html"
+  }
+,
+  {
+    "slug": "databasus",
+    "name": "Databasus",
+    "category": "Database",
+    "description": "Self-hosted Databasus instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/databasus.html"
+  }
+,
+  {
+    "slug": "dawarich",
+    "name": "Dawarich",
+    "category": "Other",
+    "description": "Self-hosted Dawarich instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/dawarich.html"
+  }
+,
+  {
+    "slug": "ddclient",
+    "name": "ddclient",
+    "category": "Networking",
+    "description": "Self-hosted ddclient instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ddclient.html"
+  }
+,
+  {
+    "slug": "ddns-updater",
+    "name": "Ddns Updater",
+    "category": "Networking",
+    "description": "Self-hosted Ddns Updater instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ddns-updater.html"
+  }
+,
+  {
+    "slug": "deconz",
+    "name": "deCONZ",
+    "category": "Home Automation",
+    "description": "Self-hosted deCONZ instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/deconz.html"
+  }
+,
+  {
+    "slug": "degoog",
+    "name": "Degoog",
+    "category": "Other",
+    "description": "Self-hosted Degoog instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/degoog.html"
+  }
+,
+  {
+    "slug": "deluge",
+    "name": "Deluge",
+    "category": "Media",
+    "description": "Self-hosted Deluge instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/deluge.html"
+  }
+,
+  {
+    "slug": "discopanel",
+    "name": "Discopanel",
+    "category": "Other",
+    "description": "Self-hosted Discopanel instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/discopanel.html"
+  }
+,
+  {
+    "slug": "dispatcharr",
+    "name": "Dispatcharr",
+    "category": "Other",
+    "description": "Self-hosted Dispatcharr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/dispatcharr.html"
+  }
+,
+  {
+    "slug": "docker",
+    "name": "Docker",
+    "category": "Containers",
+    "description": "Container runtime",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/docker.html"
+  }
+,
+  {
+    "slug": "dockge",
+    "name": "Dockge",
+    "category": "Containers",
+    "description": "Self-hosted app deployment platforms",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/dockge.html"
+  }
+,
+  {
+    "slug": "docmost",
+    "name": "Docmost",
+    "category": "Productivity",
+    "description": "Self-hosted Docmost instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/docmost.html"
+  }
+,
+  {
+    "slug": "docuseal",
+    "name": "Docuseal",
+    "category": "Other",
+    "description": "Self-hosted Docuseal instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/docuseal.html"
+  }
+,
+  {
+    "slug": "dokploy",
+    "name": "Dokploy",
+    "category": "Containers",
+    "description": "Self-hosted app deployment platforms",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/dokploy.html"
+  }
+,
+  {
+    "slug": "dolibarr",
+    "name": "Dolibarr",
+    "category": "Business",
+    "description": "ERP and CRM suite",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/dolibarr.html"
+  }
+,
+  {
+    "slug": "domain-locker",
+    "name": "Domain Locker",
+    "category": "AI",
+    "description": "Self-hosted Domain Locker instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/domain-locker.html"
+  }
+,
+  {
+    "slug": "domain-monitor",
+    "name": "Domain Monitor",
+    "category": "Monitoring",
+    "description": "Self-hosted Domain Monitor instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/domain-monitor.html"
+  }
+,
+  {
+    "slug": "donetick",
+    "name": "Donetick",
+    "category": "Networking",
+    "description": "Self-hosted Donetick instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/donetick.html"
+  }
+,
+  {
+    "slug": "dotnetaspwebapi",
+    "name": "Dotnetaspwebapi",
+    "category": "Networking",
+    "description": "Self-hosted Dotnetaspwebapi instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/dotnetaspwebapi.html"
+  }
+,
+  {
+    "slug": "drawdb",
+    "name": "Drawdb",
+    "category": "Database",
+    "description": "Database design and modeling",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/drawdb.html"
+  }
+,
+  {
+    "slug": "drawio",
+    "name": "draw.io",
+    "category": "Utilities",
+    "description": "Diagramming and visual thinking",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/drawio.html"
+  }
+,
+  {
+    "slug": "duplicati",
+    "name": "Duplicati",
+    "category": "Media",
+    "description": "Encrypted backup tools",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/duplicati.html"
+  }
+,
+  {
+    "slug": "dynacat",
+    "name": "Dynacat",
+    "category": "Other",
+    "description": "Self-hosted Dynacat instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/dynacat.html"
+  }
+,
+  {
+    "slug": "ebusd",
+    "name": "Ebusd",
+    "category": "Other",
+    "description": "Self-hosted Ebusd instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ebusd.html"
+  }
+,
+  {
+    "slug": "elementsynapse",
+    "name": "Element Synapse",
+    "category": "Communication",
+    "description": "Self-hosted Element Synapse instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/elementsynapse.html"
+  }
+,
+  {
+    "slug": "emby",
+    "name": "Emby",
+    "category": "Media",
+    "description": "Self-hosted media streaming server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/emby.html"
+  }
+,
+  {
+    "slug": "emqx",
+    "name": "EMQX",
+    "category": "Home Automation",
+    "description": "MQTT message broker",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/emqx.html"
+  }
+,
+  {
+    "slug": "endurain",
+    "name": "Endurain",
+    "category": "AI",
+    "description": "Self-hosted Endurain instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/endurain.html"
+  }
+,
+  {
+    "slug": "erpnext",
+    "name": "ERPNext",
+    "category": "Business",
+    "description": "ERP and CRM suite",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/erpnext.html"
+  }
+,
+  {
+    "slug": "ersatztv",
+    "name": "Ersatztv",
+    "category": "Media",
+    "description": "Self-hosted Ersatztv instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ersatztv.html"
+  }
+,
+  {
+    "slug": "espconnect",
+    "name": "Espconnect",
+    "category": "Other",
+    "description": "Self-hosted Espconnect instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/espconnect.html"
+  }
+,
+  {
+    "slug": "esphome",
+    "name": "ESPHome",
+    "category": "Home Automation",
+    "description": "ESP device firmware builder",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/esphome.html"
+  }
+,
+  {
+    "slug": "evcc",
+    "name": "Evcc",
+    "category": "Other",
+    "description": "Self-hosted Evcc instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/evcc.html"
+  }
+,
+  {
+    "slug": "excalidraw",
+    "name": "Excalidraw",
+    "category": "Utilities",
+    "description": "Diagramming and visual thinking",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/excalidraw.html"
+  }
+,
+  {
+    "slug": "ezbookkeeping",
+    "name": "Ezbookkeeping",
+    "category": "Other",
+    "description": "Self-hosted Ezbookkeeping instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ezbookkeeping.html"
+  }
+,
+  {
+    "slug": "feishin",
+    "name": "Feishin",
+    "category": "Other",
+    "description": "Self-hosted Feishin instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/feishin.html"
+  }
+,
+  {
+    "slug": "fhem",
+    "name": "Fhem",
+    "category": "Other",
+    "description": "Self-hosted Fhem instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/fhem.html"
+  }
+,
+  {
+    "slug": "fileflows",
+    "name": "FileFlows",
+    "category": "Cloud & Storage",
+    "description": "Video transcoding and processing",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/fileflows.html"
+  }
+,
+  {
+    "slug": "firefly",
+    "name": "Firefly",
+    "category": "Other",
+    "description": "Self-hosted Firefly instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/firefly.html"
+  }
+,
+  {
+    "slug": "fireshare",
+    "name": "Fireshare",
+    "category": "Other",
+    "description": "Self-hosted Fireshare instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/fireshare.html"
+  }
+,
+  {
+    "slug": "fladder",
+    "name": "Fladder",
+    "category": "Other",
+    "description": "Self-hosted Fladder instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/fladder.html"
+  }
+,
+  {
+    "slug": "flaresolverr",
+    "name": "FlareSolverr",
+    "category": "Other",
+    "description": "Self-hosted FlareSolverr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/flaresolverr.html"
+  }
+,
+  {
+    "slug": "flatnotes",
+    "name": "Flatnotes",
+    "category": "Productivity",
+    "description": "Self-hosted Flatnotes instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/flatnotes.html"
+  }
+,
+  {
+    "slug": "flowiseai",
+    "name": "Flowiseai",
+    "category": "AI",
+    "description": "Self-hosted Flowiseai instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/flowiseai.html"
+  }
+,
+  {
+    "slug": "fluid-calendar",
+    "name": "Fluid Calendar",
+    "category": "Other",
+    "description": "Self-hosted Fluid Calendar instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/fluid-calendar.html"
+  }
+,
+  {
+    "slug": "foldergram",
+    "name": "Foldergram",
+    "category": "Other",
+    "description": "Self-hosted Foldergram instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/foldergram.html"
+  }
+,
+  {
+    "slug": "forgejo",
+    "name": "Forgejo",
+    "category": "Development",
+    "description": "Lightweight self-hosted Git service",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/forgejo.html"
+  }
+,
+  {
+    "slug": "freepbx",
+    "name": "Freepbx",
+    "category": "Other",
+    "description": "Self-hosted Freepbx instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/freepbx.html"
+  }
+,
+  {
+    "slug": "freshrss",
+    "name": "FreshRSS",
+    "category": "Productivity",
+    "description": "Self-hosted RSS feed aggregator",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/freshrss.html"
+  }
+,
+  {
+    "slug": "frigate",
+    "name": "Frigate",
+    "category": "Other",
+    "description": "Self-hosted NVR / camera management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/frigate.html"
+  }
+,
+  {
+    "slug": "fumadocs",
+    "name": "Fumadocs",
+    "category": "Gaming",
+    "description": "Self-hosted Fumadocs instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/fumadocs.html"
+  }
+,
+  {
+    "slug": "garage",
+    "name": "Garage",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted Garage instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/garage.html"
+  }
+,
+  {
+    "slug": "gatus",
+    "name": "Gatus",
+    "category": "Monitoring",
+    "description": "Service monitoring and status pages",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/gatus.html"
+  }
+,
+  {
+    "slug": "geopulse",
+    "name": "Geopulse",
+    "category": "Other",
+    "description": "Self-hosted Geopulse instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/geopulse.html"
+  }
+,
+  {
+    "slug": "ghost",
+    "name": "Ghost",
+    "category": "Other",
+    "description": "Self-hosted Ghost instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ghost.html"
+  }
+,
+  {
+    "slug": "ghostfolio",
+    "name": "Ghostfolio",
+    "category": "Other",
+    "description": "Self-hosted Ghostfolio instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ghostfolio.html"
+  }
+,
+  {
+    "slug": "gitea-mirror",
+    "name": "Gitea Mirror",
+    "category": "Development",
+    "description": "Mirror Gitea repositories to other Gitea instances",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/gitea-mirror.html"
+  }
+,
+  {
+    "slug": "gitea",
+    "name": "Gitea",
+    "category": "Development",
+    "description": "Lightweight self-hosted Git service",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/gitea.html"
+  }
+,
+  {
+    "slug": "github-runner",
+    "name": "GitHub Runner",
+    "category": "Development",
+    "description": "Self-hosted GitHub Runner instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/github-runner.html"
+  }
+,
+  {
+    "slug": "glance",
+    "name": "Glance",
+    "category": "Other",
+    "description": "Self-hosted Glance instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/glance.html"
+  }
+,
+  {
+    "slug": "globaleaks",
+    "name": "Globaleaks",
+    "category": "Other",
+    "description": "Self-hosted Globaleaks instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/globaleaks.html"
+  }
+,
+  {
+    "slug": "glpi",
+    "name": "GLPI",
+    "category": "Communication",
+    "description": "Helpdesk and ticketing",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/glpi.html"
+  }
+,
+  {
+    "slug": "gluetun",
+    "name": "Gluetun",
+    "category": "Other",
+    "description": "Self-hosted Gluetun instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/gluetun.html"
+  }
+,
+  {
+    "slug": "go2rtc",
+    "name": "Go2rtc",
+    "category": "Other",
+    "description": "Self-hosted NVR / camera management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/go2rtc.html"
+  }
+,
+  {
+    "slug": "gogs",
+    "name": "Gogs",
+    "category": "Development",
+    "description": "Lightweight self-hosted Git service",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/gogs.html"
+  }
+,
+  {
+    "slug": "gokapi",
+    "name": "Gokapi",
+    "category": "Other",
+    "description": "Self-hosted Gokapi instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/gokapi.html"
+  }
+,
+  {
+    "slug": "gotify",
+    "name": "Gotify",
+    "category": "Other",
+    "description": "Self-hosted push notification server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/gotify.html"
+  }
+,
+  {
+    "slug": "grafana",
+    "name": "Grafana",
+    "category": "Monitoring",
+    "description": "Observability stack",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/grafana.html"
+  }
+,
+  {
+    "slug": "gramps-web",
+    "name": "Gramps Web",
+    "category": "Other",
+    "description": "Self-hosted Gramps Web instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/gramps-web.html"
+  }
+,
+  {
+    "slug": "graylog",
+    "name": "Graylog",
+    "category": "Security",
+    "description": "Security information and event management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/graylog.html"
+  }
+,
+  {
+    "slug": "grist",
+    "name": "Grist",
+    "category": "Other",
+    "description": "Self-hosted Grist instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/grist.html"
+  }
+,
+  {
+    "slug": "grocy",
+    "name": "Grocy",
+    "category": "Other",
+    "description": "Self-hosted Grocy instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/grocy.html"
+  }
+,
+  {
+    "slug": "guardian",
+    "name": "Guardian",
+    "category": "Other",
+    "description": "Self-hosted Guardian instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/guardian.html"
+  }
+,
+  {
+    "slug": "gwn-manager",
+    "name": "Gwn Manager",
+    "category": "Other",
+    "description": "Self-hosted Gwn Manager instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/gwn-manager.html"
+  }
+,
+  {
+    "slug": "headscale",
+    "name": "Headscale",
+    "category": "Networking",
+    "description": "Mesh VPN solutions",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/headscale.html"
+  }
+,
+  {
+    "slug": "healthchecks",
+    "name": "Healthchecks",
+    "category": "Monitoring",
+    "description": "Cron job monitoring",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/healthchecks.html"
+  }
+,
+  {
+    "slug": "heimdall-dashboard",
+    "name": "Heimdall Dashboard",
+    "category": "Monitoring",
+    "description": "Self-hosted dashboard for all your services",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/heimdall-dashboard.html"
+  }
+,
+  {
+    "slug": "hermesagent",
+    "name": "Hermesagent",
+    "category": "Other",
+    "description": "Self-hosted Hermesagent instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/hermesagent.html"
+  }
+,
+  {
+    "slug": "hev-socks5-server",
+    "name": "Hev Socks5 Server",
+    "category": "Other",
+    "description": "Self-hosted Hev Socks5 Server instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/hev-socks5-server.html"
+  }
+,
+  {
+    "slug": "hivemq",
+    "name": "Hivemq",
+    "category": "Home Automation",
+    "description": "MQTT message broker",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/hivemq.html"
+  }
+,
+  {
+    "slug": "homarr",
+    "name": "Homarr",
+    "category": "Monitoring",
+    "description": "Self-hosted dashboard for all your services",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/homarr.html"
+  }
+,
+  {
+    "slug": "homeassistant",
+    "name": "Home Assistant",
+    "category": "Home Automation",
+    "description": "Home automation platform",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/homeassistant.html"
+  }
+,
+  {
+    "slug": "homebox",
+    "name": "Homebox",
+    "category": "Home Automation",
+    "description": "Home automation platform",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/homebox.html"
+  }
+,
+  {
+    "slug": "homebridge",
+    "name": "Homebridge",
+    "category": "Home Automation",
+    "description": "HomeKit bridge for non-HomeKit devices",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/homebridge.html"
+  }
+,
+  {
+    "slug": "homelable",
+    "name": "Homelable",
+    "category": "Home Automation",
+    "description": "Self-hosted Homelable instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/homelable.html"
+  }
+,
+  {
+    "slug": "homepage",
+    "name": "Homepage",
+    "category": "Monitoring",
+    "description": "Self-hosted dashboard for all your services",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/homepage.html"
+  }
+,
+  {
+    "slug": "homer",
+    "name": "Homer",
+    "category": "Monitoring",
+    "description": "Self-hosted dashboard for all your services",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/homer.html"
+  }
+,
+  {
+    "slug": "hoodik",
+    "name": "Hoodik",
+    "category": "Other",
+    "description": "Self-hosted Hoodik instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/hoodik.html"
+  }
+,
+  {
+    "slug": "hortusfox",
+    "name": "Hortusfox",
+    "category": "Other",
+    "description": "Self-hosted Hortusfox instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/hortusfox.html"
+  }
+,
+  {
+    "slug": "hyperhdr",
+    "name": "Hyperhdr",
+    "category": "Other",
+    "description": "Self-hosted Hyperhdr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/hyperhdr.html"
+  }
+,
+  {
+    "slug": "hyperion",
+    "name": "Hyperion",
+    "category": "Other",
+    "description": "Self-hosted Hyperion instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/hyperion.html"
+  }
+,
+  {
+    "slug": "igotify",
+    "name": "Igotify",
+    "category": "Other",
+    "description": "Self-hosted push notification server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/igotify.html"
+  }
+,
+  {
+    "slug": "immich",
+    "name": "Immich",
+    "category": "Media",
+    "description": "Self-hosted photo and video backup",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/immich.html"
+  }
+,
+  {
+    "slug": "immichframe",
+    "name": "ImmichFrame",
+    "category": "Media",
+    "description": "Self-hosted ImmichFrame instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/immichframe.html"
+  }
+,
+  {
+    "slug": "infisical",
+    "name": "Infisical",
+    "category": "Other",
+    "description": "Self-hosted Infisical instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/infisical.html"
+  }
+,
+  {
+    "slug": "influxdb",
+    "name": "InfluxDB",
+    "category": "Database",
+    "description": "Observability stack",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/influxdb.html"
+  }
+,
+  {
+    "slug": "inspircd",
+    "name": "Inspircd",
+    "category": "Development",
+    "description": "Self-hosted Inspircd instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/inspircd.html"
+  }
+,
+  {
+    "slug": "inventree",
+    "name": "Inventree",
+    "category": "Other",
+    "description": "Self-hosted Inventree instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/inventree.html"
+  }
+,
+  {
+    "slug": "investbrain",
+    "name": "Investbrain",
+    "category": "AI",
+    "description": "Self-hosted Investbrain instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/investbrain.html"
+  }
+,
+  {
+    "slug": "invoiceninja",
+    "name": "Invoiceninja",
+    "category": "Business",
+    "description": "Self-hosted invoicing",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/invoiceninja.html"
+  }
+,
+  {
+    "slug": "invoiceshelf",
+    "name": "Invoiceshelf",
+    "category": "Business",
+    "description": "Self-hosted invoicing",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/invoiceshelf.html"
+  }
+,
+  {
+    "slug": "iobroker",
+    "name": "Iobroker",
+    "category": "Home Automation",
+    "description": "Self-hosted Iobroker instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/iobroker.html"
+  }
+,
+  {
+    "slug": "ironclaw",
+    "name": "Ironclaw",
+    "category": "Other",
+    "description": "Self-hosted Ironclaw instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ironclaw.html"
+  }
+,
+  {
+    "slug": "isponsorblocktv",
+    "name": "Isponsorblocktv",
+    "category": "Other",
+    "description": "Self-hosted Isponsorblocktv instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/isponsorblocktv.html"
+  }
+,
+  {
+    "slug": "itsm-ng",
+    "name": "Itsm Ng",
+    "category": "Gaming",
+    "description": "Self-hosted Itsm Ng instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/itsm-ng.html"
+  }
+,
+  {
+    "slug": "jackett",
+    "name": "Jackett",
+    "category": "Media",
+    "description": "Self-hosted Jackett instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/jackett.html"
+  }
+,
+  {
+    "slug": "jeedom",
+    "name": "Jeedom",
+    "category": "Home Automation",
+    "description": "Self-hosted Jeedom instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/jeedom.html"
+  }
+,
+  {
+    "slug": "jellyfin",
+    "name": "Jellyfin",
+    "category": "Media",
+    "description": "Self-hosted media streaming server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/jellyfin.html"
+  }
+,
+  {
+    "slug": "jellyseerr",
+    "name": "Jellyseerr",
+    "category": "Media",
+    "description": "Media request and discovery",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/jellyseerr.html"
+  }
+,
+  {
+    "slug": "jenkins",
+    "name": "Jenkins",
+    "category": "Development",
+    "description": "Self-hosted Jenkins instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/jenkins.html"
+  }
+,
+  {
+    "slug": "jitsi-meet",
+    "name": "Jitsi Meet",
+    "category": "Gaming",
+    "description": "Self-hosted Jitsi Meet instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/jitsi-meet.html"
+  }
+,
+  {
+    "slug": "joplin-server",
+    "name": "Joplin Server",
+    "category": "Productivity",
+    "description": "Personal knowledge base",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/joplin-server.html"
+  }
+,
+  {
+    "slug": "jotty",
+    "name": "Jotty",
+    "category": "Other",
+    "description": "Self-hosted Jotty instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/jotty.html"
+  }
+,
+  {
+    "slug": "jupyternotebook",
+    "name": "Jupyternotebook",
+    "category": "Development",
+    "description": "Self-hosted Jupyternotebook instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/jupyternotebook.html"
+  }
+,
+  {
+    "slug": "kan",
+    "name": "Kan",
+    "category": "Other",
+    "description": "Self-hosted Kan instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kan.html"
+  }
+,
+  {
+    "slug": "kapowarr",
+    "name": "Kapowarr",
+    "category": "Other",
+    "description": "Self-hosted Kapowarr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kapowarr.html"
+  }
+,
+  {
+    "slug": "karakeep",
+    "name": "Karakeep",
+    "category": "Productivity",
+    "description": "Self-hosted Karakeep instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/karakeep.html"
+  }
+,
+  {
+    "slug": "kasm",
+    "name": "Kasm",
+    "category": "Development",
+    "description": "Self-hosted Kasm instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kasm.html"
+  }
+,
+  {
+    "slug": "kavita",
+    "name": "Kavita",
+    "category": "Media",
+    "description": "Self-hosted comic/manga/book server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kavita.html"
+  }
+,
+  {
+    "slug": "keycloak",
+    "name": "Keycloak",
+    "category": "Security",
+    "description": "Identity provider and SSO",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/keycloak.html"
+  }
+,
+  {
+    "slug": "kima-hub",
+    "name": "Kima Hub",
+    "category": "Other",
+    "description": "Self-hosted Kima Hub instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kima-hub.html"
+  }
+,
+  {
+    "slug": "kimai",
+    "name": "Kimai",
+    "category": "AI",
+    "description": "Time tracking",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kimai.html"
+  }
+,
+  {
+    "slug": "kitchenowl",
+    "name": "Kitchenowl",
+    "category": "Other",
+    "description": "Recipe and meal planning",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kitchenowl.html"
+  }
+,
+  {
+    "slug": "kiwix",
+    "name": "Kiwix",
+    "category": "Other",
+    "description": "Self-hosted Kiwix instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kiwix.html"
+  }
+,
+  {
+    "slug": "koel",
+    "name": "Koel",
+    "category": "Other",
+    "description": "Self-hosted Koel instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/koel.html"
+  }
+,
+  {
+    "slug": "koillection",
+    "name": "Koillection",
+    "category": "Other",
+    "description": "Self-hosted Koillection instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/koillection.html"
+  }
+,
+  {
+    "slug": "kometa",
+    "name": "Kometa",
+    "category": "Other",
+    "description": "Self-hosted Kometa instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kometa.html"
+  }
+,
+  {
+    "slug": "komga",
+    "name": "Komga",
+    "category": "Media",
+    "description": "Self-hosted comic/manga/book server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/komga.html"
+  }
+,
+  {
+    "slug": "komodo",
+    "name": "Komodo",
+    "category": "Other",
+    "description": "Self-hosted Komodo instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/komodo.html"
+  }
+,
+  {
+    "slug": "kubo",
+    "name": "Kubo",
+    "category": "Other",
+    "description": "Self-hosted Kubo instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kubo.html"
+  }
+,
+  {
+    "slug": "kutt",
+    "name": "Kutt",
+    "category": "Other",
+    "description": "Self-hosted Kutt instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/kutt.html"
+  }
+,
+  {
+    "slug": "languagetool",
+    "name": "Languagetool",
+    "category": "Utilities",
+    "description": "Self-hosted Languagetool instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/languagetool.html"
+  }
+,
+  {
+    "slug": "lazylibrarian",
+    "name": "Lazylibrarian",
+    "category": "Other",
+    "description": "Self-hosted Lazylibrarian instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/lazylibrarian.html"
+  }
+,
+  {
+    "slug": "leantime",
+    "name": "Leantime",
+    "category": "Productivity",
+    "description": "Project management and time tracking",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/leantime.html"
+  }
+,
+  {
+    "slug": "librechat",
+    "name": "LibreChat",
+    "category": "AI",
+    "description": "Self-hosted LibreChat instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/librechat.html"
+  }
+,
+  {
+    "slug": "librenms",
+    "name": "LibreNMS",
+    "category": "Monitoring",
+    "description": "Network monitoring",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/librenms.html"
+  }
+,
+  {
+    "slug": "librespeed-rust",
+    "name": "LibreSpeed Rust",
+    "category": "Gaming",
+    "description": "Internet speed test tracking",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/librespeed-rust.html"
+  }
+,
+  {
+    "slug": "libretranslate",
+    "name": "Libretranslate",
+    "category": "Other",
+    "description": "Self-hosted Libretranslate instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/libretranslate.html"
+  }
+,
+  {
+    "slug": "lidarr",
+    "name": "Lidarr",
+    "category": "Media",
+    "description": "Media automation (*arr suite)",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/lidarr.html"
+  }
+,
+  {
+    "slug": "limesurvey",
+    "name": "Limesurvey",
+    "category": "Other",
+    "description": "Self-hosted Limesurvey instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/limesurvey.html"
+  }
+,
+  {
+    "slug": "linkding",
+    "name": "Linkding",
+    "category": "Productivity",
+    "description": "Read-it-later and bookmark manager",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/linkding.html"
+  }
+,
+  {
+    "slug": "linkstack",
+    "name": "Linkstack",
+    "category": "Other",
+    "description": "Self-hosted Linkstack instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/linkstack.html"
+  }
+,
+  {
+    "slug": "linkwarden",
+    "name": "Linkwarden",
+    "category": "Productivity",
+    "description": "Read-it-later and bookmark manager",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/linkwarden.html"
+  }
+,
+  {
+    "slug": "listmonk",
+    "name": "Listmonk",
+    "category": "Other",
+    "description": "Self-hosted Listmonk instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/listmonk.html"
+  }
+,
+  {
+    "slug": "litellm",
+    "name": "Litellm",
+    "category": "AI",
+    "description": "Self-hosted Litellm instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/litellm.html"
+  }
+,
+  {
+    "slug": "livebook",
+    "name": "Livebook",
+    "category": "Development",
+    "description": "Self-hosted Livebook instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/livebook.html"
+  }
+,
+  {
+    "slug": "lldap",
+    "name": "Lldap",
+    "category": "Other",
+    "description": "Self-hosted Lldap instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/lldap.html"
+  }
+,
+  {
+    "slug": "lobehub",
+    "name": "LobeHub",
+    "category": "Other",
+    "description": "Self-hosted LobeHub instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/lobehub.html"
+  }
+,
+  {
+    "slug": "loki",
+    "name": "Loki",
+    "category": "Monitoring",
+    "description": "Observability stack",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/loki.html"
+  }
+,
+  {
+    "slug": "lubelogger",
+    "name": "Lubelogger",
+    "category": "Monitoring",
+    "description": "Self-hosted Lubelogger instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/lubelogger.html"
+  }
+,
+  {
+    "slug": "lychee",
+    "name": "Lychee",
+    "category": "Media",
+    "description": "Self-hosted Lychee instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/lychee.html"
+  }
+,
+  {
+    "slug": "lyrionmusicserver",
+    "name": "Lyrionmusicserver",
+    "category": "Media",
+    "description": "Self-hosted Lyrionmusicserver instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/lyrionmusicserver.html"
+  }
+,
+  {
+    "slug": "mafl",
+    "name": "Mafl",
+    "category": "Business",
+    "description": "Time tracking",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mafl.html"
+  }
+,
+  {
+    "slug": "magicmirror",
+    "name": "Magicmirror",
+    "category": "Other",
+    "description": "Self-hosted Magicmirror instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/magicmirror.html"
+  }
+,
+  {
+    "slug": "mail-archiver",
+    "name": "Mail Archiver",
+    "category": "AI",
+    "description": "Self-hosted Mail Archiver instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mail-archiver.html"
+  }
+,
+  {
+    "slug": "managemydamnlife",
+    "name": "Managemydamnlife",
+    "category": "Other",
+    "description": "Self-hosted Managemydamnlife instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/managemydamnlife.html"
+  }
+,
+  {
+    "slug": "manyfold",
+    "name": "Manyfold",
+    "category": "Other",
+    "description": "Self-hosted Manyfold instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/manyfold.html"
+  }
+,
+  {
+    "slug": "mariadb",
+    "name": "MariaDB",
+    "category": "Database",
+    "description": "Popular open-source relational database",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mariadb.html"
+  }
+,
+  {
+    "slug": "matomo",
+    "name": "Matomo",
+    "category": "Other",
+    "description": "Self-hosted Matomo instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/matomo.html"
+  }
+,
+  {
+    "slug": "matter-server",
+    "name": "Matter Server",
+    "category": "Home Automation",
+    "description": "Self-hosted Matter Server instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/matter-server.html"
+  }
+,
+  {
+    "slug": "matterbridge",
+    "name": "Matterbridge",
+    "category": "Home Automation",
+    "description": "Self-hosted Matterbridge instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/matterbridge.html"
+  }
+,
+  {
+    "slug": "matterjs-server",
+    "name": "Matterjs Server",
+    "category": "Home Automation",
+    "description": "Self-hosted Matterjs Server instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/matterjs-server.html"
+  }
+,
+  {
+    "slug": "mattermost",
+    "name": "Mattermost",
+    "category": "Home Automation",
+    "description": "Team chat platform",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mattermost.html"
+  }
+,
+  {
+    "slug": "mealie",
+    "name": "Mealie",
+    "category": "Other",
+    "description": "Recipe and meal planning",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mealie.html"
+  }
+,
+  {
+    "slug": "mediamanager",
+    "name": "Mediamanager",
+    "category": "Media",
+    "description": "Self-hosted Mediamanager instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mediamanager.html"
+  }
+,
+  {
+    "slug": "mediamtx",
+    "name": "Mediamtx",
+    "category": "Media",
+    "description": "Self-hosted Mediamtx instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mediamtx.html"
+  }
+,
+  {
+    "slug": "medusa",
+    "name": "Medusa",
+    "category": "Education",
+    "description": "Self-hosted Medusa instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/medusa.html"
+  }
+,
+  {
+    "slug": "meilisearch",
+    "name": "Meilisearch",
+    "category": "Other",
+    "description": "Self-hosted Meilisearch instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/meilisearch.html"
+  }
+,
+  {
+    "slug": "memos",
+    "name": "Memos",
+    "category": "Productivity",
+    "description": "Self-hosted Memos instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/memos.html"
+  }
+,
+  {
+    "slug": "meshcentral",
+    "name": "Meshcentral",
+    "category": "Networking",
+    "description": "Open-source remote management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/meshcentral.html"
+  }
+,
+  {
+    "slug": "metabase",
+    "name": "Metabase",
+    "category": "Monitoring",
+    "description": "Self-hosted business intelligence",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/metabase.html"
+  }
+,
+  {
+    "slug": "metube",
+    "name": "Metube",
+    "category": "Other",
+    "description": "Self-hosted Metube instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/metube.html"
+  }
+,
+  {
+    "slug": "minarca",
+    "name": "Minarca",
+    "category": "Other",
+    "description": "Self-hosted Minarca instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/minarca.html"
+  }
+,
+  {
+    "slug": "mini-qr",
+    "name": "Mini Qr",
+    "category": "Other",
+    "description": "Self-hosted Mini Qr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mini-qr.html"
+  }
+,
+  {
+    "slug": "miniflux",
+    "name": "Miniflux",
+    "category": "Development",
+    "description": "Self-hosted RSS feed aggregator",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/miniflux.html"
+  }
+,
+  {
+    "slug": "minio",
+    "name": "MinIO",
+    "category": "Cloud & Storage",
+    "description": "S3-compatible object storage server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/minio.html"
+  }
+,
+  {
+    "slug": "minthcm",
+    "name": "Minthcm",
+    "category": "Other",
+    "description": "Self-hosted Minthcm instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/minthcm.html"
+  }
+,
+  {
+    "slug": "mongodb",
+    "name": "MongoDB",
+    "category": "Database",
+    "description": "Document-oriented NoSQL database",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mongodb.html"
+  }
+,
+  {
+    "slug": "monica",
+    "name": "Monica",
+    "category": "Other",
+    "description": "Self-hosted Monica instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/monica.html"
+  }
+,
+  {
+    "slug": "motioneye",
+    "name": "Motioneye",
+    "category": "Other",
+    "description": "Self-hosted Motioneye instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/motioneye.html"
+  }
+,
+  {
+    "slug": "mqtt",
+    "name": "Mqtt",
+    "category": "Home Automation",
+    "description": "MQTT message broker",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mqtt.html"
+  }
+,
+  {
+    "slug": "musicseerr",
+    "name": "Musicseerr",
+    "category": "Media",
+    "description": "Self-hosted Musicseerr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/musicseerr.html"
+  }
+,
+  {
+    "slug": "myip",
+    "name": "Myip",
+    "category": "Other",
+    "description": "Self-hosted Myip instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/myip.html"
+  }
+,
+  {
+    "slug": "mylar3",
+    "name": "Mylar3",
+    "category": "Other",
+    "description": "Self-hosted Mylar3 instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mylar3.html"
+  }
+,
+  {
+    "slug": "myspeed",
+    "name": "Myspeed",
+    "category": "Other",
+    "description": "Self-hosted Myspeed instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/myspeed.html"
+  }
+,
+  {
+    "slug": "mysql",
+    "name": "MySQL",
+    "category": "Database",
+    "description": "Popular open-source relational database",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/mysql.html"
+  }
+,
+  {
+    "slug": "n8n",
+    "name": "n8n",
+    "category": "AI",
+    "description": "Workflow automation tool",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/n8n.html"
+  }
+,
+  {
+    "slug": "nagios",
+    "name": "Nagios",
+    "category": "Monitoring",
+    "description": "Self-hosted Nagios instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nagios.html"
+  }
+,
+  {
+    "slug": "nametag",
+    "name": "Nametag",
+    "category": "Other",
+    "description": "Self-hosted Nametag instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nametag.html"
+  }
+,
+  {
+    "slug": "navidrome",
+    "name": "Navidrome",
+    "category": "Media",
+    "description": "Self-hosted music streaming",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/navidrome.html"
+  }
+,
+  {
+    "slug": "neko",
+    "name": "Neko",
+    "category": "Other",
+    "description": "Self-hosted Neko instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/neko.html"
+  }
+,
+  {
+    "slug": "neo4j",
+    "name": "Neo4j",
+    "category": "Database",
+    "description": "Graph database",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/neo4j.html"
+  }
+,
+  {
+    "slug": "netbird",
+    "name": "NetBird",
+    "category": "Networking",
+    "description": "Mesh VPN solutions",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/netbird.html"
+  }
+,
+  {
+    "slug": "netboot-xyz",
+    "name": "Netboot Xyz",
+    "category": "Networking",
+    "description": "Self-hosted Netboot Xyz instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/netboot-xyz.html"
+  }
+,
+  {
+    "slug": "netbox",
+    "name": "Netbox",
+    "category": "Database",
+    "description": "Network infrastructure management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/netbox.html"
+  }
+,
+  {
+    "slug": "netvisor",
+    "name": "Netvisor",
+    "category": "Networking",
+    "description": "Self-hosted Netvisor instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/netvisor.html"
+  }
+,
+  {
+    "slug": "nextcloud",
+    "name": "Nextcloud",
+    "category": "Media",
+    "description": "Self-hosted file sync and collaboration",
+    "tags": "cloud,file-sync,collaboration",
+    "cpu": "2",
+    "ram": "2048",
+    "disk": "20",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nextcloud.html"
+  }
+,
+  {
+    "slug": "nextcloudpi",
+    "name": "NextcloudPi",
+    "category": "Media",
+    "description": "Self-hosted NextcloudPi instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nextcloudpi.html"
+  }
+,
+  {
+    "slug": "nextexplorer",
+    "name": "Nextexplorer",
+    "category": "Other",
+    "description": "Self-hosted Nextexplorer instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nextexplorer.html"
+  }
+,
+  {
+    "slug": "nextpvr",
+    "name": "NextPVR",
+    "category": "Other",
+    "description": "Self-hosted NextPVR instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nextpvr.html"
+  }
+,
+  {
+    "slug": "nginx-ui",
+    "name": "Nginx UI",
+    "category": "Networking",
+    "description": "Web UI for managing Nginx",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nginx-ui.html"
+  }
+,
+  {
+    "slug": "nginx",
+    "name": "Nginx",
+    "category": "Networking",
+    "description": "Lightweight HTTP and reverse proxy server",
+    "tags": "proxy,web",
+    "cpu": "1",
+    "ram": "512",
+    "disk": "4",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nginx.html"
+  }
+,
+  {
+    "slug": "nginxproxymanager",
+    "name": "Nginx Proxy Manager",
+    "category": "Networking",
+    "description": "Reverse proxy with automatic HTTPS",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nginxproxymanager.html"
+  }
+,
+  {
+    "slug": "nightscout",
+    "name": "Nightscout",
+    "category": "Gaming",
+    "description": "Self-hosted Nightscout instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nightscout.html"
+  }
+,
+  {
+    "slug": "nocodb",
+    "name": "NocoDB",
+    "category": "Database",
+    "description": "Self-hosted NocoDB instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nocodb.html"
+  }
+,
+  {
+    "slug": "node-red",
+    "name": "Node-RED",
+    "category": "Home Automation",
+    "description": "Low-code programming for event-driven applications",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/node-red.html"
+  }
+,
+  {
+    "slug": "nodebb",
+    "name": "Nodebb",
+    "category": "Communication",
+    "description": "Self-hosted forum software",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nodebb.html"
+  }
+,
+  {
+    "slug": "nodecast-tv",
+    "name": "Nodecast Tv",
+    "category": "Other",
+    "description": "Self-hosted Nodecast Tv instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nodecast-tv.html"
+  }
+,
+  {
+    "slug": "notifiarr",
+    "name": "Notifiarr",
+    "category": "Other",
+    "description": "Self-hosted Notifiarr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/notifiarr.html"
+  }
+,
+  {
+    "slug": "npmplus",
+    "name": "NPMplus",
+    "category": "Other",
+    "description": "Web UI for managing Nginx",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/npmplus.html"
+  }
+,
+  {
+    "slug": "ntfy",
+    "name": "Ntfy",
+    "category": "Other",
+    "description": "Push notifications server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ntfy.html"
+  }
+,
+  {
+    "slug": "nxwitness",
+    "name": "Nxwitness",
+    "category": "Other",
+    "description": "Self-hosted Nxwitness instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nxwitness.html"
+  }
+,
+  {
+    "slug": "nzbget",
+    "name": "Nzbget",
+    "category": "Media",
+    "description": "Self-hosted Nzbget instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nzbget.html"
+  }
+,
+  {
+    "slug": "oauth2-proxy",
+    "name": "OAuth2 Proxy",
+    "category": "Security",
+    "description": "Authentication reverse proxy",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/oauth2-proxy.html"
+  }
+,
+  {
+    "slug": "octoprint",
+    "name": "Octoprint",
+    "category": "Other",
+    "description": "Self-hosted Octoprint instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/octoprint.html"
+  }
+,
+  {
+    "slug": "odoo",
+    "name": "Odoo",
+    "category": "Business",
+    "description": "ERP and CRM suite",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/odoo.html"
+  }
+,
+  {
+    "slug": "ollama",
+    "name": "Ollama",
+    "category": "AI",
+    "description": "Run large language models locally",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ollama.html"
+  }
+,
+  {
+    "slug": "omada",
+    "name": "Omada",
+    "category": "Other",
+    "description": "Self-hosted Omada instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/omada.html"
+  }
+,
+  {
+    "slug": "ombi",
+    "name": "Ombi",
+    "category": "Other",
+    "description": "Self-hosted Ombi instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ombi.html"
+  }
+,
+  {
+    "slug": "omv",
+    "name": "OpenMediaVault",
+    "category": "Other",
+    "description": "Self-hosted OpenMediaVault instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/omv.html"
+  }
+,
+  {
+    "slug": "onedev",
+    "name": "Onedev",
+    "category": "Other",
+    "description": "Self-hosted Onedev instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/onedev.html"
+  }
+,
+  {
+    "slug": "onlyoffice",
+    "name": "ONLYOFFICE",
+    "category": "Other",
+    "description": "Self-hosted ONLYOFFICE instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/onlyoffice.html"
+  }
+,
+  {
+    "slug": "open-archiver",
+    "name": "Open Archiver",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted Open Archiver instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/open-archiver.html"
+  }
+,
+  {
+    "slug": "opencloud",
+    "name": "Opencloud",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted Opencloud instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/opencloud.html"
+  }
+,
+  {
+    "slug": "opengist",
+    "name": "Opengist",
+    "category": "Development",
+    "description": "Self-hosted Opengist instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/opengist.html"
+  }
+,
+  {
+    "slug": "openhab",
+    "name": "openHAB",
+    "category": "Home Automation",
+    "description": "Self-hosted openHAB instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/openhab.html"
+  }
+,
+  {
+    "slug": "openobserve",
+    "name": "Openobserve",
+    "category": "Other",
+    "description": "Self-hosted Openobserve instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/openobserve.html"
+  }
+,
+  {
+    "slug": "openproject",
+    "name": "OpenProject",
+    "category": "Productivity",
+    "description": "Project management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/openproject.html"
+  }
+,
+  {
+    "slug": "openthread-br",
+    "name": "Openthread Br",
+    "category": "Productivity",
+    "description": "Self-hosted Openthread Br instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/openthread-br.html"
+  }
+,
+  {
+    "slug": "openwebui",
+    "name": "Open WebUI",
+    "category": "AI",
+    "description": "Self-hosted AI chat interface",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/openwebui.html"
+  }
+,
+  {
+    "slug": "openziti-controller",
+    "name": "Openziti Controller",
+    "category": "Other",
+    "description": "Self-hosted Openziti Controller instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/openziti-controller.html"
+  }
+,
+  {
+    "slug": "openziti-tunnel",
+    "name": "Openziti Tunnel",
+    "category": "Networking",
+    "description": "Self-hosted Openziti Tunnel instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/openziti-tunnel.html"
+  }
+,
+  {
+    "slug": "ots",
+    "name": "Ots",
+    "category": "Gaming",
+    "description": "Self-hosted Ots instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ots.html"
+  }
+,
+  {
+    "slug": "outline",
+    "name": "Outline",
+    "category": "Productivity",
+    "description": "Collaborative documentation",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/outline.html"
+  }
+,
+  {
+    "slug": "overseerr",
+    "name": "Overseerr",
+    "category": "Media",
+    "description": "Media request and discovery",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/overseerr.html"
+  }
+,
+  {
+    "slug": "owncast",
+    "name": "Owncast",
+    "category": "Other",
+    "description": "Self-hosted Owncast instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/owncast.html"
+  }
+,
+  {
+    "slug": "ownfoil",
+    "name": "Ownfoil",
+    "category": "Other",
+    "description": "Self-hosted Ownfoil instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ownfoil.html"
+  }
+,
+  {
+    "slug": "pairdrop",
+    "name": "Pairdrop",
+    "category": "AI",
+    "description": "Self-hosted Pairdrop instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pairdrop.html"
+  }
+,
+  {
+    "slug": "pangolin",
+    "name": "Pangolin",
+    "category": "Other",
+    "description": "Self-hosted Pangolin instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pangolin.html"
+  }
+,
+  {
+    "slug": "paperclip",
+    "name": "Paperclip",
+    "category": "Other",
+    "description": "Self-hosted Paperclip instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/paperclip.html"
+  }
+,
+  {
+    "slug": "paperless-ai",
+    "name": "Paperless-AI",
+    "category": "Cloud & Storage",
+    "description": "Document management and archiving",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/paperless-ai.html"
+  }
+,
+  {
+    "slug": "paperless-gpt",
+    "name": "Paperless-GPT",
+    "category": "AI",
+    "description": "Document management and archiving",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/paperless-gpt.html"
+  }
+,
+  {
+    "slug": "paperless-ngx",
+    "name": "Paperless-ngx",
+    "category": "Cloud & Storage",
+    "description": "Document management and archiving",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/paperless-ngx.html"
+  }
+,
+  {
+    "slug": "papra",
+    "name": "Papra",
+    "category": "Other",
+    "description": "Self-hosted Papra instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/papra.html"
+  }
+,
+  {
+    "slug": "part-db",
+    "name": "Part Db",
+    "category": "Database",
+    "description": "Self-hosted Part Db instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/part-db.html"
+  }
+,
+  {
+    "slug": "passbolt",
+    "name": "Passbolt",
+    "category": "Security",
+    "description": "Self-hosted Passbolt instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/passbolt.html"
+  }
+,
+  {
+    "slug": "patchmon",
+    "name": "Patchmon",
+    "category": "Other",
+    "description": "Patch management dashboard",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/patchmon.html"
+  }
+,
+  {
+    "slug": "paymenter",
+    "name": "Paymenter",
+    "category": "Business",
+    "description": "Self-hosted Paymenter instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/paymenter.html"
+  }
+,
+  {
+    "slug": "peanut",
+    "name": "Peanut",
+    "category": "Other",
+    "description": "Self-hosted Peanut instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/peanut.html"
+  }
+,
+  {
+    "slug": "pelican-panel",
+    "name": "Pelican Panel",
+    "category": "Gaming",
+    "description": "Self-hosted Pelican Panel instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pelican-panel.html"
+  }
+,
+  {
+    "slug": "pelican-wings",
+    "name": "Pelican Wings",
+    "category": "Gaming",
+    "description": "Self-hosted Pelican Wings instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pelican-wings.html"
+  }
+,
+  {
+    "slug": "photoprism",
+    "name": "PhotoPrism",
+    "category": "Media",
+    "description": "AI-powered photo management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/photoprism.html"
+  }
+,
+  {
+    "slug": "pialert",
+    "name": "Pi.Alert",
+    "category": "Monitoring",
+    "description": "Self-hosted Pi.Alert instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pialert.html"
+  }
+,
+  {
+    "slug": "pihole",
+    "name": "Pi-hole",
+    "category": "Networking",
+    "description": "Network-wide ad blocker and DNS server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pihole.html"
+  }
+,
+  {
+    "slug": "plane",
+    "name": "Plane",
+    "category": "Productivity",
+    "description": "Project management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/plane.html"
+  }
+,
+  {
+    "slug": "planka",
+    "name": "Planka",
+    "category": "Productivity",
+    "description": "Self-hosted Planka instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/planka.html"
+  }
+,
+  {
+    "slug": "plant-it",
+    "name": "Plant It",
+    "category": "Other",
+    "description": "Self-hosted Plant It instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/plant-it.html"
+  }
+,
+  {
+    "slug": "plex",
+    "name": "Plex",
+    "category": "Media",
+    "description": "Self-hosted media streaming server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/plex.html"
+  }
+,
+  {
+    "slug": "pocketbase",
+    "name": "Pocketbase",
+    "category": "Gaming",
+    "description": "Self-hosted Pocketbase instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pocketbase.html"
+  }
+,
+  {
+    "slug": "pocketid",
+    "name": "Pocketid",
+    "category": "Gaming",
+    "description": "Self-hosted Pocketid instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pocketid.html"
+  }
+,
+  {
+    "slug": "podman-homeassistant",
+    "name": "Podman Homeassistant",
+    "category": "Home Automation",
+    "description": "Self-hosted Podman Homeassistant instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/podman-homeassistant.html"
+  }
+,
+  {
+    "slug": "podman",
+    "name": "Podman",
+    "category": "Containers",
+    "description": "Container runtime",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/podman.html"
+  }
+,
+  {
+    "slug": "postgresql",
+    "name": "PostgreSQL",
+    "category": "Database",
+    "description": "Powerful open-source relational database",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/postgresql.html"
+  }
+,
+  {
+    "slug": "powerdns",
+    "name": "Powerdns",
+    "category": "Networking",
+    "description": "Self-hosted Powerdns instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/powerdns.html"
+  }
+,
+  {
+    "slug": "privatebin",
+    "name": "Privatebin",
+    "category": "Other",
+    "description": "Self-hosted Privatebin instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/privatebin.html"
+  }
+,
+  {
+    "slug": "profilarr",
+    "name": "Profilarr",
+    "category": "Other",
+    "description": "Self-hosted Profilarr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/profilarr.html"
+  }
+,
+  {
+    "slug": "projectsend",
+    "name": "Projectsend",
+    "category": "Gaming",
+    "description": "Self-hosted Projectsend instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/projectsend.html"
+  }
+,
+  {
+    "slug": "prometheus-alertmanager",
+    "name": "Prometheus Alertmanager",
+    "category": "Monitoring",
+    "description": "Self-hosted Prometheus Alertmanager instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/prometheus-alertmanager.html"
+  }
+,
+  {
+    "slug": "prometheus-blackbox-exporter",
+    "name": "Prometheus Blackbox Exporter",
+    "category": "Monitoring",
+    "description": "Self-hosted Prometheus Blackbox Exporter instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/prometheus-blackbox-exporter.html"
+  }
+,
+  {
+    "slug": "prometheus-pve-exporter",
+    "name": "Prometheus PVE Exporter",
+    "category": "Monitoring",
+    "description": "Self-hosted Prometheus PVE Exporter instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/prometheus-pve-exporter.html"
+  }
+,
+  {
+    "slug": "prometheus",
+    "name": "Prometheus",
+    "category": "Monitoring",
+    "description": "Observability stack",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/prometheus.html"
+  }
+,
+  {
+    "slug": "protonmail-bridge",
+    "name": "Protonmail Bridge",
+    "category": "AI",
+    "description": "Self-hosted Protonmail Bridge instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/protonmail-bridge.html"
+  }
+,
+  {
+    "slug": "prowlarr",
+    "name": "Prowlarr",
+    "category": "Media",
+    "description": "Media automation (*arr suite)",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/prowlarr.html"
+  }
+,
+  {
+    "slug": "proxmox-backup-server",
+    "name": "Proxmox Backup Server",
+    "category": "Cloud & Storage",
+    "description": "Proxmox's official backup server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/proxmox-backup-server.html"
+  }
+,
+  {
+    "slug": "proxmox-datacenter-manager",
+    "name": "Proxmox Datacenter Manager",
+    "category": "Database",
+    "description": "Self-hosted Proxmox Datacenter Manager instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/proxmox-datacenter-manager.html"
+  }
+,
+  {
+    "slug": "proxmox-mail-gateway",
+    "name": "Proxmox Mail Gateway",
+    "category": "Networking",
+    "description": "Self-hosted Proxmox Mail Gateway instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/proxmox-mail-gateway.html"
+  }
+,
+  {
+    "slug": "ps5-mqtt",
+    "name": "Ps5 Mqtt",
+    "category": "Home Automation",
+    "description": "Self-hosted Ps5 Mqtt instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ps5-mqtt.html"
+  }
+,
+  {
+    "slug": "pterodactyl-panel",
+    "name": "Pterodactyl Panel",
+    "category": "Gaming",
+    "description": "Self-hosted Pterodactyl Panel instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pterodactyl-panel.html"
+  }
+,
+  {
+    "slug": "pterodactyl-wings",
+    "name": "Pterodactyl Wings",
+    "category": "Gaming",
+    "description": "Self-hosted Pterodactyl Wings instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pterodactyl-wings.html"
+  }
+,
+  {
+    "slug": "pulse",
+    "name": "Pulse",
+    "category": "Other",
+    "description": "Self-hosted Pulse instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pulse.html"
+  }
+,
+  {
+    "slug": "qbittorrent",
+    "name": "qBittorrent",
+    "category": "Media",
+    "description": "Self-hosted qBittorrent instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/qbittorrent.html"
+  }
+,
+  {
+    "slug": "qdrant",
+    "name": "Qdrant",
+    "category": "Other",
+    "description": "Self-hosted Qdrant instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/qdrant.html"
+  }
+,
+  {
+    "slug": "qui",
+    "name": "Qui",
+    "category": "Other",
+    "description": "Self-hosted Qui instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/qui.html"
+  }
+,
+  {
+    "slug": "rabbitmq",
+    "name": "RabbitMQ",
+    "category": "Other",
+    "description": "Message broker for distributed systems",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/rabbitmq.html"
+  }
+,
+  {
+    "slug": "radarr",
+    "name": "Radarr",
+    "category": "Media",
+    "description": "Media automation (*arr suite)",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/radarr.html"
+  }
+,
+  {
+    "slug": "radicale",
+    "name": "Radicale",
+    "category": "Other",
+    "description": "Self-hosted Radicale instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/radicale.html"
+  }
+,
+  {
+    "slug": "rclone",
+    "name": "rclone",
+    "category": "Media",
+    "description": "Encrypted backup tools",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/rclone.html"
+  }
+,
+  {
+    "slug": "rdtclient",
+    "name": "Rdtclient",
+    "category": "Other",
+    "description": "Self-hosted Rdtclient instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/rdtclient.html"
+  }
+,
+  {
+    "slug": "reactive-resume",
+    "name": "Reactive Resume",
+    "category": "Other",
+    "description": "Self-hosted Reactive Resume instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/reactive-resume.html"
+  }
+,
+  {
+    "slug": "readarr",
+    "name": "Readarr",
+    "category": "Media",
+    "description": "Media automation (*arr suite)",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/readarr.html"
+  }
+,
+  {
+    "slug": "readeck",
+    "name": "Readeck",
+    "category": "Productivity",
+    "description": "Read-it-later and bookmark manager",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/readeck.html"
+  }
+,
+  {
+    "slug": "recyclarr",
+    "name": "Recyclarr",
+    "category": "Other",
+    "description": "Self-hosted Recyclarr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/recyclarr.html"
+  }
+,
+  {
+    "slug": "redis",
+    "name": "Redis",
+    "category": "Database",
+    "description": "In-memory data store and cache",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/redis.html"
+  }
+,
+  {
+    "slug": "reitti",
+    "name": "Reitti",
+    "category": "Other",
+    "description": "Self-hosted Reitti instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/reitti.html"
+  }
+,
+  {
+    "slug": "resiliosync",
+    "name": "Resiliosync",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted Resiliosync instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/resiliosync.html"
+  }
+,
+  {
+    "slug": "revealjs",
+    "name": "Revealjs",
+    "category": "Other",
+    "description": "Self-hosted Revealjs instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/revealjs.html"
+  }
+,
+  {
+    "slug": "romm",
+    "name": "Romm",
+    "category": "Other",
+    "description": "Self-hosted Romm instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/romm.html"
+  }
+,
+  {
+    "slug": "runtipi",
+    "name": "Runtipi",
+    "category": "Containers",
+    "description": "Self-hosted app deployment platforms",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/runtipi.html"
+  }
+,
+  {
+    "slug": "rustdeskserver",
+    "name": "RustDesk Server",
+    "category": "Gaming",
+    "description": "Self-hosted remote desktop",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/rustdeskserver.html"
+  }
+,
+  {
+    "slug": "rustypaste",
+    "name": "Rustypaste",
+    "category": "Gaming",
+    "description": "Self-hosted Rustypaste instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/rustypaste.html"
+  }
+,
+  {
+    "slug": "rwmarkable",
+    "name": "Rwmarkable",
+    "category": "Gaming",
+    "description": "Self-hosted Rwmarkable instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/rwmarkable.html"
+  }
+,
+  {
+    "slug": "sabnzbd",
+    "name": "SABnzbd",
+    "category": "Media",
+    "description": "Self-hosted SABnzbd instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sabnzbd.html"
+  }
+,
+  {
+    "slug": "salt",
+    "name": "Salt",
+    "category": "Other",
+    "description": "Self-hosted Salt instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/salt.html"
+  }
+,
+  {
+    "slug": "scanopy",
+    "name": "Scanopy",
+    "category": "Other",
+    "description": "Self-hosted Scanopy instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/scanopy.html"
+  }
+,
+  {
+    "slug": "scraparr",
+    "name": "Scraparr",
+    "category": "Other",
+    "description": "Self-hosted Scraparr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/scraparr.html"
+  }
+,
+  {
+    "slug": "searxng",
+    "name": "SearXNG",
+    "category": "Other",
+    "description": "Self-hosted search engine",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/searxng.html"
+  }
+,
+  {
+    "slug": "seaweedfs",
+    "name": "SeaweedFS",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted SeaweedFS instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/seaweedfs.html"
+  }
+,
+  {
+    "slug": "seelf",
+    "name": "Seelf",
+    "category": "Other",
+    "description": "Self-hosted Seelf instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/seelf.html"
+  }
+,
+  {
+    "slug": "seerr",
+    "name": "Seerr",
+    "category": "Media",
+    "description": "Self-hosted Seerr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/seerr.html"
+  }
+,
+  {
+    "slug": "semaphore",
+    "name": "Semaphore",
+    "category": "Other",
+    "description": "Self-hosted Semaphore instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/semaphore.html"
+  }
+,
+  {
+    "slug": "sftpgo",
+    "name": "SFTPGo",
+    "category": "Media",
+    "description": "Self-hosted SFTPGo instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sftpgo.html"
+  }
+,
+  {
+    "slug": "shelfmark",
+    "name": "Shelfmark",
+    "category": "Gaming",
+    "description": "Self-hosted Shelfmark instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/shelfmark.html"
+  }
+,
+  {
+    "slug": "shinobi",
+    "name": "Shinobi",
+    "category": "Other",
+    "description": "Self-hosted NVR / camera management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/shinobi.html"
+  }
+,
+  {
+    "slug": "shlink",
+    "name": "Shlink",
+    "category": "Other",
+    "description": "Self-hosted Shlink instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/shlink.html"
+  }
+,
+  {
+    "slug": "signoz",
+    "name": "Signoz",
+    "category": "Monitoring",
+    "description": "Self-hosted Signoz instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/signoz.html"
+  }
+,
+  {
+    "slug": "silverbullet",
+    "name": "SilverBullet",
+    "category": "Other",
+    "description": "Self-hosted SilverBullet instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/silverbullet.html"
+  }
+,
+  {
+    "slug": "slskd",
+    "name": "Slskd",
+    "category": "Other",
+    "description": "Self-hosted Slskd instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/slskd.html"
+  }
+,
+  {
+    "slug": "smokeping",
+    "name": "Smokeping",
+    "category": "Other",
+    "description": "Self-hosted Smokeping instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/smokeping.html"
+  }
+,
+  {
+    "slug": "snipeit",
+    "name": "Snipe-IT",
+    "category": "Communication",
+    "description": "IT asset management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/snipeit.html"
+  }
+,
+  {
+    "slug": "snowshare",
+    "name": "Snowshare",
+    "category": "Other",
+    "description": "Self-hosted Snowshare instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/snowshare.html"
+  }
+,
+  {
+    "slug": "solidtime",
+    "name": "Solidtime",
+    "category": "Other",
+    "description": "Self-hosted Solidtime instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/solidtime.html"
+  }
+,
+  {
+    "slug": "sonarqube",
+    "name": "Sonarqube",
+    "category": "Other",
+    "description": "Self-hosted Sonarqube instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sonarqube.html"
+  }
+,
+  {
+    "slug": "sonarr",
+    "name": "Sonarr",
+    "category": "Media",
+    "description": "Media automation (*arr suite)",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sonarr.html"
+  }
+,
+  {
+    "slug": "sonobarr",
+    "name": "Sonobarr",
+    "category": "Other",
+    "description": "Self-hosted Sonobarr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sonobarr.html"
+  }
+,
+  {
+    "slug": "soulsync",
+    "name": "Soulsync",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted Soulsync instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/soulsync.html"
+  }
+,
+  {
+    "slug": "sparkyfitness",
+    "name": "Sparkyfitness",
+    "category": "Gaming",
+    "description": "Self-hosted Sparkyfitness instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sparkyfitness.html"
+  }
+,
+  {
+    "slug": "speedtest-tracker",
+    "name": "Speedtest Tracker",
+    "category": "Monitoring",
+    "description": "Internet speed test tracking",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/speedtest-tracker.html"
+  }
+,
+  {
+    "slug": "spliit",
+    "name": "Spliit",
+    "category": "Other",
+    "description": "Self-hosted Spliit instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/spliit.html"
+  }
+,
+  {
+    "slug": "split-pro",
+    "name": "Split Pro",
+    "category": "Other",
+    "description": "Self-hosted Split Pro instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/split-pro.html"
+  }
+,
+  {
+    "slug": "splunk-enterprise",
+    "name": "Splunk Enterprise",
+    "category": "Business",
+    "description": "Self-hosted Splunk Enterprise instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/splunk-enterprise.html"
+  }
+,
+  {
+    "slug": "spoolman",
+    "name": "Spoolman",
+    "category": "Other",
+    "description": "Self-hosted Spoolman instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/spoolman.html"
+  }
+,
+  {
+    "slug": "sportarr",
+    "name": "Sportarr",
+    "category": "Other",
+    "description": "Self-hosted Sportarr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sportarr.html"
+  }
+,
+  {
+    "slug": "sqlserver2022",
+    "name": "Sqlserver2022",
+    "category": "Database",
+    "description": "Self-hosted Sqlserver2022 instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sqlserver2022.html"
+  }
+,
+  {
+    "slug": "sqlserver2025",
+    "name": "Sqlserver2025",
+    "category": "Database",
+    "description": "Self-hosted Sqlserver2025 instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sqlserver2025.html"
+  }
+,
+  {
+    "slug": "step-ca",
+    "name": "Step Ca",
+    "category": "Other",
+    "description": "Self-hosted Step Ca instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/step-ca.html"
+  }
+,
+  {
+    "slug": "stirling-pdf",
+    "name": "Stirling Pdf",
+    "category": "Utilities",
+    "description": "Handy developer and sysadmin utilities",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/stirling-pdf.html"
+  }
+,
+  {
+    "slug": "storybook",
+    "name": "Storybook",
+    "category": "Other",
+    "description": "Self-hosted Storybook instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/storybook.html"
+  }
+,
+  {
+    "slug": "storyteller",
+    "name": "Storyteller",
+    "category": "Other",
+    "description": "Self-hosted Storyteller instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/storyteller.html"
+  }
+,
+  {
+    "slug": "strapi",
+    "name": "Strapi",
+    "category": "Database",
+    "description": "Self-hosted Strapi instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/strapi.html"
+  }
+,
+  {
+    "slug": "streamlink-webui",
+    "name": "Streamlink Webui",
+    "category": "Media",
+    "description": "Self-hosted Streamlink Webui instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/streamlink-webui.html"
+  }
+,
+  {
+    "slug": "stylus",
+    "name": "Stylus",
+    "category": "Other",
+    "description": "Self-hosted Stylus instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/stylus.html"
+  }
+,
+  {
+    "slug": "sure",
+    "name": "Sure",
+    "category": "Other",
+    "description": "Self-hosted Sure instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sure.html"
+  }
+,
+  {
+    "slug": "swizzin",
+    "name": "Swizzin",
+    "category": "Containers",
+    "description": "Self-hosted Swizzin instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/swizzin.html"
+  }
+,
+  {
+    "slug": "syncthing",
+    "name": "Syncthing",
+    "category": "Media",
+    "description": "Continuous file synchronization",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/syncthing.html"
+  }
+,
+  {
+    "slug": "tandoor",
+    "name": "Tandoor",
+    "category": "Other",
+    "description": "Recipe and meal planning",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tandoor.html"
+  }
+,
+  {
+    "slug": "tasmoadmin",
+    "name": "Tasmoadmin",
+    "category": "Other",
+    "description": "Self-hosted Tasmoadmin instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tasmoadmin.html"
+  }
+,
+  {
+    "slug": "tasmocompiler",
+    "name": "Tasmocompiler",
+    "category": "Other",
+    "description": "Self-hosted Tasmocompiler instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tasmocompiler.html"
+  }
+,
+  {
+    "slug": "tautulli",
+    "name": "Tautulli",
+    "category": "Media",
+    "description": "Media library management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tautulli.html"
+  }
+,
+  {
+    "slug": "tdarr",
+    "name": "Tdarr",
+    "category": "Media",
+    "description": "Media library management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tdarr.html"
+  }
+,
+  {
+    "slug": "teable",
+    "name": "Teable",
+    "category": "Other",
+    "description": "Self-hosted Teable instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/teable.html"
+  }
+,
+  {
+    "slug": "teamspeak-server",
+    "name": "TeamSpeak Server",
+    "category": "Gaming",
+    "description": "Self-hosted TeamSpeak Server instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/teamspeak-server.html"
+  }
+,
+  {
+    "slug": "technitiumdns",
+    "name": "Technitium DNS",
+    "category": "Networking",
+    "description": "Self-hosted Technitium DNS instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/technitiumdns.html"
+  }
+,
+  {
+    "slug": "teddycloud",
+    "name": "Teddycloud",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted Teddycloud instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/teddycloud.html"
+  }
+,
+  {
+    "slug": "telegraf",
+    "name": "Telegraf",
+    "category": "Monitoring",
+    "description": "Self-hosted Telegraf instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/telegraf.html"
+  }
+,
+  {
+    "slug": "teleport",
+    "name": "Teleport",
+    "category": "Other",
+    "description": "Self-hosted Teleport instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/teleport.html"
+  }
+,
+  {
+    "slug": "termix",
+    "name": "Termix",
+    "category": "Other",
+    "description": "Self-hosted Termix instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/termix.html"
+  }
+,
+  {
+    "slug": "the-lounge",
+    "name": "The Lounge",
+    "category": "Communication",
+    "description": "Self-hosted The Lounge instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/the-lounge.html"
+  }
+,
+  {
+    "slug": "thingsboard",
+    "name": "Thingsboard",
+    "category": "Productivity",
+    "description": "Self-hosted Thingsboard instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/thingsboard.html"
+  }
+,
+  {
+    "slug": "threadfin",
+    "name": "Threadfin",
+    "category": "Productivity",
+    "description": "Self-hosted Threadfin instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/threadfin.html"
+  }
+,
+  {
+    "slug": "tianji",
+    "name": "Tianji",
+    "category": "Other",
+    "description": "Self-hosted Tianji instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tianji.html"
+  }
+,
+  {
+    "slug": "tinyauth",
+    "name": "Tinyauth",
+    "category": "Security",
+    "description": "Lightweight authentication proxy",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tinyauth.html"
+  }
+,
+  {
+    "slug": "tolgee",
+    "name": "Tolgee",
+    "category": "Other",
+    "description": "Self-hosted Tolgee instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tolgee.html"
+  }
+,
+  {
+    "slug": "traccar",
+    "name": "Traccar",
+    "category": "Other",
+    "description": "GPS tracking platform",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/traccar.html"
+  }
+,
+  {
+    "slug": "tracearr",
+    "name": "Tracearr",
+    "category": "Monitoring",
+    "description": "Self-hosted Tracearr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tracearr.html"
+  }
+,
+  {
+    "slug": "tracktor",
+    "name": "Tracktor",
+    "category": "Other",
+    "description": "Website change detection",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tracktor.html"
+  }
+,
+  {
+    "slug": "traefik",
+    "name": "Traefik",
+    "category": "Networking",
+    "description": "Reverse proxy with automatic HTTPS",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/traefik.html"
+  }
+,
+  {
+    "slug": "transmission",
+    "name": "Transmission",
+    "category": "Media",
+    "description": "Self-hosted Transmission instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/transmission.html"
+  }
+,
+  {
+    "slug": "transmute",
+    "name": "Transmute",
+    "category": "Other",
+    "description": "Self-hosted Transmute instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/transmute.html"
+  }
+,
+  {
+    "slug": "trek",
+    "name": "Trek",
+    "category": "Other",
+    "description": "Self-hosted Trek instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/trek.html"
+  }
+,
+  {
+    "slug": "trilium",
+    "name": "Trilium",
+    "category": "Productivity",
+    "description": "Personal knowledge base",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/trilium.html"
+  }
+,
+  {
+    "slug": "trip",
+    "name": "Trip",
+    "category": "Other",
+    "description": "Self-hosted Trip instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/trip.html"
+  }
+,
+  {
+    "slug": "tubearchivist",
+    "name": "Tubearchivist",
+    "category": "Other",
+    "description": "Self-hosted Tubearchivist instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tubearchivist.html"
+  }
+,
+  {
+    "slug": "tududi",
+    "name": "Tududi",
+    "category": "Other",
+    "description": "Self-hosted Tududi instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tududi.html"
+  }
+,
+  {
+    "slug": "tunarr",
+    "name": "Tunarr",
+    "category": "Other",
+    "description": "Self-hosted Tunarr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/tunarr.html"
+  }
+,
+  {
+    "slug": "twenty",
+    "name": "Twenty",
+    "category": "Other",
+    "description": "Self-hosted Twenty instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/twenty.html"
+  }
+,
+  {
+    "slug": "twingate-connector",
+    "name": "Twingate Connector",
+    "category": "Other",
+    "description": "Self-hosted Twingate Connector instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/twingate-connector.html"
+  }
+,
+  {
+    "slug": "uhf",
+    "name": "Uhf",
+    "category": "Other",
+    "description": "Self-hosted Uhf instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/uhf.html"
+  }
+,
+  {
+    "slug": "umami",
+    "name": "Umami",
+    "category": "Other",
+    "description": "Self-hosted Umami instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/umami.html"
+  }
+,
+  {
+    "slug": "umlautadaptarr",
+    "name": "Umlautadaptarr",
+    "category": "Other",
+    "description": "Self-hosted Umlautadaptarr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/umlautadaptarr.html"
+  }
+,
+  {
+    "slug": "unbound",
+    "name": "Unbound",
+    "category": "Networking",
+    "description": "Self-hosted Unbound instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/unbound.html"
+  }
+,
+  {
+    "slug": "unifi-os-server",
+    "name": "Unifi Os Server",
+    "category": "Other",
+    "description": "Ubiquiti network management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/unifi-os-server.html"
+  }
+,
+  {
+    "slug": "unmanic",
+    "name": "Unmanic",
+    "category": "Other",
+    "description": "Self-hosted Unmanic instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/unmanic.html"
+  }
+,
+  {
+    "slug": "upgopher",
+    "name": "Upgopher",
+    "category": "Other",
+    "description": "Self-hosted Upgopher instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/upgopher.html"
+  }
+,
+  {
+    "slug": "upsnap",
+    "name": "Upsnap",
+    "category": "Other",
+    "description": "Self-hosted Upsnap instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/upsnap.html"
+  }
+,
+  {
+    "slug": "uptimekuma",
+    "name": "Uptime Kuma",
+    "category": "Monitoring",
+    "description": "Service monitoring and status pages",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/uptimekuma.html"
+  }
+,
+  {
+    "slug": "urbackupserver",
+    "name": "UrBackup Server",
+    "category": "Media",
+    "description": "Client/server backup system",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/urbackupserver.html"
+  }
+,
+  {
+    "slug": "valkey",
+    "name": "Valkey",
+    "category": "Database",
+    "description": "High-performance in-memory data store (Redis fork)",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/valkey.html"
+  }
+,
+  {
+    "slug": "vaultwarden",
+    "name": "Vaultwarden",
+    "category": "Security",
+    "description": "Lightweight password manager (Bitwarden compatible)",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/vaultwarden.html"
+  }
+,
+  {
+    "slug": "versitygw",
+    "name": "Versitygw",
+    "category": "Other",
+    "description": "Self-hosted Versitygw instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/versitygw.html"
+  }
+,
+  {
+    "slug": "victoriametrics",
+    "name": "VictoriaMetrics",
+    "category": "Monitoring",
+    "description": "Self-hosted VictoriaMetrics instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/victoriametrics.html"
+  }
+,
+  {
+    "slug": "vikunja",
+    "name": "Vikunja",
+    "category": "Other",
+    "description": "Self-hosted Vikunja instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/vikunja.html"
+  }
+,
+  {
+    "slug": "wallabag",
+    "name": "Wallabag",
+    "category": "Productivity",
+    "description": "Read-it-later and bookmark manager",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wallabag.html"
+  }
+,
+  {
+    "slug": "wallos",
+    "name": "Wallos",
+    "category": "Other",
+    "description": "Self-hosted Wallos instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wallos.html"
+  }
+,
+  {
+    "slug": "wanderer",
+    "name": "Wanderer",
+    "category": "Other",
+    "description": "Self-hosted Wanderer instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wanderer.html"
+  }
+,
+  {
+    "slug": "warracker",
+    "name": "Warracker",
+    "category": "Other",
+    "description": "Self-hosted Warracker instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/warracker.html"
+  }
+,
+  {
+    "slug": "wastebin",
+    "name": "Wastebin",
+    "category": "Other",
+    "description": "Self-hosted Wastebin instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wastebin.html"
+  }
+,
+  {
+    "slug": "watcharr",
+    "name": "Watcharr",
+    "category": "Other",
+    "description": "Self-hosted Watcharr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/watcharr.html"
+  }
+,
+  {
+    "slug": "watchyourlan",
+    "name": "WatchYourLAN",
+    "category": "Other",
+    "description": "Self-hosted WatchYourLAN instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/watchyourlan.html"
+  }
+,
+  {
+    "slug": "wavelog",
+    "name": "Wavelog",
+    "category": "Monitoring",
+    "description": "Self-hosted Wavelog instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wavelog.html"
+  }
+,
+  {
+    "slug": "wazuh",
+    "name": "Wazuh",
+    "category": "Security",
+    "description": "Security information and event management",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wazuh.html"
+  }
+,
+  {
+    "slug": "wealthfolio",
+    "name": "Wealthfolio",
+    "category": "Other",
+    "description": "Self-hosted Wealthfolio instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wealthfolio.html"
+  }
+,
+  {
+    "slug": "web-check",
+    "name": "Web Check",
+    "category": "Other",
+    "description": "Self-hosted Web Check instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/web-check.html"
+  }
+,
+  {
+    "slug": "webtrees",
+    "name": "Webtrees",
+    "category": "Other",
+    "description": "Self-hosted Webtrees instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/webtrees.html"
+  }
+,
+  {
+    "slug": "wger",
+    "name": "Wger",
+    "category": "Dashboards",
+    "description": "Self-hosted Wger instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wger.html"
+  }
+,
+  {
+    "slug": "whisparr",
+    "name": "Whisparr",
+    "category": "Media",
+    "description": "Media automation (*arr suite)",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/whisparr.html"
+  }
+,
+  {
+    "slug": "whodb",
+    "name": "Whodb",
+    "category": "Database",
+    "description": "Self-hosted Whodb instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/whodb.html"
+  }
+,
+  {
+    "slug": "wikijs",
+    "name": "Wiki.js",
+    "category": "Productivity",
+    "description": "Self-hosted wiki",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wikijs.html"
+  }
+,
+  {
+    "slug": "wireguard",
+    "name": "Wireguard",
+    "category": "Networking",
+    "description": "Mesh VPN solutions",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wireguard.html"
+  }
+,
+  {
+    "slug": "wishlist",
+    "name": "Wishlist",
+    "category": "Other",
+    "description": "Self-hosted Wishlist instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wishlist.html"
+  }
+,
+  {
+    "slug": "wizarr",
+    "name": "Wizarr",
+    "category": "Other",
+    "description": "Self-hosted Wizarr instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wizarr.html"
+  }
+,
+  {
+    "slug": "wordpress",
+    "name": "WordPress",
+    "category": "Other",
+    "description": "Self-hosted WordPress instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/wordpress.html"
+  }
+,
+  {
+    "slug": "writefreely",
+    "name": "Writefreely",
+    "category": "Other",
+    "description": "Self-hosted Writefreely instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/writefreely.html"
+  }
+,
+  {
+    "slug": "xyops",
+    "name": "Xyops",
+    "category": "Other",
+    "description": "Self-hosted Xyops instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/xyops.html"
+  }
+,
+  {
+    "slug": "yamtrack",
+    "name": "Yamtrack",
+    "category": "Other",
+    "description": "Self-hosted Yamtrack instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/yamtrack.html"
+  }
+,
+  {
+    "slug": "yourls",
+    "name": "Yourls",
+    "category": "Other",
+    "description": "Self-hosted Yourls instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/yourls.html"
+  }
+,
+  {
+    "slug": "yt-dlp-webui",
+    "name": "Yt Dlp Webui",
+    "category": "Other",
+    "description": "Self-hosted Yt Dlp Webui instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/yt-dlp-webui.html"
+  }
+,
+  {
+    "slug": "yubal",
+    "name": "Yubal",
+    "category": "Other",
+    "description": "Self-hosted Yubal instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/yubal.html"
+  }
+,
+  {
+    "slug": "yunohost",
+    "name": "Yunohost",
+    "category": "Other",
+    "description": "Self-hosted Yunohost instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/yunohost.html"
+  }
+,
+  {
+    "slug": "zabbix",
+    "name": "Zabbix",
+    "category": "Monitoring",
+    "description": "Infrastructure monitoring",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/zabbix.html"
+  }
+,
+  {
+    "slug": "zammad",
+    "name": "Zammad",
+    "category": "Communication",
+    "description": "Helpdesk and ticketing",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/zammad.html"
+  }
+,
+  {
+    "slug": "zerobyte",
+    "name": "Zerobyte",
+    "category": "Other",
+    "description": "Self-hosted Zerobyte instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/zerobyte.html"
+  }
+,
+  {
+    "slug": "zerotier-one",
+    "name": "ZeroTier One",
+    "category": "Networking",
+    "description": "Mesh VPN solutions",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/zerotier-one.html"
+  }
+,
+  {
+    "slug": "zigbee2mqtt",
+    "name": "Zigbee2MQTT",
+    "category": "Home Automation",
+    "description": "Zigbee to MQTT bridge for home automation",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/zigbee2mqtt.html"
+  }
+,
+  {
+    "slug": "zipline",
+    "name": "Zipline",
+    "category": "Other",
+    "description": "Self-hosted Zipline instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/zipline.html"
+  }
+,
+  {
+    "slug": "zitadel",
+    "name": "Zitadel",
+    "category": "Other",
+    "description": "Self-hosted Zitadel instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/zitadel.html"
+  }
+,
+  {
+    "slug": "zoraxy",
+    "name": "Zoraxy",
+    "category": "Other",
+    "description": "Self-hosted Zoraxy instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/zoraxy.html"
+  }
+,
+  {
+    "slug": "zot-registry",
+    "name": "Zot Registry",
+    "category": "Development",
+    "description": "Self-hosted Zot Registry instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/zot-registry.html"
+  }
+,
+  {
+    "slug": "zwave-js-ui",
+    "name": "Zwave Js Ui",
+    "category": "Other",
+    "description": "Z-Wave to MQTT gateway",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/zwave-js-ui.html"
+  }
+]

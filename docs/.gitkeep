@@ -1,0 +1,3 @@
+# GitHub Pages config
+# - .nojekyll: bypass Jekyll processing (allows _underscore_ directories)
+# - 404.html: custom not-found page
