@@ -499,3 +499,8 @@ pre code { background: transparent; padding: 0; }
 }
 
 .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+.provider-select {
+  background: #0d1117; color: #c9d1d9; border: 1px solid #30363d;
+  border-radius: 6px; padding: 4px 8px; font-size: 13px; cursor: pointer;
+}
+.provider-select:focus { outline: none; border-color: #58a6ff; }

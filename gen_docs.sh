@@ -929,6 +929,10 @@ generate_app_pages() {
         </form>
       </div>
       <div class="navbar-links">
+        <select id="provider-select" class="provider-select" title="Raw content provider">
+          <option value="codeberg">Codeberg</option>
+          <option value="github">GitHub</option>
+        </select>
         <a href="https://codeberg.org/${REPO}" target="_blank">Codeberg</a>
       </div>
     </div>
@@ -1086,6 +1090,10 @@ generate_index() {
         <input type="text" id="search" placeholder="Search ${total}+ apps... (press /)" autocomplete="off">
       </div>
       <div class="navbar-links">
+        <select id="provider-select" class="provider-select" title="Raw content provider">
+          <option value="codeberg">Codeberg</option>
+          <option value="github">GitHub</option>
+        </select>
         <a href="https://codeberg.org/${REPO}" target="_blank">Codeberg</a>
         <a href="https://codeberg.org/${REPO}/src/branch/main/README.md" target="_blank">Docs</a>
       </div>

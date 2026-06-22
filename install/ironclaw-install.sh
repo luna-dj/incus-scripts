@@ -3,7 +3,7 @@
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 
-source /dev/stdin <<<"$(curl -fsSL --http1.1 https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-install-compat.func)"
+source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE:-https://codeberg.org/luna-dj/incus-scripts/raw/branch/main}/misc/incus-install-compat.func)"
 
 header_info "Ironclaw"
 setting_up_container

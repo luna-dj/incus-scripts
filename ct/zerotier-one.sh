@@ -2,9 +2,13 @@
 # ct/zerotier-one.sh — Zerotier One
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
+#
+# Set INCUS_BASE to override the raw content provider:
+#   INCUS_BASE=https://raw.githubusercontent.com/luna-dj/incus-scripts/main
 
-source /dev/stdin <<<"$(curl -fsSL --http1.1 https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL --http1.1 https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-build.func)"
+INCUS_BASE="${INCUS_BASE:-https://codeberg.org/luna-dj/incus-scripts/raw/branch/main}"
+source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE}/common.sh)"
+source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE}/misc/incus-build.func)"
 
 APP="Zerotier One"
 var_tags="${var_tags:-}"
@@ -23,7 +27,7 @@ create_instance
 # container and run it with 'bash -s' (which reads the script from stdin).
 # We can't use 'bash -c' here because the upstream install scripts start
 # with '#!/usr/bin/env bash' which would be treated as a command name.
-INSTALL_SCRIPT=$(curl -fsSL --http1.1 "https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/install/zerotier-one-install.sh" 2>/dev/null) || {
+INSTALL_SCRIPT=$(curl -fsSL --http1.1 "${INCUS_BASE}/install/zerotier-one-install.sh" 2>/dev/null) || {
     log_error "Failed to fetch install script for zerotier-one"
     exit 1
 }

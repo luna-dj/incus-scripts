@@ -8,10 +8,22 @@ set -euo pipefail
 APPS_FILE="/tmp/ihs/apps.txt"
 CT_DIR="$(cd "$(dirname "$0")" && pwd)/ct"
 INSTALL_DIR="$(cd "$(dirname "$0")" && pwd)/install"
-COMMON_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh"
-BUILD_FUNC_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-build.func"
-COMPAT_FUNC_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-install-compat.func"
-INSTALL_BASE_URL="https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/install"
+
+# Provider: "codeberg" (default) or "github"
+RAW_PROVIDER="${RAW_PROVIDER:-codeberg}"
+GIT_REPO="luna-dj/incus-scripts"
+GIT_REF="${GIT_REF:-main}"
+
+if [[ "$RAW_PROVIDER" == "github" ]]; then
+  RAW_BASE="https://raw.githubusercontent.com/${GIT_REPO}/${GIT_REF}"
+else
+  RAW_BASE="https://codeberg.org/${GIT_REPO}/raw/branch/${GIT_REF}"
+fi
+
+COMMON_URL="${RAW_BASE}/common.sh"
+BUILD_FUNC_URL="${RAW_BASE}/misc/incus-build.func"
+COMPAT_FUNC_URL="${RAW_BASE}/misc/incus-install-compat.func"
+INSTALL_BASE_URL="${RAW_BASE}/install"
 UPSTREAM_BASE="https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install"
 
 mkdir -p "$CT_DIR" "$INSTALL_DIR"
@@ -36,9 +48,13 @@ while IFS= read -r app; do
 # ct/${app}.sh — ${display}
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
+#
+# Set INCUS_BASE to override the raw content provider:
+#   INCUS_BASE=https://raw.githubusercontent.com/luna-dj/incus-scripts/main
 
-source /dev/stdin <<<"\$(curl -fsSL --http1.1 ${COMMON_URL})"
-source /dev/stdin <<<"\$(curl -fsSL --http1.1 ${BUILD_FUNC_URL})"
+INCUS_BASE="\${INCUS_BASE:-${RAW_BASE}}"
+source /dev/stdin <<<"\$(curl -fsSL --http1.1 \${INCUS_BASE}/common.sh)"
+source /dev/stdin <<<"\$(curl -fsSL --http1.1 \${INCUS_BASE}/misc/incus-build.func)"
 
 APP="${display}"
 var_tags="\${var_tags:-}"
@@ -57,7 +73,7 @@ create_instance
 # container and run it with 'bash -s' (which reads the script from stdin).
 # We can't use 'bash -c' here because the upstream install scripts start
 # with '#!/usr/bin/env bash' which would be treated as a command name.
-INSTALL_SCRIPT=\$(curl -fsSL --http1.1 "${INSTALL_BASE_URL}/${app}-install.sh" 2>/dev/null) || {
+INSTALL_SCRIPT=\$(curl -fsSL --http1.1 "\${INCUS_BASE}/install/${app}-install.sh" 2>/dev/null) || {
     log_error "Failed to fetch install script for ${app}"
     exit 1
 }
@@ -76,7 +92,7 @@ CTEOF
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 
-source /dev/stdin <<<"\$(curl -fsSL --http1.1 ${COMPAT_FUNC_URL})"
+source /dev/stdin <<<"\$(curl -fsSL --http1.1 \${INCUS_BASE:-${RAW_BASE}}/misc/incus-install-compat.func)"
 
 header_info "${display}"
 setting_up_container
