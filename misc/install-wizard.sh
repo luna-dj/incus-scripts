@@ -340,9 +340,10 @@ search_query() {
 #  Multi-select from a list (checkbox)
 # ──────────────────────────────────────────────────────────────────
 # Multi-select with a "select-one-at-a-time" approach.
-# whiptail's --checklist is known to hang on some terminals, so we
-# use --menu (which is reliable) and let the user pick one app at a
-# time. They can pick "Done" when finished, or "Cancel" to abort.
+# whiptail's --checklist is unreliable on some terminals (long render
+# times, hangs), so we use --menu (which is reliable) and let the user
+# pick one app at a time. They can pick "Done" when finished, or
+# "Cancel" to abort. This works in both ncurses and plain-text modes.
 # Args: title, list_file (each line: "slug|display")
 multi_select() {
     local title="$1"
@@ -374,11 +375,10 @@ multi_select() {
 
     while true; do
         # Build the menu — first two items are controls, then apps
-        # We always show selection status in the display
         local args=()
         args+=(--title "$title")
         args+=(--menu "Selected so far: ${#selected[@]}/${total} — choose an app to add/remove, or 'Done':")
-        args+=("$ROWS" "$COLS" "$((ROWS - 8))")
+        args+=("$ROWS" "$COLS" 14)
 
         args+=("__DONE__" "✓ Done — proceed with selection")
         args+=("__CANCEL__" "✗ Cancel selection")
@@ -390,8 +390,9 @@ multi_select() {
             args+=("${slugs[$i]}" "${marker}${displays[$i]}")
         done
 
-        # Reset terminal if it gets into a weird state
+        # stty sane in case prior interaction left terminal in odd state
         stty sane 2>/dev/null
+
         local choice
         choice=$(TUI "${args[@]}" 3>&1 1>&2 2>&3) || {
             stty sane 2>/dev/null
