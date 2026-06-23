@@ -255,8 +255,8 @@ try:
             if name.endswith('.sh'):
                 slug = name[:-3]
                 print(f'{slug}|{slug}')
-except: pass
-" 2>/dev/null | sort | head -200
+except Exception as e: pass
+" 2>/dev/null | sort
         return
     fi
     # For each ct/*.sh, extract the APP= variable and the file basename
