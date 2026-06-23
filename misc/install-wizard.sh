@@ -203,17 +203,25 @@ multi_select() {
     local list_file="$2"
     local result
 
-    # Build checkbox arguments. whiptail/dialog have a 20-row max visible
-    # in a checkbox, so we need to page or limit.
+    # whiptail/dialog checklist can hang on large lists. Cap visible
+    # items at 12 to keep the UI snappy. Lists longer than this are
+    # paged by the user (whiptail/dialog handle scrolling internally
+    # if the list-height is small).
+    local list_height=12
+    [[ $ROWS -lt $((list_height + 8)) ]] && list_height=$((ROWS - 8))
+    [[ $list_height -lt 5 ]] && list_height=5
+
     local args=()
     args+=(--separate-output)  # one selected item per line on stdout
     args+=(--title "$title")
     args+=(--checklist "Select apps to install (space=toggle, enter=confirm):")
-    args+=("$ROWS" "$COLS" 14)  # 14 visible rows
+    args+=("$ROWS" "$COLS" "$list_height")
 
     local count=0
     while IFS='|' read -r slug display; do
         [[ -z "$slug" ]] && continue
+        # Truncate display to 50 chars to keep rows narrow
+        [[ ${#display} -gt 50 ]] && display="${display:0:47}..."
         args+=("$slug" "$display" "off")
         count=$((count+1))
         # whiptail has a hard limit of ~250 items; cap safely
@@ -225,7 +233,14 @@ multi_select() {
         return 1
     fi
 
+    # whiptail can hang on the first checkbox render. Trap signals so the
+    # user can Ctrl-C out cleanly, and reset the terminal on exit.
+    trap 'stty sane 2>/dev/null; return 1' INT TERM
     result=$(TUI "${args[@]}" 3>&1 1>&2 2>&3)
+    local rc=$?
+    trap - INT TERM
+    stty sane 2>/dev/null
+    [[ $rc -ne 0 ]] && return 1
     echo "$result"
 }
 
