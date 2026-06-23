@@ -1051,7 +1051,8 @@ for a in data.get('assets', []):
 }
 
 # ── Remaining upstream tools.func stubs ──
-Missing functions to add: 97
+# All functions below are no-ops ensuring upstream scripts don't
+# fail with 'command not found'. Generated for Incus compatibility.
 _add_debian_nonfree() { :; }
 _add_debian_nonfree_firmware() { :; }
 _diagnose_deb_failure() { :; }
