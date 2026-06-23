@@ -360,148 +360,197 @@ get_latest_github_release() {
 }
 
 fetch_and_deploy_gh_release() {
-  local app="$1" repo="$2" file_match="$3" version="$4"
+  # Upstream ProxmoxVE signature:
+  #   fetch_and_deploy_gh_release <app> <repo> <install_type> <version> [install_dir] [archive_match]
+  # install_type values: "prebuild" (specific asset), "binary" (any tarball),
+  # "tarball" (default, source archive), "singlefile" (no extraction)
+  local app="$1" repo="$2" install_type="$3" version="$4"
   local install_dir="${5:-/opt/${app}}"
   local archive_match="${6:-tar.gz}"
   msg_info "Fetching ${app} ${version}"
 
-  local dl_url is_tarball=true
-
-  # Try git ls-remote for exact tag (no API rate limit)
+  # Resolve version via git ls-remote (no API rate limit)
   if [[ "$version" == "latest" ]]; then
     local tag_ref
     tag_ref=$(git ls-remote --tags \
       "https://github.com/${repo}.git" 2>/dev/null \
       | grep -v '\^{}' | awk '{print $2}' \
       | sed 's|refs/tags/||' | sort -V | tail -1)
-    # Restore refs/tags/ prefix
-    [[ -n "$tag_ref" ]] && tag_ref="refs/tags/${tag_ref}"
-    [[ -n "$tag_ref" ]] && version="${tag_ref#refs/tags/}"
+    [[ -n "$tag_ref" ]] && version="$tag_ref"
   else
     version="${version#v}"
   fi
 
-  # If archive_match specifies a binary pattern (not just *.tar.gz or tar.gz),
-  # try to find the matching release asset first.
-  if [[ "$archive_match" != "tar.gz" && "$archive_match" != "*.tar.gz" ]]; then
-    local api_url release_json
-    # Resolve version for API call
-    local api_resolved="$version"
-    if [[ "$api_resolved" == "latest" ]]; then
-      api_url="https://api.github.com/repos/${repo}/releases/latest"
-    else
-      api_url="https://api.github.com/repos/${repo}/releases/tags/${api_resolved}"
+  # Decide download strategy based on install_type and archive_match
+  local dl_url release_json
+  local api_resolved="$version"
+  if [[ "$api_resolved" == "latest" ]]; then
+    release_json=$(curl -fsSL "https://api.github.com/repos/${repo}/releases/latest" 2>/dev/null)
+  else
+    release_json=$(curl -fsSL "https://api.github.com/repos/${repo}/releases/tags/v${api_resolved}" 2>/dev/null)
+    # If v-prefixed lookup failed, try without v
+    if [[ -z "$release_json" ]]; then
+      release_json=$(curl -fsSL "https://api.github.com/repos/${repo}/releases/tags/${api_resolved}" 2>/dev/null)
     fi
-    release_json=$(curl -fsSL "$api_url" 2>/dev/null)
-    if [[ -n "$release_json" ]]; then
-      # Convert glob (linux_*.tar.gz) to regex (linux_.*\.tar\.gz)
-      # Order matters: escape . first, then replace * → .*
+  fi
+
+  # Get the tag name from API (needed for the source-archive fallback URL)
+  local api_tag
+  if [[ -n "$release_json" ]]; then
+    api_tag=$(echo "$release_json" | grep '"tag_name"' | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
+  fi
+
+  # Pick the right URL to download
+  if [[ "$install_type" == "singlefile" ]]; then
+    # Singlefile: archive_match is the EXACT filename. Find the release and
+    # construct the URL: https://github.com/<repo>/releases/download/<tag>/<file>
+    # We need the release tag for this.
+    local download_tag
+    download_tag="${api_tag:-v${version}}"
+    # If archive_match contains a glob, find the matching asset; otherwise use it literally
+    if [[ "$archive_match" == *"*"* ]]; then
+      # Glob — find asset from release API
       local match_re
       match_re=$(echo "$archive_match" | sed 's/\./\\./g; s/\*/.*/g')
+      local asset_name
+      asset_name=$(echo "$release_json" | grep '"name"' | grep -E "${match_re}" | head -1 | sed -E 's/.*"name": *"([^"]+)".*/\1/')
+      if [[ -n "$asset_name" ]]; then
+        dl_url="https://github.com/${repo}/releases/download/${download_tag}/${asset_name}"
+      fi
+    else
+      # Exact filename
+      dl_url="https://github.com/${repo}/releases/download/${download_tag}/${archive_match}"
+    fi
+  elif [[ "$archive_match" != "tar.gz" && "$archive_match" != "*.tar.gz" ]]; then
+    # prebuild / binary with specific pattern: find matching browser asset
+    local match_re
+    match_re=$(echo "$archive_match" | sed 's/\./\\./g; s/\*/.*/g')
+    if [[ -n "$release_json" ]]; then
       dl_url=$(echo "$release_json" | grep '"browser_download_url"' | grep -E "${match_re}" | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
-      # Also try tarball_url from the release
-      [[ -z "$dl_url" ]] && dl_url=$(echo "$release_json" | grep '"tarball_url"' | head -1 | sed -E 's/.*"tarball_url": *"([^"]+)".*/\1/')
-      # If we found a specific asset, it's probably a binary (not source tarball)
-      [[ -n "$dl_url" ]] && is_tarball=false
+    fi
+    if [[ -z "$dl_url" ]]; then
+      msg_warn "Could not find asset matching '${archive_match}' for ${app}"
+      msg_warn "Falling back to source archive — this may not be a binary"
     fi
   fi
 
-  # Fallback: source archive from GitHub
+  # Final fallback: source archive
   if [[ -z "$dl_url" ]]; then
-    # If a specific binary pattern was requested but we couldn't find
-    # it in the API, do NOT silently fall back to the source archive
-    # (which would install Go source code instead of a binary). Warn
-    # loudly so the user knows.
-    if [[ "$archive_match" != "tar.gz" && "$archive_match" != "*.tar.gz" ]]; then
-      msg_warn "Could not find binary asset matching '${archive_match}' for ${app} via API"
-      msg_warn "Falling back to source archive — this will extract Go/Rust/Python source, not a compiled binary"
-      msg_warn "Check that the release has an asset matching: ${archive_match}"
-    fi
-    # Use the resolved tag from API if we have it
-    local fallback_tag="$version"
-    if [[ "$fallback_tag" == "latest" && -n "$release_json" ]]; then
-      fallback_tag=$(echo "$release_json" | grep '"tag_name"' | head -1 | sed -E 's/.*"([^"]+)".*/\1/')
-      [[ -z "$fallback_tag" ]] && fallback_tag="latest"
-    fi
+    local fallback_tag="${api_tag:-v${version}}"
     dl_url="https://github.com/${repo}/archive/refs/tags/${fallback_tag}.tar.gz"
-    is_tarball=true
   fi
+
+  msg_info "Downloading from: ${dl_url}"
 
   local td; td=$(mktemp -d)
-  if ! curl -fsSL -L "$dl_url" -o "${td}/archive.tar.gz"; then
+  # Pick filename based on what we expect to download
+  local dl_file
+  case "$dl_url" in
+    *.zip)        dl_file="${td}/archive.zip" ;;
+    *.tar.gz)     dl_file="${td}/archive.tar.gz" ;;
+    *.tgz)        dl_file="${td}/archive.tgz" ;;
+    *)            dl_file="${td}/binary" ;;
+  esac
+
+  if ! curl -fsSL -L "$dl_url" -o "$dl_file"; then
     msg_error "Failed to download ${app} from: ${dl_url}"
     rm -rf "$td"
     exit 1
   fi
-  if [[ ! -s "${td}/archive.tar.gz" ]]; then
-    msg_error "Downloaded ${app} archive is empty (0 bytes): ${dl_url}"
+  if [[ ! -s "$dl_file" ]]; then
+    msg_error "Downloaded ${app} is empty (0 bytes): ${dl_url}"
     rm -rf "$td"
     exit 1
   fi
-  # Sanity check: real gzip magic bytes (1f 8b), not an HTML 404 page
-  if ! head -c 2 "${td}/archive.tar.gz" | od -An -tx1 | tr -d ' \n' | grep -q '^1f8b$'; then
-    msg_error "Downloaded ${app} is not a gzip file: ${dl_url}"
-    msg_error "First 200 bytes: $(head -c 200 \"${td}/archive.tar.gz\" | tr '\n' ' ')"
-    rm -rf "$td"
-    exit 1
-  fi
-  # Verify the archive is a valid tar by listing it. Catches truncated
-  # downloads that pass the gzip magic-bytes test but have an incomplete
-  # inner tar.
-  if ! tar -tzf "${td}/archive.tar.gz" &>/dev/null; then
-    msg_error "${app} archive is corrupt or truncated: ${dl_url}"
-    msg_error "tar list failed. File size: $(stat -c%s "${td}/archive.tar.gz" 2>/dev/null || echo unknown) bytes"
-    rm -rf "$td"
-    exit 1
-  fi
-  mkdir -p "$install_dir"
-  local tar_err
-  tar_err=$(tar -xzf "${td}/archive.tar.gz" -C "$install_dir" --strip-components=1 2>&1)
-  if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
-    # Try without --strip-components as fallback (some archives have
-    # a flat top-level dir name that doesn't match the strip prefix)
-    tar_err=$(tar -xzf "${td}/archive.tar.gz" -C "$install_dir" 2>&1)
-    if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
-      msg_error "Failed to extract ${app} archive (tar exit nonzero)"
-      msg_error "tar output: ${tar_err}"
-      msg_error "Archive size: $(stat -c%s "${td}/archive.tar.gz" 2>/dev/null || echo unknown) bytes"
-      msg_error "First entries: $(tar -tzf "${td}/archive.tar.gz" 2>/dev/null | head -5 | tr '\\n' ' ')"
-      rm -rf "$td"
-      exit 1
+
+  # Singlefile: just copy to install_dir with the original filename
+  if [[ "$install_type" == "singlefile" ]]; then
+    mkdir -p "$install_dir"
+    # Determine target filename
+    local target_name
+    if [[ "$archive_match" == *"*"* ]]; then
+      # Glob — use the actual filename from URL
+      target_name=$(basename "$dl_url")
+    else
+      target_name="$archive_match"
     fi
-  fi
-  # Verify the extraction actually produced files
-  local extracted_count
-  extracted_count=$(find "$install_dir" -mindepth 1 -maxdepth 3 | wc -l)
-  if [[ "$extracted_count" -lt 1 ]]; then
-    msg_error "${app} extraction produced no files in ${install_dir}"
+    cp "$dl_file" "${install_dir}/${target_name}"
+    chmod +x "${install_dir}/${target_name}"
     rm -rf "$td"
-    exit 1
+    msg_ok "${app} deployed (singlefile: ${target_name})"
+    return 0
   fi
-  # GitHub release tarballs sometimes strip +x; restore it on extracted binaries
-  # Use -print0 + xargs for safety; chmod output is suppressed to avoid
-  # noisy output on every install.
-  find "$install_dir" -maxdepth 3 -type f -print0 \
-    ! -name '*.md' ! -name '*.txt' ! -name '*.json' \
-    ! -name '*.yaml' ! -name '*.yml' ! -name 'LICENSE*' \
-    -print0 2>/dev/null \
-  | xargs -0 -r chmod +x 2>/dev/null || true
-  # Verify at least one binary was extracted. Look for files larger than
-  # 1MB and executable — Go source files are tiny. This catches the case
-  # where we fell back to the source archive and extracted Go code instead
-  # of a compiled binary.
-  local first_bin
-  first_bin=$(find "$install_dir" -maxdepth 3 -type f -executable -size +1M 2>/dev/null | head -1)
-  if [[ -z "$first_bin" ]]; then
-    # Check the biggest file in install_dir as a fallback indicator
-    local biggest
-    biggest=$(find "$install_dir" -maxdepth 3 -type f -printf '%s %p\n' 2>/dev/null | sort -rn | head -1)
-    msg_warn "No large executable found after extraction of ${app}"
-    msg_warn "Largest file: ${biggest:-none}"
-    msg_warn "This usually means the source archive was downloaded instead of a binary asset"
-  fi
-  rm -rf "$td"
-  msg_ok "${app} deployed"
+
+  # Archive files: tar.gz or zip
+  case "$dl_file" in
+    *.zip)
+      # Verify it's a real zip (PK signature: 50 4B)
+      if ! head -c 2 "$dl_file" | od -An -tx1 | tr -d ' \n' | grep -q '^504b$'; then
+        msg_error "Downloaded ${app} is not a zip file: ${dl_url}"
+        msg_error "First 200 bytes: $(head -c 200 "$dl_file" | tr '\n' ' ')"
+        rm -rf "$td"
+        exit 1
+      fi
+      if ! command -v unzip >/dev/null 2>&1; then
+        apt-get install -y -qq unzip 2>/dev/null || true
+      fi
+      mkdir -p "$install_dir"
+      local zip_err
+      zip_err=$(unzip -q -o "$dl_file" -d "$install_dir" 2>&1)
+      if [[ $? -ne 0 ]]; then
+        msg_error "Failed to extract ${app} zip: ${zip_err}"
+        rm -rf "$td"
+        exit 1
+      fi
+      rm -rf "$td"
+      msg_ok "${app} deployed (zip extracted)"
+      return 0
+      ;;
+
+    *.tar.gz|*.tgz)
+      # Verify gzip magic bytes
+      if ! head -c 2 "$dl_file" | od -An -tx1 | tr -d ' \n' | grep -q '^1f8b$'; then
+        msg_error "Downloaded ${app} is not a gzip file: ${dl_url}"
+        msg_error "First 200 bytes: $(head -c 200 "$dl_file" | tr '\n' ' ')"
+        rm -rf "$td"
+        exit 1
+      fi
+      # Verify the archive is a valid tar by listing it
+      if ! tar -tzf "$dl_file" &>/dev/null; then
+        msg_error "${app} archive is corrupt or truncated: ${dl_url}"
+        msg_error "tar list failed. File size: $(stat -c%s "$dl_file" 2>/dev/null || echo unknown) bytes"
+        rm -rf "$td"
+        exit 1
+      fi
+      mkdir -p "$install_dir"
+      local tar_err
+      tar_err=$(tar -xzf "$dl_file" -C "$install_dir" --strip-components=1 2>&1)
+      if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
+        # Fallback: try without --strip-components
+        tar_err=$(tar -xzf "$dl_file" -C "$install_dir" 2>&1)
+        if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
+          msg_error "Failed to extract ${app} archive (tar exit nonzero)"
+          msg_error "tar output: ${tar_err}"
+          msg_error "First entries: $(tar -tzf "$dl_file" 2>/dev/null | head -5 | tr '\n' ' ')"
+          rm -rf "$td"
+          exit 1
+        fi
+      fi
+      rm -rf "$td"
+      msg_ok "${app} deployed (tar.gz extracted)"
+      return 0
+      ;;
+
+    *)
+      # Unknown extension — just copy
+      mkdir -p "$install_dir"
+      cp "$dl_file" "${install_dir}/binary"
+      chmod +x "${install_dir}/binary"
+      rm -rf "$td"
+      msg_ok "${app} deployed (binary copied)"
+      return 0
+      ;;
+  esac
 }
 
 check_for_gh_release() {
