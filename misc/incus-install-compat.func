@@ -470,10 +470,19 @@ fetch_and_deploy_gh_release() {
     exit 1
   fi
   # GitHub release tarballs sometimes strip +x; restore it on extracted binaries
-  find "$install_dir" -maxdepth 3 -type f \
+  # Use -print0 + xargs for safety; chmod output is suppressed to avoid
+  # noisy output on every install.
+  find "$install_dir" -maxdepth 3 -type f -print0 \
     ! -name '*.md' ! -name '*.txt' ! -name '*.json' \
     ! -name '*.yaml' ! -name '*.yml' ! -name 'LICENSE*' \
-    -exec chmod +x {} + 2>/dev/null || true
+    -print0 2>/dev/null \
+  | xargs -0 -r chmod +x 2>/dev/null || true
+  # Verify at least one file got +x (for binary releases)
+  local first_bin
+  first_bin=$(find "$install_dir" -maxdepth 3 -type f -executable -not -name '*.md' -not -name '*.txt' -not -name '*.json' -not -name '*.yaml' -not -name '*.yml' -not -name 'LICENSE*' 2>/dev/null | head -1)
+  if [[ -z "$first_bin" ]]; then
+    msg_warn "No executable file found after extraction in ${install_dir} — binary may not have +x"
+  fi
   rm -rf "$td"
   msg_ok "${app} deployed"
 }
