@@ -364,7 +364,7 @@ fetch_and_deploy_gh_release() {
   #   fetch_and_deploy_gh_release <app> <repo> <install_type> <version> [install_dir] [archive_match]
   # install_type values: "prebuild" (specific asset), "binary" (any tarball),
   # "tarball" (default, source archive), "singlefile" (no extraction)
-  local app="$1" repo="$2" install_type="$3" version="$4"
+  local app="$1" repo="$2" install_type="$3" version="${4:-latest}"
   local install_dir="${5:-/opt/${app}}"
   local archive_match="${6:-tar.gz}"
   msg_info "Fetching ${app} ${version}"
