@@ -1,0 +1,100 @@
+# ── fetch_and_deploy_codeberg_release() ────
+# Forgejo and other Codeberg-hosted apps use this function.
+# It mirrors fetch_and_deploy_gh_release but for Codeberg.
+fetch_and_deploy_codeberg_release() {
+  local app="$1" repo="$2" mode="${3:-tarball}" version="${var_appversion:-${4:-latest}}"
+  local target="${5:-/opt/$app}"
+  local asset_pattern="${6:-}"
+
+  if [[ "$mode" != "tarball" && "$mode" != "tag" && "$mode" != "singlefile" ]]; then
+    msg_warn "Codeberg mode '${mode}' not implemented"
+    return 0
+  fi
+
+  # Resolve tag name
+  local tag_name
+  if [[ "$version" == "latest" ]]; then
+    tag_name=$(curl -fsSL "https://codeberg.org/api/v1/repos/${repo}/releases/latest" 2>/dev/null | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+tag=d.get('tag_name','') or d.get('name','')
+if not tag:
+    sys.exit(1)
+print(tag)
+")
+    if [[ -z "$tag_name" ]]; then
+      tag_name=$(curl -fsSL "https://codeberg.org/api/v1/repos/${repo}/tags" 2>/dev/null | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+if d:
+    print(d[0].get('name',''))
+")
+    fi
+    [[ -z "$tag_name" ]] && tag_name="main"
+  else
+    tag_name="$version"
+  fi
+
+  local dl_url
+  if [[ "$mode" == "singlefile" ]]; then
+    # Find the matching asset URL via Python
+    dl_url=$(curl -fsSL "https://codeberg.org/api/v1/repos/${repo}/releases/latest" 2>/dev/null | python3 -c "
+import json, sys, re
+data = json.load(sys.stdin)
+pat = '${asset_pattern}'
+# Replace \$(arch_resolve) with a regex that matches 'amd64', 'x86_64', 'arm64'
+arch_resolved = pat.replace('\$(arch_resolve)', '(amd64|x86_64)')
+# Convert glob to regex
+arch_regex = ''
+escaped = False
+for c in arch_resolved:
+    if c == '*':
+        arch_regex += '.*'
+    elif c == '.':
+        arch_regex += '\\.'
+    else:
+        arch_regex += re.escape(c)
+for a in data.get('assets', []):
+    name = a.get('name', '')
+    if re.search(arch_regex, name):
+        print('https://codeberg.org/${repo}/releases/download/${tag_name}/' + name)
+        break
+")
+    if [[ -z "$dl_url" ]]; then
+      # Fallback: glob-free pattern
+      local clean="${asset_pattern//\*/}"
+      dl_url="https://codeberg.org/${repo}/releases/download/${tag_name}/${clean}"
+    fi
+  elif [[ "$mode" == "tarball" || "$mode" == "tag" ]]; then
+    dl_url="https://codeberg.org/${repo}/archive/${tag_name}.tar.gz"
+  fi
+
+  msg_info "Fetching ${app} from Codeberg (${tag_name})"
+  local tmpdir; tmpdir=$(mktemp -d) || return 252
+  if ! curl -fsSL -o "$tmpdir/download" "$dl_url" 2>/dev/null; then
+    msg_error "Download failed: $dl_url"
+    rm -rf "$tmpdir"; return 250
+  fi
+  mkdir -p "$target"
+
+  if [[ "$mode" == "singlefile" ]]; then
+    local target_name
+    target_name=$(basename "$dl_url")
+    cp "$tmpdir/download" "$target/${target_name}"
+    chmod +x "$target/${target_name}"
+    # Plain appname symlink for upstream
+    ln -sf "$target/${target_name}" "$target/${app,,}" 2>/dev/null || true
+    msg_ok "${app} deployed from Codeberg (singlefile: ${target_name})"
+  else
+    tar -xzf "$tmpdir/download" -C "$tmpdir" 2>/dev/null
+    local unpack_dir
+    unpack_dir=$(find "$tmpdir" -mindepth 1 -maxdepth 1 -type d | head -1)
+    if [[ -n "$unpack_dir" ]]; then
+      cp -r "$unpack_dir"/* "$target/" 2>/dev/null
+    else
+      cp -r "$tmpdir"/* "$target/" 2>/dev/null
+    fi
+    msg_ok "${app} deployed from Codeberg"
+  fi
+  rm -rf "$tmpdir"
+}
