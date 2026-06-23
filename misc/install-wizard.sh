@@ -197,51 +197,91 @@ search_query() {
 # ──────────────────────────────────────────────────────────────────
 #  Multi-select from a list (checkbox)
 # ──────────────────────────────────────────────────────────────────
+# Multi-select with a "select-one-at-a-time" approach.
+# whiptail's --checklist is known to hang on some terminals, so we
+# use --menu (which is reliable) and let the user pick one app at a
+# time. They can pick "Done" when finished, or "Cancel" to abort.
 # Args: title, list_file (each line: "slug|display")
 multi_select() {
     local title="$1"
     local list_file="$2"
-    local result
 
-    # whiptail/dialog checklist can hang on large lists. Cap visible
-    # items at 12 to keep the UI snappy. Lists longer than this are
-    # paged by the user (whiptail/dialog handle scrolling internally
-    # if the list-height is small).
-    local list_height=12
-    [[ $ROWS -lt $((list_height + 8)) ]] && list_height=$((ROWS - 8))
-    [[ $list_height -lt 5 ]] && list_height=5
-
-    local args=()
-    args+=(--separate-output)  # one selected item per line on stdout
-    args+=(--title "$title")
-    args+=(--checklist "Select apps to install (space=toggle, enter=confirm):")
-    args+=("$ROWS" "$COLS" "$list_height")
-
-    local count=0
-    while IFS='|' read -r slug display; do
-        [[ -z "$slug" ]] && continue
-        # Truncate display to 50 chars to keep rows narrow
-        [[ ${#display} -gt 50 ]] && display="${display:0:47}..."
-        args+=("$slug" "$display" "off")
-        count=$((count+1))
-        # whiptail has a hard limit of ~250 items; cap safely
-        [[ $count -ge 200 ]] && break
-    done < "$list_file"
-
-    if [[ $count -eq 0 ]]; then
+    if [[ ! -s "$list_file" ]]; then
         TUI --msgbox "No apps found." 6 40
         return 1
     fi
 
-    # whiptail can hang on the first checkbox render. Trap signals so the
-    # user can Ctrl-C out cleanly, and reset the terminal on exit.
-    trap 'stty sane 2>/dev/null; return 1' INT TERM
-    result=$(TUI "${args[@]}" 3>&1 1>&2 2>&3)
-    local rc=$?
-    trap - INT TERM
-    stty sane 2>/dev/null
-    [[ $rc -ne 0 ]] && return 1
-    echo "$result"
+    # Load all apps into an array
+    local -a slugs displays
+    while IFS='|' read -r slug display; do
+        [[ -z "$slug" ]] && continue
+        [[ ${#display} -gt 50 ]] && display="${display:0:47}..."
+        slugs+=("$slug")
+        displays+=("$display")
+    done < "$list_file"
+
+    local total=${#slugs[@]}
+    if [[ $total -eq 0 ]]; then
+        TUI --msgbox "No apps found." 6 40
+        return 1
+    fi
+
+    # Selected apps (slugs)
+    local -a selected=()
+    local -A is_selected=()
+
+    while true; do
+        # Build the menu — first two items are controls, then apps
+        # We always show selection status in the display
+        local args=()
+        args+=(--title "$title")
+        args+=(--menu "Selected so far: ${#selected[@]}/${total} — choose an app to add/remove, or 'Done':")
+        args+=("$ROWS" "$COLS" "$((ROWS - 8))")
+
+        args+=("__DONE__" "✓ Done — proceed with selection")
+        args+=("__CANCEL__" "✗ Cancel selection")
+
+        local i
+        for ((i=0; i<total; i++)); do
+            local marker="  "
+            [[ -n "${is_selected[${slugs[$i]}]:-}" ]] && marker="✓ "
+            args+=("${slugs[$i]}" "${marker}${displays[$i]}")
+        done
+
+        # Reset terminal if it gets into a weird state
+        stty sane 2>/dev/null
+        local choice
+        choice=$(TUI "${args[@]}" 3>&1 1>&2 2>&3) || {
+            stty sane 2>/dev/null
+            return 1
+        }
+        stty sane 2>/dev/null
+
+        case "$choice" in
+            ""|__CANCEL__)
+                return 1 ;;
+            __DONE__)
+                # Print selected slugs, one per line
+                printf "%s\n" "${selected[@]}"
+                return 0 ;;
+            *)
+                # Toggle the selection
+                if [[ -n "${is_selected[$choice]:-}" ]]; then
+                    # Remove from selected
+                    is_selected["$choice"]=""
+                    local new_selected=()
+                    for s in "${selected[@]}"; do
+                        [[ "$s" != "$choice" ]] && new_selected+=("$s")
+                    done
+                    selected=("${new_selected[@]}")
+                else
+                    # Add to selected
+                    is_selected["$choice"]=1
+                    selected+=("$choice")
+                fi
+                ;;
+        esac
+    done
 }
 
 # ──────────────────────────────────────────────────────────────────
