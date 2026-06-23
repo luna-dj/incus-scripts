@@ -594,15 +594,19 @@ main() {
         case "$mode" in
             5|"" ) exit 0 ;;
             1) # Category browse
+                echo "Picking category..." >&2
                 local cat
-                cat=$(pick_category) || continue
+                cat=$(pick_category) || { echo "Category pick cancelled" >&2; continue; }
+                echo "Category: $cat" >&2
                 local list_file=$(mktemp)
                 # Build slug|display for the selected category
                 while IFS='|' read -r slug display; do
                     [[ -z "$slug" ]] && continue
                     [[ "$(categorize "$slug")" == "$cat" ]] && echo "$slug|$display"
                 done < <(get_apps) > "$list_file"
+                echo "Apps in category: $(wc -l < "$list_file")" >&2
                 local selected=$(multi_select "Category: $cat" "$list_file")
+                echo "Selected: $(echo "$selected" | wc -l) apps" >&2
                 echo "$selected" > /tmp/wizard-selection
                 rm -f "$list_file"
                 ;;
