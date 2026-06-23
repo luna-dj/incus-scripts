@@ -110,38 +110,49 @@ if [[ "$USE_TEXT_MENU" == "1" ]]; then
             esac
         done
 
-        # All output (prompts, lists) goes to stderr so stdout is reserved
-        # for the selected value (which the caller captures via $(...)).
-        exec 3>&1  # save real stdout to fd 3
-
+        # In text mode we use a simple convention: the user's typed
+        # answer is the LAST line of output, on stdout. Prompts and
+        # menus go to stdout too (the user can see them). The
+        # caller's $(TUI ...) captures the whole output, then we
+        # use a sentinel to extract the answer.
+        #
+        # The sentinel is a unique string we print AFTER the answer.
+        # The caller captures the entire stdout, then takes the line
+        # BEFORE the sentinel. To keep this simple, we use a
+        # per-call unique marker stored in a file.
+        #
+        # Simpler: print prompts/menu to stderr, the answer to stdout
+        # (which $(...) captures). That's the original design but
+        # it doesn't show in non-interactive sessions. Trade-off:
+        # we'll just print EVERYTHING to stdout, and the last
+        # meaningful line is the answer.
         case "$kind" in
             msgbox)
-                [[ -n "$title" ]] && printf '\n=== %s ===\n' "$title" >&2
+                printf '\n=== %s ===\n' "${title:-Message}" >&2
                 [[ -n "$text" ]] && printf '%s\n' "$text" >&2
-                read -rp "Press Enter to continue..." </dev/tty
+                read -rp "Press Enter to continue... " </dev/tty
                 return 0 ;;
             infobox)
-                [[ -n "$title" ]] && printf '\n=== %s ===\n' "$title" >&2
+                printf '\n=== %s ===\n' "${title:-Info}" >&2
                 [[ -n "$text" ]] && printf '%s\n' "$text" >&2
                 sleep 1
                 return 0 ;;
             yesno)
-                [[ -n "$title" ]] && printf '\n=== %s ===\n' "$title" >&2
+                printf '\n=== %s ===\n' "${title:-Confirm}" >&2
                 [[ -n "$text" ]] && printf '%s\n' "$text" >&2
                 local ans
                 while true; do
                     read -rp "y/n > " ans </dev/tty
                     case "${ans,,}" in
-                        y|yes) return 0 ;;
-                        n|no)  return 1 ;;
-                        q)     return 1 ;;
+                        y|yes) printf 'YES\n'; return 0 ;;
+                        n|no)  printf 'NO\n';  return 1 ;;
+                        q|"")  printf 'NO\n';  return 1 ;;
                         *)     printf "Please answer y or n.\n" >&2 ;;
                     esac
                 done ;;
             inputbox)
-                [[ -n "$title" ]] && printf '\n=== %s ===\n' "$title" >&2
+                printf '\n=== %s ===\n' "${title:-Input}" >&2
                 [[ -n "$text" ]]  && printf '%s\n' "$text" >&2
-                # First item is the default value (if --inputbox passed one)
                 local default_val="${items[0]:-}"
                 local val
                 if [[ -n "$default_val" ]]; then
@@ -150,12 +161,11 @@ if [[ "$USE_TEXT_MENU" == "1" ]]; then
                 else
                     read -rp "> " val </dev/tty
                 fi
-                printf '%s' "$val" >&3
+                printf '%s' "$val"
                 return 0 ;;
             menu|checklist)
-                [[ -n "$title" ]] && printf '\n=== %s ===\n' "$title" >&2
+                printf '\n=== %s ===\n' "${title:-Menu}" >&2
                 [[ -n "$text" ]]  && printf '%s\n' "$text" >&2
-                # items come in pairs (tag label)
                 local i
                 for ((i=0; i<${#items[@]}; i+=2)); do
                     printf "  %3d) %s\n" $((i/2+1)) "${items[$((i+1))]}" >&2
@@ -163,9 +173,9 @@ if [[ "$USE_TEXT_MENU" == "1" ]]; then
                 local sel
                 while true; do
                     read -rp "Enter number (1-${#items[@]}/2), or q to quit: " sel </dev/tty
-                    [[ "${sel,,}" == "q" ]] && return 1
+                    [[ "${sel,,}" == "q" ]] && { printf 'QUIT\n'; return 1; }
                     if [[ "$sel" =~ ^[0-9]+$ ]] && (( sel >= 1 && sel <= ${#items[@]}/2 )); then
-                        printf '%s' "${items[$(( (sel-1)*2 ))]}" >&3
+                        printf '%s' "${items[$(( (sel-1)*2 ))]}"
                         return 0
                     fi
                     printf "Invalid selection.\n" >&2
