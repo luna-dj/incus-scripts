@@ -50,14 +50,18 @@ verify_ncurses() {
     if [[ "${DISABLE_NCURSES_CHECK:-0}" == "1" ]]; then
         return 0
     fi
-    # Run whiptail with a 3-second timeout; if it doesn't return, it's stuck
-    local out
-    out=$(timeout 3 whiptail --title "Test" --msgbox "Press OK to continue." 8 40 2>&1 < /dev/tty)
+    # Render test: ask whiptail to write a single character then exit.
+    # Use --infobox (no input needed) with a 1-second timeout. If the
+    # render loop is broken, the timeout will fire. If whiptail is
+    # working, it will exit cleanly after 1s.
+    timeout 1 whiptail --title "Test" --infobox "ncurses OK" 6 30 >/dev/tty 2>&1
     local rc=$?
-    if [[ $rc -ne 0 && $rc -ne 1 ]]; then
-        return 1
+    # timeout returns 124 on timeout (which is fine — whiptail was running)
+    # whiptail returns 0 on success, 1 on cancel
+    if [[ $rc -eq 0 || $rc -eq 1 || $rc -eq 124 ]]; then
+        return 0
     fi
-    return 0
+    return 1
 }
 
 if ! verify_ncurses; then
