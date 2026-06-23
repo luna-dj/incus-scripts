@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# incus-scripts-wizard — One-line launcher for the install wizard
+# Usage: bash <(curl -fsSL https://raw.githubusercontent.com/luna-dj/incus-scripts/main/misc/incus-scripts-wizard)
+#    or: sudo bash misc/incus-scripts-wizard
+#
+# This is a thin wrapper around misc/install-wizard.sh that handles
+# the case where the wizard is run via curl-pipe (where $0 is /dev/fd/63
+# and the script can't find its companion files).
+#
+# It does the following:
+# 1. Downloads misc/install-wizard.sh to /tmp if not run from a local clone
+# 2. Installs whiptail if missing (apt-get)
+# 3. Runs the wizard with the right working directory
+
+set -uo pipefail
+
+# Detect if we have a local repo (script lives next to install-wizard.sh)
+WIZARD_URL="${INCUS_BASE:-https://raw.githubusercontent.com/luna-dj/incus-scripts/main}/misc/install-wizard.sh"
+WIZARD_LOCAL=""
+
+# If $0 ends with incus-scripts-wizard and there's a sibling install-wizard.sh
+SCRIPT_DIR=""
+if [[ -f "$0" && "$0" != "/dev/fd/"* && "$0" != "bash" && "$0" != "-bash" ]]; then
+    SCRIPT_DIR="$(cd "$(dirname "$0")" 2>/dev/null && pwd)"
+fi
+
+if [[ -n "$SCRIPT_DIR" && -f "$SCRIPT_DIR/install-wizard.sh" ]]; then
+    WIZARD_LOCAL="$SCRIPT_DIR/install-wizard.sh"
+fi
+
+# If no local wizard, download to /tmp
+if [[ -z "$WIZARD_LOCAL" ]]; then
+    if ! command -v curl >/dev/null 2>&1; then
+        echo "ERROR: curl is required." >&2
+        exit 1
+    fi
+    WIZARD_LOCAL="/tmp/incus-install-wizard.sh"
+    echo "Fetching install wizard from $WIZARD_URL ..."
+    if ! curl -fsSL "$WIZARD_URL" -o "$WIZARD_LOCAL"; then
+        echo "ERROR: Failed to download wizard." >&2
+        exit 1
+    fi
+    chmod +x "$WIZARD_LOCAL"
+fi
+
+# Install whiptail/dialog if missing
+if ! command -v whiptail >/dev/null 2>&1 && ! command -v dialog >/dev/null 2>&1; then
+    echo "Installing whiptail (ncurses dialog tool) ..."
+    if command -v apt-get >/dev/null 2>&1; then
+        apt-get update -qq 2>/dev/null || true
+        apt-get install -y -qq whiptail 2>/dev/null || {
+            echo "ERROR: failed to install whiptail. Run: apt install whiptail" >&2
+            exit 1
+        }
+    elif command -v dnf >/dev/null 2>&1; then
+        dnf install -y newt 2>/dev/null || {
+            echo "ERROR: failed to install newt. Run: dnf install newt" >&2
+            exit 1
+        }
+    elif command -v yum >/dev/null 2>&1; then
+        yum install -y newt 2>/dev/null || {
+            echo "ERROR: failed to install newt. Run: yum install newt" >&2
+            exit 1
+        }
+    else
+        echo "ERROR: No package manager found. Please install whiptail or dialog manually." >&2
+        exit 1
+    fi
+fi
+
+# Run the wizard
+exec bash "$WIZARD_LOCAL" "$@"
