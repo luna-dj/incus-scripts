@@ -436,13 +436,30 @@ fetch_and_deploy_gh_release() {
     rm -rf "$td"
     exit 1
   fi
+  # Verify the archive is a valid tar by listing it. Catches truncated
+  # downloads that pass the gzip magic-bytes test but have an incomplete
+  # inner tar.
+  if ! tar -tzf "${td}/archive.tar.gz" &>/dev/null; then
+    msg_error "${app} archive is corrupt or truncated: ${dl_url}"
+    msg_error "tar list failed. File size: $(stat -c%s "${td}/archive.tar.gz" 2>/dev/null || echo unknown) bytes"
+    rm -rf "$td"
+    exit 1
+  fi
   mkdir -p "$install_dir"
   tar -xzf "${td}/archive.tar.gz" -C "$install_dir" --strip-components=1 2>/dev/null
   if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
     tar -xzf "${td}/archive.tar.gz" -C "$install_dir" 2>/dev/null
   fi
   if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
-    msg_error "Failed to extract ${app} archive"
+    msg_error "Failed to extract ${app} archive (tar exit nonzero)"
+    rm -rf "$td"
+    exit 1
+  fi
+  # Verify the extraction actually produced files
+  local extracted_count
+  extracted_count=$(find "$install_dir" -mindepth 1 -maxdepth 3 | wc -l)
+  if [[ "$extracted_count" -lt 1 ]]; then
+    msg_error "${app} extraction produced no files in ${install_dir}"
     rm -rf "$td"
     exit 1
   fi
