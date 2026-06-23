@@ -436,7 +436,20 @@ fetch_and_deploy_gh_release() {
 
   # Final fallback: source archive
   if [[ -z "$dl_url" ]]; then
-    local fallback_tag="${api_tag:-v${version}}"
+    local fallback_tag
+    if [[ -n "$api_tag" ]]; then
+      fallback_tag="$api_tag"  # e.g., "v0.108.0" or "1.27.0-dev"
+    elif [[ "$version" == "latest" ]]; then
+      # No API tag — try to resolve from git ls-remote
+      fallback_tag=$(git ls-remote --tags \
+        "https://github.com/${repo}.git" 2>/dev/null \
+        | grep -v '\^{}' | awk '{print $2}' \
+        | sed 's|refs/tags/||' | sort -V | tail -1)
+      [[ -z "$fallback_tag" ]] && fallback_tag="HEAD"
+    else
+      fallback_tag="$version"  # e.g., "v1.27.0" or "1.27.0"
+    fi
+    # Don't add a 'v' prefix — fallback_tag already includes it or doesn't need it
     dl_url="https://github.com/${repo}/archive/refs/tags/${fallback_tag}.tar.gz"
   fi
 
