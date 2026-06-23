@@ -68,5 +68,10 @@ if ! command -v whiptail >/dev/null 2>&1 && ! command -v dialog >/dev/null 2>&1;
     fi
 fi
 
-# Run the wizard
+# Run the wizard. If the user passed --text or the env var
+# FORCE_TEXT_MENU is set, pass it through.
+if [[ "$FORCE_TEXT_MENU" == "1" || "${1:-}" == "--text" ]]; then
+    export FORCE_TEXT_MENU=1
+    [[ "${1:-}" == "--text" ]] && shift
+fi
 exec bash "$WIZARD_LOCAL" "$@"

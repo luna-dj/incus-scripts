@@ -41,11 +41,16 @@ fi
 # SSH/serial terminals break whiptail's ncurses render. We do a
 # 2-second smoke test: run a tiny msgbox with a timeout, and if
 # it doesn't return, fall back to a plain-text menu.
+#
+# Set FORCE_TEXT_MENU=1 to skip the smoke test entirely.
 verify_ncurses() {
+    if [[ "$FORCE_TEXT_MENU" == "1" ]]; then
+        return 1
+    fi
     if [[ "$DISABLE_NCURSES_CHECK" == "1" ]]; then
         return 0
     fi
-    # Run whiptail with a 2-second timeout; if it doesn't return, it's stuck
+    # Run whiptail with a 3-second timeout; if it doesn't return, it's stuck
     local out
     out=$(timeout 3 whiptail --title "Test" --msgbox "Press OK to continue." 8 40 2>&1 < /dev/tty)
     local rc=$?
