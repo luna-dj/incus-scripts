@@ -2,6 +2,9 @@
 gen_all.sh
 /tmp/
 
+# Local agent scratch space
+.claude/
+
 # OS files
 .DS_Store
 Thumbs.db
