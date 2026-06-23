@@ -857,6 +857,109 @@ curl_with_retry() {
 cleanup_tool_keyrings() { :; }
 stop_all_services() { :; }
 verify_tool_version() { return 0; }
+# ── Upstream DB/Infra setup shims ──────────
+# Minimal implementations of common upstream functions.
+# The upstream scripts (from ProxmoxVE) call these to set up
+# databases, caches, and package dependencies.
+ensure_dependencies() {
+  local deps=("$@")
+  [[ ${#deps[@]} -eq 0 ]] && return 0
+  msg_info "Installing dependencies"
+  for dep in "${deps[@]}"; do
+    if ! dpkg -l "$dep" &>/dev/null; then
+      apt-get install -y -qq "$dep" 2>/dev/null || true
+    fi
+  done
+  msg_ok "Installed Dependencies"
+}
+
+get_os_info() {
+  case "$1" in
+    id)          . /etc/os-release && echo "$ID" ;;
+    version_id)  . /etc/os-release && echo "$VERSION_ID" ;;
+    codename)    . /etc/os-release && echo "$VERSION_CODENAME" ;;
+    *)           echo "unknown" ;;
+  esac
+}
+
+ensure_apt_working() {
+  apt-get update -qq 2>/dev/null || true
+}
+
+cache_installed_version() {
+  : # not needed for Incus
+}
+
+prompt_for_github_token() {
+  return 1  # no token, continue without
+}
+
+_prompt_options_line() {
+  :
+}
+
+setup_postgresql_repo_only() {
+  # Install PostgreSQL from PGDG for latest version
+  apt-get install -y -qq gnupg2 ca-certificates lsb-release 2>/dev/null || true
+  curl -fsSL "https://www.postgresql.org/media/keys/ACCC4CF8.asc" | gpg --dearmor -o /usr/share/keyrings/pgdg.gpg 2>/dev/null || true
+  echo "deb [signed-by=/usr/share/keyrings/pgdg.gpg] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list 2>/dev/null || true
+  apt-get update -qq 2>/dev/null || true
+}
+
+setup_postgresql() {
+  local pg_version="${PG_VERSION:-16}"
+  msg_info "Setting up PostgreSQL ${pg_version}"
+  setup_postgresql_repo_only
+  apt-get install -y -qq "postgresql-${pg_version}" "postgresql-client-${pg_version}" 2>/dev/null || \
+    apt-get install -y -qq postgresql postgresql-client 2>/dev/null || true
+  systemctl enable -q --now "postgresql" 2>/dev/null || systemctl start postgresql 2>/dev/null || true
+  msg_ok "PostgreSQL ${pg_version} installed"
+}
+
+setup_postgresql_db() {
+  local user="$1" db="$2" pass="$3"
+  msg_info "Setting up PostgreSQL database: ${db}"
+  sudo -u postgres psql -c "CREATE USER ${user} WITH PASSWORD '${pass}';" 2>/dev/null || true
+  sudo -u postgres psql -c "CREATE DATABASE ${db} OWNER ${user};" 2>/dev/null || true
+  sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE ${db} TO ${user};" 2>/dev/null || true
+  msg_ok "PostgreSQL database '${db}' created"
+}
+
+setup_mariadb() {
+  msg_info "Setting up MariaDB"
+  apt-get install -y -qq mariadb-server mariadb-client 2>/dev/null || true
+  systemctl enable -q --now mariadb 2>/dev/null || true
+  msg_ok "MariaDB installed"
+}
+
+setup_mariadb_db() {
+  local db="$1" user="$2" pass="$3"
+  msg_info "Setting up MariaDB database: ${db}"
+  mysql -u root -e "CREATE DATABASE IF NOT EXISTS ${db};" 2>/dev/null || true
+  mysql -u root -e "CREATE USER IF NOT EXISTS '${user}'@'localhost' IDENTIFIED BY '${pass}';" 2>/dev/null || true
+  mysql -u root -e "GRANT ALL PRIVILEGES ON ${db}.* TO '${user}'@'localhost'; FLUSH PRIVILEGES;" 2>/dev/null || true
+  msg_ok "MariaDB database '${db}' created"
+}
+
+setup_redis() {
+  msg_info "Setting up Redis"
+  apt-get install -y -qq redis-server 2>/dev/null || true
+  systemctl enable -q --now redis-server 2>/dev/null || true
+  msg_ok "Redis installed"
+}
+
+setup_python() {
+  msg_info "Setting up Python"
+  apt-get install -y -qq python3 python3-pip python3-venv 2>/dev/null || true
+  msg_ok "Python installed"
+}
+
+_pg_cron_setup() {
+  : # not needed
+}
+_configure_pg_cron_preload() {
+  : # not needed
+}
 version_matches_spec() { return 0; }
 cleanup_legacy_install() { :; }
 
