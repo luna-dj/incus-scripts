@@ -74,6 +74,9 @@ if ! verify_ncurses; then
 else
     USE_TEXT_MENU=0
     echo "ncurses OK, using whiptail UI" >&2
+    # Clear screen so the wizard renders cleanly after the smoke test
+    clear
+    stty sane 2>/dev/null
 fi
 
 # whiptail and dialog have nearly identical CLI; dialog has a few
