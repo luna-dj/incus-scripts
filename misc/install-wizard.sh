@@ -74,10 +74,16 @@ if ! verify_ncurses; then
 else
     USE_TEXT_MENU=0
     echo "ncurses OK, using whiptail UI" >&2
-    # Clear screen so the wizard renders cleanly after the smoke test
+    # Clear screen and reset terminal so whiptail renders cleanly
     clear
     stty sane 2>/dev/null
+    # Some terminals need a moment for the smoke test's terminal
+    # mode changes to settle before whiptail can take over
+    sleep 0.3
 fi
+
+# After the smoke test, the terminal may have leftover ncurses state.
+# Reset it before any user-facing prompts.
 
 # whiptail and dialog have nearly identical CLI; dialog has a few
 # extra options. Set up an alias for whichever we found.
@@ -551,12 +557,19 @@ main() {
     preflight
 
     # Welcome
-    welcome || exit 0
+    echo "Starting wizard..." >&2
+    stty sane 2>/dev/null
+    if ! welcome; then
+        echo "Welcome cancelled, exiting." >&2
+        exit 0
+    fi
+    echo "Welcome OK, continuing." >&2
 
     # Main loop
     while true; do
         local mode
         mode=$(pick_mode) || exit 0
+        echo "Mode selected: $mode" >&2
 
         case "$mode" in
             5|"" ) exit 0 ;;
