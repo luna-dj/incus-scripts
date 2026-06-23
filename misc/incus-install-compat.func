@@ -755,8 +755,31 @@ fetch_and_deploy_from_url() {
       msg_info "Extracting tar archive"
       if [[ -n "$directory" ]]; then
         mkdir -p "$directory"
-        tar -xf "$tmpdir/$filename" -C "$directory" --strip-components=1 2>/dev/null \
-          || tar -xf "$tmpdir/$filename" -C "$directory" 2>/dev/null
+        # Extract to a temp dir first, then handle the top-level dir
+        # structure (matches upstream ProxmoxVE logic).
+        local ext_tmp
+        ext_tmp=$(mktemp -d)
+        if tar -xf "$tmpdir/$filename" -C "$ext_tmp" 2>/dev/null; then
+          local top_entries top_count
+          top_entries=$(find "$ext_tmp" -mindepth 1 -maxdepth 1 2>/dev/null)
+          top_count=$(echo "$top_entries" | grep -c .)
+          if [[ "$top_count" -eq 1 && -d "$top_entries" ]]; then
+            # Single top-level dir — copy its contents into directory
+            shopt -s dotglob nullglob
+            if compgen -G "$top_entries/*" >/dev/null; then
+              cp -r "$top_entries"/* "$directory/"
+            fi
+            shopt -u dotglob nullglob
+          else
+            # Flat archive — copy all entries directly
+            shopt -s dotglob nullglob
+            if compgen -G "$ext_tmp/*" >/dev/null; then
+              cp -r "$ext_tmp"/* "$directory/"
+            fi
+            shopt -u dotglob nullglob
+          fi
+        fi
+        rm -rf "$ext_tmp"
       else
         tar -xf "$tmpdir/$filename" -C "$tmpdir"
       fi
