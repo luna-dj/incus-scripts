@@ -556,6 +556,7 @@ fetch_and_deploy_gh_release() {
       local top_entries top_count
       top_entries=$(find "$extract_tmp" -mindepth 1 -maxdepth 1 2>/dev/null)
       top_count=$(echo "$top_entries" | grep -c .)
+      msg_info "Extracting to ${install_dir} (${top_count} top-level entries)"
       if [[ "$top_count" -eq 1 && -d "$top_entries" ]]; then
         # Single top-level dir — copy its contents into install_dir
         shopt -s dotglob nullglob
