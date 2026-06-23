@@ -889,16 +889,18 @@ fetch_and_deploy_codeberg_release() {
     local dl_url
 
     if [[ "$mode" == "singlefile" ]]; then
-      # Singlefile: find the asset matching asset_pattern from the latest release
-      local release_json
+      # Singlefile: find the asset name matching asset_pattern from the latest release
+      local release_json asset_name
       release_json=$(curl -fsSL "https://codeberg.org/api/v1/repos/${repo}/releases/latest" 2>/dev/null)
       if [[ -n "$release_json" && -n "$asset_pattern" ]]; then
         local match_re
         match_re=$(echo "$asset_pattern" | sed 's/\./\\./g; s/\*/.*/g')
-        dl_url=$(echo "$release_json" | grep '"browser_download_url"' | grep -E "${match_re}" | head -1 | sed -E 's/.*"browser_download_url": *"([^"]+)".*/\1/')
+        asset_name=$(echo "$release_json" | grep '"name"' | grep -E "${match_re}" | head -1 | sed -E 's/.*"name": *"([^"]+)".*/\1/' | head -1)
       fi
-      if [[ -z "$dl_url" ]]; then
-        # Fallback: construct the asset URL from the tag
+      if [[ -n "$asset_name" ]]; then
+        dl_url="https://codeberg.org/${repo}/releases/download/${tag_name}/${asset_name}"
+      else
+        # Fallback: construct the asset URL from tag + pattern
         dl_url="https://codeberg.org/${repo}/releases/download/${tag_name}/${asset_pattern}"
       fi
     elif [[ "$mode" == "tarball" || "$mode" == "tag" ]]; then
@@ -918,13 +920,11 @@ fetch_and_deploy_codeberg_release() {
 
     mkdir -p "$target"
     if [[ "$mode" == "singlefile" ]]; then
-      # Determine the actual filename from the URL or pattern
-      local target_name
-      target_name=$(basename "$dl_url")
-      if [[ "$target_name" == "$asset_pattern" ]]; then
-        # asset_pattern may have globs; use the actual name from URL
-        target_name=$(basename "$dl_url")
-      fi
+      # Determine the filename from the asset name (or fall back to the
+      # actual downloaded filename). Codeberg's download URL may serve
+      # a generic filename (e.g., "forgejo") while the real asset name
+      # is "forgejo-15.0.3-linux-amd64".
+      local target_name="${asset_name:-$(basename "$dl_url")}"
       cp "$tmpdir/download" "$target/${target_name}"
       chmod +x "$target/${target_name}"
       msg_ok "${app} deployed from Codeberg (singlefile: ${target_name})"
