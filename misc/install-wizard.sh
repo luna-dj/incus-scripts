@@ -89,6 +89,7 @@ if [[ "$USE_TEXT_MENU" == "1" ]]; then
     # --inputbox, --menu, --infobox.
     TUI() {
         local title="" text="" h=10 w=60 menu_h=8
+        local h_set=0 w_set=1 menu_h_set=0
         local args=()
         while [[ $# -gt 0 ]]; do
             case "$1" in
@@ -102,9 +103,9 @@ if [[ "$USE_TEXT_MENU" == "1" ]]; then
                 --separate-output) shift ;;  # ignore, not used in text mode
                 --*) shift ;;  # ignore other flags
                 *)
-                    if [[ -z "$h_set" ]]; then h="$1"; h_set=1; shift
-                    elif [[ -z "$w_set" ]]; then w="$1"; w_set=1; shift
-                    elif [[ ${#args[@]} -gt 0 && "${args[-1]}" == "menu" && -z "$menu_h_set" ]]; then
+                    if [[ "$h_set" -eq 0 ]]; then h="$1"; h_set=1; shift
+                    elif [[ "$w_set" -eq 0 ]]; then w="$1"; w_set=1; shift
+                    elif [[ "${#args[@]}" -gt 0 && "${args[-1]}" == "menu" && "$menu_h_set" -eq 0 ]]; then
                         menu_h="$1"; menu_h_set=1; shift
                     else
                         # Item: tag then label
@@ -139,14 +140,9 @@ if [[ "$USE_TEXT_MENU" == "1" ]]; then
                 sleep 1
                 return 0 ;;
             menu|checklist)
-                # Print numbered list, get number
+                # Items come from args[1..] (skip the type tag)
                 local i=1
                 local -a items
-                # Items come in pairs (tag label)
-                while [[ $# -gt 0 ]]; do items+=("$1"); shift; done
-                # ... actually we already consumed; re-parse from args
-                # The args we built contain "menu" then pairs. Skip the
-                # first element (the type).
                 items=("${args[@]:1}")
                 for ((i=0; i<${#items[@]}; i+=2)); do
                     printf "  %3d) %s\n" $((i/2+1)) "${items[$((i+1))]}" >&2
