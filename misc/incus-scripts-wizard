@@ -28,7 +28,9 @@ if [[ -n "$SCRIPT_DIR" && -f "$SCRIPT_DIR/install-wizard.sh" ]]; then
     WIZARD_LOCAL="$SCRIPT_DIR/install-wizard.sh"
 fi
 
-# If no local wizard, download to /tmp
+# If no local wizard, download to /tmp.
+# Use a cache-buster (timestamp) so we always get the latest from
+# the remote, not a stale CDN-cached version.
 if [[ -z "$WIZARD_LOCAL" ]]; then
     if ! command -v curl >/dev/null 2>&1; then
         echo "ERROR: curl is required." >&2
@@ -36,7 +38,11 @@ if [[ -z "$WIZARD_LOCAL" ]]; then
     fi
     WIZARD_LOCAL="/tmp/incus-install-wizard.sh"
     echo "Fetching install wizard from $WIZARD_URL ..."
-    if ! curl -fsSL "$WIZARD_URL" -o "$WIZARD_LOCAL"; then
+    # Append a cache-buster query string to defeat CDN caches. Strip
+    # any existing query first.
+    local base_url="${WIZARD_URL%%\?*}"
+    local cb_url="${base_url}?v=$(date +%s)"
+    if ! curl -fsSL "$cb_url" -o "$WIZARD_LOCAL"; then
         echo "ERROR: Failed to download wizard." >&2
         exit 1
     fi
