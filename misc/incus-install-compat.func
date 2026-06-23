@@ -708,20 +708,39 @@ fetch_and_deploy_from_url() {
     return 250
   fi
 
-  # Auto-detect archive type
-  local file_desc archive_type
-  file_desc=$(file -b "$tmpdir/$filename")
-  if [[ "$file_desc" == *"gzip"* || "$file_desc" == *"tar archive"* ]]; then
-    archive_type="tar"
-  elif [[ "$file_desc" == *"Zip"* || "$file_desc" == *"ZIP"* ]]; then
-    archive_type="zip"
-  elif [[ "$file_desc" == *"Debian"* || "$file_desc" == *"deb"* ]]; then
-    archive_type="deb"
-  else
-    msg_error "Unsupported archive type: $file_desc"
-    rm -rf "$tmpdir"
-    return 65
-  fi
+  # Auto-detect archive type. Prefer URL extension (works without
+  # the 'file' command, which may not be installed in minimal
+  # containers). Fall back to file(1) if extension is unknown.
+  local archive_type
+  case "$filename" in
+    *.deb)        archive_type="deb" ;;
+    *.zip)        archive_type="zip" ;;
+    *.tar.gz|*.tgz) archive_type="tar" ;;
+    *.tar.bz2|*.tbz2) archive_type="tar" ;;
+    *.tar.xz|*.txz)   archive_type="tar" ;;
+    *.tar)        archive_type="tar" ;;
+    *)
+      if command -v file >/dev/null 2>&1; then
+        local file_desc
+        file_desc=$(file -b "$tmpdir/$filename")
+        if [[ "$file_desc" == *"gzip"* || "$file_desc" == *"tar archive"* ]]; then
+          archive_type="tar"
+        elif [[ "$file_desc" == *"Zip"* || "$file_desc" == *"ZIP"* ]]; then
+          archive_type="zip"
+        elif [[ "$file_desc" == *"Debian"* ]]; then
+          archive_type="deb"
+        else
+          msg_error "Unsupported archive type: $file_desc"
+          rm -rf "$tmpdir"
+          return 65
+        fi
+      else
+        msg_error "Cannot determine archive type (no 'file' command, unknown extension: $filename)"
+        rm -rf "$tmpdir"
+        return 65
+      fi
+      ;;
+  esac
 
   case "$archive_type" in
     deb)
