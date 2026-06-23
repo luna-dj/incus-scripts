@@ -3,7 +3,7 @@
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 
-source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE:-https://codeberg.org/luna-dj/incus-scripts/raw/branch/main}/misc/incus-install-compat.func)"
+source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE:-https://codeberg.org/luna-dj/incus-scripts/raw/branch/main}/misc/incus-install-compat.func?v=$(date +%s))"
 
 header_info "Librechat"
 setting_up_container
@@ -12,7 +12,7 @@ update_os
 
 msg_info "Loading upstream install script for Librechat"
 UPSTREAM_URL="https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/librechat-install.sh"
-UPSTREAM_SCRIPT=$(curl -fsSL "$UPSTREAM_URL" 2>/dev/null) || {
+UPSTREAM_SCRIPT=$(curl -fsSL "${UPSTREAM_URL}?v=$(date +%s)" 2>/dev/null) || {
     msg_error "Failed to fetch upstream install script"
     exit 1
 }

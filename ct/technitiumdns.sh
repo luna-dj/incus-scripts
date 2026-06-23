@@ -9,8 +9,8 @@
 INCUS_BASE="${INCUS_BASE:-https://codeberg.org/luna-dj/incus-scripts/raw/branch/main}"
 # Export so it survives subshells (pipes, incus_exec_stdin)
 export INCUS_BASE
-source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE}/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE}/misc/incus-build.func)"
+source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE}/common.sh?v=$(date +%s))"
+source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE}/misc/incus-build.func?v=$(date +%s))"
 
 APP="Technitiumdns"
 var_tags="${var_tags:-}"

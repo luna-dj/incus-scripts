@@ -3,8 +3,8 @@
 # Copyright (c) 2026 incus-helper-scripts
 # License: MIT
 
-source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh)"
-source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-build.func)"
+source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/common.sh?v=$(date +%s))"
+source /dev/stdin <<<"$(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/misc/incus-build.func?v=$(date +%s))"
 
 APP="Nginx"
 var_tags="${var_tags:-proxy,web}"
