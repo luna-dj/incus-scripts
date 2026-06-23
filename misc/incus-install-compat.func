@@ -874,8 +874,7 @@ fetch_and_deploy_codeberg_release() {
   local target="${5:-/opt/$app}"
   local asset_pattern="${6:-}"
 
-  if [[ "$mode" == "tarball" || "$mode" == "tag" ]]; then
-    # For tarball/tag mode: download the source archive
+  if [[ "$mode" == "tarball" || "$mode" == "tag" || "$mode" == "singlefile" ]]; then
     local tag_name
     if [[ "$version" == "latest" ]]; then
       # Get latest tag from Codeberg API
@@ -887,31 +886,61 @@ fetch_and_deploy_codeberg_release() {
       tag_name="$version"
     fi
     [[ -z "$tag_name" ]] && { msg_error "Cannot determine latest release for ${app}"; return 252; }
+    local dl_url
 
-    local filename="${app}-${tag_name}.tar.gz"
-    local archive_url="https://codeberg.org/${repo}/archive/${tag_name}.tar.gz"
+    if [[ "$mode" == "singlefile" ]]; then
+      # Singlefile: find the asset matching asset_pattern from the latest release
+      local release_json
+      release_json=$(curl -fsSL "https://codeberg.org/api/v1/repos/${repo}/releases/latest" 2>/dev/null)
+      if [[ -n "$release_json" && -n "$asset_pattern" ]]; then
+        local match_re
+        match_re=$(echo "$asset_pattern" | sed 's/\./\\./g; s/\*/.*/g')
+        dl_url=$(echo "$release_json" | grep '"browser_download_url"' | grep -E "${match_re}" | head -1 | sed -E 's/.*"browser_download_url": *"([^"]+)".*/\1/')
+      fi
+      if [[ -z "$dl_url" ]]; then
+        # Fallback: construct the asset URL from the tag
+        dl_url="https://codeberg.org/${repo}/releases/download/${tag_name}/${asset_pattern}"
+      fi
+    elif [[ "$mode" == "tarball" || "$mode" == "tag" ]]; then
+      local archive_url="https://codeberg.org/${repo}/archive/${tag_name}.tar.gz"
+      dl_url="$archive_url"
+    fi
+
     msg_info "Fetching ${app} from Codeberg (${tag_name})"
 
     local tmpdir
     tmpdir=$(mktemp -d) || return 252
-    if ! curl -fsSL -o "$tmpdir/$filename" "$archive_url" 2>/dev/null; then
-      msg_error "Download failed: $archive_url"
+    if ! curl -fsSL -o "$tmpdir/download" "$dl_url" 2>/dev/null; then
+      msg_error "Download failed: $dl_url"
       rm -rf "$tmpdir"
       return 250
     fi
 
     mkdir -p "$target"
-    # Source archives have a single top-level dir like 'forgejo-7.0.1/'
-    tar -xzf "$tmpdir/$filename" -C "$tmpdir" 2>/dev/null
-    local unpack_dir
-    unpack_dir=$(find "$tmpdir" -mindepth 1 -maxdepth 1 -type d | head -1)
-    if [[ -n "$unpack_dir" ]]; then
-      cp -r "$unpack_dir"/* "$target/" 2>/dev/null
+    if [[ "$mode" == "singlefile" ]]; then
+      # Determine the actual filename from the URL or pattern
+      local target_name
+      target_name=$(basename "$dl_url")
+      if [[ "$target_name" == "$asset_pattern" ]]; then
+        # asset_pattern may have globs; use the actual name from URL
+        target_name=$(basename "$dl_url")
+      fi
+      cp "$tmpdir/download" "$target/${target_name}"
+      chmod +x "$target/${target_name}"
+      msg_ok "${app} deployed from Codeberg (singlefile: ${target_name})"
     else
-      cp -r "$tmpdir"/* "$target/" 2>/dev/null
+      # Source archives have a single top-level dir like 'forgejo-7.0.1/'
+      tar -xzf "$tmpdir/download" -C "$tmpdir" 2>/dev/null
+      local unpack_dir
+      unpack_dir=$(find "$tmpdir" -mindepth 1 -maxdepth 1 -type d | head -1)
+      if [[ -n "$unpack_dir" ]]; then
+        cp -r "$unpack_dir"/* "$target/" 2>/dev/null
+      else
+        cp -r "$tmpdir"/* "$target/" 2>/dev/null
+      fi
+      msg_ok "${app} deployed from Codeberg"
     fi
     rm -rf "$tmpdir"
-    msg_ok "${app} deployed from Codeberg"
   else
     msg_warn "fetch_and_deploy_codeberg_release: mode '${mode}' not implemented, falling back to GitHub emulation"
     # Fall back to GitHub function for prebuild/binary/singlefile modes
