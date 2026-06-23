@@ -523,17 +523,19 @@ fetch_and_deploy_gh_release() {
         exit 1
       fi
       mkdir -p "$install_dir"
-      local tar_err extracted_count
+      local tar_err extracted_count tar_exit
       tar_err=$(tar -xzf "$dl_file" -C "$install_dir" --strip-components=1 2>&1)
+      tar_exit=$?
       extracted_count=$(find "$install_dir" -mindepth 1 -maxdepth 1 | wc -l)
       # If --strip-components produced no files (flat archive with no
       # top-level dir), retry without strip. tar with --strip-components=N
       # on a flat archive exits 0 but extracts nothing.
-      if [[ ${PIPESTATUS[0]} -ne 0 || "$extracted_count" -eq 0 ]]; then
+      if [[ "$tar_exit" -ne 0 || "$extracted_count" -eq 0 ]]; then
         # Clean install_dir so the fallback doesn't double up
         rm -rf "$install_dir"/* "$install_dir"/.[!.]* 2>/dev/null || true
         tar_err=$(tar -xzf "$dl_file" -C "$install_dir" 2>&1)
-        if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
+        tar_exit=$?
+        if [[ "$tar_exit" -ne 0 ]]; then
           msg_error "Failed to extract ${app} archive (tar exit nonzero)"
           msg_error "tar output: ${tar_err}"
           msg_error "First entries: $(tar -tzf "$dl_file" 2>/dev/null | head -5 | tr '\n' ' ')"
