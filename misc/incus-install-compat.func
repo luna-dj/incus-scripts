@@ -927,6 +927,10 @@ fetch_and_deploy_codeberg_release() {
       local target_name="${asset_name:-$(basename "$dl_url")}"
       cp "$tmpdir/download" "$target/${target_name}"
       chmod +x "$target/${target_name}"
+      # Also create a plain 'appname' symlink for the upstream's
+      # expected path (upstream uses /opt/forgejo/forgejo)
+      local app_binary="${app,,}"
+      [[ -f "$target/$app_binary" ]] || ln -sf "$target/${target_name}" "$target/$app_binary" 2>/dev/null || true
       msg_ok "${app} deployed from Codeberg (singlefile: ${target_name})"
     else
       # Source archives have a single top-level dir like 'forgejo-7.0.1/'
