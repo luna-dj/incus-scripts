@@ -355,8 +355,9 @@ multi_select() {
         return 1
     fi
 
-    # Load all apps into an array
-    local -a slugs displays
+    # Load all apps into arrays. Under set -u, both arrays must be
+    # initialized before any access.
+    local -a slugs=() displays=()
     while IFS='|' read -r slug display; do
         [[ -z "$slug" ]] && continue
         [[ ${#display} -gt 50 ]] && display="${display:0:47}..."
@@ -370,7 +371,8 @@ multi_select() {
         return 1
     fi
 
-    # Selected apps (slugs)
+    # Selected apps (slugs). Initialize both arrays to avoid set -u
+    # issues on access before assignment.
     local -a selected=()
     local -A is_selected=()
 
