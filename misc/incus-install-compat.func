@@ -408,6 +408,15 @@ fetch_and_deploy_gh_release() {
 
   # Fallback: source archive from GitHub
   if [[ -z "$dl_url" ]]; then
+    # If a specific binary pattern was requested but we couldn't find
+    # it in the API, do NOT silently fall back to the source archive
+    # (which would install Go source code instead of a binary). Warn
+    # loudly so the user knows.
+    if [[ "$archive_match" != "tar.gz" && "$archive_match" != "*.tar.gz" ]]; then
+      msg_warn "Could not find binary asset matching '${archive_match}' for ${app} via API"
+      msg_warn "Falling back to source archive — this will extract Go/Rust/Python source, not a compiled binary"
+      msg_warn "Check that the release has an asset matching: ${archive_match}"
+    fi
     # Use the resolved tag from API if we have it
     local fallback_tag="$version"
     if [[ "$fallback_tag" == "latest" && -n "$release_json" ]]; then
@@ -477,11 +486,19 @@ fetch_and_deploy_gh_release() {
     ! -name '*.yaml' ! -name '*.yml' ! -name 'LICENSE*' \
     -print0 2>/dev/null \
   | xargs -0 -r chmod +x 2>/dev/null || true
-  # Verify at least one file got +x (for binary releases)
+  # Verify at least one binary was extracted. Look for files larger than
+  # 1MB and executable — Go source files are tiny. This catches the case
+  # where we fell back to the source archive and extracted Go code instead
+  # of a compiled binary.
   local first_bin
-  first_bin=$(find "$install_dir" -maxdepth 3 -type f -executable -not -name '*.md' -not -name '*.txt' -not -name '*.json' -not -name '*.yaml' -not -name '*.yml' -not -name 'LICENSE*' 2>/dev/null | head -1)
+  first_bin=$(find "$install_dir" -maxdepth 3 -type f -executable -size +1M 2>/dev/null | head -1)
   if [[ -z "$first_bin" ]]; then
-    msg_warn "No executable file found after extraction in ${install_dir} — binary may not have +x"
+    # Check the biggest file in install_dir as a fallback indicator
+    local biggest
+    biggest=$(find "$install_dir" -maxdepth 3 -type f -printf '%s %p\n' 2>/dev/null | sort -rn | head -1)
+    msg_warn "No large executable found after extraction of ${app}"
+    msg_warn "Largest file: ${biggest:-none}"
+    msg_warn "This usually means the source archive was downloaded instead of a binary asset"
   fi
   rm -rf "$td"
   msg_ok "${app} deployed"
