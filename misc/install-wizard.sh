@@ -366,12 +366,21 @@ multi_select() {
 
     # Load all apps into arrays. Under set -u, both arrays must be
     # initialized before any access.
+    # Whiptail has a hard limit on the number of items (~250). If
+    # the list is too long, the menu hangs. We cap at 200 and tell
+    # the user to use search instead for larger lists.
     local -a slugs=() displays=()
+    local line_count=0
     while IFS='|' read -r slug display; do
         [[ -z "$slug" ]] && continue
         [[ ${#display} -gt 50 ]] && display="${display:0:47}..."
         slugs+=("$slug")
         displays+=("$display")
+        line_count=$((line_count+1))
+        if [[ $line_count -ge 200 ]]; then
+            slugs+=("__TOO_MANY__" "… too many to show, use Search instead")
+            break
+        fi
     done < "$list_file"
 
     local total=${#slugs[@]}
@@ -394,6 +403,10 @@ multi_select() {
 
         args+=("__DONE__" "✓ Done — proceed with selection")
         args+=("__CANCEL__" "✗ Cancel selection")
+        # For very large lists, suggest using search
+        if [[ $total -ge 50 ]]; then
+            args+=("__USE_SEARCH__" "🔍 Too many? Use Search mode instead")
+        fi
 
         local i
         for ((i=0; i<total; i++)); do
@@ -419,6 +432,13 @@ multi_select() {
                 # Print selected slugs, one per line
                 printf "%s\n" "${selected[@]}"
                 return 0 ;;
+            __TOO_MANY__)
+                # Sentinel, not a real selection
+                ;;
+            __USE_SEARCH__)
+                # Suggest switching to search
+                TUI --msgbox "Too many apps to show in a list.\n\nPlease go back and use Search mode (option 2) to find what you need." 10 60
+                ;;
             *)
                 # Toggle the selection
                 if [[ -n "${is_selected[$choice]:-}" ]]; then
