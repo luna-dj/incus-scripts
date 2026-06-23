@@ -87,9 +87,13 @@ if [[ "$USE_TEXT_MENU" == "1" ]]; then
     TUI() {
         local title="" text="" default="" h=10 w=60 list_h=8
         local kind="" items=()
-        # Parse args. We expect one of: --title X, --msgbox/--yesno/--inputbox/--menu/--infobox,
-        # then height width [list-height], then content. We are tolerant of
-        # missing --title and missing items.
+        local h_set=0 w_set=0 list_h_set=0 text_set=0
+        # Parse args. whiptail syntax:
+        #   --title <title>
+        #   --<kind> <text> <height> <width> [list-height] [tag item status]...
+        # text is optional for msgbox/yesno/infobox (no text means no body)
+        # for --menu, --checklist, --inputbox, text is the prompt shown above.
+        # We are tolerant: skip unknown flags, accept missing text.
         while [[ $# -gt 0 ]]; do
             case "$1" in
                 --title)        title="$2"; shift 2 ;;
@@ -97,13 +101,17 @@ if [[ "$USE_TEXT_MENU" == "1" ]]; then
                 --msgbox|--yesno|--inputbox|--menu|--infobox|--checklist)
                     kind="${1#--}"; shift ;;
                 *)
-                    # First non-flag is height, second is width, third (for
-                    # menu/checklist) is list-height
-                    if [[ -z "${h_set:-}" ]]; then h="$1"; h_set=1; shift
-                    elif [[ -z "${w_set:-}" ]]; then w="$1"; w_set=1; shift
-                    elif [[ -z "${list_h_set:-}" && ("$kind" == "menu" || "$kind" == "checklist") ]]; then
+                    if [[ "$text_set" -eq 0 && ("$kind" == "menu" || "$kind" == "checklist" || "$kind" == "inputbox") ]]; then
+                        # First non-flag arg is the prompt text for menu/inputbox
+                        text="$1"; text_set=1; shift
+                    elif [[ "$h_set" -eq 0 ]]; then
+                        h="$1"; h_set=1; shift
+                    elif [[ "$w_set" -eq 0 ]]; then
+                        w="$1"; w_set=1; shift
+                    elif [[ "$list_h_set" -eq 0 && ("$kind" == "menu" || "$kind" == "checklist") ]]; then
                         list_h="$1"; list_h_set=1; shift
                     else
+                        # Tag/item pairs
                         items+=("$1"); shift
                     fi
                     ;;
