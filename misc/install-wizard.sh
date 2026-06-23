@@ -44,10 +44,10 @@ fi
 #
 # Set FORCE_TEXT_MENU=1 to skip the smoke test entirely.
 verify_ncurses() {
-    if [[ "$FORCE_TEXT_MENU" == "1" ]]; then
+    if [[ "${FORCE_TEXT_MENU:-0}" == "1" ]]; then
         return 1
     fi
-    if [[ "$DISABLE_NCURSES_CHECK" == "1" ]]; then
+    if [[ "${DISABLE_NCURSES_CHECK:-0}" == "1" ]]; then
         return 0
     fi
     # Run whiptail with a 3-second timeout; if it doesn't return, it's stuck
