@@ -889,26 +889,28 @@ fetch_and_deploy_codeberg_release() {
     local dl_url
 
     if [[ "$mode" == "singlefile" ]]; then
-      # Singlefile: find the asset name matching asset_pattern from the latest release
-      # Use the asset name from the 'assets' array, not the top-level release 'name'.
-      # Avoid matching source archives (forgejo-src-*) vs binaries (forgejo-*-linux-amd64)
-      # by requiring the full pattern to be a suffix of the asset name.
-      local release_json asset_name
+      # Singlefile: find the asset matching asset_pattern from the latest release
+      # Use the asset name from the 'assets' array via browser_download_url.
+      local release_json asset_name fallback_name
       release_json=$(curl -fsSL "https://codeberg.org/api/v1/repos/${repo}/releases/latest" 2>/dev/null)
       if [[ -n "$release_json" && -n "$asset_pattern" ]]; then
-        # Build the expected binary name: replace $(arch_resolve) with actual arch
-        local actual_pattern="${asset_pattern/\$(arch_resolve)/$(arch_resolve)}"
         local match_re
-        match_re=$(echo "$actual_pattern" | sed 's/\./\\./g; s/\*/.*/g')
-        asset_name=$(echo "$release_json" | grep '"browser_download_url"' | grep -E "${match_re}" | head -1 | sed -E 's/.*"([^"]+)".*/\1/' | xargs -I{} basename {})
+        match_re=$(echo "$asset_pattern" | sed 's/\./\\./g; s/\*/.*/g')
+        # browser_download_url from the assets array
+        local dl_basename
+        dl_basename=$(echo "$release_json" | grep '"browser_download_url"' | grep -E "${match_re}" | head -1 | sed -E 's|.*"browser_download_url": *"([^"]+)".*|\1|')
+        asset_name=$(basename "$dl_basename" 2>/dev/null)
+        # Fallback name: remove glob chars from asset_pattern
+        fallback_name="${asset_pattern//\*/}"
       fi
       if [[ -n "$asset_name" ]]; then
         dl_url="https://codeberg.org/${repo}/releases/download/${tag_name}/${asset_name}"
-      else
-        # Fallback: construct the asset URL from tag + pattern (without globs)
-        local fallback_name="${actual_pattern//\*/}"
-        fallback_name="${fallback_name//\?/}"
+      elif [[ -n "$fallback_name" ]]; then
         dl_url="https://codeberg.org/${repo}/releases/download/${tag_name}/${fallback_name}"
+      else
+        msg_error "Cannot determine download URL for ${app}"
+        rm -rf "$tmpdir"
+        return 250
       fi
     elif [[ "$mode" == "tarball" || "$mode" == "tag" ]]; then
       local archive_url="https://codeberg.org/${repo}/archive/${tag_name}.tar.gz"
