@@ -535,37 +535,57 @@ fetch_and_deploy_gh_release() {
         rm -rf "$td"
         exit 1
       fi
-      mkdir -p "$install_dir"
-      local tar_err extracted_count tar_exit
-      tar_err=$(tar -xzf "$dl_file" -C "$install_dir" --strip-components=1 2>&1)
+      # Extract to a temp dir first, then intelligently move to install_dir.
+      # This handles both wrapped archives (RepoName/...) and flat archives
+      # (LICENSE, readme.md, binary) — matches upstream ProxmoxVE logic.
+      local extract_tmp
+      extract_tmp=$(mktemp -d)
+      local tar_exit
+      tar_err=$(tar -xf "$dl_file" -C "$extract_tmp" 2>&1)
       tar_exit=$?
-      extracted_count=$(find "$install_dir" -mindepth 1 -maxdepth 1 | wc -l)
-      # If --strip-components produced no files (flat archive with no
-      # top-level dir), retry without strip. tar with --strip-components=N
-      # on a flat archive exits 0 but extracts nothing.
-      if [[ "$tar_exit" -ne 0 || "$extracted_count" -eq 0 ]]; then
-        # Clean install_dir so the fallback doesn't double up
-        rm -rf "$install_dir"/* "$install_dir"/.[!.]* 2>/dev/null || true
-        tar_err=$(tar -xzf "$dl_file" -C "$install_dir" 2>&1)
-        tar_exit=$?
-        if [[ "$tar_exit" -ne 0 ]]; then
-          msg_error "Failed to extract ${app} archive (tar exit nonzero)"
-          msg_error "tar output: ${tar_err}"
-          msg_error "First entries: $(tar -tzf "$dl_file" 2>/dev/null | head -5 | tr '\n' ' ')"
-          rm -rf "$td"
-          exit 1
-        fi
-      fi
-      # Verify the extraction actually produced files (defensive)
-      extracted_count=$(find "$install_dir" -mindepth 1 -maxdepth 3 | wc -l)
-      if [[ "$extracted_count" -lt 1 ]]; then
-        msg_error "${app} extraction produced no files in ${install_dir}"
-        msg_error "Archive: ${dl_url} (size: $(stat -c%s "$dl_file" 2>/dev/null || echo unknown) bytes)"
+      if [[ "$tar_exit" -ne 0 ]]; then
+        msg_error "Failed to extract ${app} archive (tar exit ${tar_exit})"
+        msg_error "tar output: ${tar_err}"
         msg_error "First entries: $(tar -tzf "$dl_file" 2>/dev/null | head -5 | tr '\n' ' ')"
-        rm -rf "$td"
+        rm -rf "$td" "$extract_tmp"
         exit 1
       fi
-      rm -rf "$td"
+      mkdir -p "$install_dir"
+      # Check if the archive has a single top-level directory (wrapper).
+      # If yes, treat its contents as the real install contents.
+      local top_entries top_count
+      top_entries=$(find "$extract_tmp" -mindepth 1 -maxdepth 1 2>/dev/null)
+      top_count=$(echo "$top_entries" | grep -c .)
+      if [[ "$top_count" -eq 1 && -d "$top_entries" ]]; then
+        # Single top-level dir — copy its contents into install_dir
+        shopt -s dotglob nullglob
+        if compgen -G "$top_entries/*" >/dev/null; then
+          cp -r "$top_entries"/* "$install_dir/" || {
+            msg_error "Failed to copy contents from $top_entries to $install_dir"
+            rm -rf "$td" "$extract_tmp"
+            exit 1
+          }
+        else
+          msg_warn "Inner dir ${top_entries} is empty after extraction"
+        fi
+        shopt -u dotglob nullglob
+      else
+        # Flat archive (multiple entries at top level) — copy them all
+        shopt -s dotglob nullglob
+        if compgen -G "$extract_tmp/*" >/dev/null; then
+          cp -r "$extract_tmp"/* "$install_dir/" || {
+            msg_error "Failed to copy contents to $install_dir"
+            rm -rf "$td" "$extract_tmp"
+            exit 1
+          }
+        else
+          msg_error "Unpacked archive is empty"
+          rm -rf "$td" "$extract_tmp"
+          exit 1
+        fi
+        shopt -u dotglob nullglob
+      fi
+      rm -rf "$td" "$extract_tmp"
       msg_ok "${app} deployed (tar.gz extracted)"
       return 0
       ;;
