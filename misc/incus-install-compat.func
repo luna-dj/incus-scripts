@@ -619,6 +619,145 @@ arch_resolve() {
   uname -m | sed -e 's/x86_64/amd64/' -e 's/aarch64/arm64/' -e 's/armv7l/armv7/'
 }
 
+# ── APT repo shims (upstream ProxmoxVE compat) ──────────
+# setup_deb822_repo: add a deb822-format apt repository with GPG key.
+# Some apps (technitium, caddy, etc.) use this to add 3rd-party repos.
+# We implement a minimal version that does the same thing.
+cleanup_old_repo_files() {
+  local name="$1"
+  rm -f /etc/apt/sources.list.d/${name}.list \
+         /etc/apt/sources.list.d/${name}.sources \
+         /etc/apt/keyrings/${name}* \
+         /etc/apt/trusted.gpg.d/${name}* 2>/dev/null || true
+}
+
+cleanup_orphaned_sources() {
+  # Best-effort cleanup; do nothing in our minimal shim
+  :
+}
+
+setup_deb822_repo() {
+  local name="$1"
+  local gpg_url="$2"
+  local repo_url="$3"
+  local suite="$4"
+  local component="${5:-main}"
+
+  if [[ -z "$name" || -z "$gpg_url" || -z "$repo_url" || -z "$suite" ]]; then
+    msg_error "setup_deb822_repo: missing required parameters"
+    return 65
+  fi
+
+  cleanup_old_repo_files "$name"
+  mkdir -p /etc/apt/keyrings
+
+  # Import GPG key
+  local tmp_gpg
+  tmp_gpg=$(mktemp) || return 252
+  if ! curl -fsSL "$gpg_url" -o "$tmp_gpg" 2>/dev/null; then
+    msg_error "Failed to download GPG key for ${name}"
+    rm -f "$tmp_gpg"
+    return 252
+  fi
+
+  # Auto-detect: if ASCII-armored, dearmor; else use directly
+  if head -1 "$tmp_gpg" | grep -q "BEGIN PGP"; then
+    gpg --dearmor < "$tmp_gpg" > "/etc/apt/keyrings/${name}.gpg" 2>/dev/null || {
+      cp "$tmp_gpg" "/etc/apt/keyrings/${name}.gpg"
+    }
+  else
+    cp "$tmp_gpg" "/etc/apt/keyrings/${name}.gpg"
+  fi
+  rm -f "$tmp_gpg"
+  chmod 644 "/etc/apt/keyrings/${name}.gpg"
+
+  # Write deb822 sources file
+  cat > "/etc/apt/sources.list.d/${name}.sources" <<EOF
+Types: deb
+URIs: ${repo_url}
+Suites: ${suite}
+Components: ${component}
+Signed-By: /etc/apt/keyrings/${name}.gpg
+EOF
+
+  apt-get update -qq 2>/dev/null || true
+  msg_ok "Apt repo '${name}' configured"
+}
+
+# ── Generic file deploy shim (upstream ProxmoxVE compat) ──────────
+# fetch_and_deploy_from_url: download a file (tar/zip/deb), extract
+# or install, place in target dir. Used by technitium, glpi, etc.
+fetch_and_deploy_from_url() {
+  local url="$1"
+  local directory="${2:-}"
+
+  if [[ -z "$url" ]]; then
+    msg_error "URL parameter is required"
+    return 65
+  fi
+
+  local filename="${url##*/}"
+  msg_info "Downloading from $url"
+
+  local tmpdir
+  tmpdir=$(mktemp -d) || return 252
+
+  if ! curl -fsSL -o "$tmpdir/$filename" "$url"; then
+    msg_error "Download failed: $url"
+    rm -rf "$tmpdir"
+    return 250
+  fi
+
+  # Auto-detect archive type
+  local file_desc archive_type
+  file_desc=$(file -b "$tmpdir/$filename")
+  if [[ "$file_desc" == *"gzip"* || "$file_desc" == *"tar archive"* ]]; then
+    archive_type="tar"
+  elif [[ "$file_desc" == *"Zip"* || "$file_desc" == *"ZIP"* ]]; then
+    archive_type="zip"
+  elif [[ "$file_desc" == *"Debian"* || "$file_desc" == *"deb"* ]]; then
+    archive_type="deb"
+  else
+    msg_error "Unsupported archive type: $file_desc"
+    rm -rf "$tmpdir"
+    return 65
+  fi
+
+  case "$archive_type" in
+    deb)
+      msg_info "Installing .deb package"
+      chmod 644 "$tmpdir/$filename"
+      dpkg -i "$tmpdir/$filename" || {
+        apt-get install -f -y 2>/dev/null || true
+        dpkg -i "$tmpdir/$filename"
+      }
+      ;;
+    tar)
+      msg_info "Extracting tar archive"
+      if [[ -n "$directory" ]]; then
+        mkdir -p "$directory"
+        tar -xf "$tmpdir/$filename" -C "$directory" --strip-components=1 2>/dev/null \
+          || tar -xf "$tmpdir/$filename" -C "$directory" 2>/dev/null
+      else
+        tar -xf "$tmpdir/$filename" -C "$tmpdir"
+      fi
+      ;;
+    zip)
+      msg_info "Extracting zip archive"
+      command -v unzip >/dev/null 2>&1 || apt-get install -y -qq unzip 2>/dev/null
+      if [[ -n "$directory" ]]; then
+        mkdir -p "$directory"
+        unzip -q -o "$tmpdir/$filename" -d "$directory"
+      else
+        unzip -q -o "$tmpdir/$filename" -d "$tmpdir"
+      fi
+      ;;
+  esac
+
+  rm -rf "$tmpdir"
+  msg_ok "Deployed from $url"
+}
+
 # ── Package management shims ───────────────
 install_packages_with_retry() {
   local attempt=0 max=3
