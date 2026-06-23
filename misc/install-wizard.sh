@@ -84,80 +84,97 @@ fi
 # wrapper. This guarantees the wizard is always usable, even on
 # terminals that break whiptail.
 if [[ "$USE_TEXT_MENU" == "1" ]]; then
-    # Override TUI to use a simple stdin/stdout fallback. We support
-    # only the forms actually used by this wizard: --msgbox, --yesno,
-    # --inputbox, --menu, --infobox.
     TUI() {
-        local title="" text="" h=10 w=60 menu_h=8
-        local h_set=0 w_set=1 menu_h_set=0
-        local args=()
+        local title="" text="" default="" h=10 w=60 list_h=8
+        local kind="" items=()
+        # Parse args. We expect one of: --title X, --msgbox/--yesno/--inputbox/--menu/--infobox,
+        # then height width [list-height], then content. We are tolerant of
+        # missing --title and missing items.
         while [[ $# -gt 0 ]]; do
             case "$1" in
-                --title) title="$2"; shift 2 ;;
-                --msgbox) args+=(msgbox); shift ;;
-                --yesno) args+=(yesno); shift ;;
-                --inputbox) args+=(inputbox); text="$2"; shift 2 ;;
-                --menu) args+=(menu); text="$2"; shift 2 ;;
-                --infobox) args+=(infobox); text="$2"; shift 2 ;;
-                --checklist) args+=(checklist); text="$2"; shift 2 ;;
-                --separate-output) shift ;;  # ignore, not used in text mode
-                --*) shift ;;  # ignore other flags
+                --title)        title="$2"; shift 2 ;;
+                --separate-output) shift ;;  # ignored
+                --msgbox|--yesno|--inputbox|--menu|--infobox|--checklist)
+                    kind="${1#--}"; shift ;;
                 *)
-                    if [[ "$h_set" -eq 0 ]]; then h="$1"; h_set=1; shift
-                    elif [[ "$w_set" -eq 0 ]]; then w="$1"; w_set=1; shift
-                    elif [[ "${#args[@]}" -gt 0 && "${args[-1]}" == "menu" && "$menu_h_set" -eq 0 ]]; then
-                        menu_h="$1"; menu_h_set=1; shift
+                    # First non-flag is height, second is width, third (for
+                    # menu/checklist) is list-height
+                    if [[ -z "${h_set:-}" ]]; then h="$1"; h_set=1; shift
+                    elif [[ -z "${w_set:-}" ]]; then w="$1"; w_set=1; shift
+                    elif [[ -z "${list_h_set:-}" && ("$kind" == "menu" || "$kind" == "checklist") ]]; then
+                        list_h="$1"; list_h_set=1; shift
                     else
-                        # Item: tag then label
-                        args+=("$1"); shift
+                        items+=("$1"); shift
                     fi
                     ;;
             esac
         done
-        # Print the title
-        printf '\n=== %s ===\n' "$title" >&2
-        # Print the body text
-        if [[ -n "$text" ]]; then
-            echo "$text" >&2
-        fi
-        # Dispatch by type
-        case "${args[0]}" in
+
+        # All output (prompts, lists) goes to stderr so stdout is reserved
+        # for the selected value (which the caller captures via $(...)).
+        exec 3>&1  # save real stdout to fd 3
+
+        case "$kind" in
             msgbox)
+                [[ -n "$title" ]] && printf '\n=== %s ===\n' "$title" >&2
+                [[ -n "$text" ]] && printf '%s\n' "$text" >&2
                 read -rp "Press Enter to continue..." </dev/tty
                 return 0 ;;
-            yesno)
-                local ans
-                while true; do
-                    read -rp "[y/n] > " ans </dev/tty
-                    case "${ans,,}" in y|yes) return 0 ;; n|no) return 1 ;; esac
-                done ;;
-            inputbox)
-                local default="${args[1]:-}"
-                read -rp "> ${default:-(empty)} " -e -i "$default" REPLY </dev/tty
-                echo "$REPLY"
-                return 0 ;;
             infobox)
+                [[ -n "$title" ]] && printf '\n=== %s ===\n' "$title" >&2
+                [[ -n "$text" ]] && printf '%s\n' "$text" >&2
                 sleep 1
                 return 0 ;;
+            yesno)
+                [[ -n "$title" ]] && printf '\n=== %s ===\n' "$title" >&2
+                [[ -n "$text" ]] && printf '%s\n' "$text" >&2
+                local ans
+                while true; do
+                    read -rp "y/n > " ans </dev/tty
+                    case "${ans,,}" in
+                        y|yes) return 0 ;;
+                        n|no)  return 1 ;;
+                        q)     return 1 ;;
+                        *)     printf "Please answer y or n.\n" >&2 ;;
+                    esac
+                done ;;
+            inputbox)
+                [[ -n "$title" ]] && printf '\n=== %s ===\n' "$title" >&2
+                [[ -n "$text" ]]  && printf '%s\n' "$text" >&2
+                # First item is the default value (if --inputbox passed one)
+                local default_val="${items[0]:-}"
+                local val
+                if [[ -n "$default_val" ]]; then
+                    read -rp "[${default_val}] > " val </dev/tty
+                    [[ -z "$val" ]] && val="$default_val"
+                else
+                    read -rp "> " val </dev/tty
+                fi
+                printf '%s' "$val" >&3
+                return 0 ;;
             menu|checklist)
-                # Items come from args[1..] (skip the type tag)
-                local i=1
-                local -a items
-                items=("${args[@]:1}")
+                [[ -n "$title" ]] && printf '\n=== %s ===\n' "$title" >&2
+                [[ -n "$text" ]]  && printf '%s\n' "$text" >&2
+                # items come in pairs (tag label)
+                local i
                 for ((i=0; i<${#items[@]}; i+=2)); do
                     printf "  %3d) %s\n" $((i/2+1)) "${items[$((i+1))]}" >&2
                 done
                 local sel
                 while true; do
-                    read -rp "Enter number (or q to quit): " sel </dev/tty
+                    read -rp "Enter number (1-${#items[@]}/2), or q to quit: " sel </dev/tty
                     [[ "${sel,,}" == "q" ]] && return 1
                     if [[ "$sel" =~ ^[0-9]+$ ]] && (( sel >= 1 && sel <= ${#items[@]}/2 )); then
-                        echo "${items[$(( (sel-1)*2 ))]}"
+                        printf '%s' "${items[$(( (sel-1)*2 ))]}" >&3
                         return 0
                     fi
+                    printf "Invalid selection.\n" >&2
                 done ;;
+            *)
+                printf '\n=== %s ===\n' "${title:-Wizard}" >&2
+                printf "Unknown dialog type '%s'.\n" "$kind" >&2
+                return 1 ;;
         esac
-        return 0
     }
 fi
 
