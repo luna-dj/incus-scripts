@@ -20,6 +20,14 @@
 
 set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# If the wizard is running from /tmp (downloaded by the launcher),
+# we don't have local ct/ or install/ files. Set a flag so get_apps
+# knows to fetch the list from the API.
+if [[ "$SCRIPT_DIR" == "/tmp" ]]; then
+    WIZARD_DOWNLOADED=1
+else
+    WIZARD_DOWNLOADED=0
+fi
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 INCUS_BASE="${INCUS_BASE:-https://raw.githubusercontent.com/luna-dj/incus-scripts/main}"
 
@@ -229,10 +237,27 @@ preflight() {
 # Parse ct/<app>.sh files. Each file has APP="Name" on a line.
 get_apps() {
     local ct_dir="$REPO_ROOT/ct"
-    if [[ ! -d "$ct_dir" ]]; then
-        # Remote: fetch the file index from INCUS_BASE
-        TUI --infobox "Fetching app list from $INCUS_BASE ..." 5 70
-        sleep 1
+    if [[ ! -d "$ct_dir" ]] || [[ -z "$(ls -A "$ct_dir" 2>/dev/null)" ]]; then
+        # Wizard was downloaded to /tmp; no local ct/. Fetch the
+        # app list from the upstream raw index. We can't use TUI
+        # here because get_apps is called in a subshell, so just
+        # silently use the GitHub API.
+        echo "Fetching app list from GitHub..." >&2
+        # Get all ct/ files from the repo via the GitHub API
+        curl -fsSL "https://api.github.com/repos/luna-dj/incus-scripts/contents/ct" 2>/dev/null \
+            | python3 -c "
+import json, sys
+try:
+    data = json.load(sys.stdin)
+    if isinstance(data, list):
+        for item in data:
+            name = item.get('name', '')
+            if name.endswith('.sh'):
+                slug = name[:-3]
+                print(f'{slug}|{slug}')
+except: pass
+" 2>/dev/null | sort | head -200
+        return
     fi
     # For each ct/*.sh, extract the APP= variable and the file basename
     for f in "$ct_dir"/*.sh; do
@@ -280,7 +305,7 @@ This wizard will help you:\n\
   1. Choose one or more apps to install\n\
   2. Configure resource defaults (CPU, RAM, Disk)\n\
   3. Deploy each app as an Incus container\n\n\
-Apps available: $(ls "$REPO_ROOT/ct"/*.sh 2>/dev/null | wc -l)\n\
+Apps available: $(get_apps | wc -l)\n\
 Incus version:  $(incus --version 2>/dev/null || echo 'unknown')\n\
 Container base: $(incus list --format csv 2>/dev/null | wc -l) existing\n\n\
 Continue?" 18 70
@@ -498,6 +523,13 @@ install_apps() {
     local log_dir="/tmp/incus-wizard-logs"
     mkdir -p "$log_dir"
 
+    # If the wizard was downloaded (not local), also download the
+    # ct scripts as we go. Cache them in /tmp/incus-ct-cache/.
+    local ct_cache_dir="/tmp/incus-ct-cache"
+    if [[ "$WIZARD_DOWNLOADED" == "1" ]]; then
+        mkdir -p "$ct_cache_dir"
+    fi
+
     local total=$(wc -l < "$selection_file")
     local current=0
     local failed=0
@@ -508,6 +540,19 @@ install_apps() {
         current=$((current+1))
 
         local ct_script="$REPO_ROOT/ct/${slug}.sh"
+        # If running from /tmp, the local ct/ doesn't exist; download it
+        if [[ ! -f "$ct_script" ]] && [[ "$WIZARD_DOWNLOADED" == "1" ]]; then
+            ct_script="$ct_cache_dir/${slug}.sh"
+            if [[ ! -f "$ct_script" ]]; then
+                echo "  Fetching $slug from ${INCUS_BASE}/ct/ ..." >&2
+                if ! curl -fsSL "${INCUS_BASE}/ct/${slug}.sh" -o "$ct_script" 2>/dev/null; then
+                    summary+="✗ $slug: ct script download failed\n"
+                    failed=$((failed+1))
+                    continue
+                fi
+                chmod +x "$ct_script"
+            fi
+        fi
         if [[ ! -f "$ct_script" ]]; then
             summary+="✗ $slug: ct script missing\n"
             failed=$((failed+1))
