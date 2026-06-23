@@ -864,3 +864,57 @@ cleanup_legacy_install() { :; }
 variables() { :; }
 post_progress_to_api() { :; }
 cleanup_lxc() { :; }
+# # fetch_and_deploy_codeberg_release() — stub
+# Forgejo and other Codeberg-hosted apps use this function.
+# It's a full implementation that mirrors fetch_and_deploy_gh_release
+# but for Codeberg. We provide a minimal version that handles the
+# 'tarball' mode (which Forgejo uses).
+fetch_and_deploy_codeberg_release() {
+  local app="$1" repo="$2" mode="${3:-tarball}" version="${var_appversion:-${4:-latest}}"
+  local target="${5:-/opt/$app}"
+  local asset_pattern="${6:-}"
+
+  if [[ "$mode" == "tarball" || "$mode" == "tag" ]]; then
+    # For tarball/tag mode: download the source archive
+    local tag_name
+    if [[ "$version" == "latest" ]]; then
+      # Get latest tag from Codeberg API
+      tag_name=$(curl -fsSL "https://codeberg.org/api/v1/repos/${repo}/releases/latest" 2>/dev/null \
+                 | grep '"tag_name"' | head -1 | sed -E 's/.*"tag_name": *"([^"]+)".*/\1/')
+      [[ -z "$tag_name" ]] && tag_name=$(curl -fsSL "https://codeberg.org/api/v1/repos/${repo}/tags" 2>/dev/null \
+                 | grep '"name"' | head -1 | sed -E 's/.*"name": *"([^"]+)".*/\1/')
+    else
+      tag_name="$version"
+    fi
+    [[ -z "$tag_name" ]] && { msg_error "Cannot determine latest release for ${app}"; return 252; }
+
+    local filename="${app}-${tag_name}.tar.gz"
+    local archive_url="https://codeberg.org/${repo}/archive/${tag_name}.tar.gz"
+    msg_info "Fetching ${app} from Codeberg (${tag_name})"
+
+    local tmpdir
+    tmpdir=$(mktemp -d) || return 252
+    if ! curl -fsSL -o "$tmpdir/$filename" "$archive_url" 2>/dev/null; then
+      msg_error "Download failed: $archive_url"
+      rm -rf "$tmpdir"
+      return 250
+    fi
+
+    mkdir -p "$target"
+    # Source archives have a single top-level dir like 'forgejo-7.0.1/'
+    tar -xzf "$tmpdir/$filename" -C "$tmpdir" 2>/dev/null
+    local unpack_dir
+    unpack_dir=$(find "$tmpdir" -mindepth 1 -maxdepth 1 -type d | head -1)
+    if [[ -n "$unpack_dir" ]]; then
+      cp -r "$unpack_dir"/* "$target/" 2>/dev/null
+    else
+      cp -r "$tmpdir"/* "$target/" 2>/dev/null
+    fi
+    rm -rf "$tmpdir"
+    msg_ok "${app} deployed from Codeberg"
+  else
+    msg_warn "fetch_and_deploy_codeberg_release: mode '${mode}' not implemented, falling back to GitHub emulation"
+    # Fall back to GitHub function for prebuild/binary/singlefile modes
+    fetch_and_deploy_gh_release "$app" "${repo/codeberg.org\/github.com}" "$mode" "$version" "$target" "$asset_pattern"
+  fi
+}
