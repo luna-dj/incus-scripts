@@ -22,6 +22,16 @@ UPSTREAM_SCRIPT="${UPSTREAM_SCRIPT//source \/dev\/stdin <<<\"\$FUNCTIONS_FILE_PA
 UPSTREAM_SCRIPT="${UPSTREAM_SCRIPT//source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/core.func)/: # (core.func)}"
 UPSTREAM_SCRIPT="${UPSTREAM_SCRIPT//source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/error_handler.func)/: # (error_handler.func)}"
 
+# On arm64, dotnet-sdk via apt installs amd64 packages (emulated) but fails
+# to install the actual SDK component. Pre-install it via dotnet-install.sh.
+if [[ "$(uname -m)" == "aarch64" ]]; then
+  msg_info "Pre-installing .NET SDK for arm64..."
+  curl -fsSL "https://dot.net/v1/dotnet-install.sh" -o /tmp/dotnet-install.sh
+  bash /tmp/dotnet-install.sh --channel 10.0 --install-dir /usr/lib/dotnet 2>&1 | tail -3
+  rm -f /tmp/dotnet-install.sh
+  msg_ok ".NET SDK pre-installed for arm64"
+fi
+
 # Disable 'set -u' around eval of upstream: the upstream scripts
 # use various bash features that may not be safe under strict
 # unset-variable mode.
