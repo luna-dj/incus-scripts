@@ -24,7 +24,7 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 INCUS_BASE="${INCUS_BASE:-https://raw.githubusercontent.com/luna-dj/incus-scripts/main}"
 
 # ──────────────────────────────────────────────────────────────────
-#  ncurses tool detection
+#  ncurses tool detection + sanity check
 # ──────────────────────────────────────────────────────────────────
 DIALOG_TOOL=""
 if command -v whiptail >/dev/null 2>&1; then
@@ -37,6 +37,35 @@ else
     exit 1
 fi
 
+# Verify the ncurses tool actually works on this terminal. Some
+# SSH/serial terminals break whiptail's ncurses render. We do a
+# 2-second smoke test: run a tiny msgbox with a timeout, and if
+# it doesn't return, fall back to a plain-text menu.
+verify_ncurses() {
+    if [[ "$DISABLE_NCURSES_CHECK" == "1" ]]; then
+        return 0
+    fi
+    # Run whiptail with a 2-second timeout; if it doesn't return, it's stuck
+    local out
+    out=$(timeout 3 whiptail --title "Test" --msgbox "Press OK to continue." 8 40 2>&1 < /dev/tty)
+    local rc=$?
+    if [[ $rc -ne 0 && $rc -ne 1 ]]; then
+        return 1
+    fi
+    return 0
+}
+
+if ! verify_ncurses; then
+    echo "WARNING: whiptail/dialog did not respond on this terminal." >&2
+    echo "         Falling back to plain-text menu." >&2
+    USE_TEXT_MENU=1
+    # Restore terminal in case whiptail messed it up
+    stty sane 2>/dev/null
+    reset 2>/dev/null
+else
+    USE_TEXT_MENU=0
+fi
+
 # whiptail and dialog have nearly identical CLI; dialog has a few
 # extra options. Set up an alias for whichever we found.
 if [[ "$DIALOG_TOOL" == "whiptail" ]]; then
@@ -44,6 +73,91 @@ if [[ "$DIALOG_TOOL" == "whiptail" ]]; then
     TUI() { whiptail "$@"; }
 else
     TUI() { dialog "$@"; }
+fi
+
+# If the ncurses smoke test failed, TUI becomes a plain-text menu
+# wrapper. This guarantees the wizard is always usable, even on
+# terminals that break whiptail.
+if [[ "$USE_TEXT_MENU" == "1" ]]; then
+    # Override TUI to use a simple stdin/stdout fallback. We support
+    # only the forms actually used by this wizard: --msgbox, --yesno,
+    # --inputbox, --menu, --infobox.
+    TUI() {
+        local title="" text="" h=10 w=60 menu_h=8
+        local args=()
+        while [[ $# -gt 0 ]]; do
+            case "$1" in
+                --title) title="$2"; shift 2 ;;
+                --msgbox) args+=(msgbox); shift ;;
+                --yesno) args+=(yesno); shift ;;
+                --inputbox) args+=(inputbox); text="$2"; shift 2 ;;
+                --menu) args+=(menu); text="$2"; shift 2 ;;
+                --infobox) args+=(infobox); text="$2"; shift 2 ;;
+                --checklist) args+=(checklist); text="$2"; shift 2 ;;
+                --separate-output) shift ;;  # ignore, not used in text mode
+                --*) shift ;;  # ignore other flags
+                *)
+                    if [[ -z "$h_set" ]]; then h="$1"; h_set=1; shift
+                    elif [[ -z "$w_set" ]]; then w="$1"; w_set=1; shift
+                    elif [[ ${#args[@]} -gt 0 && "${args[-1]}" == "menu" && -z "$menu_h_set" ]]; then
+                        menu_h="$1"; menu_h_set=1; shift
+                    else
+                        # Item: tag then label
+                        args+=("$1"); shift
+                    fi
+                    ;;
+            esac
+        done
+        # Print the title
+        printf '\n=== %s ===\n' "$title" >&2
+        # Print the body text
+        if [[ -n "$text" ]]; then
+            echo "$text" >&2
+        fi
+        # Dispatch by type
+        case "${args[0]}" in
+            msgbox)
+                read -rp "Press Enter to continue..." </dev/tty
+                return 0 ;;
+            yesno)
+                local ans
+                while true; do
+                    read -rp "[y/n] > " ans </dev/tty
+                    case "${ans,,}" in y|yes) return 0 ;; n|no) return 1 ;; esac
+                done ;;
+            inputbox)
+                local default="${args[1]:-}"
+                read -rp "> ${default:-(empty)} " -e -i "$default" REPLY </dev/tty
+                echo "$REPLY"
+                return 0 ;;
+            infobox)
+                sleep 1
+                return 0 ;;
+            menu|checklist)
+                # Print numbered list, get number
+                local i=1
+                local -a items
+                # Items come in pairs (tag label)
+                while [[ $# -gt 0 ]]; do items+=("$1"); shift; done
+                # ... actually we already consumed; re-parse from args
+                # The args we built contain "menu" then pairs. Skip the
+                # first element (the type).
+                items=("${args[@]:1}")
+                for ((i=0; i<${#items[@]}; i+=2)); do
+                    printf "  %3d) %s\n" $((i/2+1)) "${items[$((i+1))]}" >&2
+                done
+                local sel
+                while true; do
+                    read -rp "Enter number (or q to quit): " sel </dev/tty
+                    [[ "${sel,,}" == "q" ]] && return 1
+                    if [[ "$sel" =~ ^[0-9]+$ ]] && (( sel >= 1 && sel <= ${#items[@]}/2 )); then
+                        echo "${items[$(( (sel-1)*2 ))]}"
+                        return 0
+                    fi
+                done ;;
+        esac
+        return 0
+    }
 fi
 
 # Terminal size hints (whiptail autodetects, but explicit is safer)
