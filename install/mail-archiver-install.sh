@@ -57,13 +57,25 @@ if [[ "$(uname -m)" == "aarch64" ]]; then
     rm -f /tmp/dotnet-install.sh
 
     # The dotnet host at /usr/lib/dotnet/dotnet looks for SDKs in
-    # ../sdk/ — symlink from /usr/share/dotnet/sdk so it can find them
-    if [[ -d /usr/share/dotnet/sdk ]] && [[ ! -e /usr/lib/dotnet/sdk ]]; then
-      ln -sf /usr/share/dotnet/sdk /usr/lib/dotnet/sdk
+    # ../sdk/ — but dotnet-install.sh puts SDKs in /usr/share/dotnet/sdk,
+    # and on a fresh container there's no /usr/lib/dotnet at all.
+    # Create /usr/lib/dotnet and symlink sdk/ so the host can find it,
+    # then symlink the dotnet binary into PATH.
+    if [[ -d /usr/share/dotnet ]]; then
+      mkdir -p /usr/lib/dotnet
+      if [[ -d /usr/share/dotnet/sdk ]] && [[ ! -e /usr/lib/dotnet/sdk ]]; then
+        ln -sf /usr/share/dotnet/sdk /usr/lib/dotnet/sdk
+      fi
+      if [[ -d /usr/share/dotnet/shared ]] && [[ ! -e /usr/lib/dotnet/shared ]]; then
+        ln -sf /usr/share/dotnet/shared /usr/lib/dotnet/shared
+      fi
+      if [[ -d /usr/share/dotnet/host ]] && [[ ! -e /usr/lib/dotnet/host ]]; then
+        ln -sf /usr/share/dotnet/host /usr/lib/dotnet/host
+      fi
     fi
-    # Ensure /usr/bin/dotnet exists (removed above with dotnet-host-10.0)
-    if [[ ! -f /usr/bin/dotnet ]] && [[ -f /usr/lib/dotnet/dotnet ]]; then
-      ln -sf ../lib/dotnet/dotnet /usr/bin/dotnet
+    # Ensure /usr/bin/dotnet exists
+    if [[ ! -f /usr/bin/dotnet ]] && [[ -f /usr/share/dotnet/dotnet ]]; then
+      ln -sf /usr/share/dotnet/dotnet /usr/bin/dotnet
     fi
 
     if dotnet --list-sdks &>/dev/null; then
@@ -83,6 +95,26 @@ fi
 set +u
 eval "$UPSTREAM_SCRIPT"
 set -u
+
+# ── Fix PostgreSQL DB (arm64 compat) ────────────────────────
+# The upstream calls setup_postgresql_db with env var prefixes
+# (PG_DB_NAME="mailarchiver_db" PG_DB_USER="mailarchiver"), but
+# our compat function takes positional args. Create the DB here
+# if it wasn't created by the upstream (common on arm64).
+if ! su - postgres -c "psql -l" 2>/dev/null | grep -q mailarchiver_db; then
+  msg_info "Creating PostgreSQL database mailarchiver_db..."
+  PG_DB_PASS="$(tr -dc A-Za-z0-9 < /dev/urandom | head -c 16)"
+  su - postgres -c "psql -c \"CREATE USER mailarchiver WITH PASSWORD '${PG_DB_PASS}';\" 2>/dev/null" || true
+  su - postgres -c "psql -c \"CREATE DATABASE mailarchiver_db OWNER mailarchiver;\" 2>/dev/null" || true
+  su - postgres -c "psql -c \"GRANT ALL PRIVILEGES ON DATABASE mailarchiver_db TO mailarchiver;\" 2>/dev/null" || true
+  msg_ok "PostgreSQL database 'mailarchiver_db' created"
+
+  # Fix appsettings.json connection string with the generated password
+  if [[ -f /opt/mail-archiver/appsettings.json ]]; then
+    sed -i "s|\\\"Password=\\\"|\\\"Password=${PG_DB_PASS}\\\"|" /opt/mail-archiver/appsettings.json
+    msg_ok "Connection string updated with DB password"
+  fi
+fi
 
 # ── Post-eval arm64 rebuild ──────────────────────────────────
 # If the upstream's dotnet restore/publish failed (common on arm64
