@@ -523,10 +523,15 @@ fetch_and_deploy_gh_release() {
         exit 1
       fi
       mkdir -p "$install_dir"
-      local tar_err
+      local tar_err extracted_count
       tar_err=$(tar -xzf "$dl_file" -C "$install_dir" --strip-components=1 2>&1)
-      if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
-        # Fallback: try without --strip-components
+      extracted_count=$(find "$install_dir" -mindepth 1 -maxdepth 1 | wc -l)
+      # If --strip-components produced no files (flat archive with no
+      # top-level dir), retry without strip. tar with --strip-components=N
+      # on a flat archive exits 0 but extracts nothing.
+      if [[ ${PIPESTATUS[0]} -ne 0 || "$extracted_count" -eq 0 ]]; then
+        # Clean install_dir so the fallback doesn't double up
+        rm -rf "$install_dir"/* "$install_dir"/.[!.]* 2>/dev/null || true
         tar_err=$(tar -xzf "$dl_file" -C "$install_dir" 2>&1)
         if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
           msg_error "Failed to extract ${app} archive (tar exit nonzero)"
@@ -535,6 +540,15 @@ fetch_and_deploy_gh_release() {
           rm -rf "$td"
           exit 1
         fi
+      fi
+      # Verify the extraction actually produced files (defensive)
+      extracted_count=$(find "$install_dir" -mindepth 1 -maxdepth 3 | wc -l)
+      if [[ "$extracted_count" -lt 1 ]]; then
+        msg_error "${app} extraction produced no files in ${install_dir}"
+        msg_error "Archive: ${dl_url} (size: $(stat -c%s "$dl_file" 2>/dev/null || echo unknown) bytes)"
+        msg_error "First entries: $(tar -tzf "$dl_file" 2>/dev/null | head -5 | tr '\n' ' ')"
+        rm -rf "$td"
+        exit 1
       fi
       rm -rf "$td"
       msg_ok "${app} deployed (tar.gz extracted)"
