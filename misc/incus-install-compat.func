@@ -558,18 +558,16 @@ fetch_and_deploy_gh_release() {
       top_count=$(echo "$top_entries" | grep -c .)
       msg_info "Extracting to ${install_dir} (${top_count} top-level entries)"
       if [[ "$top_count" -eq 1 && -d "$top_entries" ]]; then
-        # Single top-level dir — copy its contents into install_dir
-        shopt -s dotglob nullglob
-        if compgen -G "$top_entries/*" >/dev/null; then
-          cp -r "$top_entries"/* "$install_dir/" || {
-            msg_error "Failed to copy contents from $top_entries to $install_dir"
-            rm -rf "$td" "$extract_tmp"
-            exit 1
-          }
-        else
-          msg_warn "Inner dir ${top_entries} is empty after extraction"
-        fi
-        shopt -u dotglob nullglob
+        # Single top-level dir — copy its contents using /. idiom
+        msg_info "Copying from ${top_entries} to ${install_dir}"
+        cp -r "$top_entries"/. "$install_dir/" 2>&1 || {
+          msg_error "Failed to copy from ${top_entries} to ${install_dir}"
+          rm -rf "$td" "$extract_tmp"
+          exit 1
+        }
+        local copied_count
+        copied_count=$(find "$install_dir" -mindepth 1 -maxdepth 1 2>/dev/null | wc -l)
+        msg_info "Copied ${copied_count} items to ${install_dir}"
       else
         # Flat archive (multiple entries at top level) — copy them all
         shopt -s dotglob nullglob
