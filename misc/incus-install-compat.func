@@ -419,10 +419,38 @@ fetch_and_deploy_gh_release() {
   fi
 
   local td; td=$(mktemp -d)
-  curl -fsSL -L "$dl_url" -o "${td}/archive.tar.gz"
+  if ! curl -fsSL -L "$dl_url" -o "${td}/archive.tar.gz"; then
+    msg_error "Failed to download ${app} from: ${dl_url}"
+    rm -rf "$td"
+    exit 1
+  fi
+  if [[ ! -s "${td}/archive.tar.gz" ]]; then
+    msg_error "Downloaded ${app} archive is empty (0 bytes): ${dl_url}"
+    rm -rf "$td"
+    exit 1
+  fi
+  # Sanity check: real gzip magic bytes (1f 8b), not an HTML 404 page
+  if ! head -c 2 "${td}/archive.tar.gz" | od -An -tx1 | tr -d ' \n' | grep -q '^1f8b$'; then
+    msg_error "Downloaded ${app} is not a gzip file: ${dl_url}"
+    msg_error "First 200 bytes: $(head -c 200 \"${td}/archive.tar.gz\" | tr '\n' ' ')"
+    rm -rf "$td"
+    exit 1
+  fi
   mkdir -p "$install_dir"
-  tar -xzf "${td}/archive.tar.gz" -C "$install_dir" --strip-components=1 2>/dev/null || \
+  tar -xzf "${td}/archive.tar.gz" -C "$install_dir" --strip-components=1 2>/dev/null
+  if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
     tar -xzf "${td}/archive.tar.gz" -C "$install_dir" 2>/dev/null
+  fi
+  if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
+    msg_error "Failed to extract ${app} archive"
+    rm -rf "$td"
+    exit 1
+  fi
+  # GitHub release tarballs sometimes strip +x; restore it on extracted binaries
+  find "$install_dir" -maxdepth 3 -type f \
+    ! -name '*.md' ! -name '*.txt' ! -name '*.json' \
+    ! -name '*.yaml' ! -name '*.yml' ! -name 'LICENSE*' \
+    -exec chmod +x {} + 2>/dev/null || true
   rm -rf "$td"
   msg_ok "${app} deployed"
 }
