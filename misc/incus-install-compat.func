@@ -446,14 +446,20 @@ fetch_and_deploy_gh_release() {
     exit 1
   fi
   mkdir -p "$install_dir"
-  tar -xzf "${td}/archive.tar.gz" -C "$install_dir" --strip-components=1 2>/dev/null
+  local tar_err
+  tar_err=$(tar -xzf "${td}/archive.tar.gz" -C "$install_dir" --strip-components=1 2>&1)
   if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
-    tar -xzf "${td}/archive.tar.gz" -C "$install_dir" 2>/dev/null
-  fi
-  if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
-    msg_error "Failed to extract ${app} archive (tar exit nonzero)"
-    rm -rf "$td"
-    exit 1
+    # Try without --strip-components as fallback (some archives have
+    # a flat top-level dir name that doesn't match the strip prefix)
+    tar_err=$(tar -xzf "${td}/archive.tar.gz" -C "$install_dir" 2>&1)
+    if [[ ${PIPESTATUS[0]} -ne 0 ]]; then
+      msg_error "Failed to extract ${app} archive (tar exit nonzero)"
+      msg_error "tar output: ${tar_err}"
+      msg_error "Archive size: $(stat -c%s "${td}/archive.tar.gz" 2>/dev/null || echo unknown) bytes"
+      msg_error "First entries: $(tar -tzf "${td}/archive.tar.gz" 2>/dev/null | head -5 | tr '\\n' ' ')"
+      rm -rf "$td"
+      exit 1
+    fi
   fi
   # Verify the extraction actually produced files
   local extracted_count
