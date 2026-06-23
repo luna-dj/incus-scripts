@@ -73,6 +73,7 @@ if ! verify_ncurses; then
     reset 2>/dev/null
 else
     USE_TEXT_MENU=0
+    echo "ncurses OK, using whiptail UI" >&2
 fi
 
 # whiptail and dialog have nearly identical CLI; dialog has a few
