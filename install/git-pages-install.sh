@@ -82,6 +82,9 @@ Type=simple
 User=git-pages
 Group=git-pages
 ExecStart=/usr/local/bin/git-pages -config /etc/git-pages/config.toml
+# PAGES_INSECURE=1 disables DNS auth — safe for dev/private use.
+# Remove this line and set up DNS TXT records for production.
+Environment=PAGES_INSECURE=1
 Restart=on-failure
 RestartSec=5
 NoNewPrivileges=true
