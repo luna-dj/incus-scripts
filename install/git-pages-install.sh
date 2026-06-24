@@ -24,7 +24,7 @@ update_os
 
 # ── install dependencies ──────────────────────────────────────
 msg_info "Installing dependencies"
-apt-get install -y -qq curl ca-certificates 2>/dev/null || true
+apt-get install -y -qq curl ca-certificates git 2>/dev/null || true
 msg_ok "Dependencies installed"
 
 # ── create user and directories ──────────────────────────────
@@ -57,7 +57,9 @@ pages = "tcp/:3000"
 
 [storage]
 type = "fs"
-dir = "/var/lib/git-pages"
+
+[storage.fs]
+root = "/var/lib/git-pages"
 
 [limits]
 allow-expiration = true
@@ -79,22 +81,12 @@ After=network.target
 Type=simple
 User=git-pages
 Group=git-pages
-RuntimeDirectory=git-pages
-StateDirectory=git-pages
-ConfigurationDirectory=git-pages
 ExecStart=/usr/local/bin/git-pages -config /etc/git-pages/config.toml
 Restart=on-failure
 RestartSec=5
-AmbientCapabilities=
 NoNewPrivileges=true
-ProtectSystem=strict
-ReadWritePaths=/var/lib/git-pages
 PrivateTmp=true
-PrivateDevices=true
-ProtectHome=true
-ProtectKernelTunables=true
-ProtectKernelModules=true
-ProtectControlGroups=true
+ReadWritePaths=/var/lib/git-pages
 
 [Install]
 WantedBy=multi-user.target
@@ -108,18 +100,23 @@ msg_ok "git-pages service started"
 if [[ "$WITH_CADDY" != "no" ]]; then
     msg_info "Installing Caddy reverse proxy"
 
-    # Install Caddy from official repo
+    # Install Caddy — try apt, fall back to direct binary
     curl -fsSL https://dl.cloudsmith.io/public/caddy/stable/gpg.key | \
         gpg --dearmor --batch --yes -o /usr/share/keyrings/caddy-stable.gpg 2>/dev/null
-    curl -fsSL "https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt" | \
-        sed 's|https://dl.cloudsmith.io/public/caddy/stable|deb [signed-by=/usr/share/keyrings/caddy-stable.gpg] https://dl.cloudsmith.io/public/caddy/stable/debian|' > /etc/apt/sources.list.d/caddy-stable.list
 
-    apt-get update -qq
+    # Write apt source directly (cloudsmith deb.txt approach is fragile)
+    echo "deb [signed-by=/usr/share/keyrings/caddy-stable.gpg] https://dl.cloudsmith.io/public/caddy/stable/debian/debian any-version main" \
+        > /etc/apt/sources.list.d/caddy-stable.list
+
+    apt-get update -qq 2>/dev/null
     apt-get install -y -qq caddy 2>/dev/null || {
         msg_warn "Caddy apt install failed; trying direct binary download"
+        apt-get install -y -qq xz-utils 2>/dev/null || true
+        mkdir -p /etc/caddy
         curl -fsSL "https://caddyserver.com/api/download?os=linux&arch=amd64" -o /usr/local/bin/caddy
         chmod +x /usr/local/bin/caddy
-        # Create basic systemd unit for manually installed Caddy
+
+        # Create systemd unit for manually installed Caddy
         cat > /etc/systemd/system/caddy.service << 'CADDYEOF'
 [Unit]
 Description=Caddy reverse proxy for git-pages
@@ -140,6 +137,9 @@ WantedBy=multi-user.target
 CADDYEOF
         systemctl daemon-reload
     }
+
+    # Ensure /etc/caddy exists (apt package creates it; binary fallback may not)
+    mkdir -p /etc/caddy
 
     # Write Caddyfile
     if [[ -n "$DOMAIN" ]]; then
