@@ -10,8 +10,80 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 CT_DIR="$ROOT/ct"
 DOCS_DIR="$ROOT/docs"
 APPS_DIR="$DOCS_DIR/apps"
+MISC_DIR="$ROOT/misc"
 
 mkdir -p "$APPS_DIR"
+
+# ── Load community-scripts.org metadata if available ─────────
+# This provides: official category, description, install counts.
+# Falls back to heuristic categorization if file is missing.
+CS_DATA_FILE="$MISC_DIR/community-scripts-data.json"
+CS_TSV="$MISC_DIR/.cs-meta-cache.tsv"
+
+# Build TSV lookups: bash 3.x compatible (macOS default)
+# Falls back to empty file if python3 unavailable
+if [[ -f "$CS_DATA_FILE" ]] && command -v python3 &>/dev/null; then
+  echo "==> Loading community-scripts.org metadata..."
+  python3 - "$CS_DATA_FILE" "$CS_TSV" <<'PYEOF' 2>/dev/null || true
+import json, sys
+with open(sys.argv[1]) as f:
+    d = json.load(f)
+with open(sys.argv[2], 'w') as out:
+    for s in d['scripts']:
+        slug = s['slug']
+        cat = s['category']
+        desc = s['description'].replace('\n', ' ').replace('\t', ' ')[:500]
+        installs = s.get('installs_30d', 0)
+        has_arm = '1' if s.get('has_arm') else '0'
+        # tab-separated: slug\tcategory\tdescription\tinstalls\thas_arm
+        out.write(f"{slug}\t{cat}\t{desc}\t{installs}\t{has_arm}\n")
+PYEOF
+  if [[ -s "$CS_TSV" ]]; then
+    CS_SCRIPT_COUNT=$(wc -l < "$CS_TSV" | tr -d ' ')
+    echo "    Loaded metadata for $CS_SCRIPT_COUNT scripts"
+  fi
+fi
+
+# Lookups via grep (slower than hash but works on bash 3.x)
+cs_get_category() {
+  local app="$1"
+  [[ -f "$CS_TSV" ]] || { echo ""; return; }
+  awk -F'\t' -v slug="$app" '$1==slug {print $2; exit}' "$CS_TSV"
+}
+cs_get_description() {
+  local app="$1"
+  [[ -f "$CS_TSV" ]] || { echo ""; return; }
+  awk -F'\t' -v slug="$app" '$1==slug {print $3; exit}' "$CS_TSV"
+}
+cs_get_installs() {
+  local app="$1"
+  [[ -f "$CS_TSV" ]] || { echo "0"; return; }
+  awk -F'\t' -v slug="$app" '$1==slug {print $4; exit}' "$CS_TSV"
+}
+
+# ── App icons (from selfhst/icons via sync-icons.py) ─────────
+ICON_MAPPING_FILE="$DOCS_DIR/assets/icons/_mapping.json"
+ICON_DIR="$DOCS_DIR/assets/icons"
+ICON_TSV="$MISC_DIR/.icon-cache.tsv"
+
+# Build TSV cache for fast lookups (called 571 times)
+if [[ -f "$ICON_MAPPING_FILE" ]] && command -v python3 &>/dev/null; then
+  python3 - "$ICON_MAPPING_FILE" "$ICON_TSV" <<'PYEOF' 2>/dev/null || true
+import json, sys
+with open(sys.argv[1]) as f:
+    m = json.load(f)
+with open(sys.argv[2], 'w') as out:
+    for slug, icon in sorted(m['mapping'].items()):
+        out.write(f"{slug}\t{icon}\n")
+PYEOF
+fi
+
+# Get icon filename for an app slug, returns empty if none
+get_icon() {
+  local app="$1"
+  [[ -f "$ICON_TSV" ]] || { echo ""; return; }
+  awk -F'\t' -v slug="$app" '$1==slug {print $2; exit}' "$ICON_TSV"
+}
 
 REPO="luna-dj/incus-scripts"
 BRANCH="${BRANCH:-main}"
@@ -24,6 +96,14 @@ categorize() {
   local a=$(echo "$app" | tr '[:upper:]' '[:lower:]')
   local t=$(echo "$tags" | tr '[:upper:]' '[:lower:]')
   local combined="$a $t"
+
+  # Use community-scripts.org official category if available
+  local cs_cat
+  cs_cat=$(cs_get_category "$app")
+  if [[ -n "$cs_cat" ]]; then
+    echo "$cs_cat"
+    return 0
+  fi
 
   # Direct slug→category lookup: try each slug, return on first match.
   # This prevents the fallback patterns from also matching and causing
@@ -670,6 +750,13 @@ brand_name() {
 # ── Description inference ───────────────────
 describe() {
   local app="$1" cat="$2"
+  # Use community-scripts.org description if available
+  local cs_desc
+  cs_desc=$(cs_get_description "$app")
+  if [[ -n "$cs_desc" ]]; then
+    echo "$cs_desc"
+    return 0
+  fi
   case "$app" in
     nginx) echo "Lightweight HTTP and reverse proxy server" ;;
     postgresql|postgres) echo "Powerful open-source relational database" ;;
@@ -842,15 +929,17 @@ generate_index_json() {
     local cat=$(categorize "$app" "$tags")
     local desc=$(describe "$app" "$cat")
     [ -z "$desc" ] && desc="Self-hosted $display instance"
-    
+    local icon_file=$(get_icon "$app")
+    local installs=$(cs_get_installs "$app")
+
     if [ $first -eq 0 ]; then echo "," >> "$json_file"; fi
     first=0
-    
+
     # Escape for JSON
     local esc_desc=$(printf '%s' "$desc" | sed 's/"/\\"/g')
     local esc_tags=$(printf '%s' "$tags" | sed 's/"/\\"/g')
     local esc_cat=$(printf '%s' "$cat" | sed 's/"/\\"/g')
-    
+
     cat >> "$json_file" <<EOF
   {
     "slug": "$app",
@@ -863,6 +952,8 @@ generate_index_json() {
     "disk": "$disk",
     "os": "$os",
     "version": "$version",
+    "icon": "$icon_file",
+    "installs_30d": "${installs:-0}",
     "url": "apps/$app.html"
   }
 EOF
@@ -897,6 +988,14 @@ generate_app_pages() {
     [ -z "$desc" ] && desc="Self-hosted $display instance"
     
     local icon=$(echo "$display" | head -c 1)
+    local icon_file=$(get_icon "$app")
+    local icon_html
+    if [[ -n "$icon_file" ]] && [[ -f "$ICON_DIR/$icon_file" ]]; then
+      icon_html="<img src=\"../assets/icons/${icon_file}\" alt=\"${display}\" class=\"app-icon-img\" loading=\"lazy\">"
+    else
+      icon_html="<div class=\"app-icon-letter\">${icon}</div>"
+    fi
+    local installs=$(cs_get_installs "$app")
     
     # Escape for HTML
     local esc_desc=$(printf '%s' "$desc" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
@@ -944,10 +1043,10 @@ generate_app_pages() {
     </div>
 
     <header class="app-header">
-      <div class="app-icon">${icon}</div>
+      ${icon_html}
       <div>
         <h1>${display}</h1>
-        <div class="app-subtitle">${cat} · self-hosted</div>
+        <div class="app-subtitle">${cat}$([ -n "$installs" ] && [ "$installs" != "0" ] && echo " · ${installs} installs (30d)") · self-hosted</div>
       </div>
     </header>
 

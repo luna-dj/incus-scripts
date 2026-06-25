@@ -1,0 +1,4 @@
+https://cdn.jsdelivr.net/gh/selfhst/icons@main/webp/ProxmoxVE.webp
+https://cdn.jsdelivr.net/gh/selfhst/icons@main/webp/squid.webp
+https://cdn.jsdelivr.net/gh/selfhst/icons@main/webp/rusty-paste.webp
+https://cdn.jsdelivr.net/gh/selfhst/icons@main/webp/airflow.webp
