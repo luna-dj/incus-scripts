@@ -111,6 +111,193 @@ def app_card(app):
       </a>'''
 
 
+# ──────────────────────────── NAVBAR (shared) ────────────────────────────
+
+NAVBAR_LINKS_INDEX = '''        <a href="#apps" data-mobile-nav>Apps</a>
+        <a href="#how" data-mobile-nav>How it works</a>
+        <a href="https://codeberg.org/{REPO}" target="_blank" rel="noopener">Codeberg ↗</a>
+        <a href="https://github.com/{REPO}" target="_blank" rel="noopener">GitHub ↗</a>'''
+
+
+def navbar_index(total):
+    """Navbar for the homepage."""
+    return f'''  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <button class="navbar-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/logo.svg" alt="incus-scripts">
+      </a>
+      <div class="navbar-nav">
+{NAVBAR_LINKS_INDEX.format(REPO=REPO)}
+      </div>
+      <div class="navbar-right">
+        <div class="navbar-search">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="search" placeholder="Search {total} apps…" autocomplete="off" spellcheck="false">
+          <kbd>/</kbd>
+        </div>
+        <button class="navbar-icon-btn" id="search-toggle" aria-label="Search apps">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <select id="provider-select" class="provider-select" title="Raw content provider">
+          <option value="codeberg">Codeberg</option>
+          <option value="github">GitHub</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/logo.svg" alt="incus-scripts">
+      </a>
+      <button class="drawer-close" id="drawer-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="drawer-nav" id="drawer-nav">
+      <a href="#apps" data-mobile-nav>📦 Apps</a>
+      <a href="#how" data-mobile-nav>⚙️ How it works</a>
+      <a href="https://codeberg.org/{REPO}" target="_blank" rel="noopener">↗ Codeberg</a>
+      <a href="https://github.com/{REPO}" target="_blank" rel="noopener">↗ GitHub</a>
+    </nav>
+    <div class="drawer-section">
+      <div class="drawer-section-label">Raw provider</div>
+      <select id="drawer-provider" class="drawer-provider">
+        <option value="codeberg">Codeberg</option>
+        <option value="github">GitHub</option>
+      </select>
+    </div>
+    <div class="drawer-section">
+      <button class="drawer-search-btn" id="drawer-search-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Search apps
+      </button>
+    </div>
+  </aside>
+
+  <!-- Mobile search overlay -->
+  <div class="search-overlay" id="search-overlay" aria-hidden="true">
+    <div class="search-overlay-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="search-overlay-input" placeholder="Search {total} apps…" autocomplete="off" spellcheck="false">
+      <button class="search-overlay-close" id="search-overlay-close" aria-label="Close search">✕</button>
+    </div>
+    <div class="search-overlay-results" id="search-overlay-results"></div>
+  </div>
+
+  <!-- Mobile filter sheet (homepage only) -->
+  <div class="sheet-backdrop" id="filter-sheet-backdrop"></div>
+  <div class="sheet" id="filter-sheet" aria-hidden="true">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h3>Categories</h3>
+      <button class="sheet-close" id="filter-sheet-close" aria-label="Close">✕</button>
+    </div>
+    <div class="sheet-body" id="filter-sheet-body"></div>
+  </div>'''
+
+
+def navbar_app(slug):
+    """Navbar for a per-app page."""
+    return f'''  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <button class="navbar-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="../index.html" class="navbar-brand">
+        <img src="../assets/logo.svg" alt="incus-scripts">
+      </a>
+      <div class="navbar-nav">
+        <a href="../index.html#apps">All apps</a>
+        <a href="https://codeberg.org/{REPO}/raw/branch/main/ct/{esc(slug)}.sh" target="_blank" rel="noopener">View script</a>
+        <a href="https://codeberg.org/{REPO}/raw/branch/main/install/{esc(slug)}-install.sh" target="_blank" rel="noopener">View installer</a>
+      </div>
+      <div class="navbar-right">
+        <div class="navbar-search">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="search" placeholder="Search…" autocomplete="off" spellcheck="false">
+        </div>
+        <button class="navbar-icon-btn" id="search-toggle" aria-label="Search apps">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <select id="provider-select" class="provider-select" title="Raw content provider">
+          <option value="codeberg">Codeberg</option>
+          <option value="github">GitHub</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="../index.html" class="navbar-brand">
+        <img src="../assets/logo.svg" alt="incus-scripts">
+      </a>
+      <button class="drawer-close" id="drawer-close" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="drawer-nav" id="drawer-nav">
+      <a href="../index.html#apps" data-mobile-nav>📦 All apps</a>
+      <a href="https://codeberg.org/{REPO}/raw/branch/main/ct/{esc(slug)}.sh" target="_blank" rel="noopener">↗ View script</a>
+      <a href="https://codeberg.org/{REPO}/raw/branch/main/install/{esc(slug)}-install.sh" target="_blank" rel="noopener">↗ View installer</a>
+      <a href="https://codeberg.org/{REPO}" target="_blank" rel="noopener">↗ Codeberg</a>
+      <a href="https://github.com/{REPO}" target="_blank" rel="noopener">↗ GitHub</a>
+    </nav>
+    <div class="drawer-section">
+      <div class="drawer-section-label">Raw provider</div>
+      <select id="drawer-provider" class="drawer-provider">
+        <option value="codeberg">Codeberg</option>
+        <option value="github">GitHub</option>
+      </select>
+    </div>
+    <div class="drawer-section">
+      <button class="drawer-search-btn" id="drawer-search-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Search apps
+      </button>
+    </div>
+  </aside>
+
+  <!-- Mobile search overlay -->
+  <div class="search-overlay" id="search-overlay" aria-hidden="true">
+    <div class="search-overlay-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" id="search-overlay-input" placeholder="Search apps…" autocomplete="off" spellcheck="false">
+      <button class="search-overlay-close" id="search-overlay-close" aria-label="Close search">✕</button>
+    </div>
+    <div class="search-overlay-results" id="search-overlay-results"></div>
+  </div>'''
+
+
 # ──────────────────────────── INDEX PAGE ────────────────────────────
 
 def render_index(apps):
@@ -151,32 +338,7 @@ def render_index(apps):
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="navbar-inner">
-      <a href="index.html" class="navbar-brand">
-        <img src="assets/logo.svg" alt="incus-scripts">
-      </a>
-      <div class="navbar-nav">
-        <a href="#apps">Apps</a>
-        <a href="#how">How it works</a>
-        <a href="https://codeberg.org/{REPO}" target="_blank" rel="noopener">Codeberg</a>
-        <a href="https://github.com/{REPO}" target="_blank" rel="noopener">GitHub</a>
-      </div>
-      <div class="navbar-right">
-        <div class="navbar-search">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-          <input type="text" id="search" placeholder="Search {total} apps…" autocomplete="off" spellcheck="false">
-          <kbd>/</kbd>
-        </div>
-        <select id="provider-select" class="provider-select" title="Raw content provider">
-          <option value="codeberg">Codeberg</option>
-          <option value="github">GitHub</option>
-        </select>
-      </div>
-    </div>
-  </nav>
+{navbar_index(total)}
 
   <header class="hero">
     <div class="hero-inner">
@@ -266,6 +428,13 @@ def render_index(apps):
       <div class="filters" id="filters">
         <span class="filter-label">Filter</span>
 {chr(10).join(filter_btns)}
+        <button class="filter-mobile-btn" id="filter-mobile-btn" aria-label="Browse categories">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/>
+          </svg>
+          <span>Categories</span>
+          <span class="filter-mobile-count" id="filter-mobile-count"></span>
+        </button>
       </div>
     </div>
 
@@ -396,7 +565,7 @@ def render_app_page(app):
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>{name} — incus-scripts</title>
   <meta name="description" content="{desc[:200]}">
   <meta name="theme-color" content="#0b0f17">
@@ -405,30 +574,7 @@ def render_app_page(app):
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="navbar-inner">
-      <a href="../index.html" class="navbar-brand">
-        <img src="../assets/logo.svg" alt="incus-scripts">
-      </a>
-      <div class="navbar-nav">
-        <a href="../index.html#apps">All apps</a>
-        <a href="https://codeberg.org/{REPO}/raw/branch/main/ct/{esc(slug)}.sh" target="_blank" rel="noopener">View script</a>
-        <a href="https://codeberg.org/{REPO}/raw/branch/main/install/{esc(slug)}-install.sh" target="_blank" rel="noopener">View installer</a>
-      </div>
-      <div class="navbar-right">
-        <div class="navbar-search">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-          <input type="text" id="search" placeholder="Search…" autocomplete="off" spellcheck="false">
-        </div>
-        <select id="provider-select" class="provider-select" title="Raw content provider">
-          <option value="codeberg">Codeberg</option>
-          <option value="github">GitHub</option>
-        </select>
-      </div>
-    </div>
-  </nav>
+{navbar_app(slug)}
 
   <main class="app-page">
     <div class="crumbs">
@@ -511,6 +657,22 @@ def render_app_page(app):
       <a href="../index.html#apps" class="btn btn-ghost">← Back to all apps</a>
     </section>
   </main>
+
+  <!-- Mobile bottom action bar -->
+  <div class="action-bar" data-app-slug="{esc(slug)}">
+    <button class="action-bar-btn action-bar-primary" data-copy="{esc(install_cmd)}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+      <span>Copy install</span>
+    </button>
+    <a class="action-bar-btn action-bar-secondary" href="https://codeberg.org/{REPO}/raw/branch/main/ct/{esc(slug)}.sh" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <span>Script</span>
+    </a>
+    <a class="action-bar-btn action-bar-secondary" href="https://codeberg.org/{REPO}/raw/branch/main/install/{esc(slug)}-install.sh" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="8 17 12 11 16 17"/><line x1="12" y1="11" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+      <span>Installer</span>
+    </a>
+  </div>
 
   <footer class="footer">
     <div class="footer-inner">
