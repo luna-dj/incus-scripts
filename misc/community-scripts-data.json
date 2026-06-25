@@ -1540,7 +1540,7 @@
       "slug": "prowlarr",
       "name": "Prowlarr",
       "category": "*Arr Suite",
-      "description": "$24",
+      "description": "$25",
       "has_arm": true,
       "privileged": false,
       "is_dev": false,
@@ -11143,10 +11143,10 @@
       "description": "Pinchflat is a self-hosted YouTube media manager built with yt-dlp for automatically downloading and organizing content from channels and playlists.",
       "has_arm": false,
       "privileged": false,
-      "is_dev": true,
+      "is_dev": false,
       "logo": "https://cdn.jsdelivr.net/gh/selfhst/icons@main/webp/pinchflat.webp",
-      "updated": "2026-06-01 00:00:00.000Z",
-      "created": "2026-05-05 00:00:00.000Z",
+      "updated": "2026-06-25 00:00:00.000Z",
+      "created": "2026-06-25 00:00:00.000Z",
       "execute_in": [
         "lxc"
       ],
@@ -11671,6 +11671,6 @@
       "installs_30d": 0
     }
   ],
-  "totalInstalls": 4378680,
+  "totalInstalls": 4379308,
   "totalScripts": 602
 }
