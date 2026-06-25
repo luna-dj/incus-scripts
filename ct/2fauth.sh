@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# ct/2fauth.sh — 2fauth
+# ct/2fauth.sh — 2Fauth
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 #
@@ -12,7 +12,7 @@ export INCUS_BASE
 source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE}/common.sh?v=$(date +%s))"
 source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE}/misc/incus-build.func?v=$(date +%s))"
 
-APP="2fauth"
+APP="2Fauth"
 var_tags="${var_tags:-}"
 var_cpu="${var_cpu:-1}"
 var_ram="${var_ram:-1024}"
@@ -37,5 +37,5 @@ printf '%s\n' "INCUS_BASE=${INCUS_BASE}" "$INSTALL_SCRIPT" | incus_exec_stdin "$
 
 IP=$(get_instance_ip "$var_instance")
 echo ""
-echo -e "${GR}2fauth deployed on ${var_instance} (${IP})${NC}"
+echo -e "${GR}2Fauth deployed on ${var_instance} (${IP})${NC}"
 echo ""

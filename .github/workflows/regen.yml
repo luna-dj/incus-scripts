@@ -1,0 +1,118 @@
+name: Regen from upstream
+
+on:
+  # Daily at 06:00 UTC (off-hours for most contributors)
+  schedule:
+    - cron: '0 6 * * *'
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      force_all:
+        description: 'Regenerate all apps (skip "no changes" detection)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Regenerate ct/ and install/ from upstream
+        env:
+          FORCE_ALL: ${{ inputs.force_all || 'false' }}
+        run: |
+          python3 scripts/regen-from-upstream.py 2>&1 | tee regen-output.log
+
+      - name: Show diff summary
+        id: diff
+        run: |
+          {
+            echo "## Files changed"
+            echo
+            git diff --stat | head -60
+            echo
+            echo "## Apps added"
+            git diff --diff-filter=A --name-only | grep '^ct/' | sed 's|^ct/||; s|\.sh$||' | head -20
+            echo
+            echo "## Apps removed"
+            git diff --diff-filter=D --name-only | grep '^ct/' | sed 's|^ct/||; s|\.sh$||' | head -20
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No changes detected"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Changes detected"
+          fi
+
+      - name: Create Pull Request
+        if: steps.check_changes.outputs.changed == 'true' && github.event_name == 'schedule'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: regen apps from community-scripts/ProxmoxVE"
+          title: "Auto-regen: upstream ProxmoxVE sync"
+          body: |
+            Automated regeneration of `ct/` and `install/` from
+            [community-scripts/ProxmoxVE](https://github.com/community-scripts/ProxmoxVE).
+
+            - All upstream `install/*-install.sh` mirrored with Incus-compat wrappers
+            - Categories regenerated from `misc/app-categories.json`
+            - Daily cron runs at 06:00 UTC
+
+            ```
+            $(cat regen-output.log)
+            ```
+          branch: auto/regen-upstream
+          delete-branch: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit directly (manual dispatch)
+        if: steps.check_changes.outputs.changed == 'true' && github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ct/ install/ misc/app-categories.json
+          git commit -m "chore: regen apps from community-scripts/ProxmoxVE"
+          git push
+
+  mirror-to-codeberg:
+    # Mirror to Codeberg so INCUS_BASE keeps working there.
+    # Runs only after regen pushes to main (or on manual dispatch).
+    needs: regen
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    steps:
+      - name: Mirror to Codeberg
+        env:
+          CODEBERG_SSH_KEY: ${{ secrets.CODEBERG_SSH_KEY }}
+        run: |
+          if [[ -z "$CODEBERG_SSH_KEY" ]]; then
+            echo "No CODEBERG_SSH_KEY secret set; skipping Codeberg mirror"
+            exit 0
+          fi
+          mkdir -p ~/.ssh
+          echo "$CODEBERG_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan codeberg.org >> ~/.ssh/known_hosts 2>/dev/null
+
+          git remote add cb "git@codeberg.org:luna-dj/incus-scripts.git" 2>/dev/null || \
+            git remote set-url cb "git@codeberg.org:luna-dj/incus-scripts.git"
+          git push cb main

@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# install/go2rtc-install.sh — Go2rtc
+# install/go2rtc-install.sh — Go2Rtc
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 
 source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE:-https://codeberg.org/luna-dj/incus-scripts/raw/branch/main}/misc/incus-install-compat.func?v=$(date +%s))"
 
-header_info "Go2rtc"
+header_info "Go2Rtc"
 setting_up_container
 network_check
 update_os
 
-msg_info "Loading upstream install script for Go2rtc"
+msg_info "Loading upstream install script for Go2Rtc"
 UPSTREAM_URL="https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/go2rtc-install.sh"
 UPSTREAM_SCRIPT=$(curl -fsSL "${UPSTREAM_URL}?v=$(date +%s)" 2>/dev/null) || {
     msg_error "Failed to fetch upstream install script"
@@ -30,5 +30,5 @@ eval "$UPSTREAM_SCRIPT"
 set -u
 
 echo ""
-echo -e "${GR}Go2rtc installation complete!${NC}"
+echo -e "${GR}Go2Rtc installation complete!${NC}"
 echo ""

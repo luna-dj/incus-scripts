@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# install/zigbee2mqtt-install.sh — Zigbee2mqtt
+# install/zigbee2mqtt-install.sh — Zigbee2Mqtt
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 
 source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE:-https://codeberg.org/luna-dj/incus-scripts/raw/branch/main}/misc/incus-install-compat.func?v=$(date +%s))"
 
-header_info "Zigbee2mqtt"
+header_info "Zigbee2Mqtt"
 setting_up_container
 network_check
 update_os
 
-msg_info "Loading upstream install script for Zigbee2mqtt"
+msg_info "Loading upstream install script for Zigbee2Mqtt"
 UPSTREAM_URL="https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/zigbee2mqtt-install.sh"
 UPSTREAM_SCRIPT=$(curl -fsSL "${UPSTREAM_URL}?v=$(date +%s)" 2>/dev/null) || {
     msg_error "Failed to fetch upstream install script"
@@ -30,5 +30,5 @@ eval "$UPSTREAM_SCRIPT"
 set -u
 
 echo ""
-echo -e "${GR}Zigbee2mqtt installation complete!${NC}"
+echo -e "${GR}Zigbee2Mqtt installation complete!${NC}"
 echo ""

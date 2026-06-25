@@ -3,8 +3,6 @@
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 
-# Fetch our compat shim. Use a cache-buster (timestamp) so the
-# latest version is always used, not a CDN-cached stale one.
 source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE:-https://codeberg.org/luna-dj/incus-scripts/raw/branch/main}/misc/incus-install-compat.func?v=$(date +%s))"
 
 header_info "Technitiumdns"

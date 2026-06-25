@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# install/2fauth-install.sh — 2fauth
+# install/2fauth-install.sh — 2Fauth
 # Generated for Incus from upstream ProxmoxVE Community Scripts
 # Our wrapper code is MIT; upstream content retains its original license.
 
 source /dev/stdin <<<"$(curl -fsSL --http1.1 ${INCUS_BASE:-https://codeberg.org/luna-dj/incus-scripts/raw/branch/main}/misc/incus-install-compat.func?v=$(date +%s))"
 
-header_info "2fauth"
+header_info "2Fauth"
 setting_up_container
 network_check
 update_os
 
-msg_info "Loading upstream install script for 2fauth"
+msg_info "Loading upstream install script for 2Fauth"
 UPSTREAM_URL="https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/install/2fauth-install.sh"
 UPSTREAM_SCRIPT=$(curl -fsSL "${UPSTREAM_URL}?v=$(date +%s)" 2>/dev/null) || {
     msg_error "Failed to fetch upstream install script"
@@ -30,5 +30,5 @@ eval "$UPSTREAM_SCRIPT"
 set -u
 
 echo ""
-echo -e "${GR}2fauth installation complete!${NC}"
+echo -e "${GR}2Fauth installation complete!${NC}"
 echo ""
