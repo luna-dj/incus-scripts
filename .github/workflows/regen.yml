@@ -93,15 +93,22 @@ jobs:
         if: steps.check_changes.outputs.changed == 'true' && github.event_name == 'schedule'
         uses: peter-evans/create-pull-request@v7
         with:
-          commit-message: "chore: regen apps from community-scripts/ProxmoxVE"
+          commit-message: "chore: regen apps, docs, icons, and metadata from upstream"
           title: "Auto-regen: upstream ProxmoxVE sync"
           body: |
-            Automated regeneration of `ct/` and `install/` from
-            [community-scripts/ProxmoxVE](https://github.com/community-scripts/ProxmoxVE).
+            Automated regeneration from
+            [community-scripts/ProxmoxVE](https://github.com/community-scripts/ProxmoxVE)
+            and [community-scripts.org](https://community-scripts.org).
 
-            - All upstream `install/*-install.sh` mirrored with Incus-compat wrappers
-            - Categories regenerated from `misc/app-categories.json`
-            - Daily cron runs at 06:00 UTC
+            - `ct/` and `install/` mirrored from upstream install/* and tools/addon/*
+            - `misc/app-categories.json` from official CS.org categories
+            - `misc/community-scripts-data.json` (descriptions, install counts, has_arm)
+            - `docs/assets/icons/` (540 selfhst icons) + `_mapping.json`
+            - `docs/apps/*.html` regenerated with icons + install counts
+            - `docs/index.html` regenerated with icons + descriptions + sort by popularity
+            - `docs/apps.json` enriched with `icon` and `installs_30d` fields
+
+            Daily cron runs at 06:00 UTC.
 
             ```
             $(cat regen-output.log)
@@ -115,8 +122,13 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ct/ install/ misc/app-categories.json
-          git commit -m "chore: regen apps from community-scripts/ProxmoxVE"
+          # Stage ALL changes including docs (so generated HTML matches the
+          # regen), but exclude transient cache files via .gitignore.
+          git add -A
+          # Unstage transient cache files if they slipped in
+          git reset HEAD misc/.cs-meta-cache.tsv misc/.icon-cache.tsv docs/assets/icons/_failed.txt 2>/dev/null || true
+          git status --short
+          git commit -m "chore: regen apps, docs, icons, and metadata from upstream"
           git push
 
   mirror-to-codeberg:
