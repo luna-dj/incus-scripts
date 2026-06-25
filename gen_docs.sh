@@ -935,8 +935,8 @@ generate_index_json() {
     if [ $first -eq 0 ]; then echo "," >> "$json_file"; fi
     first=0
 
-    # Escape for JSON
-    local esc_desc=$(printf '%s' "$desc" | sed 's/"/\\"/g')
+    # Escape for JSON (also escape control chars in descriptions)
+    local esc_desc=$(printf '%s' "$desc" | sed 's/"/\\"/g; s/\\/\\\\/g' | tr '\n\r\t' '   ')
     local esc_tags=$(printf '%s' "$tags" | sed 's/"/\\"/g')
     local esc_cat=$(printf '%s' "$cat" | sed 's/"/\\"/g')
 
@@ -1258,29 +1258,47 @@ import os
 with open('$json_file') as f:
     apps = json.load(f)
 
-# Sort by name
-apps.sort(key=lambda a: a['name'].lower())
+# Sort by installs_30d desc, then by name
+def sort_key(a):
+    inst = a.get('installs_30d', 0) or 0
+    return (-inst, a['name'].lower())
+apps.sort(key=sort_key)
 
+ICON_DIR = '$ICON_DIR'
 for app in apps:
-    icon = app['name'][:1].upper()
+    icon_file = app.get('icon', '')
+    if icon_file and os.path.isfile(os.path.join(ICON_DIR, icon_file)):
+        # Use actual icon image
+        icon_html = f'<img src=\"assets/icons/{icon_file}\" alt=\"' + html.escape(app['name']) + f'\" class=\"app-icon-img\" loading=\"lazy\">'
+    else:
+        # Fallback to letter placeholder
+        letter = app['name'][:1].upper()
+        icon_html = f'<div class=\"app-icon-letter\">{letter}</div>'
+
     name = html.escape(app['name'])
-    desc = html.escape(app.get('description', ''))
+    # Truncate description for cards (full desc on detail page)
+    desc_raw = app.get('description', '') or ''
+    desc_short = desc_raw[:140] + ('…' if len(desc_raw) > 140 else '')
+    desc = html.escape(desc_short)
     cat = html.escape(app.get('category', 'Other'))
     url = app['url']
     slug = app['slug']
     cpu = app.get('cpu', '1')
     ram = app.get('ram', '1024')
     disk = app.get('disk', '10')
-    print(f'''      <a class=\"app-card\" href=\"{url}\" data-name=\"{name.lower()}\" data-desc=\"{desc.lower()}\" data-category=\"{cat}\">
+    installs = int(app.get('installs_30d', 0) or 0)
+    # Data attrs enable client-side filter/sort by category, name, desc, installs
+    print(f'''      <a class=\"app-card\" href=\"{url}\" data-name=\"{name.lower()}\" data-desc=\"{desc.lower()}\" data-category=\"{cat}\" data-installs=\"{installs}\">
         <div class=\"app-category-badge\">{cat}</div>
         <div class=\"app-card-header\">
-          <div class=\"app-icon\">{icon}</div>
+          {icon_html}
           <div class=\"app-name\">{name}</div>
         </div>
         <div class=\"app-meta\">
           <span>CPU {cpu}</span>
           <span>{ram}MB</span>
           <span>{disk}GB</span>
+          ''' + (f'<span class=\"app-installs\">{installs:,} ↓30d</span>' if installs > 0 else '') + f'''
         </div>
         <div class=\"app-desc\">{desc}</div>
       </a>''')

@@ -37,7 +37,18 @@ jobs:
         run: |
           python3 scripts/regen-from-upstream.py 2>&1 | tee regen-output.log
 
+      - name: Sync metadata from community-scripts.org
+        if: always()
+        run: |
+          python3 scripts/sync-cs-metadata.py 2>&1 | tail -20 | tee -a regen-output.log
+
+      - name: Sync app icons from selfhst/icons
+        if: always()
+        run: |
+          python3 scripts/sync-icons.py 2>&1 | tail -20 | tee -a regen-output.log
+
       - name: Regenerate docs site
+        # Re-run docs gen AFTER icons are downloaded so they can be embedded
         if: always()
         run: |
           if [[ -f gen_docs.sh ]]; then
@@ -45,11 +56,6 @@ jobs:
           else
             echo "No gen_docs.sh found, skipping doc regeneration" | tee -a regen-output.log
           fi
-
-      - name: Sync metadata from community-scripts.org
-        if: always()
-        run: |
-          python3 scripts/sync-cs-metadata.py 2>&1 | tail -20 | tee -a regen-output.log
 
       - name: Show diff summary
         id: diff
