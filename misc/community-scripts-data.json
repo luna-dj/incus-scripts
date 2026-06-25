@@ -1540,7 +1540,7 @@
       "slug": "prowlarr",
       "name": "Prowlarr",
       "category": "*Arr Suite",
-      "description": "$24",
+      "description": "$25",
       "has_arm": true,
       "privileged": false,
       "is_dev": false,
@@ -11671,6 +11671,6 @@
       "installs_30d": 0
     }
   ],
-  "totalInstalls": 4381698,
+  "totalInstalls": 4379308,
   "totalScripts": 602
 }
