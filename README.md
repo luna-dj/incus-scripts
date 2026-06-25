@@ -280,6 +280,25 @@ grep "var_cpu=" ct/*.sh | wc -l
 
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
+### Auto-syncing from upstream
+
+The `ct/` and `install/` scripts for almost all 600+ apps are **automatically regenerated** from
+[community-scripts/ProxmoxVE](https://github.com/community-scripts/ProxmoxVE):
+
+- **Schedule:** Daily at 06:00 UTC (`.github/workflows/regen.yml`)
+- **Manual:** Run from the Actions tab → "Regen from upstream" → "Run workflow"
+- **Script:** `scripts/regen-from-upstream.py`
+- **Output:** Pull request with all changes; merges to `main` mirror to Codeberg
+
+**Apps with hand-written fixes** (e.g. `mail-archiver` arm64 .NET SDK workaround) are listed in
+`CUSTOM_INSTALL_APPS` in `scripts/regen-from-upstream.py` and **never overwritten** by the regen.
+
+To regenerate locally:
+
+```bash
+python3 scripts/regen-from-upstream.py
+```
+
 ## 📄 License
 
 MIT — see [LICENSE](LICENSE).
