@@ -33,7 +33,9 @@ MISC_DIR = ROOT / 'misc'
 
 UPSTREAM_REPO = 'community-scripts/ProxmoxVE'
 UPSTREAM_API = f'https://api.github.com/repos/{UPSTREAM_REPO}/contents/install'
+UPSTREAM_ADDON_API = f'https://api.github.com/repos/{UPSTREAM_REPO}/contents/tools/addon'
 UPSTREAM_RAW = f'https://raw.githubusercontent.com/{UPSTREAM_REPO}/main/install'
+UPSTREAM_ADDON_RAW = f'https://raw.githubusercontent.com/{UPSTREAM_REPO}/main/tools/addon'
 
 OUR_BASE_DEFAULT = 'https://codeberg.org/luna-dj/incus-scripts/raw/branch/main'
 
@@ -46,6 +48,28 @@ CUSTOM_INSTALL_APPS = {
 
 # Apps to skip entirely (don't even generate ct/ for them).
 SKIP_APPS = set()
+
+# Addon scripts (require Docker in the container). They live in upstream's
+# tools/addon/ directory, not install/. We generate the same wrapper but
+# add a Docker install hint in the install/ script.
+# Each entry: app_name -> display_name
+ADDON_APPS = {
+    'arcane': 'Arcane',
+    'dockge': 'Dockge',
+    'dokploy': 'Dokploy',
+    'komodo': 'Komodo',
+    'runtipi': 'Runtipi',
+    'coolify': 'Coolify',
+    'copyparty': 'Copyparty',
+    'olivetin': 'OliveTin',
+    'phpmyadmin': 'phpMyAdmin',
+    'crowdsec': 'CrowdSec',
+    'filebrowser': 'Filebrowser',
+    'glances': 'Glances',
+    'netdata': 'Netdata',
+    'webmin': 'Webmin',
+    'all-templates': 'All Templates',
+}
 
 # ──────────────────────────────────────────────────────────────
 # HELPERS
@@ -72,6 +96,26 @@ def app_name_from_install(name):
     """adguard-install.sh -> adguard, Apache-Airflow-install.sh -> apache-airflow"""
     base = name.replace('-install.sh', '')
     return base.lower()
+
+
+def app_name_from_addon(name):
+    """arcane.sh -> arcane, all-templates.sh -> all-templates"""
+    return name.replace('.sh', '').lower()
+
+
+def fetch_addon_list():
+    """Fetch list of addon scripts from upstream tools/addon/."""
+    try:
+        req = urllib.request.Request(UPSTREAM_ADDON_API, headers={'User-Agent': 'incus-scripts-regen'})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            data = json.loads(r.read())
+        files = [e['name'] for e in data if e['name'].endswith('.sh')]
+        return sorted(files)
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            print(f"  WARN: {UPSTREAM_ADDON_API} returned 404 — skipping addon sync")
+            return []
+        raise
 
 
 def pretty_name(name):
@@ -162,6 +206,51 @@ echo -e "${{GR}}{pretty} installation complete!${{NC}}"
 echo ""
 '''
 
+ADDON_INSTALL_TEMPLATE = '''#!/usr/bin/env bash
+# install/{app}-install.sh — {pretty} (addon)
+# Generated for Incus from upstream ProxmoxVE Community Scripts (tools/addon/)
+# Our wrapper code is MIT; upstream content retains its original license.
+#
+# Addon scripts require Docker inside the container. Incus containers
+# don't ship with Docker, so we install it before eval'ing the upstream.
+
+source /dev/stdin <<<"$(curl -fsSL --http1.1 ${{INCUS_BASE:-{our_base}}}/misc/incus-install-compat.func?v=$(date +%s))"
+
+header_info "{pretty}"
+setting_up_container
+network_check
+update_os
+
+# Addon apps run as Docker containers. Install Docker first.
+# Use setup_docker from compat shim (handles Debian/Ubuntu/Alpine).
+if ! command -v docker &>/dev/null; then
+  msg_info "Installing Docker (required for {pretty} addon)"
+  setup_docker
+  msg_ok "Docker installed"
+fi
+
+msg_info "Loading upstream addon script for {pretty}"
+UPSTREAM_URL="https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/addon/{app}.sh"
+UPSTREAM_SCRIPT=$(curl -fsSL "${{UPSTREAM_URL}}?v=$(date +%s)" 2>/dev/null) || {{
+    msg_error "Failed to fetch upstream addon script"
+    exit 1
+}}
+
+# Remove upstream function sourcing (provided by incus-compat)
+UPSTREAM_SCRIPT="${{UPSTREAM_SCRIPT//source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/core.func)/: # (core.func)}}"
+UPSTREAM_SCRIPT="${{UPSTREAM_SCRIPT//source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/tools.func)/: # (tools.func)}}"
+UPSTREAM_SCRIPT="${{UPSTREAM_SCRIPT//source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/error_handler.func)/: # (error_handler.func)}}"
+
+# Disable 'set -u' around eval of upstream
+set +u
+eval "$UPSTREAM_SCRIPT"
+set -u
+
+echo ""
+echo -e "${{GR}}{pretty} installation complete!${{NC}}"
+echo ""
+'''
+
 
 # ──────────────────────────────────────────────────────────────
 # CATEGORY MAPPING (mirrors .claude/build-categories.py)
@@ -203,6 +292,69 @@ def render_ct(app, pretty):
 
 def render_install(app, pretty):
     return INSTALL_TEMPLATE.format(app=app, pretty=pretty, our_base=OUR_BASE_DEFAULT)
+
+
+def render_addon_install(app, pretty):
+    return ADDON_INSTALL_TEMPLATE.format(app=app, pretty=pretty, our_base=OUR_BASE_DEFAULT)
+
+
+def regenerate_addons():
+    """Regenerate ct/ and install/ for addon apps (Docker-based)."""
+    print(f"\nFetching addon list from {UPSTREAM_REPO}/tools/addon/...")
+    files = fetch_addon_list()
+    if not files:
+        return set()
+    print(f"Found {len(files)} addon scripts")
+
+    new_count = 0
+    updated_count = 0
+    upstream_apps = set()
+
+    for name in files:
+        app = app_name_from_addon(name)
+        pretty = ADDON_APPS.get(app, pretty_name(app))
+        upstream_apps.add(app)
+
+        if app in SKIP_APPS:
+            print(f"  SKIP ct/{app}.sh (in SKIP_APPS)")
+            continue
+
+        # Generate ct/<app>.sh (same template as install/ apps)
+        ct_path = CT_DIR / f'{app}.sh'
+        ct_content = render_ct(app, pretty)
+
+        if ct_path.exists():
+            if ct_path.read_text() != ct_content:
+                ct_path.write_text(ct_content)
+                ct_path.chmod(0o755)
+                updated_count += 1
+                print(f"  UPD  ct/{app}.sh (addon)")
+        else:
+            ct_path.write_text(ct_content)
+            ct_path.chmod(0o755)
+            new_count += 1
+            print(f"  NEW  ct/{app}.sh (addon)")
+
+        # Generate install/<app>-install.sh (addon template with Docker pre-install)
+        if app in CUSTOM_INSTALL_APPS:
+            print(f"  KEEP install/{app}-install.sh (custom)")
+            continue
+
+        install_path = INSTALL_DIR / f'{app}-install.sh'
+        install_content = render_addon_install(app, pretty)
+
+        if install_path.exists():
+            if install_path.read_text() != install_content:
+                install_path.write_text(install_content)
+                install_path.chmod(0o755)
+                print(f"  UPD  install/{app}-install.sh (addon)")
+        else:
+            install_path.write_text(install_content)
+            install_path.chmod(0o755)
+            print(f"  NEW  install/{app}-install.sh (addon)")
+
+    print(f"\nAddon summary: {new_count} new, {updated_count} updated")
+    return upstream_apps
 
 
 def regenerate():
@@ -280,6 +432,11 @@ def regenerate_categories(apps):
 
 
 if __name__ == '__main__':
+    # Main install/ apps
     apps = regenerate()
-    regenerate_categories(apps)
-    print(f"\n✓ Regenerated {len(apps)} apps from upstream")
+    # Addon apps (Docker-based)
+    addon_apps = regenerate_addons()
+    # Combined list for categories
+    all_apps = apps | addon_apps
+    regenerate_categories(all_apps)
+    print(f"\n✓ Regenerated {len(all_apps)} apps from upstream ({len(apps)} install + {len(addon_apps)} addon)")

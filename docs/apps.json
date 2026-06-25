@@ -28,6 +28,34 @@
   }
 ,
   {
+    "slug": "add-netbird-lxc",
+    "name": "Add Netbird Lxc",
+    "category": "Networking",
+    "description": "Self-hosted Add Netbird Lxc instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/add-netbird-lxc.html"
+  }
+,
+  {
+    "slug": "add-tailscale-lxc",
+    "name": "Add Tailscale Lxc",
+    "category": "Networking",
+    "description": "Self-hosted Add Tailscale Lxc instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/add-tailscale-lxc.html"
+  }
+,
+  {
     "slug": "adguard",
     "name": "AdGuard Home",
     "category": "Networking",
@@ -39,6 +67,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/adguard.html"
+  }
+,
+  {
+    "slug": "adguardhome-sync",
+    "name": "Adguardhome Sync",
+    "category": "Networking",
+    "description": "Self-hosted Adguardhome Sync instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/adguardhome-sync.html"
   }
 ,
   {
@@ -67,6 +109,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/agentdvr.html"
+  }
+,
+  {
+    "slug": "all-templates",
+    "name": "All Templates",
+    "category": "Other",
+    "description": "Self-hosted All Templates instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/all-templates.html"
   }
 ,
   {
@@ -728,6 +784,20 @@
   }
 ,
   {
+    "slug": "arcane",
+    "name": "Arcane",
+    "category": "Other",
+    "description": "Self-hosted Arcane instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/arcane.html"
+  }
+,
+  {
     "slug": "archivebox",
     "name": "ArchiveBox",
     "category": "Cloud & Storage",
@@ -1344,6 +1414,20 @@
   }
 ,
   {
+    "slug": "coder-code-server",
+    "name": "Coder Code Server",
+    "category": "Development",
+    "description": "Self-hosted Coder Code Server instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/coder-code-server.html"
+  }
+,
+  {
     "slug": "comfyui",
     "name": "Comfyui",
     "category": "AI",
@@ -1414,6 +1498,20 @@
   }
 ,
   {
+    "slug": "copyparty",
+    "name": "Copyparty",
+    "category": "Media",
+    "description": "Self-hosted Copyparty instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/copyparty.html"
+  }
+,
+  {
     "slug": "coredns",
     "name": "CoreDNS",
     "category": "Networking",
@@ -1470,6 +1568,20 @@
   }
 ,
   {
+    "slug": "cronmaster",
+    "name": "Cronmaster",
+    "category": "Other",
+    "description": "Self-hosted Cronmaster instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/cronmaster.html"
+  }
+,
+  {
     "slug": "cross-seed",
     "name": "Cross Seed",
     "category": "Media",
@@ -1481,6 +1593,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/cross-seed.html"
+  }
+,
+  {
+    "slug": "crowdsec",
+    "name": "CrowdSec",
+    "category": "Security",
+    "description": "Collaborative security engine",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/crowdsec.html"
   }
 ,
   {
@@ -2072,6 +2198,34 @@
   }
 ,
   {
+    "slug": "filebrowser-quantum",
+    "name": "Filebrowser Quantum",
+    "category": "Media",
+    "description": "Self-hosted Filebrowser Quantum instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/filebrowser-quantum.html"
+  }
+,
+  {
+    "slug": "filebrowser",
+    "name": "File Browser",
+    "category": "Media",
+    "description": "Self-hosted File Browser instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/filebrowser.html"
+  }
+,
+  {
     "slug": "fileflows",
     "name": "FileFlows",
     "category": "Cloud & Storage",
@@ -2408,6 +2562,20 @@
   }
 ,
   {
+    "slug": "glances",
+    "name": "Glances",
+    "category": "Monitoring",
+    "description": "System monitoring dashboard",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/glances.html"
+  }
+,
+  {
     "slug": "globaleaks",
     "name": "Globaleaks",
     "category": "Security",
@@ -2730,6 +2898,20 @@
   }
 ,
   {
+    "slug": "homebrew",
+    "name": "Homebrew",
+    "category": "Home Automation",
+    "description": "Self-hosted Homebrew instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/homebrew.html"
+  }
+,
+  {
     "slug": "homebridge",
     "name": "Homebridge",
     "category": "Home Automation",
@@ -2853,6 +3035,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/igotify.html"
+  }
+,
+  {
+    "slug": "immich-public-proxy",
+    "name": "Immich Public Proxy",
+    "category": "Media",
+    "description": "Self-hosted Immich Public Proxy instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/immich-public-proxy.html"
   }
 ,
   {
@@ -3091,6 +3287,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/jellyseerr.html"
+  }
+,
+  {
+    "slug": "jellystat",
+    "name": "Jellystat",
+    "category": "Other",
+    "description": "Self-hosted Jellystat instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/jellystat.html"
   }
 ,
   {
@@ -4298,6 +4508,20 @@
   }
 ,
   {
+    "slug": "netdata",
+    "name": "Netdata",
+    "category": "Monitoring",
+    "description": "Infrastructure monitoring",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/netdata.html"
+  }
+,
+  {
     "slug": "netvisor",
     "name": "Netvisor",
     "category": "Networking",
@@ -4309,6 +4533,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/netvisor.html"
+  }
+,
+  {
+    "slug": "nextcloud-exporter",
+    "name": "Nextcloud Exporter",
+    "category": "Media",
+    "description": "Self-hosted Nextcloud Exporter instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/nextcloud-exporter.html"
   }
 ,
   {
@@ -4589,6 +4827,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/odoo.html"
+  }
+,
+  {
+    "slug": "olivetin",
+    "name": "OliveTin",
+    "category": "Other",
+    "description": "Self-hosted OliveTin instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/olivetin.html"
   }
 ,
   {
@@ -5096,6 +5348,20 @@
   }
 ,
   {
+    "slug": "phpmyadmin",
+    "name": "phpMyAdmin",
+    "category": "Database",
+    "description": "Self-hosted phpMyAdmin instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/phpmyadmin.html"
+  }
+,
+  {
     "slug": "pialert",
     "name": "Pi.Alert",
     "category": "Monitoring",
@@ -5110,6 +5376,20 @@
   }
 ,
   {
+    "slug": "pihole-exporter",
+    "name": "Pihole Exporter",
+    "category": "Networking",
+    "description": "Self-hosted Pihole Exporter instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pihole-exporter.html"
+  }
+,
+  {
     "slug": "pihole",
     "name": "Pi-hole",
     "category": "Networking",
@@ -5121,6 +5401,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/pihole.html"
+  }
+,
+  {
+    "slug": "pinchflat",
+    "name": "Pinchflat",
+    "category": "Other",
+    "description": "Self-hosted Pinchflat instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pinchflat.html"
   }
 ,
   {
@@ -5348,6 +5642,20 @@
   }
 ,
   {
+    "slug": "prometheus-paperless-ngx-exporter",
+    "name": "Prometheus Paperless Ngx Exporter",
+    "category": "Monitoring",
+    "description": "Self-hosted Prometheus Paperless Ngx Exporter instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/prometheus-paperless-ngx-exporter.html"
+  }
+,
+  {
     "slug": "prometheus-pve-exporter",
     "name": "Prometheus PVE Exporter",
     "category": "Monitoring",
@@ -5513,6 +5821,34 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/pve-scripts-local.html"
+  }
+,
+  {
+    "slug": "pyenv",
+    "name": "Pyenv",
+    "category": "Other",
+    "description": "Self-hosted Pyenv instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pyenv.html"
+  }
+,
+  {
+    "slug": "qbittorrent-exporter",
+    "name": "Qbittorrent Exporter",
+    "category": "Media",
+    "description": "Self-hosted Qbittorrent Exporter instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/qbittorrent-exporter.html"
   }
 ,
   {
@@ -6157,6 +6493,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/soulsync.html"
+  }
+,
+  {
+    "slug": "sparkyfitness-garmin",
+    "name": "Sparkyfitness Garmin",
+    "category": "Gaming",
+    "description": "Self-hosted Sparkyfitness Garmin instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/sparkyfitness-garmin.html"
   }
 ,
   {
@@ -7263,6 +7613,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/web-check.html"
+  }
+,
+  {
+    "slug": "webmin",
+    "name": "Webmin",
+    "category": "Other",
+    "description": "Web-based server control panels",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/webmin.html"
   }
 ,
   {
