@@ -1,9 +1,9 @@
 [
   {
     "slug": "2fauth",
-    "name": "2fauth",
+    "name": "2Fauth",
     "category": "Security",
-    "description": "Self-hosted 2fauth instance",
+    "description": "Self-hosted 2Fauth instance",
     "tags": "",
     "cpu": "1",
     "ram": "1024",
@@ -67,6 +67,510 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/agentdvr.html"
+  }
+,
+  {
+    "slug": "alpine-adguard",
+    "name": "Alpine Adguard",
+    "category": "Networking",
+    "description": "Self-hosted Alpine Adguard instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-adguard.html"
+  }
+,
+  {
+    "slug": "alpine-bitmagnet",
+    "name": "Alpine Bitmagnet",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted Alpine Bitmagnet instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-bitmagnet.html"
+  }
+,
+  {
+    "slug": "alpine-borgbackup-server",
+    "name": "Alpine Borgbackup Server",
+    "category": "Media",
+    "description": "BorgBackup server",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-borgbackup-server.html"
+  }
+,
+  {
+    "slug": "alpine-caddy",
+    "name": "Alpine Caddy",
+    "category": "Networking",
+    "description": "Self-hosted Alpine Caddy instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-caddy.html"
+  }
+,
+  {
+    "slug": "alpine-cinny",
+    "name": "Alpine Cinny",
+    "category": "Development",
+    "description": "Self-hosted Alpine Cinny instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-cinny.html"
+  }
+,
+  {
+    "slug": "alpine-docker",
+    "name": "Alpine Docker",
+    "category": "Containers",
+    "description": "Self-hosted Alpine Docker instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-docker.html"
+  }
+,
+  {
+    "slug": "alpine-forgejo",
+    "name": "Alpine Forgejo",
+    "category": "Development",
+    "description": "Self-hosted Alpine Forgejo instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-forgejo.html"
+  }
+,
+  {
+    "slug": "alpine-garage",
+    "name": "Alpine Garage",
+    "category": "Cloud & Storage",
+    "description": "Self-hosted Alpine Garage instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-garage.html"
+  }
+,
+  {
+    "slug": "alpine-gatus",
+    "name": "Alpine Gatus",
+    "category": "Monitoring",
+    "description": "Self-hosted Alpine Gatus instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-gatus.html"
+  }
+,
+  {
+    "slug": "alpine-gitea",
+    "name": "Alpine Gitea",
+    "category": "Development",
+    "description": "Self-hosted Alpine Gitea instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-gitea.html"
+  }
+,
+  {
+    "slug": "alpine-grafana",
+    "name": "Alpine Grafana",
+    "category": "Monitoring",
+    "description": "Self-hosted Alpine Grafana instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-grafana.html"
+  }
+,
+  {
+    "slug": "alpine-ironclaw",
+    "name": "Alpine Ironclaw",
+    "category": "Security",
+    "description": "Self-hosted Alpine Ironclaw instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-ironclaw.html"
+  }
+,
+  {
+    "slug": "alpine-it-tools",
+    "name": "Alpine It Tools",
+    "category": "Utilities",
+    "description": "Self-hosted Alpine It Tools instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-it-tools.html"
+  }
+,
+  {
+    "slug": "alpine-loki",
+    "name": "Alpine Loki",
+    "category": "Monitoring",
+    "description": "Self-hosted Alpine Loki instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-loki.html"
+  }
+,
+  {
+    "slug": "alpine-mariadb",
+    "name": "Alpine Mariadb",
+    "category": "Database",
+    "description": "Self-hosted Alpine Mariadb instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-mariadb.html"
+  }
+,
+  {
+    "slug": "alpine-nextcloud",
+    "name": "Alpine Nextcloud",
+    "category": "Media",
+    "description": "Self-hosted Alpine Nextcloud instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-nextcloud.html"
+  }
+,
+  {
+    "slug": "alpine-node-red",
+    "name": "Alpine Node Red",
+    "category": "Home Automation",
+    "description": "Self-hosted Alpine Node Red instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-node-red.html"
+  }
+,
+  {
+    "slug": "alpine-ntfy",
+    "name": "Alpine Ntfy",
+    "category": "Communication",
+    "description": "Self-hosted Alpine Ntfy instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-ntfy.html"
+  }
+,
+  {
+    "slug": "alpine-postgresql",
+    "name": "Alpine Postgresql",
+    "category": "Database",
+    "description": "Self-hosted Alpine Postgresql instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-postgresql.html"
+  }
+,
+  {
+    "slug": "alpine-prometheus",
+    "name": "Alpine Prometheus",
+    "category": "Monitoring",
+    "description": "Self-hosted Alpine Prometheus instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-prometheus.html"
+  }
+,
+  {
+    "slug": "alpine-rclone",
+    "name": "Alpine Rclone",
+    "category": "Media",
+    "description": "Self-hosted Alpine Rclone instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-rclone.html"
+  }
+,
+  {
+    "slug": "alpine-redis",
+    "name": "Alpine Redis",
+    "category": "Database",
+    "description": "Self-hosted Alpine Redis instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-redis.html"
+  }
+,
+  {
+    "slug": "alpine-redlib",
+    "name": "Alpine Redlib",
+    "category": "Other",
+    "description": "Self-hosted Alpine Redlib instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-redlib.html"
+  }
+,
+  {
+    "slug": "alpine-rustdeskserver",
+    "name": "Alpine Rustdeskserver",
+    "category": "Gaming",
+    "description": "Self-hosted Alpine Rustdeskserver instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-rustdeskserver.html"
+  }
+,
+  {
+    "slug": "alpine-rustypaste",
+    "name": "Alpine Rustypaste",
+    "category": "Gaming",
+    "description": "Self-hosted Alpine Rustypaste instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-rustypaste.html"
+  }
+,
+  {
+    "slug": "alpine-syncthing",
+    "name": "Alpine Syncthing",
+    "category": "Media",
+    "description": "Self-hosted Alpine Syncthing instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-syncthing.html"
+  }
+,
+  {
+    "slug": "alpine-teamspeak-server",
+    "name": "Alpine Teamspeak Server",
+    "category": "Gaming",
+    "description": "Self-hosted Alpine Teamspeak Server instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-teamspeak-server.html"
+  }
+,
+  {
+    "slug": "alpine-tinyauth",
+    "name": "Alpine Tinyauth",
+    "category": "Security",
+    "description": "Self-hosted Alpine Tinyauth instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-tinyauth.html"
+  }
+,
+  {
+    "slug": "alpine-traefik",
+    "name": "Alpine Traefik",
+    "category": "Networking",
+    "description": "Self-hosted Alpine Traefik instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-traefik.html"
+  }
+,
+  {
+    "slug": "alpine-transmission",
+    "name": "Alpine Transmission",
+    "category": "Media",
+    "description": "Self-hosted Alpine Transmission instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-transmission.html"
+  }
+,
+  {
+    "slug": "alpine-valkey",
+    "name": "Alpine Valkey",
+    "category": "Database",
+    "description": "Self-hosted Alpine Valkey instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-valkey.html"
+  }
+,
+  {
+    "slug": "alpine-vaultwarden",
+    "name": "Alpine Vaultwarden",
+    "category": "Security",
+    "description": "Self-hosted Alpine Vaultwarden instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-vaultwarden.html"
+  }
+,
+  {
+    "slug": "alpine-wakapi",
+    "name": "Alpine Wakapi",
+    "category": "Other",
+    "description": "Self-hosted Alpine Wakapi instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-wakapi.html"
+  }
+,
+  {
+    "slug": "alpine-wireguard",
+    "name": "Alpine Wireguard",
+    "category": "Networking",
+    "description": "Self-hosted Alpine Wireguard instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-wireguard.html"
+  }
+,
+  {
+    "slug": "alpine-zigbee2mqtt",
+    "name": "Alpine Zigbee2Mqtt",
+    "category": "Home Automation",
+    "description": "Self-hosted Alpine Zigbee2Mqtt instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine-zigbee2mqtt.html"
+  }
+,
+  {
+    "slug": "alpine",
+    "name": "Alpine",
+    "category": "Other",
+    "description": "Self-hosted Alpine instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/alpine.html"
   }
 ,
   {
@@ -1092,6 +1596,20 @@
   }
 ,
   {
+    "slug": "debian",
+    "name": "Debian",
+    "category": "Other",
+    "description": "Self-hosted Debian instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/debian.html"
+  }
+,
+  {
     "slug": "deconz",
     "name": "deCONZ",
     "category": "Home Automation",
@@ -1820,6 +2338,20 @@
   }
 ,
   {
+    "slug": "git-pages",
+    "name": "Git-Pages",
+    "category": "Networking",
+    "description": "Self-hosted Git-Pages instance",
+    "tags": "static-site,git-pages,caddy",
+    "cpu": "1",
+    "ram": "512",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/git-pages.html"
+  }
+,
+  {
     "slug": "gitea-mirror",
     "name": "Gitea Mirror",
     "category": "Development",
@@ -1919,7 +2451,7 @@
 ,
   {
     "slug": "go2rtc",
-    "name": "Go2rtc",
+    "name": "Go2Rtc",
     "category": "Media",
     "description": "Self-hosted NVR / camera management",
     "tags": "",
@@ -4718,6 +5250,20 @@
   }
 ,
   {
+    "slug": "postiz",
+    "name": "Postiz",
+    "category": "Other",
+    "description": "Self-hosted Postiz instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/postiz.html"
+  }
+,
+  {
     "slug": "powerdns",
     "name": "Powerdns",
     "category": "Networking",
@@ -4953,6 +5499,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/pulse.html"
+  }
+,
+  {
+    "slug": "pve-scripts-local",
+    "name": "Pve Scripts Local",
+    "category": "Other",
+    "description": "Local Proxmox scripts collection",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/pve-scripts-local.html"
   }
 ,
   {
@@ -5485,6 +6045,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/smokeping.html"
+  }
+,
+  {
+    "slug": "snapotter",
+    "name": "Snapotter",
+    "category": "Other",
+    "description": "Self-hosted Snapotter instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/snapotter.html"
   }
 ,
   {
@@ -6300,6 +6874,20 @@
   }
 ,
   {
+    "slug": "ubuntu",
+    "name": "Ubuntu",
+    "category": "Other",
+    "description": "Self-hosted Ubuntu instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/ubuntu.html"
+  }
+,
+  {
     "slug": "uhf",
     "name": "Uhf",
     "category": "Media",
@@ -6465,6 +7053,20 @@
     "os": "ubuntu",
     "version": "24.04",
     "url": "apps/vaultwarden.html"
+  }
+,
+  {
+    "slug": "verdaccio",
+    "name": "Verdaccio",
+    "category": "Development",
+    "description": "Self-hosted Verdaccio instance",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "url": "apps/verdaccio.html"
   }
 ,
   {

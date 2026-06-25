@@ -37,6 +37,15 @@ jobs:
         run: |
           python3 scripts/regen-from-upstream.py 2>&1 | tee regen-output.log
 
+      - name: Regenerate docs site
+        if: always()
+        run: |
+          if [[ -f gen_docs.sh ]]; then
+            ./gen_docs.sh 2>&1 | tail -10 | tee -a regen-output.log
+          else
+            echo "No gen_docs.sh found, skipping doc regeneration" | tee -a regen-output.log
+          fi
+
       - name: Show diff summary
         id: diff
         run: |
@@ -45,11 +54,17 @@ jobs:
             echo
             git diff --stat | head -60
             echo
-            echo "## Apps added"
+            echo "## Apps added (ct/)"
             git diff --diff-filter=A --name-only | grep '^ct/' | sed 's|^ct/||; s|\.sh$||' | head -20
             echo
-            echo "## Apps removed"
+            echo "## Apps removed (ct/)"
             git diff --diff-filter=D --name-only | grep '^ct/' | sed 's|^ct/||; s|\.sh$||' | head -20
+            echo
+            echo "## Doc pages added"
+            git diff --diff-filter=A --name-only | grep '^docs/apps/' | sed 's|^docs/apps/||; s|\.html$||' | head -20
+            echo
+            echo "## Doc pages removed"
+            git diff --diff-filter=D --name-only | grep '^docs/apps/' | sed 's|^docs/apps/||; s|\.html$||' | head -20
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Check for changes
