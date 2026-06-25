@@ -81,7 +81,12 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          if git diff --quiet; then
+          # `git diff --quiet` only compares working tree vs index. Since the
+          # earlier step ran `git add -A`, everything is staged and the
+          # working tree == index, so plain `git diff --quiet` always exits 0
+          # (no changes) — even when there are real regen diffs. Compare
+          # against HEAD to catch staged changes too.
+          if git diff --quiet HEAD; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No changes detected"
           else
