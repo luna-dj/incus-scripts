@@ -1,120 +1,190 @@
-// Incus Scripts - Docs site JS
-// Search, filter logic, copy buttons, and provider switching
+/* ============================================================
+   incus-scripts — site.js
+   Search, filter, copy-to-clipboard, provider switcher.
+   Pure ES6, no deps, no build step.
+   ============================================================ */
 
-const TOAST = () => {
-  const t = document.createElement('div');
-  t.className = 'toast';
-  t.textContent = 'Copied!';
-  document.body.appendChild(t);
-  setTimeout(() => t.classList.add('show'), 10);
-  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 250); }, 1500);
-};
+(function () {
+  'use strict';
 
-// Provider switching: Codeberg (default) or GitHub
-const CODEBERG_BASE = 'https://codeberg.org/luna-dj/incus-scripts/raw/branch/main';
-const GITHUB_BASE = 'https://raw.githubusercontent.com/luna-dj/incus-scripts/main';
-
-const getProvider = () => localStorage.getItem('provider') || 'codeberg';
-const setProvider = (p) => { localStorage.setItem('provider', p); };
-
-// Convert a URL between providers
-const switchProvider = (url, to) => {
-  if (to === 'github') return url.replace(CODEBERG_BASE, GITHUB_BASE);
-  return url.replace(GITHUB_BASE, CODEBERG_BASE);
-};
-
-// Update all install commands on the page
-const updateInstallCommands = (provider) => {
-  // Update data-copy attributes on copy buttons
-  document.querySelectorAll('.copy-btn[data-copy]').forEach(btn => {
-    const orig = btn.getAttribute('data-orig-copy');
-    const current = btn.getAttribute('data-copy');
-    if (!orig && current) btn.setAttribute('data-orig-copy', current);
-    if (orig) btn.setAttribute('data-copy', switchProvider(orig, provider));
-  });
-  // Update visible pre/code blocks
-  document.querySelectorAll('.code-block pre code').forEach(code => {
-    const orig = code.getAttribute('data-orig-text');
-    const current = code.textContent;
-    if (!orig && current) code.setAttribute('data-orig-text', current);
-    if (orig) code.textContent = switchProvider(orig, provider);
-  });
-  // Update provider badge/label if present
-  const badge = document.getElementById('provider-label');
-  if (badge) badge.textContent = provider === 'github' ? 'GitHub' : 'Codeberg';
-};
-
-// Init provider selector
-const initProvider = () => {
-  const sel = document.getElementById('provider-select');
-  if (!sel) return;
-  const current = getProvider();
-  sel.value = current;
-  updateInstallCommands(current);
-  sel.addEventListener('change', (e) => {
-    setProvider(e.target.value);
-    updateInstallCommands(e.target.value);
-  });
-};
-
-// Global click handler for copy buttons
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('copy-btn')) {
-    const target = e.target.getAttribute('data-copy');
-    if (target) {
-      navigator.clipboard.writeText(target).then(TOAST);
-      e.target.classList.add('copied');
-      const old = e.target.textContent;
-      e.target.textContent = 'Copied';
-      setTimeout(() => { e.target.textContent = old; e.target.classList.remove('copied'); }, 1500);
-    }
-  }
-});
-
-// Index page logic
-if (document.querySelector('.app-grid')) {
-  const search = document.getElementById('search');
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.app-card');
-  const empty = document.querySelector('.app-empty');
-  const totalCount = document.getElementById('total-count');
-  const visibleCount = document.getElementById('visible-count');
-
-  let activeCategory = 'all';
-
-  const apply = () => {
-    const q = (search?.value || '').toLowerCase().trim();
-    let visible = 0;
-    cards.forEach(card => {
-      const name = (card.dataset.name || '').toLowerCase();
-      const desc = (card.dataset.desc || '').toLowerCase();
-      const cat = card.dataset.category || 'other';
-      const matchesSearch = !q || name.includes(q) || desc.includes(q);
-      const matchesCategory = activeCategory === 'all' || cat === activeCategory;
-      const show = matchesSearch && matchesCategory;
-      card.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
-    if (visibleCount) visibleCount.textContent = visible;
-    if (empty) empty.style.display = visible === 0 ? 'block' : 'none';
+  // ---------- Provider switcher (Codeberg ↔ GitHub) ----------
+  const PROVIDERS = {
+    codeberg: {
+      label: 'Codeberg',
+      ct: (slug) => `https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/ct/${slug}.sh`,
+      install: (slug) => `https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/install/${slug}-install.sh`,
+    },
+    github: {
+      label: 'GitHub',
+      ct: (slug) => `https://raw.githubusercontent.com/luna-dj/incus-scripts/main/ct/${slug}.sh`,
+      install: (slug) => `https://raw.githubusercontent.com/luna-dj/incus-scripts/main/install/${slug}-install.sh`,
+    },
   };
 
-  if (search) search.addEventListener('input', apply);
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeCategory = btn.dataset.category;
-      apply();
+  const STORAGE_KEY = 'incus-scripts.provider';
+  const urlParams = new URLSearchParams(window.location.search);
+  let currentProvider = urlParams.get('provider') || localStorage.getItem(STORAGE_KEY) || 'codeberg';
+
+  function setProvider(p) {
+    if (!PROVIDERS[p]) return;
+    currentProvider = p;
+    localStorage.setItem(STORAGE_KEY, p);
+    updateInstallCommands();
+    const sel = document.getElementById('provider-select');
+    if (sel) sel.value = p;
+  }
+
+  function installCommand(slug) {
+    return `bash <(curl -fsSL ${PROVIDERS[currentProvider].ct(slug)})`;
+  }
+
+  function updateInstallCommands() {
+    document.querySelectorAll('[data-install-slug]').forEach((el) => {
+      const slug = el.getAttribute('data-install-slug');
+      const code = el.querySelector('code');
+      const btn = el.querySelector('[data-copy]');
+      const cmd = installCommand(slug);
+      if (code) code.textContent = cmd;
+      if (btn) btn.setAttribute('data-copy', cmd);
     });
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === '/' && search && document.activeElement !== search) {
-      e.preventDefault();
-      search.focus();
+  }
+
+  // ---------- Copy to clipboard ----------
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-copy]');
+    if (!btn) return;
+    const text = btn.getAttribute('data-copy');
+    if (!text) return;
+    const done = () => {
+      const orig = btn.textContent;
+      btn.textContent = '✓ Copied';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('copied');
+      }, 1600);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done).catch(() => {
+        fallbackCopy(text, done);
+      });
+    } else {
+      fallbackCopy(text, done);
     }
   });
-}
 
-// Init provider on load
-document.addEventListener('DOMContentLoaded', initProvider);
+  function fallbackCopy(text, cb) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); cb && cb(); }
+    catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  // ---------- Provider select ----------
+  const providerSelect = document.getElementById('provider-select');
+  if (providerSelect) {
+    providerSelect.value = currentProvider;
+    providerSelect.addEventListener('change', (e) => {
+      setProvider(e.target.value);
+    });
+  }
+
+  // ---------- Search ----------
+  const searchInput = document.getElementById('search');
+  const appGrid = document.getElementById('app-grid');
+  if (searchInput && appGrid) {
+    let q = '';
+    let activeCategory = 'All';
+
+    function visibleCards() {
+      const cards = Array.from(appGrid.querySelectorAll('.app-card'));
+      const ql = q.trim().toLowerCase();
+      let count = 0;
+      cards.forEach((card) => {
+        const name = (card.dataset.name || '').toLowerCase();
+        const desc = (card.dataset.desc || '').toLowerCase();
+        const cat = card.dataset.category || '';
+        const matchQ = !ql || name.includes(ql) || desc.includes(ql);
+        const matchC = activeCategory === 'All' || cat === activeCategory;
+        const show = matchQ && matchC;
+        card.style.display = show ? '' : 'none';
+        if (show) count++;
+      });
+      const visibleEl = document.getElementById('visible-count');
+      if (visibleEl) visibleEl.textContent = count;
+      const empty = document.getElementById('app-grid-empty');
+      if (empty) empty.style.display = count === 0 ? '' : 'none';
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      q = e.target.value;
+      visibleCards();
+    });
+
+    // "/" focuses search (GitHub-style)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement !== searchInput && !e.metaKey && !e.ctrlKey) {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+      }
+      if (e.key === 'Escape' && document.activeElement === searchInput) {
+        searchInput.value = '';
+        q = '';
+        visibleCards();
+        searchInput.blur();
+      }
+    });
+
+    // Category filters
+    document.querySelectorAll('.filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCategory = btn.dataset.category;
+        visibleCards();
+        // Update URL hash so it's bookmarkable
+        if (activeCategory === 'All') {
+          history.replaceState(null, '', window.location.pathname);
+        } else {
+          history.replaceState(null, '', `#cat=${encodeURIComponent(activeCategory)}`);
+        }
+      });
+    });
+
+    // Restore category from hash
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#cat=')) {
+      const cat = decodeURIComponent(hash.slice(5));
+      const btn = document.querySelector(`.filter-btn[data-category="${CSS.escape(cat)}"]`);
+      if (btn) btn.click();
+    }
+  }
+
+  // ---------- Smooth scroll-reveal for cards ----------
+  if ('IntersectionObserver' in window && appGrid) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '50px' }
+    );
+    Array.from(appGrid.querySelectorAll('.app-card')).forEach((c, i) => {
+      c.style.opacity = '0';
+      c.style.transform = 'translateY(8px)';
+      c.style.transition = `opacity .25s ease ${Math.min(i, 12) * 12}ms, transform .25s ease ${Math.min(i, 12) * 12}ms`;
+      io.observe(c);
+    });
+  }
+})();
