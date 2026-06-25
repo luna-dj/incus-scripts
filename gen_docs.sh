@@ -904,62 +904,16 @@ describe() {
 # ── Generate apps.json (search index) ───────
 generate_index_json() {
   local json_file="$DOCS_DIR/apps.json"
-  local first=1
-  echo "[" > "$json_file"
-  
-  for f in "$CT_DIR"/*.sh; do
-    [ -e "$f" ] || continue
-    local app=$(basename "$f" .sh)
-    [ "$app" = "headers" ] && continue
-    
-    # Extract metadata from ct script
-    local script_content=$(cat "$f")
-    local display=$(echo "$script_content" | grep -E '^APP="[^"]+"' | head -1 | sed 's/^APP="//; s/"$//')
-    local brand=$(brand_name "$app")
-    [ -n "$brand" ] && display="$brand"
-    [ -z "$display" ] && display=$(echo "$app" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)}1')
-    
-    local tags=$(echo "$script_content" | grep -E '^var_tags=' | head -1 | sed 's/.*:-//; s/}".*//')
-    local cpu=$(echo "$script_content" | grep -E '^var_cpu=' | head -1 | sed 's/.*:-//; s/}".*//')
-    local ram=$(echo "$script_content" | grep -E '^var_ram=' | head -1 | sed 's/.*:-//; s/}".*//')
-    local disk=$(echo "$script_content" | grep -E '^var_disk=' | head -1 | sed 's/.*:-//; s/}".*//')
-    local os=$(echo "$script_content" | grep -E '^var_os=' | head -1 | sed 's/.*:-//; s/}".*//')
-    local version=$(echo "$script_content" | grep -E '^var_version=' | head -1 | sed 's/.*:-//; s/}".*//')
-    
-    local cat=$(categorize "$app" "$tags")
-    local desc=$(describe "$app" "$cat")
-    [ -z "$desc" ] && desc="Self-hosted $display instance"
-    local icon_file=$(get_icon "$app")
-    local installs=$(cs_get_installs "$app")
-
-    if [ $first -eq 0 ]; then echo "," >> "$json_file"; fi
-    first=0
-
-    # Escape for JSON (also escape control chars in descriptions)
-    local esc_desc=$(printf '%s' "$desc" | sed 's/"/\\"/g; s/\\/\\\\/g' | tr '\n\r\t' '   ')
-    local esc_tags=$(printf '%s' "$tags" | sed 's/"/\\"/g')
-    local esc_cat=$(printf '%s' "$cat" | sed 's/"/\\"/g')
-
-    cat >> "$json_file" <<EOF
-  {
-    "slug": "$app",
-    "name": "$display",
-    "category": "$esc_cat",
-    "description": "$esc_desc",
-    "tags": "$esc_tags",
-    "cpu": "$cpu",
-    "ram": "$ram",
-    "disk": "$disk",
-    "os": "$os",
-    "version": "$version",
-    "icon": "$icon_file",
-    "installs_30d": "${installs:-0}",
-    "url": "apps/$app.html"
-  }
-EOF
-  done
-  echo "]" >> "$json_file"
-  echo "Generated apps.json ($(wc -l < "$json_file") lines)"
+  # Use Python to build valid JSON from ct/ scripts + CS.org metadata.
+  # This avoids the bash-escape issues with quotes/backslashes in
+  # descriptions (e.g. FHEM's '\"'Freundliche...\"').
+  if [[ -f scripts/build-apps-json.py ]]; then
+    python3 scripts/build-apps-json.py
+  else
+    echo "ERROR: scripts/build-apps-json.py not found" >&2
+    return 1
+  fi
+  echo "Generated $(basename "$json_file") ($(wc -l < "$json_file") lines)"
 }
 
 # ── Generate per-app HTML pages ─────────────
