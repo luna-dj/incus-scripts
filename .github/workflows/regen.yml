@@ -46,6 +46,11 @@ jobs:
             echo "No gen_docs.sh found, skipping doc regeneration" | tee -a regen-output.log
           fi
 
+      - name: Sync metadata from community-scripts.org
+        if: always()
+        run: |
+          python3 scripts/sync-cs-metadata.py 2>&1 | tail -20 | tee -a regen-output.log
+
       - name: Show diff summary
         id: diff
         run: |
