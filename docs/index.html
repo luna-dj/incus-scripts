@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>incus-scripts — one-command app deployment for Incus</title>
-  <meta name="description" content="571 self-hosted apps deployable to Incus containers with a single bash command. Inspired by ProxmoxVE Community Scripts.">
+  <meta name="description" content="585 self-hosted apps deployable to Incus containers with a single bash command. Inspired by ProxmoxVE Community Scripts.">
   <meta name="theme-color" content="#0b0f17">
   <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
   <meta property="og:title" content="incus-scripts — one-command app deployment for Incus">
-  <meta property="og:description" content="571 self-hosted apps. One command. Done.">
+  <meta property="og:description" content="585 self-hosted apps. One command. Done.">
   <meta property="og:image" content="assets/logo-mark.svg">
   <link rel="stylesheet" href="css/site.css">
 </head>
@@ -33,7 +33,7 @@
           <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
-          <input type="text" id="search" placeholder="Search 571 apps…" autocomplete="off" spellcheck="false">
+          <input type="text" id="search" placeholder="Search 585 apps…" autocomplete="off" spellcheck="false">
           <kbd>/</kbd>
         </div>
         <button class="navbar-icon-btn" id="search-toggle" aria-label="Search apps">
@@ -91,7 +91,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
-      <input type="text" id="search-overlay-input" placeholder="Search 571 apps…" autocomplete="off" spellcheck="false">
+      <input type="text" id="search-overlay-input" placeholder="Search 585 apps…" autocomplete="off" spellcheck="false">
       <button class="search-overlay-close" id="search-overlay-close" aria-label="Close search">✕</button>
     </div>
     <div class="search-overlay-results" id="search-overlay-results"></div>
@@ -112,7 +112,7 @@
     <div class="hero-inner">
       <img class="hero-logo" src="assets/logo.svg" alt="incus-scripts">
 
-      <h1>One command.<br><span class="gradient">571 apps. Zero config.</span></h1>
+      <h1>One command.<br><span class="gradient">585 apps. Zero config.</span></h1>
       <p class="hero-tagline">
         Deploy self-hosted services into <strong>Incus</strong> containers with a single
         bash command. No dashboards, no YAML, no YAML-dashboards either.
@@ -132,7 +132,7 @@
 
       <div class="hero-stats">
         <div class="hero-stat">
-          <span class="num"><span class="gradient" id="total-count">571</span></span>
+          <span class="num"><span class="gradient" id="total-count">585</span></span>
           <span class="label">Apps ready</span>
         </div>
         <div class="hero-stat">
@@ -189,17 +189,17 @@
   <section class="section" id="apps">
     <div class="section-head">
       <h2>All apps</h2>
-      <span class="count"><span id="visible-count">571</span> of 571 showing</span>
+      <span class="count"><span id="visible-count">585</span> of 585 showing</span>
     </div>
 
     <div class="filters-wrap">
       <div class="filters" id="filters">
         <span class="filter-label">Filter</span>
-      <button class="filter-btn active" data-category="All">All <span class="filter-count">571</span></button>
+      <button class="filter-btn active" data-category="All">All <span class="filter-count">585</span></button>
       <button class="filter-btn" data-category="Media &amp; Streaming">Media &amp; Streaming <span class="filter-count">55</span></button>
       <button class="filter-btn" data-category="Documents &amp; Notes">Documents &amp; Notes <span class="filter-count">50</span></button>
       <button class="filter-btn" data-category="Monitoring &amp; Analytics">Monitoring &amp; Analytics <span class="filter-count">45</span></button>
-      <button class="filter-btn" data-category="Other">Other <span class="filter-count">40</span></button>
+      <button class="filter-btn" data-category="Other">Other <span class="filter-count">37</span></button>
       <button class="filter-btn" data-category="Gaming &amp; Leisure">Gaming &amp; Leisure <span class="filter-count">34</span></button>
       <button class="filter-btn" data-category="Network &amp; Firewall">Network &amp; Firewall <span class="filter-count">34</span></button>
       <button class="filter-btn" data-category="AI / Coding &amp; Dev-Tools">AI / Coding &amp; Dev-Tools <span class="filter-count">30</span></button>
@@ -212,6 +212,7 @@
       <button class="filter-btn" data-category="IoT &amp; Smart Home">IoT &amp; Smart Home <span class="filter-count">17</span></button>
       <button class="filter-btn" data-category="Proxmox &amp; Virtualization">Proxmox &amp; Virtualization <span class="filter-count">15</span></button>
       <button class="filter-btn" data-category="Dashboards &amp; Frontends">Dashboards &amp; Frontends <span class="filter-count">14</span></button>
+      <button class="filter-btn" data-category="Communication">Communication <span class="filter-count">14</span></button>
       <button class="filter-btn" data-category="Automation &amp; Scheduling">Automation &amp; Scheduling <span class="filter-count">13</span></button>
       <button class="filter-btn" data-category="Webservers &amp; Proxies">Webservers &amp; Proxies <span class="filter-count">13</span></button>
       <button class="filter-btn" data-category="Finance &amp; Budgeting">Finance &amp; Budgeting <span class="filter-count">11</span></button>
@@ -222,6 +223,7 @@
       <button class="filter-btn" data-category="MQTT &amp; Messaging">MQTT &amp; Messaging <span class="filter-count">7</span></button>
       <button class="filter-btn" data-category="NVR &amp; Cameras">NVR &amp; Cameras <span class="filter-count">6</span></button>
       <button class="filter-btn" data-category="ZigBee, Z-Wave &amp; Matter">ZigBee, Z-Wave &amp; Matter <span class="filter-count">6</span></button>
+      <button class="filter-btn" data-category="Networking">Networking <span class="filter-count">3</span></button>
       <button class="filter-btn" data-category="Bots &amp; ChatOps">Bots &amp; ChatOps <span class="filter-count">1</span></button>
         <button class="filter-mobile-btn" id="filter-mobile-btn" aria-label="Browse categories">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -360,11 +362,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-adguard.html"
          data-name="Alpine Adguard"
-         data-desc="self-hosted alpine adguard instance"
+         data-desc="self-hosted alpine adguard instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/adguard-home.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Adguard</div>
-        <div class="app-card-desc">Self-hosted Alpine Adguard instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Adguard instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -372,11 +374,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-bitmagnet.html"
          data-name="Alpine Bitmagnet"
-         data-desc="self-hosted alpine bitmagnet instance"
+         data-desc="self-hosted alpine bitmagnet instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/bitmagnet.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Bitmagnet</div>
-        <div class="app-card-desc">Self-hosted Alpine Bitmagnet instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Bitmagnet instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -396,13 +398,13 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-caddy.html"
          data-name="Alpine Caddy"
-         data-desc="self-hosted alpine caddy instance"
-         data-category="Other">
+         data-desc="self-hosted alpine caddy instance."
+         data-category="Networking">
         <div class="app-card-icon"><img src="assets/icons/caddy.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Caddy</div>
-        <div class="app-card-desc">Self-hosted Alpine Caddy instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Caddy instance.</div>
         <div class="app-card-meta">
-          <span class="cat">Other</span>
+          <span class="cat">Networking</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
         </div>
       </a>
@@ -420,11 +422,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-docker.html"
          data-name="Alpine Docker"
-         data-desc="self-hosted alpine docker instance"
+         data-desc="self-hosted alpine docker instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/docker.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Docker</div>
-        <div class="app-card-desc">Self-hosted Alpine Docker instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Docker instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -432,11 +434,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-forgejo.html"
          data-name="Alpine Forgejo"
-         data-desc="self-hosted alpine forgejo instance"
+         data-desc="self-hosted alpine forgejo instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/forgejo.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Forgejo</div>
-        <div class="app-card-desc">Self-hosted Alpine Forgejo instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Forgejo instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -444,11 +446,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-garage.html"
          data-name="Alpine Garage"
-         data-desc="self-hosted alpine garage instance"
+         data-desc="self-hosted alpine garage instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/garage.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Garage</div>
-        <div class="app-card-desc">Self-hosted Alpine Garage instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Garage instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -456,11 +458,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-gatus.html"
          data-name="Alpine Gatus"
-         data-desc="self-hosted alpine gatus instance"
+         data-desc="self-hosted alpine gatus instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/gatus.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Gatus</div>
-        <div class="app-card-desc">Self-hosted Alpine Gatus instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Gatus instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -468,11 +470,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-gitea.html"
          data-name="Alpine Gitea"
-         data-desc="self-hosted alpine gitea instance"
+         data-desc="self-hosted alpine gitea instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/gitea.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Gitea</div>
-        <div class="app-card-desc">Self-hosted Alpine Gitea instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Gitea instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -480,11 +482,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-grafana.html"
          data-name="Alpine Grafana"
-         data-desc="self-hosted alpine grafana instance"
+         data-desc="self-hosted alpine grafana instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/grafana.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Grafana</div>
-        <div class="app-card-desc">Self-hosted Alpine Grafana instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Grafana instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -492,11 +494,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-ironclaw.html"
          data-name="Alpine Ironclaw"
-         data-desc="self-hosted alpine ironclaw instance"
+         data-desc="self-hosted alpine ironclaw instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/ironclaw.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Ironclaw</div>
-        <div class="app-card-desc">Self-hosted Alpine Ironclaw instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Ironclaw instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -516,11 +518,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-loki.html"
          data-name="Alpine Loki"
-         data-desc="self-hosted alpine loki instance"
+         data-desc="self-hosted alpine loki instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/loki.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Loki</div>
-        <div class="app-card-desc">Self-hosted Alpine Loki instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Loki instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -528,11 +530,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-mariadb.html"
          data-name="Alpine Mariadb"
-         data-desc="self-hosted alpine mariadb instance"
+         data-desc="self-hosted alpine mariadb instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/mariadb.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Mariadb</div>
-        <div class="app-card-desc">Self-hosted Alpine Mariadb instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Mariadb instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -552,11 +554,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-node-red.html"
          data-name="Alpine Node Red"
-         data-desc="self-hosted alpine node red instance"
+         data-desc="self-hosted alpine node red instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/node-red.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Node Red</div>
-        <div class="app-card-desc">Self-hosted Alpine Node Red instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Node Red instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -576,11 +578,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-postgresql.html"
          data-name="Alpine Postgresql"
-         data-desc="self-hosted alpine postgresql instance"
+         data-desc="self-hosted alpine postgresql instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/postgresql.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Postgresql</div>
-        <div class="app-card-desc">Self-hosted Alpine Postgresql instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Postgresql instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -588,11 +590,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-prometheus.html"
          data-name="Alpine Prometheus"
-         data-desc="self-hosted alpine prometheus instance"
+         data-desc="self-hosted alpine prometheus instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/prometheus.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Prometheus</div>
-        <div class="app-card-desc">Self-hosted Alpine Prometheus instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Prometheus instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -600,11 +602,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-rclone.html"
          data-name="Alpine Rclone"
-         data-desc="self-hosted alpine rclone instance"
+         data-desc="self-hosted alpine rclone instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/rclone.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Rclone</div>
-        <div class="app-card-desc">Self-hosted Alpine Rclone instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Rclone instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -612,11 +614,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-redis.html"
          data-name="Alpine Redis"
-         data-desc="self-hosted alpine redis instance"
+         data-desc="self-hosted alpine redis instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/redis.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Redis</div>
-        <div class="app-card-desc">Self-hosted Alpine Redis instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Redis instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -636,11 +638,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-rustdeskserver.html"
          data-name="Alpine Rustdeskserver"
-         data-desc="self-hosted alpine rustdeskserver instance"
+         data-desc="self-hosted alpine rustdeskserver instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/rustdesk.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Rustdeskserver</div>
-        <div class="app-card-desc">Self-hosted Alpine Rustdeskserver instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Rustdeskserver instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -648,11 +650,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-rustypaste.html"
          data-name="Alpine Rustypaste"
-         data-desc="self-hosted alpine rustypaste instance"
+         data-desc="self-hosted alpine rustypaste instance."
          data-category="Other">
         <div class="app-card-icon"><span class="fallback">A</span></div>
         <div class="app-card-name">Alpine Rustypaste</div>
-        <div class="app-card-desc">Self-hosted Alpine Rustypaste instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Rustypaste instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -660,11 +662,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-syncthing.html"
          data-name="Alpine Syncthing"
-         data-desc="self-hosted alpine syncthing instance"
+         data-desc="self-hosted alpine syncthing instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/syncthing.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Syncthing</div>
-        <div class="app-card-desc">Self-hosted Alpine Syncthing instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Syncthing instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -672,11 +674,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-teamspeak-server.html"
          data-name="Alpine Teamspeak Server"
-         data-desc="self-hosted alpine teamspeak server instance"
+         data-desc="self-hosted alpine teamspeak server instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/teamspeak.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Teamspeak Server</div>
-        <div class="app-card-desc">Self-hosted Alpine Teamspeak Server instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Teamspeak Server instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -684,11 +686,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-tinyauth.html"
          data-name="Alpine Tinyauth"
-         data-desc="self-hosted alpine tinyauth instance"
+         data-desc="self-hosted alpine tinyauth instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/tinyauth.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Tinyauth</div>
-        <div class="app-card-desc">Self-hosted Alpine Tinyauth instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Tinyauth instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -696,23 +698,23 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-traefik.html"
          data-name="Alpine Traefik"
-         data-desc="self-hosted alpine traefik instance"
-         data-category="Other">
+         data-desc="self-hosted alpine traefik instance."
+         data-category="Networking">
         <div class="app-card-icon"><img src="assets/icons/traefik.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Traefik</div>
-        <div class="app-card-desc">Self-hosted Alpine Traefik instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Traefik instance.</div>
         <div class="app-card-meta">
-          <span class="cat">Other</span>
+          <span class="cat">Networking</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
         </div>
       </a>
       <a class="app-card" href="apps/alpine-transmission.html"
          data-name="Alpine Transmission"
-         data-desc="self-hosted alpine transmission instance"
+         data-desc="self-hosted alpine transmission instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/transmission.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Transmission</div>
-        <div class="app-card-desc">Self-hosted Alpine Transmission instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Transmission instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -732,11 +734,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-vaultwarden.html"
          data-name="Alpine Vaultwarden"
-         data-desc="self-hosted alpine vaultwarden instance"
+         data-desc="self-hosted alpine vaultwarden instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/vaultwarden.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Vaultwarden</div>
-        <div class="app-card-desc">Self-hosted Alpine Vaultwarden instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Vaultwarden instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -756,11 +758,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-wireguard.html"
          data-name="Alpine Wireguard"
-         data-desc="self-hosted alpine wireguard instance"
+         data-desc="self-hosted alpine wireguard instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/wireguard.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Wireguard</div>
-        <div class="app-card-desc">Self-hosted Alpine Wireguard instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Wireguard instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -768,11 +770,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/alpine-zigbee2mqtt.html"
          data-name="Alpine Zigbee2Mqtt"
-         data-desc="self-hosted alpine zigbee2mqtt instance"
+         data-desc="self-hosted alpine zigbee2mqtt instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/zigbee2mqtt.webp" alt="A" loading="lazy" data-fallback="A" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Alpine Zigbee2Mqtt</div>
-        <div class="app-card-desc">Self-hosted Alpine Zigbee2Mqtt instance</div>
+        <div class="app-card-desc">Self-hosted Alpine Zigbee2Mqtt instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -816,11 +818,11 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
       </a>
       <a class="app-card" href="apps/apache-airflow.html"
          data-name="Apache Airflow"
-         data-desc="self-hosted apache airflow instance"
+         data-desc="self-hosted apache airflow instance."
          data-category="Other">
         <div class="app-card-icon"><span class="fallback">A</span></div>
         <div class="app-card-name">Apache Airflow</div>
-        <div class="app-card-desc">Self-hosted Apache Airflow instance</div>
+        <div class="app-card-desc">Self-hosted Apache Airflow instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -1149,6 +1151,18 @@ Please take note that if you plan to use this script for creating TurnKey LXCs, 
         <div class="app-card-meta">
           <span class="cat">Backup &amp; Recovery</span>
           <span class="installs" title="Installs last 30 days">↓ 48</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/bifrost.html"
+         data-name="Bifrost (XMPP/Jabber)"
+         data-desc="xmpp/jabber gateway — connect to federated xmpp networks from matrix."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">B</span></div>
+        <div class="app-card-name">Bifrost (XMPP/Jabber)</div>
+        <div class="app-card-desc">XMPP/Jabber gateway — connect to federated XMPP networks from Matrix.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
         </div>
       </a>
       <a class="app-card" href="apps/birdnet-go.html"
@@ -2387,11 +2401,11 @@ Fast setup, clean controls, zero nonsenseâjust a manager that gets out of y
       </a>
       <a class="app-card" href="apps/git-pages.html"
          data-name="Git-Pages"
-         data-desc="self-hosted git-pages instance"
+         data-desc="self-hosted git-pages instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/forgejo.webp" alt="G" loading="lazy" data-fallback="G" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Git-Pages</div>
-        <div class="app-card-desc">Self-hosted Git-Pages instance</div>
+        <div class="app-card-desc">Self-hosted Git-Pages instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -2661,6 +2675,18 @@ Fast setup, clean controls, zero nonsenseâjust a manager that gets out of y
           <span class="installs" title="Installs last 30 days">↓ 265</span>
         </div>
       </a>
+      <a class="app-card" href="apps/heisenbridge.html"
+         data-name="Heisenbridge (IRC)"
+         data-desc="irc bouncer-style bridge with puppeting — control irc from matrix."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">H</span></div>
+        <div class="app-card-name">Heisenbridge (IRC)</div>
+        <div class="app-card-desc">IRC bouncer-style bridge with puppeting — control IRC from Matrix.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
       <a class="app-card" href="apps/hermesagent.html"
          data-name="Hermesagent"
          data-desc="self-improving ai agent by nous research. connects to 15+ llm providers, executes terminal commands, browses the web, and learns from experience. supports 16 messaging platforms (telegram, discord, slack, whatsapp, signal, matrix, and more) with persistent memory and autonomous skill creation."
@@ -2795,11 +2821,11 @@ Fast setup, clean controls, zero nonsenseâjust a manager that gets out of y
       </a>
       <a class="app-card" href="apps/hoodik.html"
          data-name="Hoodik"
-         data-desc="self-hosted hoodik instance"
+         data-desc="self-hosted hoodik instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/cryptpad.webp" alt="H" loading="lazy" data-fallback="H" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Hoodik</div>
-        <div class="app-card-desc">Self-hosted Hoodik instance</div>
+        <div class="app-card-desc">Self-hosted Hoodik instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -3063,11 +3089,11 @@ Telegraf is a server agent that collects, processes, and aggregates metrics and 
       </a>
       <a class="app-card" href="apps/jellyseerr.html"
          data-name="Jellyseerr"
-         data-desc="self-hosted jellyseerr instance"
+         data-desc="self-hosted jellyseerr instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/overseerr.webp" alt="J" loading="lazy" data-fallback="J" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Jellyseerr</div>
-        <div class="app-card-desc">Self-hosted Jellyseerr instance</div>
+        <div class="app-card-desc">Self-hosted Jellyseerr instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -3685,6 +3711,42 @@ Telegraf is a server agent that collects, processes, and aggregates metrics and 
           <span class="installs" title="Installs last 30 days">↓ 52</span>
         </div>
       </a>
+      <a class="app-card" href="apps/matrix-appservice-email.html"
+         data-name="matrix-appservice-email"
+         data-desc="email bridge — receive/send matrix messages via imap/smtp."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">matrix-appservice-email</div>
+        <div class="app-card-desc">Email bridge — receive/send Matrix messages via IMAP/SMTP.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/appservice-irc.html"
+         data-name="matrix-appservice-irc"
+         data-desc="legacy irc bridge for matrix — connects to irc servers as a bot."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">matrix-appservice-irc</div>
+        <div class="app-card-desc">Legacy IRC bridge for Matrix — connects to IRC servers as a bot.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/matrix-appservice-kakaotalk.html"
+         data-name="matrix-appservice-kakaotalk"
+         data-desc="kakaotalk bridge for matrix (korean users)."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">matrix-appservice-kakaotalk</div>
+        <div class="app-card-desc">KakaoTalk bridge for Matrix (Korean users).</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
       <a class="app-card" href="apps/matter-server.html"
          data-name="Matter Server"
          data-desc="open home foundation matter server - an officially certified matter controller serving as the foundation for matter support in home assistant and other projects."
@@ -3731,6 +3793,102 @@ Telegraf is a server agent that collects, processes, and aggregates metrics and 
         <div class="app-card-meta">
           <span class="cat">Business &amp; ERP</span>
           <span class="installs" title="Installs last 30 days">↓ 154</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/mautrix-discord.html"
+         data-name="mautrix-discord"
+         data-desc="bridges discord to matrix using a discord bot token."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">mautrix-discord</div>
+        <div class="app-card-desc">Bridges Discord to Matrix using a Discord bot token.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/mautrix-googlechat.html"
+         data-name="mautrix-googlechat"
+         data-desc="bridges google chat to matrix via google workspace service account."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">mautrix-googlechat</div>
+        <div class="app-card-desc">Bridges Google Chat to Matrix via Google Workspace service account.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/mautrix-imessage.html"
+         data-name="mautrix-imessage (macOS only)"
+         data-desc="bridges imessage to matrix. requires macos host (corefoundation apis)."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">mautrix-imessage (macOS only)</div>
+        <div class="app-card-desc">Bridges iMessage to Matrix. Requires macOS host (CoreFoundation APIs).</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/mautrix-meta.html"
+         data-name="mautrix-meta (Messenger + Instagram)"
+         data-desc="bridges facebook messenger + instagram to matrix via cookies."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">mautrix-meta (Messenger + Instagram)</div>
+        <div class="app-card-desc">Bridges Facebook Messenger + Instagram to Matrix via cookies.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/mautrix-signal.html"
+         data-name="mautrix-signal"
+         data-desc="bridges signal to matrix via linked-devices qr login."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">mautrix-signal</div>
+        <div class="app-card-desc">Bridges Signal to Matrix via linked-devices QR login.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/mautrix-slack.html"
+         data-name="mautrix-slack"
+         data-desc="bridges slack to matrix using a slack app oauth token."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">mautrix-slack</div>
+        <div class="app-card-desc">Bridges Slack to Matrix using a Slack app OAuth token.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/mautrix-telegram.html"
+         data-name="mautrix-telegram"
+         data-desc="bridges telegram to matrix — log in with qr, sync chats both ways."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">mautrix-telegram</div>
+        <div class="app-card-desc">Bridges Telegram to Matrix — log in with QR, sync chats both ways.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
+      <a class="app-card" href="apps/mautrix-whatsapp.html"
+         data-name="mautrix-whatsapp"
+         data-desc="bridges whatsapp multi-device to matrix via linked-devices qr login."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">mautrix-whatsapp</div>
+        <div class="app-card-desc">Bridges WhatsApp multi-device to Matrix via linked-devices QR login.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
         </div>
       </a>
       <a class="app-card" href="apps/mealie.html"
@@ -3961,6 +4119,18 @@ Telegraf is a server agent that collects, processes, and aggregates metrics and 
           <span class="installs" title="Installs last 30 days">↓ 294</span>
         </div>
       </a>
+      <a class="app-card" href="apps/mx-puppet-slack.html"
+         data-name="mx-puppet-slack (alt)"
+         data-desc="bridges slack to matrix using a slack app oauth token."
+         data-category="Communication">
+        <div class="app-card-icon"><span class="fallback">m</span></div>
+        <div class="app-card-name">mx-puppet-slack (alt)</div>
+        <div class="app-card-desc">Bridges Slack to Matrix using a Slack app OAuth token.</div>
+        <div class="app-card-meta">
+          <span class="cat">Communication</span>
+          <span class="installs" title="Installs last 30 days">↓ 0</span>
+        </div>
+      </a>
       <a class="app-card" href="apps/myip.html"
          data-name="Myip"
          data-desc="the best ip toolbox. easy to check what&#x27;s your ips, ip geolocation, check for dns leaks, examine webrtc connections, speed test, ping test, mtr test, check website availability, whois search and more!"
@@ -4001,11 +4171,11 @@ Mylar allows you to create a watchlist of series that it monitors for various th
       </a>
       <a class="app-card" href="apps/mysql.html"
          data-name="Mysql"
-         data-desc="self-hosted mysql instance"
+         data-desc="self-hosted mysql instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/mariadb.webp" alt="M" loading="lazy" data-fallback="M" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Mysql</div>
-        <div class="app-card-desc">Self-hosted Mysql instance</div>
+        <div class="app-card-desc">Self-hosted Mysql instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -4133,11 +4303,11 @@ Mylar allows you to create a watchlist of series that it monitors for various th
       </a>
       <a class="app-card" href="apps/netvisor.html"
          data-name="Netvisor"
-         data-desc="self-hosted netvisor instance"
+         data-desc="self-hosted netvisor instance."
          data-category="Other">
         <div class="app-card-icon"><img src="assets/icons/homepage.webp" alt="N" loading="lazy" data-fallback="N" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Netvisor</div>
-        <div class="app-card-desc">Self-hosted Netvisor instance</div>
+        <div class="app-card-desc">Self-hosted Netvisor instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -4145,11 +4315,11 @@ Mylar allows you to create a watchlist of series that it monitors for various th
       </a>
       <a class="app-card" href="apps/nextcloud.html"
          data-name="Nextcloud"
-         data-desc="self-hosted nextcloud instance"
+         data-desc="self-hosted nextcloud instance."
          data-category="Other">
         <div class="app-card-icon"><span class="fallback">N</span></div>
         <div class="app-card-name">Nextcloud</div>
-        <div class="app-card-desc">Self-hosted Nextcloud instance</div>
+        <div class="app-card-desc">Self-hosted Nextcloud instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -4205,13 +4375,13 @@ Mylar allows you to create a watchlist of series that it monitors for various th
       </a>
       <a class="app-card" href="apps/nginx.html"
          data-name="Nginx"
-         data-desc="self-hosted nginx instance"
-         data-category="Other">
+         data-desc="self-hosted nginx instance."
+         data-category="Networking">
         <div class="app-card-icon"><img src="assets/icons/nginx.webp" alt="N" loading="lazy" data-fallback="N" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
         <div class="app-card-name">Nginx</div>
-        <div class="app-card-desc">Self-hosted Nginx instance</div>
+        <div class="app-card-desc">Self-hosted Nginx instance.</div>
         <div class="app-card-meta">
-          <span class="cat">Other</span>
+          <span class="cat">Networking</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
         </div>
       </a>
@@ -4625,11 +4795,11 @@ Mylar allows you to create a watchlist of series that it monitors for various th
       </a>
       <a class="app-card" href="apps/overseerr.html"
          data-name="Overseerr"
-         data-desc="self-hosted overseerr instance"
+         data-desc="self-hosted overseerr instance."
          data-category="Other">
         <div class="app-card-icon"><span class="fallback">O</span></div>
         <div class="app-card-name">Overseerr</div>
-        <div class="app-card-desc">Self-hosted Overseerr instance</div>
+        <div class="app-card-desc">Self-hosted Overseerr instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -5257,11 +5427,11 @@ Users can organize their plant collection, monitor growth, and share data with o
       </a>
       <a class="app-card" href="apps/pyenv.html"
          data-name="Pyenv"
-         data-desc="self-hosted pyenv instance"
+         data-desc="self-hosted pyenv instance."
          data-category="Other">
         <div class="app-card-icon"><span class="fallback">P</span></div>
         <div class="app-card-name">Pyenv</div>
-        <div class="app-card-desc">Self-hosted Pyenv instance</div>
+        <div class="app-card-desc">Self-hosted Pyenv instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -5389,11 +5559,11 @@ Users can organize their plant collection, monitor growth, and share data with o
       </a>
       <a class="app-card" href="apps/readarr.html"
          data-name="Readarr"
-         data-desc="self-hosted readarr instance"
+         data-desc="self-hosted readarr instance."
          data-category="Other">
         <div class="app-card-icon"><span class="fallback">R</span></div>
         <div class="app-card-name">Readarr</div>
-        <div class="app-card-desc">Self-hosted Readarr instance</div>
+        <div class="app-card-desc">Self-hosted Readarr instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -5521,11 +5691,11 @@ Users can organize their plant collection, monitor growth, and share data with o
       </a>
       <a class="app-card" href="apps/rwmarkable.html"
          data-name="Rwmarkable"
-         data-desc="self-hosted rwmarkable instance"
+         data-desc="self-hosted rwmarkable instance."
          data-category="Other">
         <div class="app-card-icon"><span class="fallback">R</span></div>
         <div class="app-card-name">Rwmarkable</div>
-        <div class="app-card-desc">Self-hosted Rwmarkable instance</div>
+        <div class="app-card-desc">Self-hosted Rwmarkable instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -6615,11 +6785,11 @@ Easily track fuel consumption, maintenance, insurance, and regulatory documents 
       </a>
       <a class="app-card" href="apps/verdaccio.html"
          data-name="Verdaccio"
-         data-desc="self-hosted verdaccio instance"
+         data-desc="self-hosted verdaccio instance."
          data-category="Other">
         <div class="app-card-icon"><span class="fallback">V</span></div>
         <div class="app-card-name">Verdaccio</div>
-        <div class="app-card-desc">Self-hosted Verdaccio instance</div>
+        <div class="app-card-desc">Self-hosted Verdaccio instance.</div>
         <div class="app-card-meta">
           <span class="cat">Other</span>
           <span class="installs" title="Installs last 30 days">↓ 0</span>
@@ -7129,7 +7299,7 @@ Created for the only purpose of fetching videos from my server/nas and monitor u
 
     <div id="app-grid-empty" class="app-grid-empty" style="display:none">
       <h3>No apps match your search</h3>
-      <p>Try a different keyword, or clear the filter to see all 571 apps.</p>
+      <p>Try a different keyword, or clear the filter to see all 585 apps.</p>
     </div>
   </section>
 
@@ -7185,14 +7355,14 @@ Created for the only purpose of fetching videos from my server/nas and monitor u
       <div>
         <h4>Stats</h4>
         <ul style="color:var(--text-3); font-size:13px;">
-          <li>571 apps</li>
-          <li>27 categories</li>
+          <li>585 apps</li>
+          <li>29 categories</li>
           <li>Updated daily</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>MIT licensed · 571 apps · maintained by luna-dj</span>
+      <span>MIT licensed · 585 apps · maintained by luna-dj</span>
       <span><a href="https://codeberg.org/luna-dj/incus-scripts/issues" target="_blank" rel="noopener">Report an issue →</a></span>
     </div>
   </footer>

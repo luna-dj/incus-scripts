@@ -81,11 +81,17 @@ def main():
         meta = parse_ct_script(f)
         cs = cs_data.get(slug, {})
 
+        # Matrix bridges and similar federation apps get auto-categorized
+        # since they don't appear in community-scripts.org catalog.
+        category = cs.get('category', 'Other')
+        if category == 'Other':
+            category = categorize_unlisted(slug, meta['display'])
+
         apps.append({
             'slug': slug,
             'name': meta['display'],
-            'category': cs.get('category', 'Other'),
-            'description': cs.get('description', f"Self-hosted {meta['display']} instance"),
+            'category': category,
+            'description': cs.get('description') or default_description(slug, meta['display']),
             'tags': meta['tags'],
             'cpu': meta['cpu'],
             'ram': meta['ram'],
@@ -105,6 +111,65 @@ def main():
     with_icon = sum(1 for a in apps if a['icon'])
     with_installs = sum(1 for a in apps if a['installs_30d'] > 0)
     print(f"Wrote {output} ({len(apps)} apps, {with_icon} with icons, {with_installs} with install counts)")
+
+
+def categorize_unlisted(slug, display):
+    """Fallback categorization for apps that aren't in community-scripts.org.
+
+    Bridges, federation gateways, and similar Matrix-protocol apps land here
+    since they're not part of the CS catalog. We use simple slug/display
+    keyword matching — same approach as gen_docs.sh's `categorize()`.
+    """
+    s = (slug + ' ' + display).lower()
+
+    # Matrix protocol / bridges
+    matrix_keys = ('matrix', 'mautrix', 'bridge', 'bifrost', 'heisenbridge',
+                   'appservice', 'mx-puppet', 'synapse', 'dendrite')
+    if any(k in s for k in matrix_keys):
+        return 'Communication'
+
+    # Email
+    if any(k in s for k in ('email', 'imap', 'smtp', 'mail-')):
+        return 'Email'
+
+    # Reverse proxy / ingress
+    if any(k in s for k in ('nginx', 'caddy', 'traefik', 'haproxy',
+                           'caddyserver')):
+        return 'Networking'
+
+    return 'Other'
+
+
+def default_description(slug, display):
+    """Default description for apps without CS metadata."""
+    s = (slug + ' ' + display).lower()
+    if any(k in s for k in ('mautrix-telegram',)):
+        return 'Bridges Telegram to Matrix — log in with QR, sync chats both ways.'
+    if any(k in s for k in ('mautrix-whatsapp',)):
+        return 'Bridges WhatsApp multi-device to Matrix via linked-devices QR login.'
+    if any(k in s for k in ('mautrix-signal',)):
+        return 'Bridges Signal to Matrix via linked-devices QR login.'
+    if any(k in s for k in ('mautrix-discord',)):
+        return 'Bridges Discord to Matrix using a Discord bot token.'
+    if any(k in s for k in ('mautrix-slack', 'mx-puppet-slack')):
+        return 'Bridges Slack to Matrix using a Slack app OAuth token.'
+    if any(k in s for k in ('mautrix-googlechat',)):
+        return 'Bridges Google Chat to Matrix via Google Workspace service account.'
+    if any(k in s for k in ('mautrix-meta',)):
+        return 'Bridges Facebook Messenger + Instagram to Matrix via cookies.'
+    if any(k in s for k in ('mautrix-imessage',)):
+        return 'Bridges iMessage to Matrix. Requires macOS host (CoreFoundation APIs).'
+    if 'heisenbridge' in s:
+        return 'IRC bouncer-style bridge with puppeting — control IRC from Matrix.'
+    if 'bifrost' in s:
+        return 'XMPP/Jabber gateway — connect to federated XMPP networks from Matrix.'
+    if 'appservice-irc' in s:
+        return 'Legacy IRC bridge for Matrix — connects to IRC servers as a bot.'
+    if 'matrix-appservice-email' in s:
+        return 'Email bridge — receive/send Matrix messages via IMAP/SMTP.'
+    if 'kakaotalk' in s:
+        return 'KakaoTalk bridge for Matrix (Korean users).'
+    return f"Self-hosted {display} instance."
 
 
 if __name__ == '__main__':
