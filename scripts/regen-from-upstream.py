@@ -170,6 +170,72 @@ echo -e "${{GR}}{pretty} deployed on ${{var_instance}} (${{IP}})${{NC}}"
 echo ""
 '''
 
+CT_ADDON_TEMPLATE = (
+'''
+#!/usr/bin/env bash
+# ct/{app}.sh — {pretty} (addon, Docker-based)
+# Generated for Incus from upstream ProxmoxVE Community Scripts (tools/addon/)
+# Our wrapper code is MIT; upstream content retains its original license.
+#
+# Set INCUS_BASE to override the raw content provider:
+#   INCUS_BASE=https://raw.githubusercontent.com/luna-dj/incus-scripts/main
+
+INCUS_BASE="${{INCUS_BASE:-{our_base}}}"
+# Export so it survives subshells (pipes, incus_exec_stdin)
+export INCUS_BASE
+source /dev/stdin <<<"$(curl -fsSL --http1.1 ${{INCUS_BASE}}/common.sh?v=$(date +%s))"
+source /dev/stdin <<<"$(curl -fsSL --http1.1 ${{INCUS_BASE}}/misc/incus-build.func?v=$(date +%s))"
+
+APP="{pretty}"
+var_tags="${{var_tags:-}}"
+var_cpu="${{var_cpu:-1}}"
+var_ram="${{var_ram:-2048}}"
+var_disk="${{var_disk:-20}}"
+var_os="${{var_os:-ubuntu}}"
+var_version="${{var_version:-24.04}}"
+
+header_info "$APP"
+variables
+check_existing_instance
+create_instance
+
+# Fetch the install script content on the host, then push it into the
+# container and run it with "bash -s" (which reads the script from stdin).
+INSTALL_SCRIPT=$(curl -fsSL --http1.1 "${{INCUS_BASE}}/install/{app}-install.sh" 2>/dev/null) || {{
+    log_error "Failed to fetch install script for {app}"
+    exit 1
+}}
+printf '%s\n' "INCUS_BASE=${{INCUS_BASE}}" "$INSTALL_SCRIPT" | incus_exec_stdin "$var_instance"
+
+IP=$(get_instance_ip "$var_instance")
+echo ""
+
+# Verify the addon's Docker container is actually running. The upstream
+# addon can silently exit ("Installation cancelled") if a `read` prompt
+# receives empty input — we want to detect that instead of reporting
+# success. Poll `docker ps` for up to 60s for a container whose name
+# matches the app slug.
+if incus_exec_stdin "$var_instance" bash -c '
+    for i in $(seq 1 30); do
+        if docker ps --format "{{{{.Names}}}}" 2>/dev/null | grep -qi "{app}"; then
+            echo "OK"
+            exit 0
+        fi
+        sleep 2
+    done
+    echo "TIMEOUT"
+    exit 1
+' 2>/dev/null | grep -q "^OK$"; then
+    echo -e "${{GR}}{pretty} deployed on ${{var_instance}} (${{IP}})${{NC}}"
+else
+    echo -e "${{YL}}{pretty} install did not start a Docker container on ${{var_instance}} (${{IP}}).${{NC}}"
+    echo -e "${{YL}}Check: incus exec ${{var_instance}} -- docker ps -a${{NC}}"
+    exit 1
+fi
+echo ""
+'''
+)
+
 INSTALL_TEMPLATE = '''#!/usr/bin/env bash
 # install/{app}-install.sh — {pretty}
 # Generated for Incus from upstream ProxmoxVE Community Scripts
@@ -229,6 +295,20 @@ if ! command -v docker &>/dev/null; then
   msg_ok "Docker installed"
 fi
 
+# Ensure TERM is set so upstream's `header_info` `clear` command works.
+# Inside `incus exec ... bash -s` there is no TTY, so TERM is unset.
+# Without TERM, `clear` errors and trips the upstream ERR trap.
+TERM="${{TERM:-xterm-256color}}"
+export TERM
+
+# Ensure TERM is set so upstream header_info clear command works.
+# Inside incus exec bash -s there is no TTY; TERM may be dumb or unset.
+# dumb does not know clear, so unconditionally force a real terminal type.
+TERM="xterm-256color"
+export TERM
+shopt -s expand_aliases
+alias clear=true
+
 msg_info "Loading upstream addon script for {pretty}"
 UPSTREAM_URL="https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/tools/addon/{app}.sh"
 UPSTREAM_SCRIPT=$(curl -fsSL "${{UPSTREAM_URL}}?v=$(date +%s)" 2>/dev/null) || {{
@@ -240,6 +320,16 @@ UPSTREAM_SCRIPT=$(curl -fsSL "${{UPSTREAM_URL}}?v=$(date +%s)" 2>/dev/null) || {
 UPSTREAM_SCRIPT="${{UPSTREAM_SCRIPT//source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/core.func)/: # (core.func)}}"
 UPSTREAM_SCRIPT="${{UPSTREAM_SCRIPT//source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/tools.func)/: # (tools.func)}}"
 UPSTREAM_SCRIPT="${{UPSTREAM_SCRIPT//source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/misc/error_handler.func)/: # (error_handler.func)}}"
+
+# Auto-answer upstream interactive prompts. Addon scripts run inside
+# `incus exec ... bash -s` so there is no TTY for `read -r`. Without this
+# every prompt receives empty input and the addon exits with "Installation
+# cancelled". Force-yes for install/uninstall, force-no for update (we're
+# doing a fresh install, not an update).
+UPSTREAM_SCRIPT="${{UPSTREAM_SCRIPT//read -r install_prompt/install_prompt=y}}"
+UPSTREAM_SCRIPT="${{UPSTREAM_SCRIPT//read -r install_docker_prompt/install_docker_prompt=y}}"
+UPSTREAM_SCRIPT="${{UPSTREAM_SCRIPT//read -r update_prompt/update_prompt=n}}"
+UPSTREAM_SCRIPT="${{UPSTREAM_SCRIPT//read -r uninstall_prompt/uninstall_prompt=n}}"
 
 # Disable 'set -u' around eval of upstream
 set +u
@@ -290,6 +380,10 @@ def render_ct(app, pretty):
     return CT_TEMPLATE.format(app=app, pretty=pretty, our_base=OUR_BASE_DEFAULT)
 
 
+def render_ct_addon(app, pretty):
+    return CT_ADDON_TEMPLATE.format(app=app, pretty=pretty, our_base=OUR_BASE_DEFAULT)
+
+
 def render_install(app, pretty):
     return INSTALL_TEMPLATE.format(app=app, pretty=pretty, our_base=OUR_BASE_DEFAULT)
 
@@ -319,9 +413,9 @@ def regenerate_addons():
             print(f"  SKIP ct/{app}.sh (in SKIP_APPS)")
             continue
 
-        # Generate ct/<app>.sh (same template as install/ apps)
+        # Generate ct/<app>.sh (addon template with Docker container check)
         ct_path = CT_DIR / f'{app}.sh'
-        ct_content = render_ct(app, pretty)
+        ct_content = render_ct_addon(app, pretty)
 
         if ct_path.exists():
             if ct_path.read_text() != ct_content:
