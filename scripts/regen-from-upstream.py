@@ -191,6 +191,7 @@ var_tags="${{var_tags:-}}"
 var_cpu="${{var_cpu:-1}}"
 var_ram="${{var_ram:-2048}}"
 var_disk="${{var_disk:-20}}"
+var_nesting="${{var_nesting:-true}}"
 var_os="${{var_os:-ubuntu}}"
 var_version="${{var_version:-24.04}}"
 

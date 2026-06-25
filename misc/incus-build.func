@@ -29,6 +29,10 @@ var_network="${var_network:-}"
 var_ipv4="${var_ipv4:-}"
 var_bridged="${var_bridged:-false}"
 var_unprivileged="${var_unprivileged:-true}"
+# Set to true for containers that need to run nested things (e.g. Docker
+# inside an Incus container). Addon apps default this on via their ct
+# template; regular apps leave it false for tighter isolation.
+var_nesting="${var_nesting:-false}"
 var_type="${var_type:-container}"  # container or virtual-machine
 
 # ==============================================================================
@@ -184,7 +188,7 @@ create_instance() {
   # Security / unprivileged
   if [[ "$var_unprivileged" == "true" ]]; then
     launch_args+=(--config "security.privileged=false")
-    launch_args+=(--config "security.nesting=false")
+    launch_args+=(--config "security.nesting=$var_nesting")
   else
     launch_args+=(--config "security.privileged=true")
   fi
