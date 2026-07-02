@@ -11,7 +11,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "2fauth.webp",
-    "installs_30d": 113,
+    "installs_30d": 361,
     "url": "apps/2fauth.html"
   },
   {
@@ -26,7 +26,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "actual-budget.webp",
-    "installs_30d": 552,
+    "installs_30d": 2126,
     "url": "apps/actualbudget.html"
   },
   {
@@ -41,7 +41,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "netbird.webp",
-    "installs_30d": 125,
+    "installs_30d": 107,
     "url": "apps/add-netbird-lxc.html"
   },
   {
@@ -56,7 +56,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tailscale.webp",
-    "installs_30d": 1990,
+    "installs_30d": 2008,
     "url": "apps/add-tailscale-lxc.html"
   },
   {
@@ -71,7 +71,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "adguard-home.webp",
-    "installs_30d": 3369,
+    "installs_30d": 12486,
     "url": "apps/adguard.html"
   },
   {
@@ -86,7 +86,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "adguardhome-sync.webp",
-    "installs_30d": 177,
+    "installs_30d": 157,
     "url": "apps/adguardhome-sync.html"
   },
   {
@@ -101,7 +101,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "adventurelog.webp",
-    "installs_30d": 120,
+    "installs_30d": 428,
     "url": "apps/adventurelog.html"
   },
   {
@@ -116,7 +116,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "agent-dvr.webp",
-    "installs_30d": 278,
+    "installs_30d": 1074,
     "url": "apps/agentdvr.html"
   },
   {
@@ -131,7 +131,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "proxmox.webp",
-    "installs_30d": 196,
+    "installs_30d": 174,
     "url": "apps/all-templates.html"
   },
   {
@@ -176,7 +176,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "borg.webp",
-    "installs_30d": 54,
+    "installs_30d": 182,
     "url": "apps/alpine-borgbackup-server.html"
   },
   {
@@ -206,7 +206,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cinny.svg",
-    "installs_30d": 47,
+    "installs_30d": 259,
     "url": "apps/alpine-cinny.html"
   },
   {
@@ -326,7 +326,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "it-tools.webp",
-    "installs_30d": 148,
+    "installs_30d": 511,
     "url": "apps/alpine-it-tools.html"
   },
   {
@@ -371,7 +371,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nextcloud.webp",
-    "installs_30d": 1192,
+    "installs_30d": 4101,
     "url": "apps/alpine-nextcloud.html"
   },
   {
@@ -401,7 +401,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ntfy.webp",
-    "installs_30d": 80,
+    "installs_30d": 248,
     "url": "apps/alpine-ntfy.html"
   },
   {
@@ -476,7 +476,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "redlib.webp",
-    "installs_30d": 46,
+    "installs_30d": 168,
     "url": "apps/alpine-redlib.html"
   },
   {
@@ -596,7 +596,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "valkey.webp",
-    "installs_30d": 8,
+    "installs_30d": 27,
     "url": "apps/alpine-valkey.html"
   },
   {
@@ -626,7 +626,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wakapi.webp",
-    "installs_30d": 18,
+    "installs_30d": 64,
     "url": "apps/alpine-wakapi.html"
   },
   {
@@ -671,7 +671,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "alpine-linux.webp",
-    "installs_30d": 547,
+    "installs_30d": 2030,
     "url": "apps/alpine.html"
   },
   {
@@ -686,7 +686,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ampache.webp",
-    "installs_30d": 27,
+    "installs_30d": 101,
     "url": "apps/ampache.html"
   },
   {
@@ -701,7 +701,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "anchor-notes.webp",
-    "installs_30d": 43,
+    "installs_30d": 182,
     "url": "apps/anchor.html"
   },
   {
@@ -716,7 +716,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "anytype.webp",
-    "installs_30d": 212,
+    "installs_30d": 641,
     "url": "apps/anytype-server.html"
   },
   {
@@ -746,7 +746,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "apache-cassandra.webp",
-    "installs_30d": 2,
+    "installs_30d": 9,
     "url": "apps/apache-cassandra.html"
   },
   {
@@ -761,7 +761,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "couchdb.webp",
-    "installs_30d": 102,
+    "installs_30d": 377,
     "url": "apps/apache-couchdb.html"
   },
   {
@@ -776,7 +776,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "apache-guacamole.webp",
-    "installs_30d": 637,
+    "installs_30d": 2274,
     "url": "apps/apache-guacamole.html"
   },
   {
@@ -791,7 +791,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "apache-tika.webp",
-    "installs_30d": 26,
+    "installs_30d": 124,
     "url": "apps/apache-tika.html"
   },
   {
@@ -806,7 +806,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "apache-tomcat.webp",
-    "installs_30d": 10,
+    "installs_30d": 48,
     "url": "apps/apache-tomcat.html"
   },
   {
@@ -821,7 +821,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "apprise.webp",
-    "installs_30d": 45,
+    "installs_30d": 185,
     "url": "apps/apprise-api.html"
   },
   {
@@ -851,7 +851,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "linux.webp",
-    "installs_30d": 196,
+    "installs_30d": 676,
     "url": "apps/apt-cacher-ng.html"
   },
   {
@@ -866,7 +866,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "arcane.webp",
-    "installs_30d": 156,
+    "installs_30d": 147,
     "url": "apps/arcane.html"
   },
   {
@@ -881,7 +881,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "archivebox.webp",
-    "installs_30d": 67,
+    "installs_30d": 232,
     "url": "apps/archivebox.html"
   },
   {
@@ -896,7 +896,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "argus.webp",
-    "installs_30d": 12,
+    "installs_30d": 63,
     "url": "apps/argus.html"
   },
   {
@@ -911,7 +911,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "aria2.webp",
-    "installs_30d": 64,
+    "installs_30d": 264,
     "url": "apps/aria2.html"
   },
   {
@@ -926,7 +926,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "asterisk.webp",
-    "installs_30d": 108,
+    "installs_30d": 299,
     "url": "apps/asterisk.html"
   },
   {
@@ -941,7 +941,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "audiobookshelf.webp",
-    "installs_30d": 578,
+    "installs_30d": 2123,
     "url": "apps/audiobookshelf.html"
   },
   {
@@ -956,7 +956,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "authelia.webp",
-    "installs_30d": 288,
+    "installs_30d": 1176,
     "url": "apps/authelia.html"
   },
   {
@@ -971,7 +971,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "authentik.webp",
-    "installs_30d": 1419,
+    "installs_30d": 4500,
     "url": "apps/authentik.html"
   },
   {
@@ -986,7 +986,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "autobrr.webp",
-    "installs_30d": 70,
+    "installs_30d": 262,
     "url": "apps/autobrr.html"
   },
   {
@@ -1001,7 +1001,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "autocaliweb.webp",
-    "installs_30d": 69,
+    "installs_30d": 250,
     "url": "apps/autocaliweb.html"
   },
   {
@@ -1016,7 +1016,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "baby-buddy.webp",
-    "installs_30d": 33,
+    "installs_30d": 212,
     "url": "apps/babybuddy.html"
   },
   {
@@ -1031,7 +1031,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "backrest.webp",
-    "installs_30d": 64,
+    "installs_30d": 262,
     "url": "apps/backrest.html"
   },
   {
@@ -1046,7 +1046,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "baikal.webp",
-    "installs_30d": 14,
+    "installs_30d": 61,
     "url": "apps/baikal.html"
   },
   {
@@ -1061,7 +1061,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bambuddy.webp",
-    "installs_30d": 367,
+    "installs_30d": 1314,
     "url": "apps/bambuddy.html"
   },
   {
@@ -1076,7 +1076,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bar-assistant.webp",
-    "installs_30d": 48,
+    "installs_30d": 256,
     "url": "apps/bar-assistant.html"
   },
   {
@@ -1091,7 +1091,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "baserow.webp",
-    "installs_30d": 109,
+    "installs_30d": 509,
     "url": "apps/baserow.html"
   },
   {
@@ -1106,7 +1106,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bazarr.webp",
-    "installs_30d": 320,
+    "installs_30d": 1354,
     "url": "apps/bazarr.html"
   },
   {
@@ -1121,7 +1121,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bentopdf.webp",
-    "installs_30d": 388,
+    "installs_30d": 1578,
     "url": "apps/bentopdf.html"
   },
   {
@@ -1136,7 +1136,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "beszel.webp",
-    "installs_30d": 374,
+    "installs_30d": 1452,
     "url": "apps/beszel.html"
   },
   {
@@ -1151,7 +1151,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bichon.webp",
-    "installs_30d": 44,
+    "installs_30d": 212,
     "url": "apps/bichon.html"
   },
   {
@@ -1181,7 +1181,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "birdnet-analyzer.webp",
-    "installs_30d": 84,
+    "installs_30d": 377,
     "url": "apps/birdnet-go.html"
   },
   {
@@ -1196,7 +1196,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bitfocus-companion.webp",
-    "installs_30d": 16,
+    "installs_30d": 116,
     "url": "apps/bitfocus-companion.html"
   },
   {
@@ -1211,7 +1211,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bitmagnet.webp",
-    "installs_30d": 64,
+    "installs_30d": 267,
     "url": "apps/bitmagnet.html"
   },
   {
@@ -1226,7 +1226,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "blocky.webp",
-    "installs_30d": 46,
+    "installs_30d": 151,
     "url": "apps/blocky.html"
   },
   {
@@ -1256,7 +1256,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bookorbit.webp",
-    "installs_30d": 353,
+    "installs_30d": 1732,
     "url": "apps/bookorbit.html"
   },
   {
@@ -1271,7 +1271,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bookstack.webp",
-    "installs_30d": 354,
+    "installs_30d": 1337,
     "url": "apps/bookstack.html"
   },
   {
@@ -1286,7 +1286,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bunkerweb.webp",
-    "installs_30d": 60,
+    "installs_30d": 244,
     "url": "apps/bunkerweb.html"
   },
   {
@@ -1301,7 +1301,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "byparr.webp",
-    "installs_30d": 260,
+    "installs_30d": 1085,
     "url": "apps/byparr.html"
   },
   {
@@ -1316,7 +1316,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "bytestash.webp",
-    "installs_30d": 31,
+    "installs_30d": 129,
     "url": "apps/bytestash.html"
   },
   {
@@ -1331,7 +1331,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "caddy.webp",
-    "installs_30d": 846,
+    "installs_30d": 2910,
     "url": "apps/caddy.html"
   },
   {
@@ -1346,7 +1346,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "calibre-web.webp",
-    "installs_30d": 375,
+    "installs_30d": 1264,
     "url": "apps/calibre-web.html"
   },
   {
@@ -1361,7 +1361,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "casaos.webp",
-    "installs_30d": 751,
+    "installs_30d": 2839,
     "url": "apps/casaos.html"
   },
   {
@@ -1376,7 +1376,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "certimate.webp",
-    "installs_30d": 129,
+    "installs_30d": 610,
     "url": "apps/certimate.html"
   },
   {
@@ -1391,7 +1391,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "changedetection.webp",
-    "installs_30d": 175,
+    "installs_30d": 675,
     "url": "apps/changedetection.html"
   },
   {
@@ -1406,7 +1406,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "channels-dvr.webp",
-    "installs_30d": 47,
+    "installs_30d": 182,
     "url": "apps/channels.html"
   },
   {
@@ -1421,7 +1421,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "checkmate.webp",
-    "installs_30d": 80,
+    "installs_30d": 386,
     "url": "apps/checkmate.html"
   },
   {
@@ -1436,7 +1436,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "checkmk.webp",
-    "installs_30d": 268,
+    "installs_30d": 1174,
     "url": "apps/checkmk.html"
   },
   {
@@ -1451,7 +1451,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cleanuparr.webp",
-    "installs_30d": 109,
+    "installs_30d": 453,
     "url": "apps/cleanuparr.html"
   },
   {
@@ -1466,7 +1466,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "clickhouse.webp",
-    "installs_30d": 25,
+    "installs_30d": 157,
     "url": "apps/clickhouse.html"
   },
   {
@@ -1481,7 +1481,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "openai.webp",
-    "installs_30d": 95,
+    "installs_30d": 333,
     "url": "apps/cliproxyapi.html"
   },
   {
@@ -1496,7 +1496,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cloudflare.webp",
-    "installs_30d": 330,
+    "installs_30d": 1286,
     "url": "apps/cloudflare-ddns.html"
   },
   {
@@ -1511,7 +1511,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cloudflare.webp",
-    "installs_30d": 1456,
+    "installs_30d": 5515,
     "url": "apps/cloudflared.html"
   },
   {
@@ -1526,7 +1526,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cloudreve.webp",
-    "installs_30d": 52,
+    "installs_30d": 275,
     "url": "apps/cloudreve.html"
   },
   {
@@ -1541,7 +1541,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cockpit.webp",
-    "installs_30d": 253,
+    "installs_30d": 895,
     "url": "apps/cockpit.html"
   },
   {
@@ -1556,7 +1556,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "coder.webp",
-    "installs_30d": 223,
+    "installs_30d": 188,
     "url": "apps/coder-code-server.html"
   },
   {
@@ -1571,7 +1571,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "comfyui.webp",
-    "installs_30d": 242,
+    "installs_30d": 795,
     "url": "apps/comfyui.html"
   },
   {
@@ -1586,7 +1586,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "commafeed.webp",
-    "installs_30d": 14,
+    "installs_30d": 45,
     "url": "apps/commafeed.html"
   },
   {
@@ -1601,7 +1601,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "configarr.webp",
-    "installs_30d": 62,
+    "installs_30d": 269,
     "url": "apps/configarr.html"
   },
   {
@@ -1616,7 +1616,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "convertx.webp",
-    "installs_30d": 131,
+    "installs_30d": 537,
     "url": "apps/convertx.html"
   },
   {
@@ -1631,7 +1631,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "coolify.webp",
-    "installs_30d": 140,
+    "installs_30d": 146,
     "url": "apps/coolify.html"
   },
   {
@@ -1646,7 +1646,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "copyparty.webp",
-    "installs_30d": 79,
+    "installs_30d": 77,
     "url": "apps/copyparty.html"
   },
   {
@@ -1661,7 +1661,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "coredns.webp",
-    "installs_30d": 94,
+    "installs_30d": 295,
     "url": "apps/coredns.html"
   },
   {
@@ -1676,7 +1676,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cosmos-server.webp",
-    "installs_30d": 201,
+    "installs_30d": 579,
     "url": "apps/cosmos.html"
   },
   {
@@ -1691,7 +1691,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "crafty-controller.webp",
-    "installs_30d": 720,
+    "installs_30d": 2326,
     "url": "apps/crafty-controller.html"
   },
   {
@@ -1706,7 +1706,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cronicle.webp",
-    "installs_30d": 23,
+    "installs_30d": 66,
     "url": "apps/cronicle.html"
   },
   {
@@ -1721,7 +1721,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cr-nmaster.webp",
-    "installs_30d": 112,
+    "installs_30d": 106,
     "url": "apps/cronmaster.html"
   },
   {
@@ -1736,7 +1736,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cross-seed.webp",
-    "installs_30d": 60,
+    "installs_30d": 230,
     "url": "apps/cross-seed.html"
   },
   {
@@ -1751,7 +1751,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "crowdsec.webp",
-    "installs_30d": 75,
+    "installs_30d": 76,
     "url": "apps/crowdsec.html"
   },
   {
@@ -1766,7 +1766,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cryptpad.webp",
-    "installs_30d": 12,
+    "installs_30d": 45,
     "url": "apps/cryptpad.html"
   },
   {
@@ -1781,7 +1781,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cyberchef.webp",
-    "installs_30d": 116,
+    "installs_30d": 508,
     "url": "apps/cyberchef.html"
   },
   {
@@ -1796,7 +1796,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "dagu.webp",
-    "installs_30d": 14,
+    "installs_30d": 44,
     "url": "apps/dagu.html"
   },
   {
@@ -1811,7 +1811,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "dashy.webp",
-    "installs_30d": 271,
+    "installs_30d": 1105,
     "url": "apps/dashy.html"
   },
   {
@@ -1826,7 +1826,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "databasus.webp",
-    "installs_30d": 60,
+    "installs_30d": 278,
     "url": "apps/databasus.html"
   },
   {
@@ -1841,7 +1841,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "dawarich.webp",
-    "installs_30d": 187,
+    "installs_30d": 868,
     "url": "apps/dawarich.html"
   },
   {
@@ -1856,7 +1856,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ddclient.webp",
-    "installs_30d": 56,
+    "installs_30d": 207,
     "url": "apps/ddclient.html"
   },
   {
@@ -1871,7 +1871,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ddns-updater.webp",
-    "installs_30d": 338,
+    "installs_30d": 1429,
     "url": "apps/ddns-updater.html"
   },
   {
@@ -1886,7 +1886,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "debian.webp",
-    "installs_30d": 5960,
+    "installs_30d": 22497,
     "url": "apps/debian.html"
   },
   {
@@ -1901,7 +1901,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "phoscon.webp",
-    "installs_30d": 10,
+    "installs_30d": 27,
     "url": "apps/deconz.html"
   },
   {
@@ -1916,7 +1916,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "degoog-logo.png",
-    "installs_30d": 96,
+    "installs_30d": 342,
     "url": "apps/degoog.html"
   },
   {
@@ -1931,7 +1931,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "deluge.webp",
-    "installs_30d": 124,
+    "installs_30d": 541,
     "url": "apps/deluge.html"
   },
   {
@@ -1946,7 +1946,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "discopanel.webp",
-    "installs_30d": 304,
+    "installs_30d": 1062,
     "url": "apps/discopanel.html"
   },
   {
@@ -1961,7 +1961,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "dispatcharr.webp",
-    "installs_30d": 417,
+    "installs_30d": 1558,
     "url": "apps/dispatcharr.html"
   },
   {
@@ -1976,7 +1976,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "docker.webp",
-    "installs_30d": 8277,
+    "installs_30d": 30350,
     "url": "apps/docker.html"
   },
   {
@@ -1991,7 +1991,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "dockge.webp",
-    "installs_30d": 248,
+    "installs_30d": 211,
     "url": "apps/dockge.html"
   },
   {
@@ -2006,7 +2006,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "docmost.webp",
-    "installs_30d": 203,
+    "installs_30d": 805,
     "url": "apps/docmost.html"
   },
   {
@@ -2021,7 +2021,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "docuseal.webp",
-    "installs_30d": 80,
+    "installs_30d": 348,
     "url": "apps/docuseal.html"
   },
   {
@@ -2051,7 +2051,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "dolibarr.webp",
-    "installs_30d": 118,
+    "installs_30d": 498,
     "url": "apps/dolibarr.html"
   },
   {
@@ -2066,7 +2066,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "domain-locker.webp",
-    "installs_30d": 38,
+    "installs_30d": 138,
     "url": "apps/domain-locker.html"
   },
   {
@@ -2081,7 +2081,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "domain-monitor.png",
-    "installs_30d": 49,
+    "installs_30d": 226,
     "url": "apps/domain-monitor.html"
   },
   {
@@ -2096,7 +2096,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "donetick.webp",
-    "installs_30d": 63,
+    "installs_30d": 265,
     "url": "apps/donetick.html"
   },
   {
@@ -2111,7 +2111,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "asp-net-core.webp",
-    "installs_30d": 13,
+    "installs_30d": 16,
     "url": "apps/dotnetaspwebapi.html"
   },
   {
@@ -2126,7 +2126,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "proxmox-helper-scripts.webp",
-    "installs_30d": 22,
+    "installs_30d": 102,
     "url": "apps/drawdb.html"
   },
   {
@@ -2141,7 +2141,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "draw-io.webp",
-    "installs_30d": 113,
+    "installs_30d": 510,
     "url": "apps/drawio.html"
   },
   {
@@ -2156,7 +2156,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "duplicati.webp",
-    "installs_30d": 122,
+    "installs_30d": 445,
     "url": "apps/duplicati.html"
   },
   {
@@ -2171,7 +2171,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "dynacat.webp",
-    "installs_30d": 205,
+    "installs_30d": 568,
     "url": "apps/dynacat.html"
   },
   {
@@ -2186,7 +2186,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ebusd.webp",
-    "installs_30d": 12,
+    "installs_30d": 45,
     "url": "apps/ebusd.html"
   },
   {
@@ -2201,7 +2201,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "element.webp",
-    "installs_30d": 376,
+    "installs_30d": 1529,
     "url": "apps/elementsynapse.html"
   },
   {
@@ -2216,7 +2216,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "emby.webp",
-    "installs_30d": 250,
+    "installs_30d": 839,
     "url": "apps/emby.html"
   },
   {
@@ -2231,7 +2231,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "emqx.webp",
-    "installs_30d": 54,
+    "installs_30d": 189,
     "url": "apps/emqx.html"
   },
   {
@@ -2246,7 +2246,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "endurain.webp",
-    "installs_30d": 104,
+    "installs_30d": 379,
     "url": "apps/endurain.html"
   },
   {
@@ -2261,7 +2261,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "frappe-erpnext.webp",
-    "installs_30d": 290,
+    "installs_30d": 1111,
     "url": "apps/erpnext.html"
   },
   {
@@ -2276,7 +2276,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ersatztv.webp",
-    "installs_30d": 72,
+    "installs_30d": 261,
     "url": "apps/ersatztv.html"
   },
   {
@@ -2291,7 +2291,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "127616157?s=200&v=4",
-    "installs_30d": 108,
+    "installs_30d": 328,
     "url": "apps/espconnect.html"
   },
   {
@@ -2306,8 +2306,23 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "esphome.webp",
-    "installs_30d": 422,
+    "installs_30d": 1472,
     "url": "apps/esphome.html"
+  },
+  {
+    "slug": "etherpad",
+    "name": "Etherpad",
+    "category": "Documents & Notes",
+    "description": "Etherpad is a highly customizable real-time collaborative document editor. It lets multiple people edit the same document simultaneously in the browser, with live changes, per-user colors, chat, and a rich plugin ecosystem.",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "icon": "etherpad.webp",
+    "installs_30d": 123,
+    "url": "apps/etherpad.html"
   },
   {
     "slug": "evcc",
@@ -2321,7 +2336,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "evcc.webp",
-    "installs_30d": 346,
+    "installs_30d": 1278,
     "url": "apps/evcc.html"
   },
   {
@@ -2336,7 +2351,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "excalidraw.webp",
-    "installs_30d": 75,
+    "installs_30d": 275,
     "url": "apps/excalidraw.html"
   },
   {
@@ -2351,7 +2366,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ezbookkeeping.webp",
-    "installs_30d": 180,
+    "installs_30d": 795,
     "url": "apps/ezbookkeeping.html"
   },
   {
@@ -2366,7 +2381,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "feishin.webp",
-    "installs_30d": 73,
+    "installs_30d": 335,
     "url": "apps/feishin.html"
   },
   {
@@ -2381,7 +2396,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "fhem.webp",
-    "installs_30d": 18,
+    "installs_30d": 117,
     "url": "apps/fhem.html"
   },
   {
@@ -2396,7 +2411,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "filebrowser-quantum.webp",
-    "installs_30d": 403,
+    "installs_30d": 461,
     "url": "apps/filebrowser-quantum.html"
   },
   {
@@ -2411,7 +2426,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "file-browser.webp",
-    "installs_30d": 410,
+    "installs_30d": 378,
     "url": "apps/filebrowser.html"
   },
   {
@@ -2426,7 +2441,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "fileflows.webp",
-    "installs_30d": 140,
+    "installs_30d": 594,
     "url": "apps/fileflows.html"
   },
   {
@@ -2441,7 +2456,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "firefly-iii.webp",
-    "installs_30d": 305,
+    "installs_30d": 1167,
     "url": "apps/firefly.html"
   },
   {
@@ -2456,7 +2471,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "fireshare.webp",
-    "installs_30d": 50,
+    "installs_30d": 213,
     "url": "apps/fireshare.html"
   },
   {
@@ -2471,8 +2486,23 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "fladder.webp",
-    "installs_30d": 55,
+    "installs_30d": 157,
     "url": "apps/fladder.html"
+  },
+  {
+    "slug": "flame",
+    "name": "Flame",
+    "category": "Dashboards & Frontends",
+    "description": "Flame is a self-hosted startpage for your server. Easily manage your apps and bookmarks with built-in editors, integrated search, weather widget, and Docker integration.",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "icon": "flame.webp",
+    "installs_30d": 364,
+    "url": "apps/flame.html"
   },
   {
     "slug": "flaresolverr",
@@ -2486,7 +2516,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "flaresolverr.webp",
-    "installs_30d": 513,
+    "installs_30d": 2095,
     "url": "apps/flaresolverr.html"
   },
   {
@@ -2501,7 +2531,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "flatnotes.webp",
-    "installs_30d": 85,
+    "installs_30d": 169,
     "url": "apps/flatnotes.html"
   },
   {
@@ -2516,7 +2546,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "flowise.webp",
-    "installs_30d": 129,
+    "installs_30d": 490,
     "url": "apps/flowiseai.html"
   },
   {
@@ -2531,8 +2561,23 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "fluidcalendar.webp",
-    "installs_30d": 35,
+    "installs_30d": 151,
     "url": "apps/fluid-calendar.html"
+  },
+  {
+    "slug": "fmd-server",
+    "name": "Fmd Server",
+    "category": "Monitoring & Analytics",
+    "description": "FMD allows you to locate and remotely control your Android device. This is useful if you have lost or misplaced it. FMD is decentralised, and users remain in full control of their data. With FMD, you can send commands to your phone: to locate it via GPS, to locate it via nearby cell towers, to take a picture, to lock it, to let it ring, or to factory-reset it.",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "icon": "fmd.webp",
+    "installs_30d": 430,
+    "url": "apps/fmd-server.html"
   },
   {
     "slug": "foldergram",
@@ -2546,7 +2591,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "foldergram.webp",
-    "installs_30d": 38,
+    "installs_30d": 166,
     "url": "apps/foldergram.html"
   },
   {
@@ -2561,7 +2606,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "forgejo.webp",
-    "installs_30d": 520,
+    "installs_30d": 1907,
     "url": "apps/forgejo.html"
   },
   {
@@ -2576,7 +2621,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "freepbx.webp",
-    "installs_30d": 471,
+    "installs_30d": 1335,
     "url": "apps/freepbx.html"
   },
   {
@@ -2591,7 +2636,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "freshrss.webp",
-    "installs_30d": 128,
+    "installs_30d": 556,
     "url": "apps/freshrss.html"
   },
   {
@@ -2606,7 +2651,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "frigate-dark.webp",
-    "installs_30d": 3508,
+    "installs_30d": 12453,
     "url": "apps/frigate.html"
   },
   {
@@ -2621,7 +2666,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "fumadocs.webp",
-    "installs_30d": 19,
+    "installs_30d": 71,
     "url": "apps/fumadocs.html"
   },
   {
@@ -2636,7 +2681,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "garage.webp",
-    "installs_30d": 198,
+    "installs_30d": 697,
     "url": "apps/garage.html"
   },
   {
@@ -2651,7 +2696,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "gatus.webp",
-    "installs_30d": 60,
+    "installs_30d": 303,
     "url": "apps/gatus.html"
   },
   {
@@ -2666,7 +2711,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "geopulse.webp",
-    "installs_30d": 34,
+    "installs_30d": 152,
     "url": "apps/geopulse.html"
   },
   {
@@ -2681,7 +2726,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ghost.webp",
-    "installs_30d": 96,
+    "installs_30d": 297,
     "url": "apps/ghost.html"
   },
   {
@@ -2696,7 +2741,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ghostfolio.webp",
-    "installs_30d": 101,
+    "installs_30d": 383,
     "url": "apps/ghostfolio.html"
   },
   {
@@ -2726,7 +2771,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "gitea-mirror.webp",
-    "installs_30d": 44,
+    "installs_30d": 176,
     "url": "apps/gitea-mirror.html"
   },
   {
@@ -2741,7 +2786,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "gitea.webp",
-    "installs_30d": 708,
+    "installs_30d": 2550,
     "url": "apps/gitea.html"
   },
   {
@@ -2756,7 +2801,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "github.webp",
-    "installs_30d": 120,
+    "installs_30d": 407,
     "url": "apps/github-runner.html"
   },
   {
@@ -2771,7 +2816,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "glance.webp",
-    "installs_30d": 291,
+    "installs_30d": 957,
     "url": "apps/glance.html"
   },
   {
@@ -2786,7 +2831,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "glances.webp",
-    "installs_30d": 36,
+    "installs_30d": 31,
     "url": "apps/glances.html"
   },
   {
@@ -2801,7 +2846,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "globaleaks.webp",
-    "installs_30d": 4,
+    "installs_30d": 22,
     "url": "apps/globaleaks.html"
   },
   {
@@ -2816,7 +2861,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "glpi.webp",
-    "installs_30d": 251,
+    "installs_30d": 808,
     "url": "apps/glpi.html"
   },
   {
@@ -2831,7 +2876,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "gluetun.webp",
-    "installs_30d": 306,
+    "installs_30d": 682,
     "url": "apps/gluetun.html"
   },
   {
@@ -2846,7 +2891,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "go2rtc.webp",
-    "installs_30d": 258,
+    "installs_30d": 888,
     "url": "apps/go2rtc.html"
   },
   {
@@ -2861,7 +2906,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "gogs.webp",
-    "installs_30d": 8,
+    "installs_30d": 44,
     "url": "apps/gogs.html"
   },
   {
@@ -2876,7 +2921,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "gokapi.webp",
-    "installs_30d": 36,
+    "installs_30d": 191,
     "url": "apps/gokapi.html"
   },
   {
@@ -2891,7 +2936,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "gotify.webp",
-    "installs_30d": 136,
+    "installs_30d": 510,
     "url": "apps/gotify.html"
   },
   {
@@ -2906,7 +2951,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "grafana.webp",
-    "installs_30d": 924,
+    "installs_30d": 3764,
     "url": "apps/grafana.html"
   },
   {
@@ -2921,7 +2966,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "gramps.webp",
-    "installs_30d": 91,
+    "installs_30d": 374,
     "url": "apps/gramps-web.html"
   },
   {
@@ -2936,7 +2981,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "graylog.webp",
-    "installs_30d": 567,
+    "installs_30d": 1958,
     "url": "apps/graylog.html"
   },
   {
@@ -2951,7 +2996,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "grist.webp",
-    "installs_30d": 44,
+    "installs_30d": 173,
     "url": "apps/grist.html"
   },
   {
@@ -2966,7 +3011,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "grocy.webp",
-    "installs_30d": 140,
+    "installs_30d": 588,
     "url": "apps/grocy.html"
   },
   {
@@ -2981,7 +3026,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "guardian-plex.webp",
-    "installs_30d": 2,
+    "installs_30d": 18,
     "url": "apps/guardian.html"
   },
   {
@@ -2996,7 +3041,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "gwn-manager.webp",
-    "installs_30d": 25,
+    "installs_30d": 56,
     "url": "apps/gwn-manager.html"
   },
   {
@@ -3011,7 +3056,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "headscale.webp",
-    "installs_30d": 415,
+    "installs_30d": 1334,
     "url": "apps/headscale.html"
   },
   {
@@ -3026,7 +3071,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "healthchecks.webp",
-    "installs_30d": 12,
+    "installs_30d": 46,
     "url": "apps/healthchecks.html"
   },
   {
@@ -3041,7 +3086,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "heimdall.webp",
-    "installs_30d": 252,
+    "installs_30d": 958,
     "url": "apps/heimdall-dashboard.html"
   },
   {
@@ -3071,7 +3116,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "hermes-agent.webp",
-    "installs_30d": 3884,
+    "installs_30d": 13228,
     "url": "apps/hermesagent.html"
   },
   {
@@ -3086,7 +3131,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "hev.webp",
-    "installs_30d": 26,
+    "installs_30d": 102,
     "url": "apps/hev-socks5-server.html"
   },
   {
@@ -3101,7 +3146,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "hivemq.webp",
-    "installs_30d": 21,
+    "installs_30d": 54,
     "url": "apps/hivemq.html"
   },
   {
@@ -3116,7 +3161,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "homarr.webp",
-    "installs_30d": 875,
+    "installs_30d": 3382,
     "url": "apps/homarr.html"
   },
   {
@@ -3131,7 +3176,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "home-assistant.webp",
-    "installs_30d": 974,
+    "installs_30d": 3583,
     "url": "apps/homeassistant.html"
   },
   {
@@ -3146,7 +3191,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "homebox.webp",
-    "installs_30d": 184,
+    "installs_30d": 742,
     "url": "apps/homebox.html"
   },
   {
@@ -3176,7 +3221,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "homebridge.webp",
-    "installs_30d": 177,
+    "installs_30d": 682,
     "url": "apps/homebridge.html"
   },
   {
@@ -3191,7 +3236,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "homelable.webp",
-    "installs_30d": 1303,
+    "installs_30d": 4466,
     "url": "apps/homelable.html"
   },
   {
@@ -3206,7 +3251,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "homepage.webp",
-    "installs_30d": 992,
+    "installs_30d": 3872,
     "url": "apps/homepage.html"
   },
   {
@@ -3221,7 +3266,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "homer.webp",
-    "installs_30d": 103,
+    "installs_30d": 371,
     "url": "apps/homer.html"
   },
   {
@@ -3251,7 +3296,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "hortusfox.webp",
-    "installs_30d": 31,
+    "installs_30d": 135,
     "url": "apps/hortusfox.html"
   },
   {
@@ -3266,7 +3311,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "hyperhdr.webp",
-    "installs_30d": 22,
+    "installs_30d": 120,
     "url": "apps/hyperhdr.html"
   },
   {
@@ -3281,7 +3326,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "hyperion.webp",
-    "installs_30d": 21,
+    "installs_30d": 72,
     "url": "apps/hyperion.html"
   },
   {
@@ -3296,7 +3341,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "gotify.webp",
-    "installs_30d": 28,
+    "installs_30d": 124,
     "url": "apps/igotify.html"
   },
   {
@@ -3311,7 +3356,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "immich-public-proxy.webp",
-    "installs_30d": 36,
+    "installs_30d": 35,
     "url": "apps/immich-public-proxy.html"
   },
   {
@@ -3326,7 +3371,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "immich.webp",
-    "installs_30d": 5346,
+    "installs_30d": 17960,
     "url": "apps/immich.html"
   },
   {
@@ -3341,7 +3386,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "immich-frame.webp",
-    "installs_30d": 106,
+    "installs_30d": 460,
     "url": "apps/immichframe.html"
   },
   {
@@ -3356,7 +3401,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "infisical.webp",
-    "installs_30d": 89,
+    "installs_30d": 310,
     "url": "apps/infisical.html"
   },
   {
@@ -3371,7 +3416,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "influxdb.webp",
-    "installs_30d": 714,
+    "installs_30d": 2878,
     "url": "apps/influxdb.html"
   },
   {
@@ -3386,7 +3431,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "inspircd.webp",
-    "installs_30d": 38,
+    "installs_30d": 115,
     "url": "apps/inspircd.html"
   },
   {
@@ -3401,7 +3446,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "inventree.webp",
-    "installs_30d": 81,
+    "installs_30d": 436,
     "url": "apps/inventree.html"
   },
   {
@@ -3416,7 +3461,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "investbrain.webp",
-    "installs_30d": 66,
+    "installs_30d": 230,
     "url": "apps/investbrain.html"
   },
   {
@@ -3431,7 +3476,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "invoice-ninja.webp",
-    "installs_30d": 155,
+    "installs_30d": 621,
     "url": "apps/invoiceninja.html"
   },
   {
@@ -3446,7 +3491,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "invoiceshelf.webp",
-    "installs_30d": 287,
+    "installs_30d": 1036,
     "url": "apps/invoiceshelf.html"
   },
   {
@@ -3461,7 +3506,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "iobroker.webp",
-    "installs_30d": 125,
+    "installs_30d": 419,
     "url": "apps/iobroker.html"
   },
   {
@@ -3476,7 +3521,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ironclaw.webp",
-    "installs_30d": 218,
+    "installs_30d": 876,
     "url": "apps/ironclaw.html"
   },
   {
@@ -3491,7 +3536,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "IconSponsorBlocker512px.png",
-    "installs_30d": 187,
+    "installs_30d": 789,
     "url": "apps/isponsorblocktv.html"
   },
   {
@@ -3506,8 +3551,23 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "itsm-ng.webp",
-    "installs_30d": 47,
+    "installs_30d": 205,
     "url": "apps/itsm-ng.html"
+  },
+  {
+    "slug": "iventoy",
+    "name": "Iventoy",
+    "category": "Operating Systems",
+    "description": "iVentoy is an upgraded PXE server that allows simultaneous OS booting and installation on multiple machines via network. It is user-friendly, requiring only the placement of ISO files in a designated folder and selecting PXE boot on the client machine. iVentoy supports x86 Legacy BIOS, IA32 UEFI, x86_64 UEFI, and ARM64 UEFI modes. It is compatible with over 110 OS types, including Windows, WinPE, Linux, and VMware.",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "icon": "iventoy.webp",
+    "installs_30d": 430,
+    "url": "apps/iventoy.html"
   },
   {
     "slug": "jackett",
@@ -3521,7 +3581,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "jackett.webp",
-    "installs_30d": 230,
+    "installs_30d": 615,
     "url": "apps/jackett.html"
   },
   {
@@ -3536,7 +3596,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "jeedom.webp",
-    "installs_30d": 27,
+    "installs_30d": 108,
     "url": "apps/jeedom.html"
   },
   {
@@ -3551,7 +3611,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "jellyfin.webp",
-    "installs_30d": 3724,
+    "installs_30d": 13512,
     "url": "apps/jellyfin.html"
   },
   {
@@ -3581,7 +3641,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "jellystat.webp",
-    "installs_30d": 78,
+    "installs_30d": 70,
     "url": "apps/jellystat.html"
   },
   {
@@ -3596,7 +3656,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "jenkins.webp",
-    "installs_30d": 101,
+    "installs_30d": 272,
     "url": "apps/jenkins.html"
   },
   {
@@ -3611,7 +3671,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "jitsi-meet.webp",
-    "installs_30d": 98,
+    "installs_30d": 323,
     "url": "apps/jitsi-meet.html"
   },
   {
@@ -3626,7 +3686,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "joplin.webp",
-    "installs_30d": 237,
+    "installs_30d": 887,
     "url": "apps/joplin-server.html"
   },
   {
@@ -3641,7 +3701,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "jotty.webp",
-    "installs_30d": 12,
+    "installs_30d": 48,
     "url": "apps/jotty.html"
   },
   {
@@ -3656,7 +3716,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "jupyter.webp",
-    "installs_30d": 49,
+    "installs_30d": 202,
     "url": "apps/jupyternotebook.html"
   },
   {
@@ -3671,7 +3731,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "kan.webp",
-    "installs_30d": 156,
+    "installs_30d": 347,
     "url": "apps/kan.html"
   },
   {
@@ -3686,7 +3746,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "kapowarr.webp",
-    "installs_30d": 31,
+    "installs_30d": 117,
     "url": "apps/kapowarr.html"
   },
   {
@@ -3701,7 +3761,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "karakeep.webp",
-    "installs_30d": 162,
+    "installs_30d": 748,
     "url": "apps/karakeep.html"
   },
   {
@@ -3716,7 +3776,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "kasm-workspaces.webp",
-    "installs_30d": 559,
+    "installs_30d": 2071,
     "url": "apps/kasm.html"
   },
   {
@@ -3731,7 +3791,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "kavita.webp",
-    "installs_30d": 209,
+    "installs_30d": 693,
     "url": "apps/kavita.html"
   },
   {
@@ -3746,7 +3806,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "keycloak.webp",
-    "installs_30d": 192,
+    "installs_30d": 747,
     "url": "apps/keycloak.html"
   },
   {
@@ -3761,7 +3821,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "kima-hub.webp",
-    "installs_30d": 68,
+    "installs_30d": 184,
     "url": "apps/kima-hub.html"
   },
   {
@@ -3776,7 +3836,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "kimai.webp",
-    "installs_30d": 162,
+    "installs_30d": 793,
     "url": "apps/kimai.html"
   },
   {
@@ -3791,7 +3851,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "kitchenowl.webp",
-    "installs_30d": 91,
+    "installs_30d": 411,
     "url": "apps/kitchenowl.html"
   },
   {
@@ -3806,7 +3866,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "kiwix.webp",
-    "installs_30d": 101,
+    "installs_30d": 548,
     "url": "apps/kiwix.html"
   },
   {
@@ -3821,8 +3881,23 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "koel-light.webp",
-    "installs_30d": 30,
+    "installs_30d": 112,
     "url": "apps/koel.html"
+  },
+  {
+    "slug": "koffan",
+    "name": "Koffan",
+    "category": "Documents & Notes",
+    "description": "Koffan is a lightweight web application for managing shopping lists, designed for couples and families. It allows real-time synchronization between multiple devices, so everyone knows what to buy and what's already in the cart.\n\nThe app works in any browser on both mobile and desktop. Just one password to log in - no complicated registration required.",
+    "tags": "",
+    "cpu": "1",
+    "ram": "1024",
+    "disk": "10",
+    "os": "ubuntu",
+    "version": "24.04",
+    "icon": "koffan.webp",
+    "installs_30d": 503,
+    "url": "apps/koffan.html"
   },
   {
     "slug": "koillection",
@@ -3836,7 +3911,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "koillection.webp",
-    "installs_30d": 36,
+    "installs_30d": 135,
     "url": "apps/koillection.html"
   },
   {
@@ -3851,7 +3926,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "kometa.webp",
-    "installs_30d": 43,
+    "installs_30d": 217,
     "url": "apps/kometa.html"
   },
   {
@@ -3866,7 +3941,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "komga.webp",
-    "installs_30d": 124,
+    "installs_30d": 511,
     "url": "apps/komga.html"
   },
   {
@@ -3881,7 +3956,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "komodo.webp",
-    "installs_30d": 73,
+    "installs_30d": 71,
     "url": "apps/komodo.html"
   },
   {
@@ -3896,7 +3971,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ipfs.webp",
-    "installs_30d": 20,
+    "installs_30d": 74,
     "url": "apps/kubo.html"
   },
   {
@@ -3911,7 +3986,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "kutt.webp",
-    "installs_30d": 12,
+    "installs_30d": 66,
     "url": "apps/kutt.html"
   },
   {
@@ -3926,7 +4001,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "languagetool.webp",
-    "installs_30d": 68,
+    "installs_30d": 183,
     "url": "apps/languagetool.html"
   },
   {
@@ -3941,7 +4016,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "lazylibrarian.webp",
-    "installs_30d": 62,
+    "installs_30d": 275,
     "url": "apps/lazylibrarian.html"
   },
   {
@@ -3956,7 +4031,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "leantime.webp",
-    "installs_30d": 66,
+    "installs_30d": 342,
     "url": "apps/leantime.html"
   },
   {
@@ -3971,7 +4046,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "librechat.webp",
-    "installs_30d": 167,
+    "installs_30d": 617,
     "url": "apps/librechat.html"
   },
   {
@@ -3986,7 +4061,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "librenms.webp",
-    "installs_30d": 494,
+    "installs_30d": 1891,
     "url": "apps/librenms.html"
   },
   {
@@ -4001,7 +4076,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "librespeed.webp",
-    "installs_30d": 215,
+    "installs_30d": 851,
     "url": "apps/librespeed-rust.html"
   },
   {
@@ -4016,7 +4091,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "libretranslate.webp",
-    "installs_30d": 41,
+    "installs_30d": 186,
     "url": "apps/libretranslate.html"
   },
   {
@@ -4031,7 +4106,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "lidarr.webp",
-    "installs_30d": 350,
+    "installs_30d": 1469,
     "url": "apps/lidarr.html"
   },
   {
@@ -4046,7 +4121,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "limesurvey.webp",
-    "installs_30d": 21,
+    "installs_30d": 90,
     "url": "apps/limesurvey.html"
   },
   {
@@ -4061,7 +4136,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "linkding.webp",
-    "installs_30d": 49,
+    "installs_30d": 205,
     "url": "apps/linkding.html"
   },
   {
@@ -4076,7 +4151,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "linkstack.webp",
-    "installs_30d": 33,
+    "installs_30d": 99,
     "url": "apps/linkstack.html"
   },
   {
@@ -4091,7 +4166,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "linkwarden.webp",
-    "installs_30d": 213,
+    "installs_30d": 766,
     "url": "apps/linkwarden.html"
   },
   {
@@ -4106,7 +4181,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "listmonk.webp",
-    "installs_30d": 24,
+    "installs_30d": 90,
     "url": "apps/listmonk.html"
   },
   {
@@ -4136,7 +4211,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "livebook.webp",
-    "installs_30d": 4,
+    "installs_30d": 20,
     "url": "apps/livebook.html"
   },
   {
@@ -4151,7 +4226,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "lldap.webp",
-    "installs_30d": 117,
+    "installs_30d": 437,
     "url": "apps/lldap.html"
   },
   {
@@ -4166,7 +4241,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "lobehub.webp",
-    "installs_30d": 100,
+    "installs_30d": 335,
     "url": "apps/lobehub.html"
   },
   {
@@ -4181,7 +4256,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "loki.webp",
-    "installs_30d": 186,
+    "installs_30d": 722,
     "url": "apps/loki.html"
   },
   {
@@ -4196,7 +4271,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "lubelogger.webp",
-    "installs_30d": 58,
+    "installs_30d": 278,
     "url": "apps/lubelogger.html"
   },
   {
@@ -4211,7 +4286,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "lychee.webp",
-    "installs_30d": 50,
+    "installs_30d": 202,
     "url": "apps/lychee.html"
   },
   {
@@ -4226,7 +4301,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "lyrion-music-server.webp",
-    "installs_30d": 132,
+    "installs_30d": 468,
     "url": "apps/lyrionmusicserver.html"
   },
   {
@@ -4241,7 +4316,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mafl.webp",
-    "installs_30d": 19,
+    "installs_30d": 97,
     "url": "apps/mafl.html"
   },
   {
@@ -4256,7 +4331,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "magicmirror2.webp",
-    "installs_30d": 46,
+    "installs_30d": 244,
     "url": "apps/magicmirror.html"
   },
   {
@@ -4271,7 +4346,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mail-archiver.webp",
-    "installs_30d": 196,
+    "installs_30d": 724,
     "url": "apps/mail-archiver.html"
   },
   {
@@ -4286,7 +4361,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "manage-my-damn-life.webp",
-    "installs_30d": 27,
+    "installs_30d": 112,
     "url": "apps/managemydamnlife.html"
   },
   {
@@ -4301,7 +4376,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "manyfold.webp",
-    "installs_30d": 119,
+    "installs_30d": 334,
     "url": "apps/manyfold.html"
   },
   {
@@ -4316,7 +4391,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mariadb.webp",
-    "installs_30d": 394,
+    "installs_30d": 1514,
     "url": "apps/mariadb.html"
   },
   {
@@ -4331,7 +4406,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "matomo.webp",
-    "installs_30d": 52,
+    "installs_30d": 211,
     "url": "apps/matomo.html"
   },
   {
@@ -4376,7 +4451,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "home-assistant.webp",
-    "installs_30d": 82,
+    "installs_30d": 314,
     "url": "apps/matter-server.html"
   },
   {
@@ -4391,7 +4466,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "matterbridge.webp",
-    "installs_30d": 65,
+    "installs_30d": 265,
     "url": "apps/matterbridge.html"
   },
   {
@@ -4406,7 +4481,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "matter.webp",
-    "installs_30d": 26,
+    "installs_30d": 159,
     "url": "apps/matterjs-server.html"
   },
   {
@@ -4421,7 +4496,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mattermost.webp",
-    "installs_30d": 160,
+    "installs_30d": 589,
     "url": "apps/mattermost.html"
   },
   {
@@ -4556,7 +4631,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mealie.webp",
-    "installs_30d": 526,
+    "installs_30d": 1903,
     "url": "apps/mealie.html"
   },
   {
@@ -4571,7 +4646,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mediamanager.webp",
-    "installs_30d": 72,
+    "installs_30d": 270,
     "url": "apps/mediamanager.html"
   },
   {
@@ -4586,7 +4661,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mediamtx.webp",
-    "installs_30d": 95,
+    "installs_30d": 440,
     "url": "apps/mediamtx.html"
   },
   {
@@ -4601,7 +4676,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "py-medusa.webp",
-    "installs_30d": 10,
+    "installs_30d": 25,
     "url": "apps/medusa.html"
   },
   {
@@ -4616,7 +4691,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "meilisearch.webp",
-    "installs_30d": 13,
+    "installs_30d": 52,
     "url": "apps/meilisearch.html"
   },
   {
@@ -4631,7 +4706,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "memos.webp",
-    "installs_30d": 103,
+    "installs_30d": 381,
     "url": "apps/memos.html"
   },
   {
@@ -4646,7 +4721,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "meshcentral.webp",
-    "installs_30d": 269,
+    "installs_30d": 1022,
     "url": "apps/meshcentral.html"
   },
   {
@@ -4661,7 +4736,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "metabase.webp",
-    "installs_30d": 81,
+    "installs_30d": 293,
     "url": "apps/metabase.html"
   },
   {
@@ -4676,7 +4751,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "metube.webp",
-    "installs_30d": 553,
+    "installs_30d": 1942,
     "url": "apps/metube.html"
   },
   {
@@ -4691,7 +4766,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "minarca.webp",
-    "installs_30d": 56,
+    "installs_30d": 179,
     "url": "apps/minarca.html"
   },
   {
@@ -4706,7 +4781,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mini-qr.webp",
-    "installs_30d": 86,
+    "installs_30d": 304,
     "url": "apps/mini-qr.html"
   },
   {
@@ -4721,7 +4796,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "miniflux-light.webp",
-    "installs_30d": 27,
+    "installs_30d": 99,
     "url": "apps/miniflux.html"
   },
   {
@@ -4736,7 +4811,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "minio.webp",
-    "installs_30d": 32,
+    "installs_30d": 60,
     "url": "apps/minio.html"
   },
   {
@@ -4751,7 +4826,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "minthcm.webp",
-    "installs_30d": 14,
+    "installs_30d": 63,
     "url": "apps/minthcm.html"
   },
   {
@@ -4766,7 +4841,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mongodb.webp",
-    "installs_30d": 126,
+    "installs_30d": 585,
     "url": "apps/mongodb.html"
   },
   {
@@ -4781,7 +4856,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "monica.webp",
-    "installs_30d": 20,
+    "installs_30d": 84,
     "url": "apps/monica.html"
   },
   {
@@ -4796,7 +4871,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "motioneye.webp",
-    "installs_30d": 223,
+    "installs_30d": 916,
     "url": "apps/motioneye.html"
   },
   {
@@ -4811,7 +4886,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mqtt.webp",
-    "installs_30d": 523,
+    "installs_30d": 1929,
     "url": "apps/mqtt.html"
   },
   {
@@ -4826,7 +4901,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "musicseerr.webp",
-    "installs_30d": 272,
+    "installs_30d": 827,
     "url": "apps/musicseerr.html"
   },
   {
@@ -4856,7 +4931,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "myip.webp",
-    "installs_30d": 141,
+    "installs_30d": 488,
     "url": "apps/myip.html"
   },
   {
@@ -4871,7 +4946,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "mylar3.webp",
-    "installs_30d": 18,
+    "installs_30d": 61,
     "url": "apps/mylar3.html"
   },
   {
@@ -4886,7 +4961,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "myspeed.webp",
-    "installs_30d": 371,
+    "installs_30d": 1431,
     "url": "apps/myspeed.html"
   },
   {
@@ -4916,7 +4991,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "n8n.webp",
-    "installs_30d": 1519,
+    "installs_30d": 5475,
     "url": "apps/n8n.html"
   },
   {
@@ -4931,7 +5006,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nagios.webp",
-    "installs_30d": 181,
+    "installs_30d": 621,
     "url": "apps/nagios.html"
   },
   {
@@ -4946,7 +5021,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nametag.webp",
-    "installs_30d": 43,
+    "installs_30d": 163,
     "url": "apps/nametag.html"
   },
   {
@@ -4961,7 +5036,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "navidrome.webp",
-    "installs_30d": 620,
+    "installs_30d": 2346,
     "url": "apps/navidrome.html"
   },
   {
@@ -4976,7 +5051,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "neko.webp",
-    "installs_30d": 152,
+    "installs_30d": 477,
     "url": "apps/neko.html"
   },
   {
@@ -4991,7 +5066,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "neo4j.webp",
-    "installs_30d": 27,
+    "installs_30d": 76,
     "url": "apps/neo4j.html"
   },
   {
@@ -5006,7 +5081,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "netbird.webp",
-    "installs_30d": 833,
+    "installs_30d": 2986,
     "url": "apps/netbird.html"
   },
   {
@@ -5021,7 +5096,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "netboot-xyz.webp",
-    "installs_30d": 325,
+    "installs_30d": 1170,
     "url": "apps/netboot-xyz.html"
   },
   {
@@ -5036,7 +5111,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "netbox.webp",
-    "installs_30d": 948,
+    "installs_30d": 3205,
     "url": "apps/netbox.html"
   },
   {
@@ -5051,7 +5126,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "netdata.webp",
-    "installs_30d": 178,
+    "installs_30d": 154,
     "url": "apps/netdata.html"
   },
   {
@@ -5111,7 +5186,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nextcloud.webp",
-    "installs_30d": 678,
+    "installs_30d": 2306,
     "url": "apps/nextcloudpi.html"
   },
   {
@@ -5126,7 +5201,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nextexplorer.webp",
-    "installs_30d": 95,
+    "installs_30d": 342,
     "url": "apps/nextexplorer.html"
   },
   {
@@ -5141,7 +5216,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nextpvr.webp",
-    "installs_30d": 53,
+    "installs_30d": 183,
     "url": "apps/nextpvr.html"
   },
   {
@@ -5156,7 +5231,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nginx-ui.webp",
-    "installs_30d": 353,
+    "installs_30d": 1380,
     "url": "apps/nginx-ui.html"
   },
   {
@@ -5186,7 +5261,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nginx-proxy-manager.webp",
-    "installs_30d": 3917,
+    "installs_30d": 13853,
     "url": "apps/nginxproxymanager.html"
   },
   {
@@ -5201,7 +5276,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nightscout.webp",
-    "installs_30d": 16,
+    "installs_30d": 19,
     "url": "apps/nightscout.html"
   },
   {
@@ -5216,7 +5291,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nocodb.webp",
-    "installs_30d": 92,
+    "installs_30d": 362,
     "url": "apps/nocodb.html"
   },
   {
@@ -5231,7 +5306,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "node-red.webp",
-    "installs_30d": 330,
+    "installs_30d": 1184,
     "url": "apps/node-red.html"
   },
   {
@@ -5246,7 +5321,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nodebb.webp",
-    "installs_30d": 39,
+    "installs_30d": 84,
     "url": "apps/nodebb.html"
   },
   {
@@ -5261,7 +5336,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nodecast-tv.webp",
-    "installs_30d": 106,
+    "installs_30d": 376,
     "url": "apps/nodecast-tv.html"
   },
   {
@@ -5276,7 +5351,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "notifiarr.webp",
-    "installs_30d": 51,
+    "installs_30d": 185,
     "url": "apps/notifiarr.html"
   },
   {
@@ -5291,7 +5366,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nginx-proxy-manager.webp",
-    "installs_30d": 946,
+    "installs_30d": 3243,
     "url": "apps/npmplus.html"
   },
   {
@@ -5306,7 +5381,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ntfy.webp",
-    "installs_30d": 254,
+    "installs_30d": 926,
     "url": "apps/ntfy.html"
   },
   {
@@ -5321,7 +5396,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nx-witness.webp",
-    "installs_30d": 83,
+    "installs_30d": 382,
     "url": "apps/nxwitness.html"
   },
   {
@@ -5336,7 +5411,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "nzbget.webp",
-    "installs_30d": 126,
+    "installs_30d": 481,
     "url": "apps/nzbget.html"
   },
   {
@@ -5351,7 +5426,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "oauth2-proxy.webp",
-    "installs_30d": 34,
+    "installs_30d": 141,
     "url": "apps/oauth2-proxy.html"
   },
   {
@@ -5366,7 +5441,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "octoprint.webp",
-    "installs_30d": 113,
+    "installs_30d": 407,
     "url": "apps/octoprint.html"
   },
   {
@@ -5381,7 +5456,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "odoo.webp",
-    "installs_30d": 381,
+    "installs_30d": 1480,
     "url": "apps/odoo.html"
   },
   {
@@ -5411,7 +5486,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ollama.webp",
-    "installs_30d": 3451,
+    "installs_30d": 11645,
     "url": "apps/ollama.html"
   },
   {
@@ -5426,7 +5501,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "omada.webp",
-    "installs_30d": 742,
+    "installs_30d": 2801,
     "url": "apps/omada.html"
   },
   {
@@ -5441,7 +5516,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ombi.webp",
-    "installs_30d": 10,
+    "installs_30d": 31,
     "url": "apps/ombi.html"
   },
   {
@@ -5456,7 +5531,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "openmediavault.webp",
-    "installs_30d": 686,
+    "installs_30d": 1792,
     "url": "apps/omv.html"
   },
   {
@@ -5471,7 +5546,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "onedev.webp",
-    "installs_30d": 30,
+    "installs_30d": 151,
     "url": "apps/onedev.html"
   },
   {
@@ -5486,7 +5561,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "onlyoffice.webp",
-    "installs_30d": 319,
+    "installs_30d": 1250,
     "url": "apps/onlyoffice.html"
   },
   {
@@ -5501,7 +5576,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "open-archiver.webp",
-    "installs_30d": 204,
+    "installs_30d": 732,
     "url": "apps/open-archiver.html"
   },
   {
@@ -5516,7 +5591,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "opencloud.webp",
-    "installs_30d": 504,
+    "installs_30d": 1834,
     "url": "apps/opencloud.html"
   },
   {
@@ -5531,7 +5606,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "opengist.webp",
-    "installs_30d": 18,
+    "installs_30d": 78,
     "url": "apps/opengist.html"
   },
   {
@@ -5546,7 +5621,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "openhab.webp",
-    "installs_30d": 60,
+    "installs_30d": 255,
     "url": "apps/openhab.html"
   },
   {
@@ -5561,7 +5636,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "openobserve.webp",
-    "installs_30d": 66,
+    "installs_30d": 272,
     "url": "apps/openobserve.html"
   },
   {
@@ -5576,7 +5651,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "openproject.webp",
-    "installs_30d": 226,
+    "installs_30d": 842,
     "url": "apps/openproject.html"
   },
   {
@@ -5591,7 +5666,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "proxmox-helper-scripts.webp",
-    "installs_30d": 134,
+    "installs_30d": 390,
     "url": "apps/openthread-br.html"
   },
   {
@@ -5606,7 +5681,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "open-webui.webp",
-    "installs_30d": 2942,
+    "installs_30d": 10552,
     "url": "apps/openwebui.html"
   },
   {
@@ -5621,7 +5696,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "openziti.webp",
-    "installs_30d": 20,
+    "installs_30d": 72,
     "url": "apps/openziti-controller.html"
   },
   {
@@ -5636,7 +5711,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "openziti.webp",
-    "installs_30d": 4,
+    "installs_30d": 18,
     "url": "apps/openziti-tunnel.html"
   },
   {
@@ -5651,7 +5726,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ots.webp",
-    "installs_30d": 8,
+    "installs_30d": 50,
     "url": "apps/ots.html"
   },
   {
@@ -5666,7 +5741,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "outline.webp",
-    "installs_30d": 237,
+    "installs_30d": 840,
     "url": "apps/outline.html"
   },
   {
@@ -5696,7 +5771,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "owncast.webp",
-    "installs_30d": 48,
+    "installs_30d": 161,
     "url": "apps/owncast.html"
   },
   {
@@ -5711,7 +5786,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ownfoil.webp",
-    "installs_30d": 112,
+    "installs_30d": 315,
     "url": "apps/ownfoil.html"
   },
   {
@@ -5726,7 +5801,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pairdrop.webp",
-    "installs_30d": 48,
+    "installs_30d": 187,
     "url": "apps/pairdrop.html"
   },
   {
@@ -5741,7 +5816,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pangolin.webp",
-    "installs_30d": 208,
+    "installs_30d": 747,
     "url": "apps/pangolin.html"
   },
   {
@@ -5756,7 +5831,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "paperclip-ai.webp",
-    "installs_30d": 247,
+    "installs_30d": 1136,
     "url": "apps/paperclip.html"
   },
   {
@@ -5771,7 +5846,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "paperless-ai.webp",
-    "installs_30d": 165,
+    "installs_30d": 553,
     "url": "apps/paperless-ai.html"
   },
   {
@@ -5786,7 +5861,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "paperless-ngx-light.webp",
-    "installs_30d": 262,
+    "installs_30d": 990,
     "url": "apps/paperless-gpt.html"
   },
   {
@@ -5801,7 +5876,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "paperless-ngx.webp",
-    "installs_30d": 1404,
+    "installs_30d": 5384,
     "url": "apps/paperless-ngx.html"
   },
   {
@@ -5816,7 +5891,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "papra.webp",
-    "installs_30d": 110,
+    "installs_30d": 407,
     "url": "apps/papra.html"
   },
   {
@@ -5831,7 +5906,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "part-db.webp",
-    "installs_30d": 100,
+    "installs_30d": 348,
     "url": "apps/part-db.html"
   },
   {
@@ -5846,7 +5921,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "passbolt.webp",
-    "installs_30d": 111,
+    "installs_30d": 392,
     "url": "apps/passbolt.html"
   },
   {
@@ -5861,7 +5936,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "patchmon.webp",
-    "installs_30d": 557,
+    "installs_30d": 1746,
     "url": "apps/patchmon.html"
   },
   {
@@ -5876,7 +5951,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "paymenter.webp",
-    "installs_30d": 34,
+    "installs_30d": 104,
     "url": "apps/paymenter.html"
   },
   {
@@ -5891,7 +5966,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "peanut.webp",
-    "installs_30d": 267,
+    "installs_30d": 1082,
     "url": "apps/peanut.html"
   },
   {
@@ -5906,7 +5981,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pelican-panel.webp",
-    "installs_30d": 315,
+    "installs_30d": 1412,
     "url": "apps/pelican-panel.html"
   },
   {
@@ -5921,7 +5996,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pelican-panel.webp",
-    "installs_30d": 199,
+    "installs_30d": 809,
     "url": "apps/pelican-wings.html"
   },
   {
@@ -5936,7 +6011,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "photoprism.webp",
-    "installs_30d": 167,
+    "installs_30d": 683,
     "url": "apps/photoprism.html"
   },
   {
@@ -5951,7 +6026,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "phpmyadmin.webp",
-    "installs_30d": 46,
+    "installs_30d": 55,
     "url": "apps/phpmyadmin.html"
   },
   {
@@ -5966,7 +6041,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pi-alert.webp",
-    "installs_30d": 218,
+    "installs_30d": 913,
     "url": "apps/pialert.html"
   },
   {
@@ -5981,7 +6056,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pi-hole.webp",
-    "installs_30d": 5,
+    "installs_30d": 8,
     "url": "apps/pihole-exporter.html"
   },
   {
@@ -5996,7 +6071,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pi-hole.webp",
-    "installs_30d": 2609,
+    "installs_30d": 9593,
     "url": "apps/pihole.html"
   },
   {
@@ -6011,7 +6086,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pinchflat.webp",
-    "installs_30d": 0,
+    "installs_30d": 124,
     "url": "apps/pinchflat.html"
   },
   {
@@ -6026,7 +6101,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "plane.webp",
-    "installs_30d": 89,
+    "installs_30d": 628,
     "url": "apps/plane.html"
   },
   {
@@ -6041,7 +6116,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "planka.webp",
-    "installs_30d": 74,
+    "installs_30d": 269,
     "url": "apps/planka.html"
   },
   {
@@ -6056,7 +6131,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "plant-it.webp",
-    "installs_30d": 38,
+    "installs_30d": 148,
     "url": "apps/plant-it.html"
   },
   {
@@ -6071,7 +6146,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "plex.webp",
-    "installs_30d": 1221,
+    "installs_30d": 4661,
     "url": "apps/plex.html"
   },
   {
@@ -6086,7 +6161,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pocketbase.webp",
-    "installs_30d": 45,
+    "installs_30d": 169,
     "url": "apps/pocketbase.html"
   },
   {
@@ -6101,7 +6176,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pocket-id.webp",
-    "installs_30d": 126,
+    "installs_30d": 564,
     "url": "apps/pocketid.html"
   },
   {
@@ -6116,7 +6191,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "home-assistant.webp",
-    "installs_30d": 126,
+    "installs_30d": 392,
     "url": "apps/podman-homeassistant.html"
   },
   {
@@ -6131,7 +6206,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "podman.webp",
-    "installs_30d": 225,
+    "installs_30d": 784,
     "url": "apps/podman.html"
   },
   {
@@ -6146,7 +6221,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "postgresql.webp",
-    "installs_30d": 769,
+    "installs_30d": 2738,
     "url": "apps/postgresql.html"
   },
   {
@@ -6161,7 +6236,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "postiz.webp",
-    "installs_30d": 75,
+    "installs_30d": 677,
     "url": "apps/postiz.html"
   },
   {
@@ -6176,7 +6251,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "powerdns.webp",
-    "installs_30d": 251,
+    "installs_30d": 759,
     "url": "apps/powerdns.html"
   },
   {
@@ -6191,7 +6266,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "privatebin.webp",
-    "installs_30d": 47,
+    "installs_30d": 164,
     "url": "apps/privatebin.html"
   },
   {
@@ -6206,7 +6281,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "profilarr.webp",
-    "installs_30d": 245,
+    "installs_30d": 769,
     "url": "apps/profilarr.html"
   },
   {
@@ -6221,7 +6296,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "projectsend.webp",
-    "installs_30d": 34,
+    "installs_30d": 136,
     "url": "apps/projectsend.html"
   },
   {
@@ -6236,7 +6311,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "prometheus.webp",
-    "installs_30d": 21,
+    "installs_30d": 63,
     "url": "apps/prometheus-alertmanager.html"
   },
   {
@@ -6251,7 +6326,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "prometheus.webp",
-    "installs_30d": 28,
+    "installs_30d": 132,
     "url": "apps/prometheus-blackbox-exporter.html"
   },
   {
@@ -6266,7 +6341,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "paperless-ngx.webp",
-    "installs_30d": 2,
+    "installs_30d": 0,
     "url": "apps/prometheus-paperless-ngx-exporter.html"
   },
   {
@@ -6281,7 +6356,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "proxmox.webp",
-    "installs_30d": 181,
+    "installs_30d": 664,
     "url": "apps/prometheus-pve-exporter.html"
   },
   {
@@ -6296,7 +6371,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "prometheus.webp",
-    "installs_30d": 430,
+    "installs_30d": 1735,
     "url": "apps/prometheus.html"
   },
   {
@@ -6311,14 +6386,14 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "proton-mail.webp",
-    "installs_30d": 69,
+    "installs_30d": 324,
     "url": "apps/protonmail-bridge.html"
   },
   {
     "slug": "prowlarr",
     "name": "Prowlarr",
     "category": "*Arr Suite",
-    "description": "$25",
+    "description": "$23",
     "tags": "",
     "cpu": "1",
     "ram": "1024",
@@ -6326,7 +6401,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "prowlarr.webp",
-    "installs_30d": 677,
+    "installs_30d": 3325,
     "url": "apps/prowlarr.html"
   },
   {
@@ -6341,7 +6416,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "proxmox.webp",
-    "installs_30d": 1742,
+    "installs_30d": 6186,
     "url": "apps/proxmox-backup-server.html"
   },
   {
@@ -6356,7 +6431,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "proxmox.webp",
-    "installs_30d": 807,
+    "installs_30d": 2401,
     "url": "apps/proxmox-datacenter-manager.html"
   },
   {
@@ -6371,7 +6446,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "proxmox.webp",
-    "installs_30d": 122,
+    "installs_30d": 458,
     "url": "apps/proxmox-mail-gateway.html"
   },
   {
@@ -6386,7 +6461,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ps5-mqtt.webp",
-    "installs_30d": 22,
+    "installs_30d": 66,
     "url": "apps/ps5-mqtt.html"
   },
   {
@@ -6401,7 +6476,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pterodactyl.webp",
-    "installs_30d": 333,
+    "installs_30d": 1081,
     "url": "apps/pterodactyl-panel.html"
   },
   {
@@ -6416,7 +6491,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pterodactyl.webp",
-    "installs_30d": 226,
+    "installs_30d": 811,
     "url": "apps/pterodactyl-wings.html"
   },
   {
@@ -6431,7 +6506,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "pulse.webp",
-    "installs_30d": 525,
+    "installs_30d": 1968,
     "url": "apps/pulse.html"
   },
   {
@@ -6446,7 +6521,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "logo.png",
-    "installs_30d": 791,
+    "installs_30d": 2892,
     "url": "apps/pve-scripts-local.html"
   },
   {
@@ -6476,7 +6551,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "qbittorrent.webp",
-    "installs_30d": 4,
+    "installs_30d": 3,
     "url": "apps/qbittorrent-exporter.html"
   },
   {
@@ -6491,7 +6566,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "qbittorrent.webp",
-    "installs_30d": 1229,
+    "installs_30d": 5034,
     "url": "apps/qbittorrent.html"
   },
   {
@@ -6506,7 +6581,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "qdrant.webp",
-    "installs_30d": 81,
+    "installs_30d": 243,
     "url": "apps/qdrant.html"
   },
   {
@@ -6521,7 +6596,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "qui.webp",
-    "installs_30d": 39,
+    "installs_30d": 165,
     "url": "apps/qui.html"
   },
   {
@@ -6536,7 +6611,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "rabbitmq.webp",
-    "installs_30d": 25,
+    "installs_30d": 86,
     "url": "apps/rabbitmq.html"
   },
   {
@@ -6551,7 +6626,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "radarr.webp",
-    "installs_30d": 712,
+    "installs_30d": 3246,
     "url": "apps/radarr.html"
   },
   {
@@ -6566,7 +6641,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "radicale.webp",
-    "installs_30d": 126,
+    "installs_30d": 532,
     "url": "apps/radicale.html"
   },
   {
@@ -6581,7 +6656,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "rclone.webp",
-    "installs_30d": 107,
+    "installs_30d": 388,
     "url": "apps/rclone.html"
   },
   {
@@ -6596,7 +6671,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "real-debrid.webp",
-    "installs_30d": 60,
+    "installs_30d": 210,
     "url": "apps/rdtclient.html"
   },
   {
@@ -6611,7 +6686,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "reactive-resume.webp",
-    "installs_30d": 14,
+    "installs_30d": 81,
     "url": "apps/reactive-resume.html"
   },
   {
@@ -6641,7 +6716,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "readeck.webp",
-    "installs_30d": 10,
+    "installs_30d": 45,
     "url": "apps/readeck.html"
   },
   {
@@ -6656,7 +6731,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "recyclarr.webp",
-    "installs_30d": 68,
+    "installs_30d": 274,
     "url": "apps/recyclarr.html"
   },
   {
@@ -6671,7 +6746,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "redis.webp",
-    "installs_30d": 91,
+    "installs_30d": 393,
     "url": "apps/redis.html"
   },
   {
@@ -6686,7 +6761,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "reitti.webp",
-    "installs_30d": 33,
+    "installs_30d": 125,
     "url": "apps/reitti.html"
   },
   {
@@ -6701,7 +6776,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "resilio-sync.webp",
-    "installs_30d": 46,
+    "installs_30d": 165,
     "url": "apps/resiliosync.html"
   },
   {
@@ -6716,7 +6791,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "reveal-js.webp",
-    "installs_30d": 2,
+    "installs_30d": 9,
     "url": "apps/revealjs.html"
   },
   {
@@ -6731,7 +6806,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "romm.webp",
-    "installs_30d": 651,
+    "installs_30d": 1895,
     "url": "apps/romm.html"
   },
   {
@@ -6746,7 +6821,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "runtipi.webp",
-    "installs_30d": 42,
+    "installs_30d": 50,
     "url": "apps/runtipi.html"
   },
   {
@@ -6761,7 +6836,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "rustdesk.webp",
-    "installs_30d": 944,
+    "installs_30d": 3613,
     "url": "apps/rustdeskserver.html"
   },
   {
@@ -6776,7 +6851,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "rustypaste_logo.png",
-    "installs_30d": 10,
+    "installs_30d": 41,
     "url": "apps/rustypaste.html"
   },
   {
@@ -6806,7 +6881,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "sabnzbd.webp",
-    "installs_30d": 297,
+    "installs_30d": 1218,
     "url": "apps/sabnzbd.html"
   },
   {
@@ -6821,7 +6896,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "salt.webp",
-    "installs_30d": 10,
+    "installs_30d": 40,
     "url": "apps/salt.html"
   },
   {
@@ -6836,7 +6911,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "scanopy.webp",
-    "installs_30d": 248,
+    "installs_30d": 1018,
     "url": "apps/scanopy.html"
   },
   {
@@ -6851,7 +6926,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "scraparr-dark.webp",
-    "installs_30d": 8,
+    "installs_30d": 27,
     "url": "apps/scraparr.html"
   },
   {
@@ -6866,7 +6941,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "searxng.webp",
-    "installs_30d": 808,
+    "installs_30d": 3045,
     "url": "apps/searxng.html"
   },
   {
@@ -6881,7 +6956,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "seaweedfs.webp",
-    "installs_30d": 65,
+    "installs_30d": 251,
     "url": "apps/seaweedfs.html"
   },
   {
@@ -6896,7 +6971,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "seelf.webp",
-    "installs_30d": 6,
+    "installs_30d": 9,
     "url": "apps/seelf.html"
   },
   {
@@ -6911,7 +6986,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "seerr.webp",
-    "installs_30d": 912,
+    "installs_30d": 3487,
     "url": "apps/seerr.html"
   },
   {
@@ -6926,7 +7001,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "semaphore-ui.webp",
-    "installs_30d": 145,
+    "installs_30d": 526,
     "url": "apps/semaphore.html"
   },
   {
@@ -6941,7 +7016,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "sftpgo.webp",
-    "installs_30d": 208,
+    "installs_30d": 612,
     "url": "apps/sftpgo.html"
   },
   {
@@ -6956,7 +7031,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "shelfmark.webp",
-    "installs_30d": 86,
+    "installs_30d": 248,
     "url": "apps/shelfmark.html"
   },
   {
@@ -6971,7 +7046,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "shinobi.webp",
-    "installs_30d": 244,
+    "installs_30d": 1013,
     "url": "apps/shinobi.html"
   },
   {
@@ -6986,7 +7061,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "shlink.webp",
-    "installs_30d": 28,
+    "installs_30d": 171,
     "url": "apps/shlink.html"
   },
   {
@@ -7001,7 +7076,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "signoz.webp",
-    "installs_30d": 44,
+    "installs_30d": 152,
     "url": "apps/signoz.html"
   },
   {
@@ -7016,7 +7091,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "silverbullet.webp",
-    "installs_30d": 38,
+    "installs_30d": 166,
     "url": "apps/silverbullet.html"
   },
   {
@@ -7031,7 +7106,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "slskd.webp",
-    "installs_30d": 154,
+    "installs_30d": 653,
     "url": "apps/slskd.html"
   },
   {
@@ -7046,7 +7121,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "smokeping.webp",
-    "installs_30d": 124,
+    "installs_30d": 473,
     "url": "apps/smokeping.html"
   },
   {
@@ -7061,7 +7136,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "snapotter.webp",
-    "installs_30d": 121,
+    "installs_30d": 1821,
     "url": "apps/snapotter.html"
   },
   {
@@ -7076,7 +7151,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "snipe-it.webp",
-    "installs_30d": 192,
+    "installs_30d": 733,
     "url": "apps/snipeit.html"
   },
   {
@@ -7091,7 +7166,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "snowshare.png",
-    "installs_30d": 47,
+    "installs_30d": 188,
     "url": "apps/snowshare.html"
   },
   {
@@ -7106,7 +7181,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "solidtime.webp",
-    "installs_30d": 106,
+    "installs_30d": 398,
     "url": "apps/solidtime.html"
   },
   {
@@ -7121,7 +7196,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "sonarqube.webp",
-    "installs_30d": 32,
+    "installs_30d": 127,
     "url": "apps/sonarqube.html"
   },
   {
@@ -7136,7 +7211,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "sonarr.webp",
-    "installs_30d": 681,
+    "installs_30d": 3064,
     "url": "apps/sonarr.html"
   },
   {
@@ -7151,7 +7226,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "sonobarr.webp",
-    "installs_30d": 21,
+    "installs_30d": 80,
     "url": "apps/sonobarr.html"
   },
   {
@@ -7166,7 +7241,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "soulsync.webp",
-    "installs_30d": 116,
+    "installs_30d": 434,
     "url": "apps/soulsync.html"
   },
   {
@@ -7181,7 +7256,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "sparkyfitness.webp",
-    "installs_30d": 18,
+    "installs_30d": 20,
     "url": "apps/sparkyfitness-garmin.html"
   },
   {
@@ -7196,7 +7271,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "sparkyfitness.webp",
-    "installs_30d": 268,
+    "installs_30d": 864,
     "url": "apps/sparkyfitness.html"
   },
   {
@@ -7211,7 +7286,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "speedtest-tracker.webp",
-    "installs_30d": 404,
+    "installs_30d": 1430,
     "url": "apps/speedtest-tracker.html"
   },
   {
@@ -7226,7 +7301,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "spliit.webp",
-    "installs_30d": 80,
+    "installs_30d": 341,
     "url": "apps/spliit.html"
   },
   {
@@ -7241,7 +7316,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "splitpro.webp",
-    "installs_30d": 14,
+    "installs_30d": 54,
     "url": "apps/split-pro.html"
   },
   {
@@ -7256,7 +7331,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "splunk.webp",
-    "installs_30d": 51,
+    "installs_30d": 152,
     "url": "apps/splunk-enterprise.html"
   },
   {
@@ -7271,7 +7346,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "spoolman.webp",
-    "installs_30d": 135,
+    "installs_30d": 450,
     "url": "apps/spoolman.html"
   },
   {
@@ -7286,7 +7361,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "sportarr.webp",
-    "installs_30d": 41,
+    "installs_30d": 154,
     "url": "apps/sportarr.html"
   },
   {
@@ -7301,7 +7376,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "microsoft-sql-server.webp",
-    "installs_30d": 103,
+    "installs_30d": 434,
     "url": "apps/sqlserver2022.html"
   },
   {
@@ -7316,7 +7391,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "microsoft-sql-server.webp",
-    "installs_30d": 119,
+    "installs_30d": 366,
     "url": "apps/sqlserver2025.html"
   },
   {
@@ -7331,7 +7406,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "step-ca.webp",
-    "installs_30d": 244,
+    "installs_30d": 972,
     "url": "apps/step-ca.html"
   },
   {
@@ -7346,7 +7421,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "stirling-pdf.webp",
-    "installs_30d": 675,
+    "installs_30d": 2583,
     "url": "apps/stirling-pdf.html"
   },
   {
@@ -7361,7 +7436,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "storybook.webp",
-    "installs_30d": 34,
+    "installs_30d": 63,
     "url": "apps/storybook.html"
   },
   {
@@ -7376,7 +7451,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "storyteller.webp",
-    "installs_30d": 124,
+    "installs_30d": 448,
     "url": "apps/storyteller.html"
   },
   {
@@ -7391,7 +7466,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "strapi.webp",
-    "installs_30d": 22,
+    "installs_30d": 79,
     "url": "apps/strapi.html"
   },
   {
@@ -7406,7 +7481,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "streamlink.webp",
-    "installs_30d": 15,
+    "installs_30d": 59,
     "url": "apps/streamlink-webui.html"
   },
   {
@@ -7421,7 +7496,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "stylus.webp",
-    "installs_30d": 20,
+    "installs_30d": 93,
     "url": "apps/stylus.html"
   },
   {
@@ -7436,7 +7511,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "sure-finance.webp",
-    "installs_30d": 162,
+    "installs_30d": 588,
     "url": "apps/sure.html"
   },
   {
@@ -7451,7 +7526,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "swizzin.webp",
-    "installs_30d": 53,
+    "installs_30d": 147,
     "url": "apps/swizzin.html"
   },
   {
@@ -7466,7 +7541,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "syncthing.webp",
-    "installs_30d": 468,
+    "installs_30d": 1713,
     "url": "apps/syncthing.html"
   },
   {
@@ -7481,7 +7556,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tandoor-recipes.webp",
-    "installs_30d": 179,
+    "installs_30d": 710,
     "url": "apps/tandoor.html"
   },
   {
@@ -7496,7 +7571,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tasmoadmin.webp",
-    "installs_30d": 43,
+    "installs_30d": 170,
     "url": "apps/tasmoadmin.html"
   },
   {
@@ -7511,7 +7586,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tasmocompiler.webp",
-    "installs_30d": 25,
+    "installs_30d": 82,
     "url": "apps/tasmocompiler.html"
   },
   {
@@ -7526,7 +7601,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tautulli.webp",
-    "installs_30d": 84,
+    "installs_30d": 365,
     "url": "apps/tautulli.html"
   },
   {
@@ -7541,7 +7616,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tdarr.webp",
-    "installs_30d": 343,
+    "installs_30d": 1210,
     "url": "apps/tdarr.html"
   },
   {
@@ -7556,7 +7631,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "teable.webp",
-    "installs_30d": 10,
+    "installs_30d": 31,
     "url": "apps/teable.html"
   },
   {
@@ -7571,7 +7646,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "teamspeak.webp",
-    "installs_30d": 110,
+    "installs_30d": 335,
     "url": "apps/teamspeak-server.html"
   },
   {
@@ -7586,7 +7661,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "technitium.webp",
-    "installs_30d": 1574,
+    "installs_30d": 6097,
     "url": "apps/technitiumdns.html"
   },
   {
@@ -7601,7 +7676,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "teddycloud.webp",
-    "installs_30d": 24,
+    "installs_30d": 66,
     "url": "apps/teddycloud.html"
   },
   {
@@ -7616,7 +7691,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "telegraf.webp",
-    "installs_30d": 38,
+    "installs_30d": 151,
     "url": "apps/telegraf.html"
   },
   {
@@ -7631,7 +7706,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "teleport.webp",
-    "installs_30d": 37,
+    "installs_30d": 132,
     "url": "apps/teleport.html"
   },
   {
@@ -7646,7 +7721,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "termix.webp",
-    "installs_30d": 915,
+    "installs_30d": 2782,
     "url": "apps/termix.html"
   },
   {
@@ -7661,7 +7736,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "the-lounge.webp",
-    "installs_30d": 55,
+    "installs_30d": 196,
     "url": "apps/the-lounge.html"
   },
   {
@@ -7676,7 +7751,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "thingsboard.webp",
-    "installs_30d": 32,
+    "installs_30d": 108,
     "url": "apps/thingsboard.html"
   },
   {
@@ -7691,7 +7766,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "threadfin.webp",
-    "installs_30d": 228,
+    "installs_30d": 930,
     "url": "apps/threadfin.html"
   },
   {
@@ -7706,7 +7781,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tianji.webp",
-    "installs_30d": 36,
+    "installs_30d": 118,
     "url": "apps/tianji.html"
   },
   {
@@ -7721,7 +7796,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tinyauth.webp",
-    "installs_30d": 74,
+    "installs_30d": 309,
     "url": "apps/tinyauth.html"
   },
   {
@@ -7736,7 +7811,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tolgee.webp",
-    "installs_30d": 8,
+    "installs_30d": 40,
     "url": "apps/tolgee.html"
   },
   {
@@ -7751,7 +7826,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "traccar.webp",
-    "installs_30d": 184,
+    "installs_30d": 617,
     "url": "apps/traccar.html"
   },
   {
@@ -7766,7 +7841,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tracearr.webp",
-    "installs_30d": 95,
+    "installs_30d": 287,
     "url": "apps/tracearr.html"
   },
   {
@@ -7781,7 +7856,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tracktor.webp",
-    "installs_30d": 30,
+    "installs_30d": 100,
     "url": "apps/tracktor.html"
   },
   {
@@ -7796,7 +7871,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "traefik.webp",
-    "installs_30d": 429,
+    "installs_30d": 1547,
     "url": "apps/traefik.html"
   },
   {
@@ -7811,7 +7886,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "transmission.webp",
-    "installs_30d": 233,
+    "installs_30d": 870,
     "url": "apps/transmission.html"
   },
   {
@@ -7826,7 +7901,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "transmute.webp",
-    "installs_30d": 212,
+    "installs_30d": 748,
     "url": "apps/transmute.html"
   },
   {
@@ -7841,7 +7916,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "trek.webp",
-    "installs_30d": 191,
+    "installs_30d": 865,
     "url": "apps/trek.html"
   },
   {
@@ -7856,7 +7931,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "trilium-notes.webp",
-    "installs_30d": 226,
+    "installs_30d": 892,
     "url": "apps/trilium.html"
   },
   {
@@ -7871,7 +7946,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "trip.webp",
-    "installs_30d": 9,
+    "installs_30d": 44,
     "url": "apps/trip.html"
   },
   {
@@ -7886,7 +7961,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tube-archivist.webp",
-    "installs_30d": 82,
+    "installs_30d": 239,
     "url": "apps/tubearchivist.html"
   },
   {
@@ -7901,7 +7976,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tududi.webp",
-    "installs_30d": 38,
+    "installs_30d": 148,
     "url": "apps/tududi.html"
   },
   {
@@ -7916,7 +7991,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "tunarr.webp",
-    "installs_30d": 78,
+    "installs_30d": 426,
     "url": "apps/tunarr.html"
   },
   {
@@ -7931,7 +8006,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "twenty-crm.webp",
-    "installs_30d": 164,
+    "installs_30d": 722,
     "url": "apps/twenty.html"
   },
   {
@@ -7946,7 +8021,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "twingate.webp",
-    "installs_30d": 358,
+    "installs_30d": 1364,
     "url": "apps/twingate-connector.html"
   },
   {
@@ -7961,7 +8036,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ubuntu.webp",
-    "installs_30d": 2937,
+    "installs_30d": 10576,
     "url": "apps/ubuntu.html"
   },
   {
@@ -7976,7 +8051,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "uhf.webp",
-    "installs_30d": 20,
+    "installs_30d": 73,
     "url": "apps/uhf.html"
   },
   {
@@ -7991,7 +8066,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "umami.webp",
-    "installs_30d": 70,
+    "installs_30d": 233,
     "url": "apps/umami.html"
   },
   {
@@ -8006,7 +8081,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "logo.png",
-    "installs_30d": 18,
+    "installs_30d": 63,
     "url": "apps/umlautadaptarr.html"
   },
   {
@@ -8021,7 +8096,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "unbound.webp",
-    "installs_30d": 314,
+    "installs_30d": 1227,
     "url": "apps/unbound.html"
   },
   {
@@ -8036,7 +8111,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "ubiquiti-unifi.webp",
-    "installs_30d": 2802,
+    "installs_30d": 9088,
     "url": "apps/unifi-os-server.html"
   },
   {
@@ -8051,7 +8126,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "unmanic.webp",
-    "installs_30d": 59,
+    "installs_30d": 267,
     "url": "apps/unmanic.html"
   },
   {
@@ -8066,7 +8141,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "upgopher.webp",
-    "installs_30d": 33,
+    "installs_30d": 151,
     "url": "apps/upgopher.html"
   },
   {
@@ -8081,7 +8156,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "upsnap.webp",
-    "installs_30d": 136,
+    "installs_30d": 478,
     "url": "apps/upsnap.html"
   },
   {
@@ -8096,7 +8171,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "uptime-kuma.webp",
-    "installs_30d": 1468,
+    "installs_30d": 5575,
     "url": "apps/uptimekuma.html"
   },
   {
@@ -8111,7 +8186,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "urbackup.webp",
-    "installs_30d": 174,
+    "installs_30d": 568,
     "url": "apps/urbackupserver.html"
   },
   {
@@ -8126,7 +8201,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "valkey.webp",
-    "installs_30d": 16,
+    "installs_30d": 76,
     "url": "apps/valkey.html"
   },
   {
@@ -8141,7 +8216,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "vaultwarden.webp",
-    "installs_30d": 2217,
+    "installs_30d": 7312,
     "url": "apps/vaultwarden.html"
   },
   {
@@ -8171,7 +8246,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "versity.webp",
-    "installs_30d": 14,
+    "installs_30d": 102,
     "url": "apps/versitygw.html"
   },
   {
@@ -8186,7 +8261,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "victoriametrics.webp",
-    "installs_30d": 45,
+    "installs_30d": 176,
     "url": "apps/victoriametrics.html"
   },
   {
@@ -8201,7 +8276,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "vikunja.webp",
-    "installs_30d": 312,
+    "installs_30d": 1057,
     "url": "apps/vikunja.html"
   },
   {
@@ -8216,7 +8291,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wallabag.webp",
-    "installs_30d": 53,
+    "installs_30d": 157,
     "url": "apps/wallabag.html"
   },
   {
@@ -8231,7 +8306,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wallos.webp",
-    "installs_30d": 118,
+    "installs_30d": 514,
     "url": "apps/wallos.html"
   },
   {
@@ -8246,7 +8321,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wanderer.webp",
-    "installs_30d": 24,
+    "installs_30d": 107,
     "url": "apps/wanderer.html"
   },
   {
@@ -8261,7 +8336,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "warracker.webp",
-    "installs_30d": 15,
+    "installs_30d": 69,
     "url": "apps/warracker.html"
   },
   {
@@ -8276,7 +8351,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wastebin.webp",
-    "installs_30d": 10,
+    "installs_30d": 63,
     "url": "apps/wastebin.html"
   },
   {
@@ -8291,7 +8366,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "watcharr.webp",
-    "installs_30d": 27,
+    "installs_30d": 100,
     "url": "apps/watcharr.html"
   },
   {
@@ -8306,7 +8381,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "watchyourlan.webp",
-    "installs_30d": 269,
+    "installs_30d": 1205,
     "url": "apps/watchyourlan.html"
   },
   {
@@ -8321,7 +8396,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wavelog.webp",
-    "installs_30d": 10,
+    "installs_30d": 40,
     "url": "apps/wavelog.html"
   },
   {
@@ -8336,7 +8411,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wazuh.webp",
-    "installs_30d": 666,
+    "installs_30d": 2462,
     "url": "apps/wazuh.html"
   },
   {
@@ -8351,7 +8426,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wealthfolio.webp",
-    "installs_30d": 87,
+    "installs_30d": 347,
     "url": "apps/wealthfolio.html"
   },
   {
@@ -8366,7 +8441,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "web-check.webp",
-    "installs_30d": 61,
+    "installs_30d": 308,
     "url": "apps/web-check.html"
   },
   {
@@ -8381,7 +8456,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "webmin.webp",
-    "installs_30d": 116,
+    "installs_30d": 113,
     "url": "apps/webmin.html"
   },
   {
@@ -8396,7 +8471,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "webtrees.webp",
-    "installs_30d": 143,
+    "installs_30d": 361,
     "url": "apps/webtrees.html"
   },
   {
@@ -8411,7 +8486,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wger.webp",
-    "installs_30d": 125,
+    "installs_30d": 365,
     "url": "apps/wger.html"
   },
   {
@@ -8426,7 +8501,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "whisparr.webp",
-    "installs_30d": 107,
+    "installs_30d": 472,
     "url": "apps/whisparr.html"
   },
   {
@@ -8441,7 +8516,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "whodb.webp",
-    "installs_30d": 39,
+    "installs_30d": 126,
     "url": "apps/whodb.html"
   },
   {
@@ -8456,7 +8531,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wiki-js.webp",
-    "installs_30d": 184,
+    "installs_30d": 750,
     "url": "apps/wikijs.html"
   },
   {
@@ -8471,7 +8546,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wireguard.webp",
-    "installs_30d": 1932,
+    "installs_30d": 7170,
     "url": "apps/wireguard.html"
   },
   {
@@ -8486,7 +8561,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "cmintey-wishlist.webp",
-    "installs_30d": 3,
+    "installs_30d": 24,
     "url": "apps/wishlist.html"
   },
   {
@@ -8501,7 +8576,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wizarr.webp",
-    "installs_30d": 84,
+    "installs_30d": 314,
     "url": "apps/wizarr.html"
   },
   {
@@ -8516,7 +8591,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "wordpress.webp",
-    "installs_30d": 912,
+    "installs_30d": 3273,
     "url": "apps/wordpress.html"
   },
   {
@@ -8531,7 +8606,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "writefreely-light.webp",
-    "installs_30d": 26,
+    "installs_30d": 89,
     "url": "apps/writefreely.html"
   },
   {
@@ -8546,7 +8621,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "xyops.webp",
-    "installs_30d": 110,
+    "installs_30d": 484,
     "url": "apps/xyops.html"
   },
   {
@@ -8561,7 +8636,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "yamtrack.webp",
-    "installs_30d": 10,
+    "installs_30d": 61,
     "url": "apps/yamtrack.html"
   },
   {
@@ -8576,7 +8651,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "yourls.webp",
-    "installs_30d": 28,
+    "installs_30d": 108,
     "url": "apps/yourls.html"
   },
   {
@@ -8591,7 +8666,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "youtube-dl.webp",
-    "installs_30d": 139,
+    "installs_30d": 534,
     "url": "apps/yt-dlp-webui.html"
   },
   {
@@ -8606,7 +8681,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "yubal.webp",
-    "installs_30d": 140,
+    "installs_30d": 526,
     "url": "apps/yubal.html"
   },
   {
@@ -8621,7 +8696,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "yunohost.webp",
-    "installs_30d": 130,
+    "installs_30d": 448,
     "url": "apps/yunohost.html"
   },
   {
@@ -8636,7 +8711,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "zabbix.webp",
-    "installs_30d": 924,
+    "installs_30d": 3216,
     "url": "apps/zabbix.html"
   },
   {
@@ -8651,7 +8726,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "zammad.webp",
-    "installs_30d": 236,
+    "installs_30d": 819,
     "url": "apps/zammad.html"
   },
   {
@@ -8666,7 +8741,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "zerobyte.webp",
-    "installs_30d": 144,
+    "installs_30d": 550,
     "url": "apps/zerobyte.html"
   },
   {
@@ -8681,7 +8756,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "zerotier.webp",
-    "installs_30d": 135,
+    "installs_30d": 428,
     "url": "apps/zerotier-one.html"
   },
   {
@@ -8696,7 +8771,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "zigbee2mqtt.webp",
-    "installs_30d": 678,
+    "installs_30d": 2362,
     "url": "apps/zigbee2mqtt.html"
   },
   {
@@ -8711,7 +8786,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "zipline.webp",
-    "installs_30d": 94,
+    "installs_30d": 322,
     "url": "apps/zipline.html"
   },
   {
@@ -8726,7 +8801,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "zitadel.webp",
-    "installs_30d": 50,
+    "installs_30d": 255,
     "url": "apps/zitadel.html"
   },
   {
@@ -8741,7 +8816,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "zoraxy.webp",
-    "installs_30d": 168,
+    "installs_30d": 704,
     "url": "apps/zoraxy.html"
   },
   {
@@ -8756,7 +8831,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "zot-registry.webp",
-    "installs_30d": 35,
+    "installs_30d": 145,
     "url": "apps/zot-registry.html"
   },
   {
@@ -8771,7 +8846,7 @@
     "os": "ubuntu",
     "version": "24.04",
     "icon": "z-wave-js-ui.webp",
-    "installs_30d": 54,
+    "installs_30d": 148,
     "url": "apps/zwave-js-ui.html"
   }
 ]

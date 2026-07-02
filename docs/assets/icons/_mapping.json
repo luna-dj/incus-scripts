@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "selfhst/icons via jsdelivr",
-  "total_apps": 631,
+  "total_apps": 634,
   "mapping": {
     "2fauth": "2fauth.webp",
     "actualbudget": "actual-budget.webp",
@@ -144,6 +144,7 @@
     "dependency-check": "proxmox.webp",
     "discopanel": "discopanel.webp",
     "discourse": "discourse.webp",
+    "disk-health": "proxmox.webp",
     "dispatcharr": "dispatcharr.webp",
     "docker": "docker.webp",
     "docker-vm": "docker.webp",
@@ -189,6 +190,7 @@
     "flatnotes": "flatnotes.webp",
     "flowiseai": "flowise.webp",
     "fluid-calendar": "fluidcalendar.webp",
+    "fmd-server": "fmd.webp",
     "foldergram": "foldergram.webp",
     "forgejo": "forgejo.webp",
     "forgejo-runner": "forgejo.webp",
@@ -259,6 +261,7 @@
     "ironclaw": "ironclaw.webp",
     "isponsorblocktv": "IconSponsorBlocker512px.png",
     "itsm-ng": "itsm-ng.webp",
+    "iventoy": "iventoy.webp",
     "jackett": "jackett.webp",
     "jeedom": "jeedom.webp",
     "jellyfin": "jellyfin.webp",
