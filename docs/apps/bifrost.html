@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Bifrost (XMPP/Jabber) — incus-scripts</title>
-  <meta name="description" content="XMPP/Jabber gateway — connect to federated XMPP networks from Matrix.">
+  <title>Bifrost — incus-scripts</title>
+  <meta name="description" content="Bifrost is an AI gateway with a unified API for multiple model providers. It provides a web dashboard, virtual keys, usage budgets, request logs, load balancing, and automatic fallbacks.">
   <meta name="theme-color" content="#0b0f17">
   <link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg">
   <link rel="stylesheet" href="../css/site.css">
@@ -97,26 +97,26 @@
     <div class="crumbs">
       <a href="../index.html">Home</a>
       <span class="sep">/</span>
-      <a href="../index.html#cat=Communication">Communication</a>
+      <a href="../index.html#cat=Miscellaneous">Miscellaneous</a>
       <span class="sep">/</span>
-      <span style="color:var(--text-2)">Bifrost (XMPP/Jabber)</span>
+      <span style="color:var(--text-2)">Bifrost</span>
     </div>
 
     <header class="app-page-header">
-      <div class="app-page-icon"><span class="fallback">B</span></div>
+      <div class="app-page-icon"><img src="../assets/icons/bifrost-logo.png" alt="" loading="lazy" onerror="this.replaceWith(document.createTextElement(this.alt||this.dataset.fallback||'?'))"></div>
       <div class="app-page-title">
-        <h1>Bifrost (XMPP/Jabber)</h1>
-        <div class="subtitle">Communication · 0 installs (30d)</div>
+        <h1>Bifrost</h1>
+        <div class="subtitle">Miscellaneous · 28 installs (30d)</div>
         <div class="badge-row">
           <span class="badge badge-primary">ubuntu 24.04</span>
-          
+          <span class="badge badge-accent">28 installs / 30d</span>
         </div>
       </div>
     </header>
 
     <section class="app-section">
       <h2>About</h2>
-      <p>XMPP/Jabber gateway — connect to federated XMPP networks from Matrix.</p>
+      <p>Bifrost is an AI gateway with a unified API for multiple model providers. It provides a web dashboard, virtual keys, usage budgets, request logs, load balancing, and automatic fallbacks.</p>
     </section>
 
     <section class="app-section">
@@ -140,11 +140,11 @@
         </div>
         <div class="spec">
           <div class="spec-label">RAM</div>
-          <div class="spec-value">512<small>MiB</small></div>
+          <div class="spec-value">1024<small>MiB</small></div>
         </div>
         <div class="spec">
           <div class="spec-label">Disk</div>
-          <div class="spec-value">4<small>GiB</small></div>
+          <div class="spec-value">10<small>GiB</small></div>
         </div>
         <div class="spec">
           <div class="spec-label">OS</div>
@@ -159,8 +159,8 @@
         Set any of these before the install command to override defaults:
       </p>
       <div class="app-vars"><div class="var-row"><span class="var-name">var_cpu</span><span class="var-default">1</span><span class="var-desc">vCPU cores</span></div>
-      <div class="var-row"><span class="var-name">var_ram</span><span class="var-default">512</span><span class="var-desc">Memory (MiB)</span></div>
-      <div class="var-row"><span class="var-name">var_disk</span><span class="var-default">4</span><span class="var-desc">Disk (GiB)</span></div>
+      <div class="var-row"><span class="var-name">var_ram</span><span class="var-default">1024</span><span class="var-desc">Memory (MiB)</span></div>
+      <div class="var-row"><span class="var-name">var_disk</span><span class="var-default">10</span><span class="var-desc">Disk (GiB)</span></div>
       <div class="var-row"><span class="var-name">var_os</span><span class="var-default">ubuntu</span><span class="var-desc">Base image OS</span></div>
       <div class="var-row"><span class="var-name">var_version</span><span class="var-default">24.04</span><span class="var-desc">OS version</span></div></div>
       <div class="code-block" style="margin-top:14px;">
@@ -172,7 +172,7 @@
         <pre><code><span class="prompt">$ </span><span class="url">var_cpu</span>=4 <span class="url">var_ram</span>=4096 <span class="url">var_disk</span>=50 bash &lt;(curl -fsSL https://codeberg.org/luna-dj/incus-scripts/raw/branch/main/ct/bifrost.sh)</code></pre>
       </div>
     </section>
-    <section class="app-section"><h2>Tags</h2><div class="app-tags"><span class="app-tag">matrix</span><span class="app-tag">bridge</span><span class="app-tag">xmpp</span></div></section>
+    
 
     <section class="app-section" style="margin-top:36px;">
       <a href="../index.html#apps" class="btn btn-ghost">← Back to all apps</a>
